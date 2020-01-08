@@ -1,0 +1,267 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Vzor pro sazbu kvalifikační práce
+%
+% Západočeská univerzita v Plzni
+% Fakulta aplikovaných věd
+% Katedra informatiky a výpočetní techniky
+%
+% Petr Lobaz, lobaz@kiv.zcu.cz, 2016/03/14
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Možné jazyky práce: czech, english
+% Možné typy práce: BP (bakalářská), DP (diplomová)
+\documentclass[czech,DP]{thesiskiv}
+
+% Definujte údaje pro vstupní strany
+%
+% Jméno a příjmení; kvůli textu prohlášení určete, 
+% zda jde o mužské, nebo ženské jméno.
+\author{Kateřina Kratochvílová}
+\declarationfemale
+
+%alternativa: 
+%\declarationfemale
+
+% Název práce
+\title{Nástroj pro automatickou identifikaci KIR alel}
+
+% 
+% Texty abstraktů (anglicky, česky)
+%
+\abstracttexten{The text of the abstract (in English). It contains the English translation of the thesis title and a short description of the thesis.}
+
+\abstracttextcz{Text abstraktu (česky). Obsahuje krátkou anotaci (cca 10 řádek) v češtině. Budete ji potřebovat i při vyplňování údajů o bakalářské práci ve STAGu. Český i anglický abstrakt by měly být na stejné stránce a měly by si obsahem co možná nejvíce odpovídat (samozřejmě není možný doslovný překlad!).
+}
+
+% Na titulní stranu a do textu prohlášení se automaticky vkládá 
+% aktuální rok, resp. datum. Můžete je změnit:
+%\titlepageyear{2016}
+%\declarationdate{1. března 2016}
+
+% Ve zvláštních případech je možné ovlivnit i ostatní texty:
+%
+%\university{Západočeská univerzita v Plzni}
+%\faculty{Fakulta aplikovaných věd}
+%\department{Katedra informatiky a výpočetní techniky}
+%\subject{Bakalářská práce}
+%\titlepagetown{Plzeň}
+%\declarationtown{Plzni}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% DODATEČNÉ BALÍČKY PRO SAZBU
+% Jejich užívání či neužívání záleží na libovůli autora 
+% práce
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Zařadit literaturu do obsahu
+\usepackage[nottoc,notlot,notlof]{tocbibind}
+
+% Umožňuje vkládání obrázků
+\usepackage[pdftex]{graphicx}
+
+% Odkazy v PDF jsou aktivní; navíc se automaticky vkládá
+% balíček 'url', který umožňuje např. dělení slov
+% uvnitř URL
+\usepackage[pdftex]{hyperref}
+\hypersetup{colorlinks=true,
+  unicode=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=black,
+  bookmarksopen=true}
+
+% Při používání citačního stylu csplainnatkiv
+% (odvozen z csplainnat, http://repo.or.cz/w/csplainnat.git)
+% lze snadno modifikovat vzhled citací v textu
+\usepackage[numbers,sort&compress]{natbib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% VLASTNÍ TEXT PRÁCE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%
+\maketitle
+\tableofcontents
+
+\chapter{Úvod}
+\chapter{Geny}
+V každé buňce lidského organismu, konkrétně v buněčném jádře, je možné nálest 46 chromozomů. Jeden chromozom představuje stočenou dlouhou molekulu DNA (Deoxyribonuklenovou kyselinu). Všech 46 chromozomů obsahuje okolo 100 000 genů. Drobný segment DNA, který řídí buněčnou funkci je právě gen. Konkrétní forma genu je alela. \citep{en_smith}
+
+\section{HLA a non-HLA geny}
+Human leucocyte antigen(HLA) je genetický systém, který je primárně zodpovědný za rozeznávání vlastního od cizorodého. Tento systém je složen právě z jednotlivých HLA genů rozpoznávající antigeny (cizorodé částice). Pokud HLA gen přijde do styku s antigenem je antigen zničen.
+Non-HLA geny jsou geny které se nepodílejí na základní funkci HLA systému.
+\\základní rozdíl mezi HLA a non-HLA a kir
+
+Non-HLA geny jsou geny které se nepodílejí na základní funkci HLA systému. Z III třídy jsou to všechny, z II žádný a z I je to směs. Zjednodušeně můžeme říci, že geny které nejsou HLA jsou non-HLA. Tyto geny souvisejí též s funkcí imunitního systému, ne však vylučně s funkcí HLA. 
+
+\subsection{Jak vypadá genom} 
+Genová oblast HLA komplexu, se nalézá na krátkem raménku 6. chromozomu (6p21.31), zaujímá úsek dlouhý 3600 kb
+(3,6cM), tedy přibliţně jednu tisícinu genomu. Obsahuje 224 genů; 128 funkčních genů
+a 96 pseudogenů a patří k regionům s nejvyšší genovou hustotou.
+
+Uprostřed HLA oblasti se nachází úsek o velikosti 1 Mb, ve kterém bylo identifikováno na
+70 genů, které se funkčně ani strukturně nepodobají HLA molekulám. Navzdory této
+skutečnosti se vžilo označení geny III. třídy, přičemž některé geny původně zařazené do
+této třídy jsou nověji označovány jako geny IV. třídy (viz. výše).
+
+HLA-6.Chromozom a KIR 19.chromozom
+udíž se segregují nezávisle a
+HLA shodní dárci s příjemce mají obvykle různé složení KIR genů (Fryčová)
+
+\section{Natural Killer}
+Velká buňka imunitního systému, nepotřebuje antigen aby začala zabíjet. 
+-nespecifická imunita - vrozená, neadaptivní - veškeré potřebné informace zapsaná v DNA. Odpovídá při každém setkání s antigenem stejně - nemá paměť -> tady si to pročiřečí
+KIR jsou receptory na povrchu NK buněk, 
+NK zabíjejí na nazákladě interakce mezi kir receptorem a HLA molekulou na povrchu buňky
+
+NK buňky maji shopnost identifikovat buňky vlastního MHC systému (HLA I.třídy) ktere jsou normálně exprimovány prakticky na všech buňkách v těle. 
+Nádorové a některé virem napadené buňky potlačují
+expresi HLA I. třídy a tím se brání napadení cytotoxickými T lymfocyty.
+Molekuly HLA I. třídy rozpoznávají NK buňky pomocí pozitivních a negativních receptorů, které mohou inhibovat nebo naopak aktivovat NK buňky k „zabíjení“
+
+V užším slova smyslu se jako ligand označuje signální molekula, která se váže na vazebné místo cílového proteinu. Ligand, který je schopný po navázání na receptor vyvolat fyziologickou odpověď, se nazývá agonista, ten, který je schopen se vázat, ale odpověď nespouští, je antagonista
+
+Zjednodušeně: NK buňky neustále systematicky zjišťují přítomnost čí absenci příslušný HLA ligand pro své KIR receptory. 
+Pokud je HLA molekula přítomna, pak dojde k vazbě KIR-ligand HLA a protože za normální okolností převládají inhibiční KIR nad aktivačními, tak nedojde ke spuštění cytoxické reakce NK buněk. Jestliže receptory KIR nenalzenou příslušný ligand HLA (vlastní molekulu HLA) aktivační KIR receptory převládnou nad inhibičními a je spuštěna náležitá cytoxická kaskáda.
+lymfocyty 
+bílá krvinka je leukocyt
+- typ bbílé krvinyky 
+- T a B lymfocyty - specifická imunita
+- NK buňky nespecifická imunita
+- vznikají v z lymfatických kmenových buňek v kostní dřeni
+Aha takže lymfatické řečiště je více propustné proto to co nejde do cév jde sem pak se to odfiltruje a pak se to vrací do krevního řečiště.
+
+KIR jsou na povrchu NK buňek a kde jsou teda NK buňky? 
+NK je v podstatě lymfocyt a to je typ bílé krvinky. jo a nebudou teda spíš  v lymfatické uzlině? 
+leukocyty 1. granulocyty - neutrofilní, bazofilní a eozinogilní
+		2. agranulocyty - lymfocyty a monocyty
+		
+neutrofilní granulocyty jsou schopny vycestovat z kapilár do místa zánětu
+přeměněné monocyty přítomné v játrech v tělních dutinách (hrudní, bříšní), ve slezině vy lymfatických uzlinách a kostní dřeni
+\section{Jak funguje HLA}
+\section{Jak funguje non-HLA}
+
+\section{Bordel pro prvni kapitolu}
+Nesmírná variabilita alel tohoto systému ztěžuje úspěšnost allogeních transplantací. 
+
+\textbf{HLA}
+jen zkopírováno a je ta i hezkej obrázek z %https://is.cuni.cz/webapps/zzp/detail/49783?lang=en
+Genová oblast HLA komplexu, se nalézá na krátkem raménku 6. chromozomu (6p21.31), zaujímá úsek dlouhý 3600 kb
+(3,6cM), tedy přibliţně jednu tisícinu genomu. Obsahuje 224 genů; 128 funkčních genů
+a 96 pseudogenů a patří k regionům s nejvyšší genovou hustotou.
+
+Uprostřed HLA oblasti se nachází úsek o velikosti 1 Mb, ve kterém bylo identifikováno na
+70 genů, které se funkčně ani strukturně nepodobají HLA molekulám. Navzdory této
+skutečnosti se vţilo označení geny III. třídy, přičemţ některé geny původně zařazené do
+této třídy jsou nověji označovány jako geny IV. třídy (viz. výše).
+
+\textbf{HLA nomenklatura}
+HLA nomenklatura - zase jen skopírováno
+Vysoký stupeň polymorfizmu HLA systému zohledňují platné zásady pro označování HLA
+alel dané Světovou zdravotnickou organizací WHO (WHO nomenklatura). Princip je
+jednoduchý: Kaţdá alela je definována písemným označením lokusu následovaným
+hvězdičkou (HLA-DRB1*), a poté kombinací 4 číslic (*0401), přičemţ první dvojčíslí
+určuje sérologickou specifitu dané alely, druhé pak označuje alelu na základě její
+aminokyselinové sekvence. Případné páté číslo charakterizuje tzv. “tichou“ variantu alely,
+tzn. záměnu nukleotidů bez změny aminokyselinové sekvence.
+
+\textbf{Dědičnost}
+HLA geny jsou děděny autozomálně kodominantně a vykazují mendelistický typ
+dědičnosti. Počet rekombinací v HLA systému je řídký, vyskytuje se přibliţně v 1 %
+případů a častěji u ţen. Celá oblast od HLA-F aţ po HLA-DP se přenáší z rodičů na
+potomstvo jako haplotyp. V rámci rodiny se mohou vyskytnout teoreticky 4 různé
+kombinace rodičovských haplotypů, takţe sourozenci mohou být navzájem buď HLA
+identičtí, haploidentičtí (mají jeden haplotyp, v druhém se liší), anebo rozdílní. Rodiče jsou
+vůči svým dětem vţdy haploidentičtí [5]. Z genetického hlediska významný fenomén
+představuje existence vazebné nerovnováhy (linkage disequilibrium) v rámci HLA. Mnoho
+HLA genů se nalézá v tak těsné blízkosti, ţe se přenášejí z rodičů na potomky téměř vţdy
+společně. V důsledku této skutečnosti se v populaci vyskytují některé kombinace alel
+různých genů častěji, neţ by se očekávalo. Vazebná nerovnováha je významným faktorem
+v asociaci HLA antigenů s chorobami, protoţe mnohá onemocnění se v jejím důsledku
+váží s více antigeny.
+
+Non-HLA geny
+Non-HLA geny jsou geny které se nepodílejí na základní funkci HLA systému. Z III třídy jsou to všechny, z II žádný a z I je to směs. Zjednodušeně můžeme říci, že geny které nejsou HLA jsou non-HLA. Tyto geny souvisejí též s funkcí imunitního systému, ne však vylučně s funkcí HLA. 
+
+lymfocyty 
+bílá krvinka je leukocyt
+- typ bbílé krvinyky 
+- T a B lymfocyty - specifická imunita
+- NK buňky nespecifická imunita
+- vznikají v z lymfatických kmenových buňek v kostní dřeni
+Aha takže lymfatické řečiště je více propustné proto to co nejde do cév jde sem pak se to odfiltruje a pak se to vrací do krevního řečiště.
+
+KIR jsou na povrchu NK buňek a kde jsou teda NK buňky? 
+NK je v podstatě lymfocyt a to je typ bílé krvinky. jo a nebudou teda spíš  v lymfatické uzlině? 
+leukocyty 1. granulocyty - neutrofilní, bazofilní a eozinogilní
+		2. agranulocyty - lymfocyty a monocyty
+		
+neutrofilní granulocyty jsou schopny vycestovat z kapilár do místa zánětu
+přeměněné monocyty přítomné v játrech v tělních dutinách (hrudní, bříšní), ve slezině vy lymfatických uzlinách a kostní dřeni
+
+KIR
+KIR jsou teda jak na HLA tak na non-HLA? Je to součástí genu
+- řadí se do přirozené (nespecifické) imunity narozdíl od B-buněk a T-buněk.
+- NK buňky představují 10-15\% lymfocitů v periferní krvi
+- jsou to buňky které reagují rychle a efektivně likvidují především nádorové buňky a buňky infokované virem
+
+NK nemají antigenné specifické receptory, jak rozeznávají abnormální buňky? 
+NK buňky identifikují molekuly vlastního MHC systému 
+
+ jmenovitě HLA I. třídy, které jsou normálně exprimovány
+prakticky na všech buňkách v těle. Nádorové a některé virem napadené buňky potlačují
+expresi HLA I. třídy a tím se brání napadení cytotoxickými T lymfocyty (Restifo, 1993).
+Snížená exprese HLA I. třídy činí abnormální buňky citlivé k cytotoxicitě NK buněk (Karre,
+1986). Molekuly HLA I. třídy rozpoznávají NK buňky pomocí pozitivních a negativních 
+receptorů, které mohou inhibovat nebo naopak aktivovat NK buňky k „zabíjení“
+
+Stručně lze shrnout, že NK buňky s potenciálem iniciovat cytotoxickou aloreakci používají
+KIR receptory jako inhibiční, směrem k „vlastním“, zdravým buňkám. Pokud však příslušný
+vlastní ligand HLA na cílové buňce chybí, pak dochází k iniciaci cytotoxické reakce. Proces
+interakce KIR/HLA a mechanismus regulace cytotoxicity NK buněk se jako 
+
+recptory imunoglobinové (protilátka - protein, který je schopen jako součást imunitního systému identifikovat a zneškodnit cizí objekty - bakterie a viry) v těle. Protilátky jsou nositeli humorální imunity. Jsou to krevní bílkoviny vznikající v mízní tkáni.  povahy nacházejících se na povrchu Natural killers buněk a některých T-buněk (Variabilita v sekvenci).
+
+KIR3D - prej tři skupiny ale to fakt divně popsaný (českej článek) něco s imunoglobulinovými doménami
+KIR2D
+
+funkce KIR - 
+
+these genes are endcoded on chromosome 19. NK zabíjejí na základně interakce mezi KIR receptorem a HLA molekulou na povrchu buňek. Mohou mít různé podoby.
+
+HLA i KIR jsou na různých chromozomech proto se segregují nezávisle a HLA schodni darci maji obvykle různé složení KIR genů
+\\
+\\
+\textbf{Struktura nukleových kyselin} \\
+jen skopírované z %https://www.wikiskripta.eu/w/Struktura_nukleov%C3%BDch_kyselin \\
+Nukleové kyseliny (polynukleotidy) jsou tvořeny dlouhými řetězci (mono)nukleotidů, vzájemně spojených fosfodiesterovými vazbami. Řadíme je k tzv.heteropolymérům, neboť jsou sestaveny z různých typů základních jednotek. Tato skutečnost je podstatná pro uchovávání a předávání informace, což je základní funkce nukleových kyselin v organismu. Homopolyméry (např. glykogen) obsahují pouze jeden typ monoméru (v našem případě glukózu), a tak nemohou plnit informační funkci.
+
+
+\chapter{Sekvenační metody získávání DNA dat}
+Sekvenování DNA je souhrný termín pro biochemické metody, jímiž se zjišťuje pořadí nukleových bází (A, C, G, T) v sekvencí DNA. Tyto sekvence jsou součástí dědičné informace v jádru.
+
+zjišťvání přímární struktury nukleových kyselin (sekvencování)
+
+Užitečné nejen ve výzkumu ale i v diagnostice nemocí či forenzní medicíně. 
+\section{NGS next-generation sequencing}
+Je rychlé a relativné nenáročné zprácování jednotlivých vzorků. Tisíce až miliony sekvencí mohou být produkovány během jednoho sekvenčního procesu. K popularitě této metody nepomohla i komerciaze cenově dostupních stolních sekvenátorů.
+\section{Sanger sequencing}
+\chapter{Uvedení do problematiky z biologického hlediska}
+V souboru \texttt{literatura.bib} jsou uvedeny příklady, jak citovat knihu , článek v časopisu \cite{Hoare1961}, webovou stránku \cite{Graphics2D}.
+ 
+% 
+% PRO ANGLICKOU SAZBU JE NUTNÉ ZMĚNIT
+% CITAČNÍ STYL!
+%
+\bibliographystyle{csplainnatkiv}
+{\raggedright\small
+\bibliography{literatura}
+}
+
+\end{document}
