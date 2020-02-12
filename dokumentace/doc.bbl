@@ -1,0 +1,61 @@
+\begin{thebibliography}{8}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Fryčová(2016)]{Frycova_bakalarka}
+{\sc Fryčová}, M.
+\newblock Lze u pacientů s AML indikovaných k nepříbuzenské transplantaci
+  provádět v klinické praxi výběr nepříbuzných dárců na základě KIR
+  genotypů, 2016.
+
+\bibitem[Huang et~al.(2012)Huang, Li, Myers,, Marth]{art}
+{\sc Huang}, W. et~al.
+\newblock ART: a next-generation sequencing read simulator.
+\newblock 2012.
+\newblock Dostupn{\'{e}}~z:
+  \url{https://academic.oup.com/bioinformatics/article/28/4/593/213322}.
+
+\bibitem[J et~al.(2015)J, JA, JH, P, P,, SGE]{Nomenclature}
+{\sc J}, R. et~al.
+\newblock \emph{Nomenclature} [online]. Nucleic Acids Research, 2015.
+  [cit.~2019/10/1]. 43:D423-431.
+\newblock Dostupn{\'{e}}~z: \url{http://hla.alleles.org/misc/citing.html}.
+
+\bibitem[Langmead et~al.(2009)Langmead, Trapnell, Pop,, Salzberg]{bowtie}
+{\sc Langmead}, B. et~al.
+\newblock Ultrafast and memory-efficient alignment of short DNA sequences to
+  the human genome.
+\newblock 2009.
+\newblock Dostupn{\'{e}}~z:
+  \url{https://genomebiology.biomedcentral.com/articles/10.1186/gb-2009-10-3-r25}.
+
+\bibitem[MUDr. Pavel~Jindra(2011)]{KIR_transplantace_jindra}
+{\sc MUDr. Pavel~Jindra}, P.~D.
+\newblock \emph{Imunopatologické a imunogenetické aspekty transplantací
+  krvetvorných buněk a solidních orgánů}.
+\newblock PhD thesis, Universita Karlova v Praze, 2011.
+
+\bibitem[Robinson et~al.(2013{\natexlab{a}})Robinson, Halliwell, McWilliam,
+  Lopez,, Marsh]{imgt_hla_database}
+{\sc Robinson}, J. et~al.
+\newblock The IMGT/HLA Database.
+\newblock 2013{\natexlab{a}}.
+\newblock Dostupn{\'{e}}~z: \url{https://www.ebi.ac.uk/ipd/index.html}.
+
+\bibitem[Robinson et~al.(2013{\natexlab{b}})Robinson, Halliwell, McWilliam,
+  Lopez,, Marsh]{ipd_database}
+{\sc Robinson}, J. et~al.
+\newblock IPD—the Immuno Polymorphism Database.
+\newblock 2013{\natexlab{b}}.
+\newblock Dostupn{\'{e}}~z: \url{https://www.ebi.ac.uk/ipd/index.html}.
+
+\bibitem[Smith(2005)]{en_smith}
+{\sc Smith}, D.~T.
+\newblock \emph{Encyklopedie lidského těla}.
+\newblock 2005.
+\newblock ISBN 80-7321-156-4.
+
+\end{thebibliography}

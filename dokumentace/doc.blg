@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: doc.aux
+The style file: csplainnatkiv.bst
+Database file #1: literatura.bib
+Warning--entry type for "Frycova_bakalarka" isn't style-file defined
+--line 59 of file literatura.bib
+Warning--empty journal in art
+Warning--empty journal in bowtie
+Warning--empty journal in imgt_hla_database
+Warning--empty journal in ipd_database
+Warning--empty publisher in en_smith
+You've used 8 entries,
+            2898 wiz_defined-function locations,
+            662 strings with 6409 characters,
+and the built_in function-call counts, 3212 in all, are:
+= -- 294
+> -- 192
+< -- 3
++ -- 66
+- -- 57
+* -- 263
+:= -- 519
+add.period$ -- 31
+call.type$ -- 8
+change.case$ -- 35
+chr.to.int$ -- 7
+cite$ -- 21
+duplicate$ -- 154
+empty$ -- 230
+format.name$ -- 78
+if$ -- 653
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 9
+newline$ -- 52
+num.names$ -- 35
+pop$ -- 104
+preamble$ -- 1
+purify$ -- 35
+quote$ -- 0
+skip$ -- 115
+stack$ -- 0
+substring$ -- 16
+swap$ -- 14
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 83
+warning$ -- 5
+while$ -- 19
+width$ -- 0
+write$ -- 110
+(There were 6 warnings)
