@@ -4,51 +4,52 @@ The top-level auxiliary file: doc.aux
 The style file: csplainnatkiv.bst
 Database file #1: literatura.bib
 Warning--entry type for "Frycova_bakalarka" isn't style-file defined
---line 59 of file literatura.bib
+--line 66 of file literatura.bib
 Warning--empty journal in art
+Warning--empty journal in bowtie2
 Warning--empty journal in bowtie
 Warning--empty journal in imgt_hla_database
 Warning--empty journal in ipd_database
 Warning--empty publisher in en_smith
-You've used 8 entries,
+You've used 9 entries,
             2898 wiz_defined-function locations,
-            662 strings with 6409 characters,
-and the built_in function-call counts, 3212 in all, are:
-= -- 294
-> -- 192
-< -- 3
-+ -- 66
-- -- 57
-* -- 263
-:= -- 519
-add.period$ -- 31
-call.type$ -- 8
-change.case$ -- 35
-chr.to.int$ -- 7
-cite$ -- 21
-duplicate$ -- 154
-empty$ -- 230
-format.name$ -- 78
-if$ -- 653
+            666 strings with 6532 characters,
+and the built_in function-call counts, 3608 in all, are:
+= -- 329
+> -- 214
+< -- 4
++ -- 73
+- -- 63
+* -- 293
+:= -- 585
+add.period$ -- 35
+call.type$ -- 9
+change.case$ -- 38
+chr.to.int$ -- 8
+cite$ -- 24
+duplicate$ -- 175
+empty$ -- 261
+format.name$ -- 89
+if$ -- 734
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 9
-newline$ -- 52
-num.names$ -- 35
-pop$ -- 104
+missing$ -- 10
+newline$ -- 58
+num.names$ -- 40
+pop$ -- 114
 preamble$ -- 1
-purify$ -- 35
+purify$ -- 38
 quote$ -- 0
-skip$ -- 115
+skip$ -- 131
 stack$ -- 0
-substring$ -- 16
-swap$ -- 14
+substring$ -- 18
+swap$ -- 16
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 83
-warning$ -- 5
-while$ -- 19
+type$ -- 94
+warning$ -- 6
+while$ -- 22
 width$ -- 0
-write$ -- 110
-(There were 6 warnings)
+write$ -- 123
+(There were 7 warnings)

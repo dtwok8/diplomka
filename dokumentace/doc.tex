@@ -93,13 +93,55 @@
 \chapter{Úvod}
 \chapter{Geny}
 V každé buňce lidského organismu, konkrétně v buněčném jádře, je možné nálest 46 chromozomů. Jeden chromozom představuje stočenou dlouhou molekulu DNA (Deoxyribonuklenovou kyselinu). Všech 46 chromozomů obsahuje okolo 100 000 genů. Drobný segment DNA, který řídí buněčnou funkci je právě gen. Konkrétní forma genu je alela. \citep{en_smith}
+\section{Nomenaklura}
+akorat jeste pred to by teda chtělo hodit jak vubec vypada genom
 
-\section{HLA a non-HLA geny}
+\section{Imunitní systém}
+Imunitní systém chrání organismus před škodlivinami. Skládá se ze dvou hlavních částí vrozené imunity a získané imunity. Jiné oznčení pro vrozenou imunitu může být přirozená, neadaptivní nebo antigenně nespecifická. Jiné označení pro získanou imunitu je specifická nebo adaptivní.
+Pro tuto práci je důležitý fakt že NK buňky patří do přirozené imunity. NK buňky budou rozebírány dále v textu.
+
+Vrozená imunita veškeré informace jsou neměnně zapsány v DNA 
+- odpovídá po každíém setkání s antigenem stejným mechanismy nemá paměť
+- buňky se nechází neustále v kry a takže je aktivace v případě potřeby takřka okamžitá (minuty až hodiny)
+
+Specifická imunita
+- v genomu jedince obsaženy pouze její základy
+- v průběhu vývoje dochází ke změnám genomu jednotlivých buněk, které se pak odraží na jejich fenotypu
+- specifická imunita se fyziologicky rozvíjí až po narození
+- nefunguje samostatně vždy spolupracuje s přirozenou imunitou
+
+aktivace až po setkání se svým antigenem
+pomalejší nástup než nespecifické mechanismy
+jiný průběh u opakovaného setkání
+schopnost pamatovat si
+zdroj wikiskripta
+
+Antigen jsou látky které imunitní systém rozpozná a reguje na ně. Antigen znamená cizorodá částice. Nejčastější antigeny jsou cizorodé látky z vnějšího prostředí.
+Antigeny z organismu samého nazýváme endoantigeny (endogenní antigeny). Alergen je exoantigen, který je u vnímavého jedince schopen vyvolat patologickou (alergickou) imunitní reakci.
+
+Antigen prezentující buňky (APC) a MHC systém
+APC jsou buňky vlastního těla schopné fagocytovat (makrofágy, dendritické buňky, B-lymfocyty) – co pozřou, to naštípou na krátké peptidické sekvence a vystaví na svém povrchu k „posouzení“
+kromě těchto „vzorků“ mají na povrchu i MHC molekuly (z angl. major histocompatibility complex)
+MHC jsou vysoce polymorfní a zcela specifické a unikátní pro každého jedince
+MHC určují individuální identitu všech tkání – proto můžou působit komplikace spojené např. s odvržením štěpu po transplantaci
+největší koncentrace MHC je v leukocytech, proto se u člověka používá spíše zkratka HLA (z angl. human leukocyte antigens)
+více o MHC najdete například na Wikipedii
+teprve komplex MHC molekuly s antigenem vystavený na povrchu buňky aktivuje příslušný T-lymfocyt
+\section{Imunitní systém, HLA a non-HLA geny}
+
 Human leucocyte antigen(HLA) je genetický systém, který je primárně zodpovědný za rozeznávání vlastního od cizorodého. Tento systém je složen právě z jednotlivých HLA genů rozpoznávající antigeny (cizorodé částice). Pokud HLA gen přijde do styku s antigenem je antigen zničen.
+HLA obsahuje pravděpodovně i geny odpovědné za intenzitu imunitní odpovědi.
+
+HLA je rozsáhlý komplex genů, které determinují (určují, rozpoznávjí????) povrchové molekuly (antigeny) umístěné v plazmatické membráně buněk
+
+Hlavní fyziologickou funkcí molekul MHC je předkládat antigeny nebo jejich fragmenty buňkám imunitního systému, především T-lymfocytům (prezentace antigenu je prvním předpokladem pro rozvoj imunitní reakce a tím obrany proti napadení mikroorganismy). Pomocí těchto molekul buňky imunitního systému vzájemně kooperují.
+
 Non-HLA geny jsou geny které se nepodílejí na základní funkci HLA systému.
 \\základní rozdíl mezi HLA a non-HLA a kir
 
 Non-HLA geny jsou geny které se nepodílejí na základní funkci HLA systému. Z III třídy jsou to všechny, z II žádný a z I je to směs. Zjednodušeně můžeme říci, že geny které nejsou HLA jsou non-HLA. Tyto geny souvisejí též s funkcí imunitního systému, ne však vylučně s funkcí HLA. 
+
+
 
 \subsection{Jak vypadá genom} 
 Genová oblast HLA komplexu, se nalézá na krátkem raménku 6. chromozomu (6p21.31), zaujímá úsek dlouhý 3600 kb
@@ -115,7 +157,55 @@ HLA-6.Chromozom a KIR 19.chromozom
 udíž se segregují nezávisle a
 HLA shodní dárci s příjemce mají obvykle různé složení KIR genů (Fryčová)
 
+
+\section{10/10}
+Ta je postavena na případě typizace 5 lokusů (HLA-A/B/C/DRB1/ /DQB1). Vstupním parametrem samotného vyhledávání je míra shody (match) či definované neshody (mismatch). Navržená metoda je platná nejen pro úplnou míru shody 10/10 (shoda HLA-A/B/C/DRB1/DQB1), ale i menší, např. 8/8 (HLA-A/B/C/DRB1), či požadovanou neshodu na konkrétních lokusech, např. 9/10 HLA-A mismatch. 
+
+Během vyhledávání se hodnotí shoda obou alel v lokusech HLA-A, HLA-B, HLA-C,
+HLA-DRB1 a HLA-DQB1. Cílem je najít dárce, který bude s příjemcem shodný v 10 znacích
+z 10. V závislosti na pacientově stavu a nízké pravděpodobnosti najít včas shodného
+nepříbuzného dárce je možné tolerovat odchylky v jednom nebo dvou znacích (9/10,
+8/10). Každá odchylka však zvyšuje riziko rozvoje potransplantačních komplikací.
+\\
+dědičnost HLA znaků
+\\
+Každý člověk má tzv. fenotyp neboli soubor HLA znaků, který je složen právě
+ze dvou haplotypů. Každý z haplotypů je tvořen sadou antigenů obsahujících konkrétní
+alely. Polovinu těchto znaků zdědíme od matky a polovinu od otce.
+Z hlediska transplantace se v současné době považují za nejdůležitější (a proto
+se také nejpřesněji vyšetřují) HLA antigeny I. třídy A, B, C a antigeny II. třídy DR a
+DQ. Existuje ale řada dalších – tzv. minoritních antigenů, které dosud nejsou
+dostatečně probádány, a jejich vliv na průběh transplantace se teprve zkoumá.
+V současnosti je požadavek na míru shody 10/10 neboli v pěti HLA antigenech,
+konkrétně v (HLA -A, -B, -C, -DRB1 a –DQB1). Nejmenší možná shoda představuje
+6/10 v genech (HLA -A, -B, -DRB1), ale zde bohužel pro pacienta vzniká smrtelné
+riziko odvržení štěpu.
+\\
+\\
+Počet teoreticky možných kombinací HLA znaků u člověka dosahuje několika
+miliard. Je známo, že některé tkáňové typy (kombinace znaků) se vyskytují v určitém
+národě či oblasti častěji, jiné jsou extrémně vzácné. Protože se jednotlivé znaky dědí,
+shodu mezi dvěma jedinci najdeme nejsnáze v pokrevním příbuzenstvu. Od rodičů na
+potomky se příslušná polovina znaků předává obvykle ve zmíněné kompletní sadě
+(haplotypu).
+Pro zjednodušení je uveden příklad, podle kterého je dle genetických zákonů
+možné dědit jednu ze čtyř možných variant výše zmíněných druhů HLA antigenů mezi
+sourozenci (obr. 3.2).
 \section{Natural Killer}
+Při transplantaci se mohou objevit reakce štěpu proti hostuteli nebo relaps onemocnění.(Návrat nemoci)
+Podle nedávných studii kromě HLA genů ovlivňují výsledky přijetí i non HLA geny jedním z nich může být i KIR (Kiler immunoglobulit like receptor  tohle je asi blbě napsaný.)
+Takže když je pak více 10/10 nebo 9/10 schody tak by se rozhodovalo podle HLA
+Jelikož jsou geny kódovány na různých chrmozomech (HLA 6 a KIR 19) takže HLA schodní dárci s příjemcem mají různé složení KIR genů.
+V případěch kdy je více schodných HLA dárců tak by se pak porovnávalo KIR.
+KIR má dva haplotypy A a B .. a pak asi můžeš dělat kombinace AA, AB a BB.
+
+NK buňky jsou lymfocyty nespecifického imunitního systému.
+Nejdůležitější vlastností je schopnost rozlišit zdravé buňky od buněk infikovaných virem či transformovaných v nádorové buňky a efektivně je likvidovat.
+
+Bylo zjištěno, že
+specifické složení motivů centromerních a telomerních B haplotypů KIR genů přispívá
+k ochraně před relapsem a zvyšuje šanci na úplné vyléčení AML.
+
 Velká buňka imunitního systému, nepotřebuje antigen aby začala zabíjet. 
 -nespecifická imunita - vrozená, neadaptivní - veškeré potřebné informace zapsaná v DNA. Odpovídá při každém setkání s antigenem stejně - nemá paměť -> tady si to pročiřečí
 KIR jsou receptory na povrchu NK buněk, 
@@ -299,12 +389,61 @@ Sekvenančí metody s elíší především rychlostí a cenou.
 \section{NGS next-generation sequencing}
 Je rychlé a relativné nenáročné zprácování jednotlivých vzorků. Tisíce až miliony sekvencí mohou být produkovány během jednoho sekvenčního procesu. K popularitě této metody nepomohla i komerciaze cenově dostupních stolních sekvenátorů.
 
+\section{Read}
+In DNA sequencing, a read is an inferred sequence of base pairs (or base pair probabilities) corresponding to all or part of a single DNA fragment. A typical sequencing experiment involves fragmentation of the genome into millions of molecules, which are size-selected and ligated to adapters. The set of fragments is referred to as a sequencing library, which is sequenced to produce a set of reads. Je to z wiki zase
+\\
+\\
+V DNA sekvenování, read je odvozená sekvece párů bází odpovídající celému fragmentu DNA nebo jeho části
+To znamená že read je kus DNA který by mohl odpovídat nějakého konkrétnímu genu? 
+\\
+\\
+Pak tam ještě bylo psaný něco o read lenght
+Sekvenační technologie se liší? v délce vyrobenybch readů. 
+Ready díkjy 20-40 párů bází (bp) jsou ultrakrátké
+Typická sekvenační metoda vytváří ready délky 100 až 500 bp
+
+Sekvenančí platforma (Illumina) - podle toho se pak připravuje ta sekvenační knihovna
+
+
+DNA knihovny - podle wikiskripta
+
+DNA knihovny jsou kolekce klonovaných DNA fragmentů genomu určitého organismu (cDNA), které jsou skladovány uvnitř hostitelských organismů (zejména bakterií). cDNA (copy DNA, complementary DNA) je získávána přepisem z mRNA pomocí enzymu reverzní transkriptázy.
+
+Kvalita knihovny
+Při přípravě sekvenční knihovny je důležité získat co nejvyšší úroveň složitosti. Jinými slovy, je důležité, aby konečná knihovna co nejvíce odrážela jedinečnost výchozího materiálu. Tento výsledek lze získat především omezením počtu segmentových duplikací. Čím kratší jsou fragmenty, tím vyšší je pravděpodobnost, že jsou fragmenty méně specifické a mohou se zarovnat na více než jednom lokusu referenční sekvence. Složitost knihovny lze tedy v podstatě měřit procentem duplicitních čtení, které jsou přítomny v sekvenčních datech
+
+READY - zase wikipedie
+In DNA sequencing, a read is an inferred sequence of base pairs (or base pair probabilities) corresponding to all or part of a single DNA fragment. A typical sequencing experiment involves fragmentation of the genome into millions of molecules, which are size-selected and ligated to adapters. The set of fragments is referred to as a sequencing library, which is sequenced to produce a set of reads
 
 
 \chapter{Analyza dostupných bioinformatických nástrojů pro zpracování NGS dat}
 
 \section{ART}
-ART je set simulačních toolů, kteří generují next generation sequance ready. \cite{art}
+ART (next-generation sequencing read simulator) je sada simulačních nástrojů, které generují syntetické ready, jako kdyby byli získány sekvenováním pomocí NGS. Nástroj ART dokáže simulovat ready ze sekvenátorů Illuminas, 454 společnosti Roch a SOLid od společnosti Applied biosystém. Ready, vytvořené nástrojem ART jsou používány pro testování a analýzů nástrojů zpracovávající právě NGS sekvence jako například zarovávání (nástroj Bowtie). 
+\\
+\\
+ART je implementován v jazyce C++ a je dostupný s licencí GPL verze~3. Je dostupný pro operační systémy Linux, MacOs a Windows. Je možné ho používat i jako C++ package.
+\\
+\\
+Data získána z FN Plzeň byla sekvenována nástrojem Illuminas proto i syntetické ready budou simulovat tento sekvenátor.    
+ Výstupy se čtou ve formátu FASQ a zarovnání ve formátu ALN. může generovat zarovánávání také ve formátu SAM nebo UCS BED. \cite{art}
+
+\subsection{bordel}
+ART is freely available to public. The binary packages of ART are available for three major operating systems: Linux, Macintosh, and Windows. ART is also available as Platform-independent C++ source packages. Each package includes programs, documents and usage examples.
+
+ART simuluje ready napodobobáním skutečných procesů sekvenování s empirickým chybovým modelem nebo quality profiles summarized from large recalibrated sequencing data
+ART může také simlovat čtené pomocí uživatelského vlastního read arror modelu nebo quality profiles
+
+TODO - tohle úplně nechápu ART podporuje simulaci jedno párových, dvou párovcýh tří hlavních komerčních sekvenčních platfoem 
+Výstupy se čtou ve formátu FASQ a zarování ve formátu ALN. 
+ART může také generovat zarovnávání ve formátu SAM nebo UCSC BED
+ART lze použít společně se simulátory varient genomů VarSim 
+\\
+to je odtud %https://www.niehs.nih.gov/research/resources/software/biostatistics/art/index.cfm
+454 sekvenování je pyrosekvenování, které cycklicky testuje přítomnost každého ze čtyř nukleotidů DNA (T, A, C, G)
+
+SOLid ke kódování 16 různých dinukleotidů používá čtyči fluoresenční barevná barviva, každé barvivo kóduje čtyři dinukleotidy
+ 
 
 
 tak jsem stáhla normálně nejnovější verzi z niehs.nih.gov a podle instrukcí co byli v souboru INSTAL dala % ./configure && make && make install
@@ -313,9 +452,50 @@ tak jsem stáhla normálně nejnovější verzi z niehs.nih.gov a podle instrukc
 musí se brát v potaz že z toho generátoru nikdy nebudou data taková jako reálná.. realná budou horší 
 
 
+
+
+\section{Bowtie}
+Bowtie je rychlý a paměťové efektivní nástroj pro zarovnávání krátkých sekvencí DNA na velké genomy. Indexace pomocí Burrows-Wheelere transformace dovoluje zarovnávání více než 25 milionů readů za CPU hodinu pro lidský genom s pamětí příblížně 1.3 gigabajtů. Bowtie přidáváa k Burrows-Wheeler technice backtracking algoritmus pro sledování nekonzistence. ??
+
+
+\subsection{Bordel}
+Bowtie je napsanej v c++ a používá knihovnu seqAn
+
+Na lidském genomu je nástoj Bowtie v porovnání s nástoji Maq a SOAP rychlejší. 
+Citlovost má bowtie srovnatelné s nástojem SOAP a o něco menší než Maq. Ale je možnost pomocí příkazové řádky zvýšit citlivost na úkor rychlosti běhu progamu.
+Oproti SOAP bowtie potřebuje méně paměti 1.3 GB RAM. 
+Bowtie zarovnává  25 milionů readů za hodinu. může běžet paralelně.
+
+indexi vytváří permanentní a lze je použít napříč běhy 
+pro lidský genom je to 2.2 GB takže ho lze distribuovat přes internet
+rychlost a malá paměť způsobuje především Burrows wheeler v kombinaci s backtrackingem.
+
+Podrporuje standardní vstupní formáty FASQ a FASTA.
+
+Bowtie je open source.
+
+ 
 na stránkách elixir-europe což je oragnizace co má dávat dohromady všechny vědecký veci a bla bla.
 
+
+
 Tak tam je přímo Bowtie \cite{bowtie}
+
+\subsection{Bowtie 2}
+Note that SOAP2 and Bowtie do not permit gapped alignment of unpaired reads.
+ memory footprint of Bowtie 2 (3.24 gigabytes)
+ Bowtie 2 by mělo být vhodnější pro delší ready než Bowtie1.
+ We extracted a random subset of 1 million reads from each and aligned them with BWA-SW and Bowtie 2. We did not align with Bowtie, BWA or SOAP2 because those tools are designed for shorter reads.
+Bowtie už je překonanej nejenom Bowtie2 ale i BWA.
+Bowtie2 je podle studie znatelně lepší než Bowtie, SOAP2.
+tyhle výsledky jsou na syntetických readech
+
+vypadá to že bowtie 2 už nepoužívá tamten index ale používá nějaký Full-text minute index–assisted search což vypadá že je kombinace burrows wheelera a ještě něčeho.
+We found that Bowtie 2, a method that combines the advantages of the full-text minute index and SIMD dynamic programming, achieved very fast and memory-efficient gapped alignment of sequencing reads
+
+je zase open source
+\cite{bowtie2}
+
 
 šla jsem přes docker docker image ls - zobrazi vsechny image pak docker run a ID image
 sudo docker run -i -t 3c2b9a287f82 /bin/bash
@@ -324,6 +504,9 @@ sudo docker ps -a
 Tak jsem nakonec žádnej docker nepotřebovala a stáhla jsem to tady %http://bowtie-bio.sourceforge.net/tutorial.shtml
  po kliknuti na bowtie binary release.
 
+na strance 25.4 je řečeno o hledání tch nejlepších zarovnání a je tam možnost --best ale že je dvakrát nebo třikrát pomalejší než normální mod.. a jde o to že najde první přijatelný a to označní kdežto při tom best prohledá co nejvíc a hledá to nejlepší i mezi těma přijatelnýma a to je pomalý.
+
+takže zarovnání by mohlo být teoreticky namapování na referenční gen???
  
 % 
 % PRO ANGLICKOU SAZBU JE NUTNÉ ZMĚNIT

@@ -1,4 +1,4 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{9}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -23,6 +23,12 @@
 \newblock \emph{Nomenclature} [online]. Nucleic Acids Research, 2015.
   [cit.~2019/10/1]. 43:D423-431.
 \newblock Dostupn{\'{e}}~z: \url{http://hla.alleles.org/misc/citing.html}.
+
+\bibitem[Langmead -- Salzberg(2012)Langmead, Salzberg]{bowtie2}
+{\sc Langmead}, B. -- {\sc Salzberg}, S.~L.
+\newblock Fast gapped-read alignment with Bowtie 2.
+\newblock 2012.
+\newblock Dostupn{\'{e}}~z: \url{https://www.nature.com/articles/nmeth.1923}.
 
 \bibitem[Langmead et~al.(2009)Langmead, Trapnell, Pop,, Salzberg]{bowtie}
 {\sc Langmead}, B. et~al.
