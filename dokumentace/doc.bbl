@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{12}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -65,10 +65,26 @@
 \newblock 2013{\natexlab{b}}.
 \newblock Dostupn{\'{e}}~z: \url{https://www.ebi.ac.uk/ipd/index.html}.
 
+\bibitem[S.Kannana et~al.(2017)S.Kannana, ArianexysAquino-Lopez,,
+  A.Leed]{KIR_img_princip}
+{\sc S.Kannana}, G. -- {\sc ArianexysAquino-Lopez} -- {\sc A.Leed}, D.
+\newblock Natural killer cells in malignant hematology: A primer for the
+  non-immunologist.
+\newblock 2017.
+\newblock Dostupn{\'{e}}~z:
+  \url{https://www.sciencedirect.com/science/article/pii/S0268960X16300704}.
+
 \bibitem[Smith(2005)]{en_smith}
 {\sc Smith}, D.~T.
 \newblock \emph{Encyklopedie lidského těla}.
 \newblock 2005.
 \newblock ISBN 80-7321-156-4.
+
+\bibitem[Thielens et~al.(2012)Thielens, Vivier,,
+  Romagn{\'e}]{KIR_img_nomenklatura}
+{\sc Thielens}, A. -- {\sc Vivier}, E. -- {\sc Romagn{\'e}}, F.
+\newblock NK cell MHC class I specific receptors (KIR): from biology to
+  clinical intervention.
+\newblock \emph{Current opinion in immunology}. 2012, 24 2, s.~239--45.
 
 \end{thebibliography}

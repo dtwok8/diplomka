@@ -75,6 +75,8 @@
   urlcolor=black,
   bookmarksopen=true}
 
+\usepackage{float}
+
 % Při používání citačního stylu csplainnatkiv
 % (odvozen z csplainnat, http://repo.or.cz/w/csplainnat.git)
 % lze snadno modifikovat vzhled citací v textu
@@ -214,32 +216,122 @@ U HLA - A, B, C, DR a DQ požaduje se typizace v těchto lokusech. Pokud má dá
 \\
 
 \section{Natural Killer a KIR}
-Mezi rizika při transplantaci krvetvorných buněk patří reakce štěpu proti hostiteli nebo relaps oněmocnění (návrat nemoci). Podle nedávných studiích výsledky příjetí štěpu ovlivňují nejenom HLA geny ale i non-HLA geny. Jedním z nich může být právě killer immunoglobulin-like receptor (KIR). V případě kdy by bylo nalezeno více vhodných dárců, tj. se shodou 10/10 nebo 9/10, vybíralo by se následně podle KIR genů \cite{KIR_transplantace_jindra}, \cite{Frycova_bakalarka}.
+Mezi rizika při transplantaci krvetvorných buněk patří reakce štěpu proti hostiteli nebo relaps oněmocnění (návrat nemoci). Podle nedávných studiích výsledky příjetí štěpu ovlivňují nejenom HLA geny ale i non-HLA geny. Jedním z nich může být právě killer immunoglobulin-like receptor (KIR). V případě kdy by bylo nalezeno více vhodných dárců, tj. se shodou 10/10 nebo 9/10, vybíralo by se následně podle KIR genů \cite{KIR_transplantace_jindra} \cite{Frycova_bakalarka}.
 
 \subsection{Natural killer}
 NK buňky (Natural killer) jsou velké granulární lymfocyty vrozeného imunitního systému. V krevním oběhu lidského těla je jich možné nalést $10-15\%$. 
 \\
 \\
-Klíčovou vlastností NK buněk je nejenom schopnost rozlišit poškozené buňky od zdravích ale i poškozené buňky rychle a efektivně likvidovat. Poškozené buňky mohou být buňky infokované virem či buňky transfomované v nádorové. Oproti B- a T- lymfocitům (buňkám získané imunity) nemají antigenně specifické receptory. 
+Klíčovou vlastností NK buněk je nejenom schopnost rozlišit poškozené buňky od zdravích ale i poškozené buňky rychle a efektivně likvidovat. Poškozené buňky mohou být buňky infokované virem či buňky transfomované v nádorové. 
 
 \subsection{KIR}
-Killer immunoglobulin-like receptor (KIR) jsou receptory na povrchu NK buněk. NK buňky rozpoznávají a zabíjejí buňky na základě interakce mezi KIR receptorem a HLA molekulou na povrchu zkoumané buňky. 
+Killer immunoglobulin-like receptor (KIR) jsou receptory na povrchu NK buněk. Natural killer buňky oproti B- a T- lymfocitům (buňkám získané imunity) nemají antigenně specifické receptory. NK buňky rozpoznávají a zabíjejí buňky na základě interakce mezi KIR receptorem a HLA molekulou na povrchu zkoumané buňky. 
 \\
 \\
-NK buňky ustavičně prohledávají své okolí a testují přítomnost příslušných HLA ligand (specifická HLA molekula) pro své KIR receptory. Pokud je příslušný HLA ligand přítomen naváže se na NK buňku. Tímto systémem jsou ochráněny vlastní HLA buňky. Pokud přítomen není je spuštěna cytoxická reakce (schopnost níčit buňky) a zkoumaná buňka je zníčena.   
+KIR receptory můžeme rozdělit na inhibiční a aktivační. Zda dojde k aktivaci NK buňky rozhoduje právě jejich rovnováha na zkoumané buňce. Zatímco inhibiční receptory se váží hlavně na molekuly HLA, aktivační receptory rozpoznávají molekuly které jsou exprimovány na membránu při buněčném stresu.
 \\
 \\
-Některé virem napadené buňky potlačují propsání HLA ligand na povrch buňky a tím se brání cytotoxicitě proti T lymfocitům, ale naopak jsou více citlivější na cytotoxicitu proti NK buňkám.
+NK buňky ustavičně prohledávají své okolí a testují přítomnost příslušných HLA ligand (specifická HLA molekula) pro své KIR receptory. Pokud je příslušný HLA ligand přítomen naváže se na NK buňku (\ref{fig:kir_princip} případ~1). Tímto systémem jsou ochráněny vlastní HLA buňky. Pokud přítomen není je spuštěna cytotoxická reakce (schopnost níčit buňky) a zkoumaná buňka je zníčena.
 \\
 \\
-něco o inhibičních a aktivačních KIR
+Některé virem napadené buňky potlačují propsání HLA ligand na povrch buňky a tím se brání cytotoxicitě proti T lymfocitům, ale naopak jsou více citlivější na cytotoxicitu proti NK buňkám. Ukázano na obrázku \ref{fig:kir_princip} případ~3.
+\begin{figure}[H]		
+		\centering
+		\includegraphics[width=\textwidth]{./img/NK_princip.jpg}
+		\caption{Přirovnání fungování natural killer buňky k pasové kontrole \cite{KIR_img_princip}. V pravé části jsou zobrazené případy které mohou nastat když natural killer buňka potká jinou buňku. V prvním případě je tělu vlastní zdravá buňka, kde se KIR receptor naváže na HLA ligand a k cytotoxitické reakci nedojde. V druhém případě je červená krvinka k cytotoxicitě opět nedojde, protože na zkoumané buňce nepřevažují aktivační receptory. V 3 případě je to nádorová buňka, která schová HLA ligand (může nastat po transplantaci kostní dřeně) a tím se "schová" proti T- lymfocytům. Avšak aktivační receptory převládají a tak k cytotoxicitě dojde. Ve 4 příkladě je nádorová buňka nebo virem nakažená buňka (stresové ligandy). Aktivační receptory převládají k cytotoxicitě dojde.}
+		\label{fig:kir_princip}
+\end{figure}
 
+V případě transplantace je jedním z možných řešení pacientovi dát štěp, který obsahuje aktivační KIR receptory, které nemají jeho buňky.
+
+\subsection{Nomenklatura KIR genů}
+KIR geny (na obrázku \ref{fig:img_kir_nomenklatura} na modré lince představující buněčnou membránu) se liší různou délkou cytoplasmatických ocásku (tail) a různým počtem imunoglobulin-like domén (lg-like). Na základě této rozmanitosti byla založena nomenklatura KIR genů, tedy jejich pojmenování. 
+\\
+\\
+Jak je vidět na obrázku~\ref{fig:img_kir_nomenklatura}, cytoplasmatický ocásek může být dlouhý (long~-~L) nebo krátký (short~-~S). Oproti tomu imunoglubulínové domény se mohou vyskytovat 2~(2D) nebo 3~(3D). Další rozdělení KIR genů je již výše zmíněné inhibiční a aktivační. Je možné si povšimnout detaulu že většina inhibičních KIR jsou s dlouhým ocáskem, zatímco většina aktivačních jsou s krátkým ocáskem. 
+
+\begin{figure}[H]		
+		\centering
+		\includegraphics[width=\textwidth]{./img/KIR_nomenklatura2.png}
+		\caption{Nomenklatura KIR genů a jejich vazebné ligandy. \cite{KIR_img_nomenklatura}}
+		\label{fig:img_kir_nomenklatura}
+\end{figure}
+
+
+\begin{figure}[H]		
+		\centering
+		\includegraphics[width=\textwidth]{./img/KIR_nomenklatura.png}
+		\caption{Nomenklatura KIR genů.}
+		\label{fig:img_kir_nomenklatura}
+\end{figure}
+
+Bylo poprsáno celkem 15 exprimovaných KIR genů a 2 KIR pseudogeny
+
+Jak je z tabulky patrné, s jedinou výjimkou (KIR2DL4) jsou všechny
+KIR s krátkým cytoplasmatickým výběžkem („S“) aktivační a naopak
+„L“ receptory inhibičními.
+Pokud jde o vazebné partnery KIR (jejich ligandy), pak tyto jsou
+známy především pro inhibiční receptory a ve všech případech jde o
+HLA specificity I. třídy. Jedná se především o skupinu alel HLA-C alel
+lišících se aminokyselinovým 
+reziduem na pozicích
+ 77 a 80 $\alpha$
+- helixu molekuly HLA-C (7). Byla publikována rozsáhlá data ukazující
+10na význam inhibičních KIR a jejich HLA ligand pro výsledek
+transplantace krvetvorných buněk
+
+KIR geny/receptory a jejich vazební partneři (ligandy)
+- fryčová ta tabulka tam byla zajímavá, stejná je i v tý disertačce od Jindry odtamtu to asi bude lepší
+tak mě tak napadá jestli to A, B,C neni náhdou I, II, III.. protože píšou že se jedná hlavně o melekuly HLA C a non hla jsou všechn z III class.
+
+
+KIR geny jsou lokalizovány na chromosomu 19q13.4 v oblasti zvané „leukocyte receptor
+complex“ (LRC). Pro každý KIR gen navíc existují alelické varianty (Marsh et al, 2002;Hsu
+et al, 2002). Tak jako geny HLA systému se i KIR geny dědí podobně a to jako celý blok
+genů – haplotyp (viz obr. 3).
+
+A je tam k tomu hezkej obrázek disertačka Jindra
+
+Genetická diverzita KIR genů a genotypů připomíná diverzitu HLA
+systému. Přestože jsou geny kódující KIR a HLA lokalizované na
+různých chromozomech a segregují se tedy nezávisle, existují určité
+důkazy alespoň částečné koevoluce obou systémů. Lze tudíž
+předpokládat. U HLA restrihované populace lze tedy očekávat
+alespoň částečnou redukci v diverzitě KIR genů i genotypů.
+U HLA restrihované populace lze tedy očekávat
+alespoň částečnou redukci v diverzitě KIR genů i genotypů.
+
+Koevoluce je společný evoluční vývoj dvou či více druhů, při němž dochází k jejich vzájemnému přizpůsobování
+
+Haplotypická variability KIR genů
+KIR geny se vyskytují ve dvou hlavních haplotypech A a B, které jsou definovány typem a počtem specifických KIR genů.Ta je způsobena variabilitou v počtu a v typu
+zastoupených KIR genů na daném haplotypu
+Právě tato
+haplotypická diverzita je hlavním důvodem populační diverzity KIR
+genů a repertoáru NK buněk.
+Neni žádné univerzální kriterium kteréé by je odlišovali
+
+Skipina B je charakterizována přítomností alespoň jednoho nebo víze z následjících genů KIR2DL5, KIR2DS1, KIR2DS2, KIR2DS3, KIR2DS5 a KIR3DS1.
+
+Skupina A je charakterizována absenzí těchto genů. 
+
+Proto mají B více aktivačních KIR než A. A může mít jen KIR2DS4.
+
+je tam obrázek zase u Jindry třeba.
+
+U fryčoví jsem skončila na stránce 19. 
+U jindry jsem skončila na stránce 14.
 
 
 
 
 
 \section{bordel}
+exprimovaný gen / pseudogeny
+takže exprimovaný je ten který se propíše na povrch buňky a pseudogen je ten který se nepropíše na povrch buňky
+Pseudogen je sekvence DNA, která je podobná genu, ale nedochází k jejímu přepisování v RNA (transkripci). Pseudogeny vznikají zpravidla určitou mutací, a to zejména v oblasti promotoru, regulační sekvence,[1] nebo sice RNA vzniká, ale je následně degradována.
+
+
 NK buňky mají schopnost identifikovat molekuly vlastního MHC systému (Major
 Histocompatilibity Compex), jmenovitě HLA I. třídy, které jsou normálně exprimovány
 prakticky na všech buňkách v těle. Nádorové a některé virem napadené buňky potlačují
@@ -345,76 +437,13 @@ specifické složení motivů centromerních a telomerních B haplotypů KIR gen
 k ochraně před relapsem a zvyšuje šanci na úplné vyléčení AML.
 
 
-\subsection{Nomenklatura KIR genů}
-založeno na struktuře molekul, které produkují. 
-vychází z počtu Ig-like domén a délky cytoplasmatického výběžku (tail)
-
-Nomenklatura genů KIR a receptorů vychází ze struktury molekuly
-jejich produktu,respektive z počtu „Ig-like“ domén a délky
-cytoplasmatického výběžku (tail)
-
-KIR receptory mají buď 2 nebo 3 imunoglobulinové domény (2D nebo 3D) a buď dlouhý
-(long-L) nebo krátký (short- S) cytoplasmatický úsek "ocásek" (tail). Podle kombinace počtu těchto Ig-
-like domén a přítomnosti S nebo L cytoplasmatického výběžku je generován název KIR
-genu/receptoru
-
-Bylo poprsáno celkem 15 exprimovaných KIR genů a 2 KIR pseudogeny
-
-Jak je z tabulky patrné, s jedinou výjimkou (KIR2DL4) jsou všechny
-KIR s krátkým cytoplasmatickým výběžkem („S“) aktivační a naopak
-„L“ receptory inhibičními.
-Pokud jde o vazebné partnery KIR (jejich ligandy), pak tyto jsou
-známy především pro inhibiční receptory a ve všech případech jde o
-HLA specificity I. třídy. Jedná se především o skupinu alel HLA-C alel
-lišících se aminokyselinovým 
-reziduem na pozicích
- 77 a 80 $\alpha$
-- helixu molekuly HLA-C (7). Byla publikována rozsáhlá data ukazující
-10na význam inhibičních KIR a jejich HLA ligand pro výsledek
-transplantace krvetvorných buněk
-
-KIR geny/receptory a jejich vazební partneři (ligandy)
-- fryčová ta tabulka tam byla zajímavá, stejná je i v tý disertačce od Jindry odtamtu to asi bude lepší
-tak mě tak napadá jestli to A, B,C neni náhdou I, II, III.. protože píšou že se jedná hlavně o melekuly HLA C a non hla jsou všechn z III class.
 
 
-KIR geny jsou lokalizovány na chromosomu 19q13.4 v oblasti zvané „leukocyte receptor
-complex“ (LRC). Pro každý KIR gen navíc existují alelické varianty (Marsh et al, 2002;Hsu
-et al, 2002). Tak jako geny HLA systému se i KIR geny dědí podobně a to jako celý blok
-genů – haplotyp (viz obr. 3).
+\subsection{Alely KIR genů}
+Když budu mít třeba gen KIR2DL1
+tak jeho alely jsou 2DL1*0010101 nebo 2DL1*0010102
 
-A je tam k tomu hezkej obrázek disertačka Jindra
-
-Genetická diverzita KIR genů a genotypů připomíná diverzitu HLA
-systému. Přestože jsou geny kódující KIR a HLA lokalizované na
-různých chromozomech a segregují se tedy nezávisle, existují určité
-důkazy alespoň částečné koevoluce obou systémů. Lze tudíž
-předpokládat. U HLA restrihované populace lze tedy očekávat
-alespoň částečnou redukci v diverzitě KIR genů i genotypů.
-U HLA restrihované populace lze tedy očekávat
-alespoň částečnou redukci v diverzitě KIR genů i genotypů.
-
-Koevoluce je společný evoluční vývoj dvou či více druhů, při němž dochází k jejich vzájemnému přizpůsobování
-
-Haplotypická variability KIR genů
-KIR geny se vyskytují ve dvou hlavních haplotypech A a B, které jsou definovány typem a počtem specifických KIR genů.Ta je způsobena variabilitou v počtu a v typu
-zastoupených KIR genů na daném haplotypu
-Právě tato
-haplotypická diverzita je hlavním důvodem populační diverzity KIR
-genů a repertoáru NK buněk.
-Neni žádné univerzální kriterium kteréé by je odlišovali
-
-Skipina B je charakterizována přítomností alespoň jednoho nebo víze z následjících genů KIR2DL5, KIR2DS1, KIR2DS2, KIR2DS3, KIR2DS5 a KIR3DS1.
-
-Skupina A je charakterizována absenzí těchto genů. 
-
-Proto mají B více aktivačních KIR než A. A může mít jen KIR2DS4.
-
-je tam obrázek zase u Jindry třeba.
-
-U fryčoví jsem skončila na stránce 19. 
-U jindry jsem skončila na stránce 14.
-
+jestli to chápu tak gen mi určuje že budu mít oko a alela mi určuje jakou barvu to oko bude mít.
 
 
 \section{Jak funguje HLA}
@@ -1048,6 +1077,8 @@ Thus, an unpaired read that aligns to the reverse reference strand will have fla
 SAM Sequence Alignment Map format), respektive jeho binárně
 komprimovaná verze BAM (z angl. Binary Alignment Map format).
 
+nakonec jsem to pustila přes IGV ale stejně se tam museli ty indexi dodělat
+%java --module-path=lib -Xmx4g @igv.args --module=org.igv/org.broad.igv.ui.Main
 
 
 % 

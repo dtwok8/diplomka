@@ -11,46 +11,47 @@ Warning--empty journal in bowtie2
 Warning--empty journal in bowtie
 Warning--empty journal in imgt_hla_database
 Warning--empty journal in ipd_database
+Warning--empty journal in KIR_img_princip
 Warning--empty publisher in en_smith
-You've used 10 entries,
+You've used 12 entries,
             2898 wiz_defined-function locations,
-            671 strings with 6670 characters,
-and the built_in function-call counts, 3928 in all, are:
-= -- 358
-> -- 225
+            683 strings with 7126 characters,
+and the built_in function-call counts, 4906 in all, are:
+= -- 441
+> -- 287
 < -- 5
-+ -- 77
-- -- 66
-* -- 311
-:= -- 639
-add.period$ -- 39
-call.type$ -- 10
-change.case$ -- 40
-chr.to.int$ -- 9
-cite$ -- 27
-duplicate$ -- 195
-empty$ -- 291
-format.name$ -- 94
-if$ -- 800
++ -- 97
+- -- 84
+* -- 404
+:= -- 803
+add.period$ -- 47
+call.type$ -- 12
+change.case$ -- 48
+chr.to.int$ -- 11
+cite$ -- 32
+duplicate$ -- 242
+empty$ -- 365
+format.name$ -- 120
+if$ -- 998
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 11
-newline$ -- 64
-num.names$ -- 45
-pop$ -- 124
+missing$ -- 13
+newline$ -- 75
+num.names$ -- 55
+pop$ -- 147
 preamble$ -- 1
-purify$ -- 40
+purify$ -- 48
 quote$ -- 0
-skip$ -- 144
+skip$ -- 173
 stack$ -- 0
-substring$ -- 20
-swap$ -- 17
+substring$ -- 42
+swap$ -- 24
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 105
-warning$ -- 7
-while$ -- 25
+type$ -- 127
+warning$ -- 8
+while$ -- 32
 width$ -- 0
-write$ -- 136
-(There were 8 warnings)
+write$ -- 162
+(There were 9 warnings)
