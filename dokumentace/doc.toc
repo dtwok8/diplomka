@@ -7,41 +7,46 @@
 \babel@toc {czech}{}
 \babel@toc {czech}{}
 \contentsline {chapter}{\numberline {1}\IeC {\'U}vod}{8}{chapter.1}
+\contentsline {section}{\numberline {1.1}Bordel}{8}{section.1.1}
 \contentsline {chapter}{\numberline {2}Geny}{9}{chapter.2}
-\contentsline {section}{\numberline {2.1}Nomenaklura}{9}{section.2.1}
-\contentsline {section}{\numberline {2.2}Alela}{9}{section.2.2}
-\contentsline {section}{\numberline {2.3}Imunitn\IeC {\'\i } syst\IeC {\'e}m}{9}{section.2.3}
-\contentsline {section}{\numberline {2.4}Imunitn\IeC {\'\i } syst\IeC {\'e}m, HLA a non-HLA geny}{10}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Jak vypad\IeC {\'a} genom}{11}{subsection.2.4.1}
-\contentsline {section}{\numberline {2.5}10/10}{11}{section.2.5}
-\contentsline {section}{\numberline {2.6}Porovn\IeC {\'a}n\IeC {\'\i } vhodn\IeC {\'e}ho d\IeC {\'a}rce}{12}{section.2.6}
-\contentsline {section}{\numberline {2.7}Natural Killer a KIR}{13}{section.2.7}
-\contentsline {subsection}{\numberline {2.7.1}Natural killer}{13}{subsection.2.7.1}
-\contentsline {subsection}{\numberline {2.7.2}KIR}{13}{subsection.2.7.2}
-\contentsline {subsection}{\numberline {2.7.3}Nomenklatura KIR gen\IeC {\r u}}{15}{subsection.2.7.3}
-\contentsline {section}{\numberline {2.8}bordel}{17}{section.2.8}
-\contentsline {subsection}{\numberline {2.8.1}D\IeC {\v e}di\IeC {\v c}nost KIR}{20}{subsection.2.8.1}
-\contentsline {subsection}{\numberline {2.8.2}Alely KIR gen\IeC {\r u}}{20}{subsection.2.8.2}
-\contentsline {section}{\numberline {2.9}Jak funguje HLA}{20}{section.2.9}
-\contentsline {section}{\numberline {2.10}Jak funguje non-HLA}{20}{section.2.10}
-\contentsline {section}{\numberline {2.11}Bordel pro prvni kapitolu}{20}{section.2.11}
-\contentsline {section}{\numberline {2.12}Sekvence DNA}{23}{section.2.12}
-\contentsline {chapter}{\numberline {3}Sekvena\IeC {\v c}n\IeC {\'\i } metody z\IeC {\'\i }sk\IeC {\'a}v\IeC {\'a}n\IeC {\'\i } DNA dat}{24}{chapter.3}
-\contentsline {section}{\numberline {3.1}Sanger sequencing}{24}{section.3.1}
-\contentsline {section}{\numberline {3.2}NGS next-generation sequencing}{25}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}454 sekvenov\IeC {\'a}n\IeC {\'\i } a Ion Torrent}{25}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Illumina}{26}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}SOLid}{27}{subsection.3.2.3}
-\contentsline {section}{\numberline {3.3}Metody t\IeC {\v r}et\IeC {\'\i } generace}{27}{section.3.3}
-\contentsline {section}{\numberline {3.4}Read}{29}{section.3.4}
-\contentsline {chapter}{\numberline {4}Analyza dostupn\IeC {\'y}ch bioinformatick\IeC {\'y}ch n\IeC {\'a}stroj\IeC {\r u} pro zpracov\IeC {\'a}n\IeC {\'\i } NGS dat}{31}{chapter.4}
-\contentsline {section}{\numberline {4.1}ART}{31}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}pokus to nejak spustit}{31}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}FASTQ}{32}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}bordel}{33}{subsection.4.1.3}
-\contentsline {section}{\numberline {4.2}Bowtie}{34}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Bordel}{34}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Bowtie 2}{34}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}bordel}{35}{subsection.4.2.3}
-\contentsline {subsubsection}{SAM}{35}{section*.6}
-\contentsline {chapter}{Literatura}{37}{chapter*.7}
+\contentsline {section}{\numberline {2.1}Imunitn\IeC {\'\i } syst\IeC {\'e}m aneb kde se vzal KIR}{9}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Vrozen\IeC {\'a} imunita}{9}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Z\IeC {\'\i }skan\IeC {\'a} imunita}{9}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Antigen}{10}{subsection.2.1.3}
+\contentsline {section}{\numberline {2.2}Imunitn\IeC {\'\i } syst\IeC {\'e}m, HLA a non-HLA geny}{10}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Jak vypad\IeC {\'a} genom}{11}{subsection.2.2.1}
+\contentsline {section}{\numberline {2.3}10/10}{12}{section.2.3}
+\contentsline {section}{\numberline {2.4}Porovn\IeC {\'a}n\IeC {\'\i } vhodn\IeC {\'e}ho d\IeC {\'a}rce}{13}{section.2.4}
+\contentsline {section}{\numberline {2.5}Natural Killer a KIR}{13}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Natural killer}{13}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}KIR}{14}{subsection.2.5.2}
+\contentsline {subsection}{\numberline {2.5.3}Nomenklatura KIR gen\IeC {\r u}}{15}{subsection.2.5.3}
+\contentsline {section}{\numberline {2.6}bordel}{18}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}D\IeC {\v e}di\IeC {\v c}nost KIR}{21}{subsection.2.6.1}
+\contentsline {section}{\numberline {2.7}Jak funguje HLA}{21}{section.2.7}
+\contentsline {section}{\numberline {2.8}Jak funguje non-HLA}{21}{section.2.8}
+\contentsline {section}{\numberline {2.9}Bordel pro prvni kapitolu}{21}{section.2.9}
+\contentsline {section}{\numberline {2.10}Sekvence DNA}{23}{section.2.10}
+\contentsline {section}{\numberline {2.11}Alela a gen}{24}{section.2.11}
+\contentsline {subsection}{\numberline {2.11.1}Alely KIR gen\IeC {\r u}}{24}{subsection.2.11.1}
+\contentsline {chapter}{\numberline {3}Sekvena\IeC {\v c}n\IeC {\'\i } metody z\IeC {\'\i }sk\IeC {\'a}v\IeC {\'a}n\IeC {\'\i } DNA dat}{26}{chapter.3}
+\contentsline {section}{\numberline {3.1}Sanger sequencing}{26}{section.3.1}
+\contentsline {section}{\numberline {3.2}NGS next-generation sekvenov\IeC {\'a}n\IeC {\'\i }}{27}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}454 sekvenov\IeC {\'a}n\IeC {\'\i } a Ion Torrent}{28}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Illumina}{29}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}SOLiD}{29}{subsection.3.2.3}
+\contentsline {section}{\numberline {3.3}Metody t\IeC {\v r}et\IeC {\'\i } generace}{30}{section.3.3}
+\contentsline {section}{\numberline {3.4}Read}{31}{section.3.4}
+\contentsline {section}{\numberline {3.5}Bordel}{33}{section.3.5}
+\contentsline {chapter}{\numberline {4}Analyza dostupn\IeC {\'y}ch bioinformatick\IeC {\'y}ch n\IeC {\'a}stroj\IeC {\r u} pro zpracov\IeC {\'a}n\IeC {\'\i } NGS dat}{35}{chapter.4}
+\contentsline {section}{\numberline {4.1}Referen\IeC {\v c}n\IeC {\'\i } genomy}{35}{section.4.1}
+\contentsline {section}{\numberline {4.2}ART}{35}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}pokus to nejak spustit}{36}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}FASTQ}{36}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}bordel}{38}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}Bowtie}{38}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Bordel}{38}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Bowtie 2}{39}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}bordel}{40}{subsection.4.3.3}
+\contentsline {subsubsection}{SAM}{40}{section*.6}
+\contentsline {chapter}{Literatura}{41}{chapter*.7}
