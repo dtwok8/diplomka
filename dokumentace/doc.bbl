@@ -1,15 +1,48 @@
-\begin{thebibliography}{13}
+\begin{thebibliography}{20}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
+\bibitem[chr()]{chromosome_structure}
+\emph{Chromosome} [online]. [cit.~2020/12/3].
+\newblock Dostupn{\'{e}}~z:
+  \url{https://www.genome.gov/genetics-glossary/Chromosome}.
+
+\bibitem[gen()]{genome_gov}
+\emph{DNA sequencing Fact Sheet} [online]. [cit.~2019/03/1].
+\newblock Dostupn{\'{e}}~z:
+  \url{https://www.genome.gov/about-genomics/fact-sheets/DNA-Sequencing-Fact-Sheet}.
+
+\bibitem[hap()]{haploidenticka_transplantace}
+\emph{S transplantací kostní dřeně stále častěji pomáhají příbuzní}
+  [online].
+\newblock Dostupn{\'{e}}~z:
+  \url{https://ct24.ceskatelevize.cz/domaci/2527141-s-transplantaci-kostni-drene-stale-casteji-pomahaji-pribuzni}.
+
+\bibitem[hum()]{human_cell}
+\emph{Basic genetics} [online]. [cit.~2020/12/3].
+\newblock Dostupn{\'{e}}~z: \url{https://kintalk.org/genetics-101/}.
+
+\bibitem[Bernareggi et~al.(2019)Bernareggi, Pouyanfard,, Kaufman]{NK_receptors}
+{\sc Bernareggi}, D. -- {\sc Pouyanfard}, S. -- {\sc Kaufman}, D.~S.
+\newblock Development of innate immune cells from human pluripotent steam
+  cells.
+\newblock 2019.
+\newblock Dostupn{\'{e}}~z:
+  \url{https://www.sciencedirect.com/science/article/pii/S0301472X19300037?via%3Dihub}.
+
 \bibitem[Fryčová(2016)]{Frycova_bakalarka}
 {\sc Fryčová}, M.
 \newblock Lze u pacientů s AML indikovaných k nepříbuzenské transplantaci
   provádět v klinické praxi výběr nepříbuzných dárců na základě KIR
   genotypů, 2016.
+
+\bibitem[Hernychová(2012)]{MIC}
+{\sc Hernychová}, L.
+\newblock Receptory NK buněk.
+\newblock 2012.
 
 \bibitem[Huang et~al.(2012)Huang, Li, Myers,, Marth]{art}
 {\sc Huang}, W. et~al.
@@ -56,6 +89,12 @@
 \newblock Elektroforéza nukleových kyselin.
 \newblock 2017.
 \newblock Dostupn{\'{e}}~z: \url{https://fvhe.vfu.cz/files/mbhp_2018_02.pdf}.
+
+\bibitem[Penka -- a~kolektiv(2012)Penka, a~kolektiv]{transfuzni_lekarstvi}
+{\sc Penka}, M. -- {\sc kolektiv}, E.~T.
+\newblock \emph{Hematologie a transfuzní lékařství II}.
+\newblock 2012.
+\newblock ISBN 978-80-247-3460-6.
 
 \bibitem[Robinson et~al.(2013{\natexlab{a}})Robinson, Halliwell, McWilliam,
   Lopez,, Marsh]{imgt_hla_database}

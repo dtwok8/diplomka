@@ -1,0 +1,76 @@
+%% Creator: Inkscape inkscape 0.92.3, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'genom_HLA.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{160.99692357bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,1.83005635)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{genom_HLA.pdf}}%
+    \put(0.48874292,1.76892752){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{HLA }\\\textbf{MHC komplex}\end{tabular}}}}%
+    \put(0.48632628,0.01608629){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{lidský chromozom 6}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{genom_HLA.pdf}}%
+    \put(0.72969676,1.29418362){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{p}\end{tabular}}}}%
+    \put(0.75965462,0.62762162){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{q}\\\textbf{rameno}\end{tabular}}}}%
+    \put(0.0019305,0.15636966){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{HLA-DP}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{genom_HLA.pdf}}%
+    \put(-0.00555923,0.34757466){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{HLA-DQ}\end{tabular}}}}%
+    \put(-0.00304858,0.54710344){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{HLA-DR}\end{tabular}}}}%
+    \put(0.04834413,0.88867822){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{HLA-B}\end{tabular}}}}%
+    \put(0.04482133,1.05921273){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{HLA-C}\end{tabular}}}}%
+    \put(0.02580222,1.55251917){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{HLA-A}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{genom_HLA.pdf}}%
+    \put(0.69089223,1.46865661){\color[rgb]{0.3254902,0.18039216,0.59215686}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{21.32p}\end{tabular}}}}%
+    \put(0.69073734,1.38864943){\color[rgb]{0.3254902,0.18039216,0.59215686}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{21.31p}\end{tabular}}}}%
+    \put(0.69073734,1.14817376){\color[rgb]{0.3254902,0.18039216,0.59215686}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{21.2p}\end{tabular}}}}%
+    \put(0.66919602,1.06551784){\color[rgb]{0.3254902,0.18039216,0.59215686}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{centromera}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{genom_HLA.pdf}}%
+  \end{picture}%
+\endgroup%

@@ -4,55 +4,62 @@ The top-level auxiliary file: doc.aux
 The style file: csplainnatkiv.bst
 Database file #1: literatura.bib
 Warning--entry type for "Frycova_bakalarka" isn't style-file defined
---line 66 of file literatura.bib
+--line 72 of file literatura.bib
+Warning--to sort, need author or key in human_cell
+Warning--to sort, need author or key in chromosome_structure
+Warning--to sort, need author or key in haploidenticka_transplantace
+Warning--to sort, need author or key in genome_gov
+Warning--empty journal in NK_receptors
+Warning--empty journal in MIC
 Warning--empty journal in art
 Warning--empty journal in sekvenovani_ziva
 Warning--empty journal in bowtie2
 Warning--empty journal in bowtie
 Warning--empty journal in elektroforeza_img
+Warning--empty publisher in transfuzni_lekarstvi
 Warning--empty journal in imgt_hla_database
 Warning--empty journal in ipd_database
 Warning--empty journal in KIR_img_princip
 Warning--empty publisher in en_smith
-You've used 13 entries,
+You've used 20 entries,
             2898 wiz_defined-function locations,
-            687 strings with 7232 characters,
-and the built_in function-call counts, 5226 in all, are:
-= -- 470
-> -- 298
-< -- 6
-+ -- 101
-- -- 87
-* -- 422
-:= -- 857
-add.period$ -- 51
-call.type$ -- 13
-change.case$ -- 50
-chr.to.int$ -- 12
-cite$ -- 35
-duplicate$ -- 262
-empty$ -- 395
-format.name$ -- 125
-if$ -- 1064
+            715 strings with 8101 characters,
+and the built_in function-call counts, 7203 in all, are:
+= -- 692
+> -- 362
+< -- 8
++ -- 126
+- -- 105
+* -- 581
+:= -- 1145
+add.period$ -- 73
+call.type$ -- 20
+change.case$ -- 63
+chr.to.int$ -- 19
+cite$ -- 60
+duplicate$ -- 365
+empty$ -- 553
+format.name$ -- 154
+if$ -- 1499
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 14
-newline$ -- 81
-num.names$ -- 60
-pop$ -- 157
+missing$ -- 30
+newline$ -- 114
+num.names$ -- 75
+pop$ -- 208
 preamble$ -- 1
-purify$ -- 50
+purify$ -- 63
 quote$ -- 0
-skip$ -- 186
+skip$ -- 265
 stack$ -- 0
-substring$ -- 44
-swap$ -- 25
+substring$ -- 62
+swap$ -- 36
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 138
-warning$ -- 9
-while$ -- 35
+type$ -- 210
+warning$ -- 16
+while$ -- 44
 width$ -- 0
-write$ -- 175
-(There were 10 warnings)
+write$ -- 251
+(There were 17 warnings)
