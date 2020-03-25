@@ -79,6 +79,7 @@
 \usepackage{amsmath}
 \usepackage{fancyhdr}
 \usepackage{float}
+\numberwithin{equation}{section}
 % Při používání citačního stylu csplainnatkiv
 % (odvozen z csplainnat, http://repo.or.cz/w/csplainnat.git)
 % lze snadno modifikovat vzhled citací v textu
@@ -101,10 +102,14 @@ něco o AML
 Obtížnost transplantace krvetvorných buněk nespočívá v lékařské části procesu,
 nýbrž v následné imunitní odpovědi organismu.
 Proč KIR? pOrotože roste počet důkazů vluvu genů KIR že mají vliv na výsledky transplance  při leukemii
+NK buňky byli identifikovány jako schopné zabíjet nádorové buňky bez omezení lidského leukocytového antigenu (HLA)
+Oproti T-lymfocitům který potřebují HLA molekulu ke zprostředkování jejich činností
+NK odpovídají také na virové infekce v časné fázi ale bohužel i do odmítnutí transplantace orgánů či buněčné
+Z toho jak jsem tam našla tu velkou buňku
 
 
-
-\chapter{Geny}
+\chapter{Imunitní systém a jeho spojitost s geny}
+\section{Geny}
 V každé buňce lidského organismu, konkrétně v buněčném jádře, je možné nálest 46 chromozomů. Jeden chromozom představuje stočenou dlouhou molekulu DNA (Deoxyribonuklenovou kyselinu). Všech 46 chromozomů obsahuje okolo 100 000 genů. Drobný segment DNA, který řídí buněčnou funkci je právě gen. Konkrétní forma genu je alela. \citep{en_smith}
 
 \begin{figure}[H]		
@@ -124,7 +129,7 @@ V každé buňce lidského organismu, konkrétně v buněčném jádře, je mož
 Uvnitř buňky máme celý genom který se ovšem nemusí projevit na povrchu buňky. Pokud se vlastnost kterou gen přenáší projeví na povrchu buňky označujeme to jako exprese genu (jeho sebevyjádření). Od toho se odvíjí i označování něco za KIR gen či KIR receptor nebo molekulu.
 
 
-\section{Imunitní systém aneb kde se vzal KIR}
+\section{Imunitní systém}
 Imunitní systém chrání organismus před škodlivinami. Skládá se ze dvou hlavních částí vrozené imunity a získané imunity. 
 
 \subsection{Vrozená imunita}
@@ -138,7 +143,7 @@ Antigeny jsou látky, které imunitní systém rozpozná a zareaguje na ně. V p
 
 
 \section{HLA a non-HLA geny}
-Human leucocyte antigen (HLA) je genetický systém, který je primárně zodpovědný za rozeznávání vlastního od cizorodého. Někdy je termín HLA zaměňován s MHC. MHC (Major histocompatibility complex) je souhrný termín pro všechny komplexy, kdy podskupinou jsou práve HLA (H - Human) který je pro lidi. Stejně tak existuje DLA (D - Dog) který je pro psy. Z funkčního i biologického hlediska jde však u všech savců o stejnou skupinu genů
+Human leucocyte antigen (HLA) je genetický systém, který je primárně zodpovědný za rozeznávání vlastního od cizorodého. Někdy je termín HLA zaměňován s MHC. MHC (Major histocompatibility complex) je souhrný termín pro všechny komplexy, kdy podskupinou jsou práve HLA (H - Human) který je pro lidi. Stejně tak existuje DLA (D - Dog) který je pro psy. Z funkčního i biologického hlediska jde však u všech savců o stejnou skupinu genů. \cite{KIR_transplantace_jindra}
 \\
 \\
 HLA a některé non-HLA geny se nacházejí na krátkém raménku 6 chromozomu, konkrétně 6p21.3 a zaujímá úsek přibližně jednu tisícinu genomu. Tento region je nejvíce komplexní a polymorfní na lidském genomu s více než 220 geny. Oproti tomu jedna ze skupin non-HLA genů, konkrétně KIR geny, se nachází na 19 chromozomu. Rozsáhlá diverzita genů vznikala snahou eliminovat neustále se měnící spektrum patogenů. Produkty těchto genů na povrch buňky významně ovlivňují odpověď na infekční choroby a výsledky buněčné či orgánové transplantace. \cite{imgt_hla_database}
@@ -154,126 +159,46 @@ HLA a některé non-HLA geny se nacházejí na krátkém raménku 6 chromozomu, 
 \noindent
 Přesná definice mezi HLA a non-HLA geny neexistuje. Mimo jiné i jejich rozdělení není v literaturách sjednocené. Jak je vidět z obrázku \ref{fig:hla_genome} je možné geny rozdělit do tří tříd. V některých literaturach je možné nalést označení non-HLA genů jako geny III.třídy v jiné, že jsou to všechny geny III třídy a některé geny třídy I. Tato práce se bude v označení za gen non-HLA či HLA odkazovat na hla.alleles \cite{imgt_hla_database}. Zjednodušeně tedy můžeme říci, že geny které nejsou řazeny k HLA skupinám jsou non-HLA. Je-li gen označen za non-HLA neznamená to, že by neměl souvislost s funkcí imunitního systému. Naopak má, jen ne výlučně s HLA systémem. Non-HLA geny kódují produkty spojené s imunitními procesy. Mezi non-HLA geny mimo jiné patří MICA, MICB a KIR. \cite{imgt_hla_database}
 
+\section{Natural killer a jeho receptory}
 \subsection{Natural killer}
-NK buňky (Natural killer) jsou velké granulární lymfocyty vrozeného imunitního systému. V krevním oběhu lidského těla je jich možné nalést $10-15\%$.  
+Natural killer buňky (NK buňky) jsou velké granulární lymfocyty vrozeného imunitního systému. V krevním oběhu lidského těla je jich možné nalést $10-15\%$. Klíčovou vlastností NK buněk je nejenom schopnost rozlišit poškozené buňky od zdravích, ale i poškozené buňky rychle a efektivně likvidovat. Poškozené buňky mohou být buňky infokované virem či buňky transfomované v nádorové. Na povrchu NK buňky se nachází receptory, které jsou zobrazeny na obrázku \ref{fig:NK_receptors}, regulující odpověď imunitního systému. Natural killer buňky oproti B- a T- lymfocitům (buňkám získané imunity) nemají antigenně specifické receptory. Jedním ze způsobům jak NK buňky rozpoznávají a zabíjejí poškozené buňky je na základě interakce mezi KIR receptorem a HLA molekulou na povrchu zkoumané buňky. Stejně tak mohou zabíjet na základě receptoru NKG2D, který aktivuje cytoxickou reakci při setkání s ligandem MICA a MICB.
+ 
 
 \begin{figure}[H]		
 		\centering
 		\includegraphics[width=300px]{./img/nk_receptory.jpg}
 		\caption{Natural killer buňka a její receptory, rozděleny na aktivační a inhibiční. Pro tuto práci jsou důležité hlavně KIR receptory a NKG2D. \cite{NK_receptors} }
-		\label{fig:hla_genome}
+		\label{fig:NK_receptors}
 \end{figure}
 
-TODO2 - obecně bych zkrátila popis HLA a trochu rozšířila non-HLA - stačí KIR a pak MICA, MICB jako ligandy NKG2D, a to jenom základ, protože podrobně KIRy máte dál, stačí asi jen zpřeházet odstavce, využít zde nějakou základní info o KIR a NK buňkách, kterou máte až dál nebo v té časti bordel :) jako KIR 19 chromozom, 
-NKG2D nebude to natural killer?
+\subsubsection{Ligand}
+Ligandem označujeme malou molekulu, která se váže na vazebné místo cílového proteinu a vyvolává fyziologickou odpověď. 
+TODO - wikipedie!!!!
 
 
-
-TODO neměla bych někam popsat co je to ligand? Já upřímně sama moc nevím co si pod tím mám představit
-Ligandy (%http://www.nasprtej.cz/gymnazium-j-k-tyla/nazvoslovi-komplexnich-sloucenin)
-Ligand = částice (atom, molekula, iont), která se váže na centrální atom, řadí se abecedně
-Centrální atom = částice, na kterou se vážou ligandy
-Centrální atom poskytuje volné orbitaly elektronovým párům ligandů.
-Ligand je atom, ion nebo molekula, poskytující jeden nebo více elektronových párů centrálnímu atomu. Ligand je súčasťou komplexných (koordinačných) zlúčenín. Každá komplexná zlúčenina obsahuje centrálny atóm (katión) a anión alebo neutrálny komplex (ligand)
--wikiskripta
-
-Ligand ve smyslu používaném v biochemii a farmakologii označuje látku, typicky malou molekulu, která vytváří komplex s biomolekulou a tato vazba má biologický význam. V užším slova smyslu se jako ligand označuje signální molekula, která se váže na vazebné místo cílového proteinu. Ligand, který je schopný po navázání na receptor vyvolat fyziologickou odpověď, se nazývá agonista, ten, který je schopen se vázat, ale odpověď nespouští, je antagonista
-- wikipedie
+\subsection{Receptor NKG2D a jeho ligandy MICA/MICB}
+NKG2D je receptor na NK buňce rozpoznávající především buněčný stres a může spustit cytotoxicitu (shopnost níčit buňky) i když se na povrchu buňky nachází inhibiční HLA-I ligandy.  
+\\
+\\
+Geny skupiny MICA a MICB jsou dle hla.alleles \cite{imgt_hla_database} označeny jako class I chain-related gene. To znamená, že se běžně neřadí do I. třídy. Oproti HLA genům, které mají svoje produkty na lymfocytech, se produkty MICA a MICB nachází na epitelových buňkách. Nejedná se tedy o standardní HLA geny, proto jsou nověji v literaturách označovány jako non-HLA. Jejich expresí na povrch buňky jsou ligandy, které se váží na receptor NKG2D. Buňky s ligandy MICA a MICB se množí při nádorovém onemocnění, zanětu nebo pod vlivem různých forem buněčného stresu a díky navázáním na receptor může být spuštěna imunitní reakce. \cite{transfuzni_lekarstvi} \cite{MIC} \cite{NK_receptors}
 
 
 \subsection{KIR}
-Killer immunoglobulin-like receptor (KIR) je skupina genů řazených mezi non-HLA geny. Jejich expresí jsou receptory na povrchu natural killer buněk (NK). Dnes je známo 15 genů rozlišujících se na inhibiční a aktivační na základě cytoplasmatického ocásku a počtu imunoglobulínových domén. 
-TODO Možná dopsat že se váží na HLA-I ligandy
-TODO možná zmínit že jsou tam ještě ty pseudogeny
+Killer immunoglobulin-like receptor (KIR) je skupina genů řazených mezi non-HLA geny. Jejich zvláštností je fakt, že se nenachází na 6 chromozomu, ale na 19 a tak shodní dárci HLA znaků mohou být neshodní v KIR znacích. Jejich expresí jsou receptory na povrchu natural killer buněk. Dnes je známo 15 genů a 2 pseudogeny rozlišujících se na inhibiční a aktivační na základě cytoplasmatického ocásku a počtu imunoglobulínových domén. \citep{KIR_transplantace_jindra}
 
 
-\subsection{MICA/MICB}
-NKG2D se zase váže na MICA/MICB
-NKG2D je receptor na NK buňce a ještě je tam nějakej natural cytotoxic receptory (NCRs)
-receptor rozpoznávající stress-damage cells
-můžou spusti cytotoxicitu i když jsou tam inhibiční a HLA-I ligandy
-Ligandy pro NKG2 jsou MICA, MICB, ULBPs
-TODO možná zmínit co je NKG2
-
-Geny skupiny MICA a MICB jsou dle hla.alleles \cite{imgt_hla_database} označeny jako class I chain-related gene. To znamená, že se běžně neřadí do I. třídy, i když je možné toto označení v některých literaturách nalést. Oproti HLA genům, které mají svoje produkty na lymfocytech, se produkty MICA a MICB nachází na epitelových buňkách. Nejedná se tedy o standardní HLA geny, proto jsou nověji v literaturách označovány jako non-HLA. Jejich expresí na povrch buňky jsou ligandy, které se váží na receptor NKG2D. Buňky s ligandy MICA a MICB se množí při nádorovém onemocnění, zanětu nebo pod vlivem různých forem buněčného stresu a díky navázáním na receptor může být spuštěna imunitní reakce. \cite{transfuzni_lekarstvi} \cite{MIC}
- 
-\begin{figure}[H]		
-		\centering
-		\includegraphics[width=150px]{./img/genom6_hla.png}
-		\caption{TODO ještě jsem sem chtěla dát obrázek, jenže je wiki original ale přijde mi hodne hezkej Gen a vztah k lidské buňce. I když ten nad ním se mi možná líbí víc když je tam MICA MICB \cite{human_cell}}
-		\label{fig:bunka_gen}
-\end{figure}
-%\begin{figure}
-%    \centering
-%    \def\svgwidth{150px}
-%    \input{img/genom_HLA.pdf_tex}
-%\end{figure}
-
-
-\section{Porovnání vhodného dárce}
-TODO tak nevím jestli to teda nedat až za KIR? 
-\\
-\\
-Aby mohl být člověk dárcem musí být ve věku 18-35 let a mít dobrý zdravotní stav. Při určování shody dárce a pacienta se  rozhoduje na základě schody alel u genů HLA -A, -B, -C, -DRB1, -DQB1. Díky velké diverzitě HLA genů je počet možných kombinací několik miliard. Některé kombinace genů se vyskytují na základě oblasti či národnosti častěji nebo mohou být naopak vzácné. HLA geny se obvykle dědí jako blok (cely haplotyp), avšak ve výjmečných případech může dojít k rekombinaci. Z tohoto důvodu je nejsnadnější nalést shodu v pokrevním příbuzenstvu.
-\\
-\\
-Jelikož každý jedinec má dvakrát geny na pozicích HLA -A, -B, -C, -DRB1 a -DQB1 (jednu pětici od otce, druhou pětici od matky), je maximální shoda 10/10 (shoda obou alel v lokusech). Čím je shoda menší tím větší je riziko nepřijetí stěpu. U nepříbuzných jedinců lze tolerovat shodu 9/10 či 8/10. \cite{Frycova_bakalarka} \cite{KIR_transplantace_jindra}
-\\
-\\
-V posledních letech se objevuje Haploidentická transplantace, kdy je možné použít krvetvorné buňky příbuzného pouze s poloviční shodou (např. všichni rodiče a děti). Umožnuje to podávání chemoterapie pár dní po transplantaci, která zníčí všechny buňky, které tělo nepřijme. Využívá se toho hlavně v případech časové tísně, kdy není čas hledat dárce v registrech. \cite{haploidenticka_transplantace}
-\\
-\\
-
-HLA-6.Chromozom a KIR 19.chromozom
-udíž se segregují nezávisle a
-HLA shodní dárci s příjemce mají obvykle různé složení KIR genů (Fryčová)
-TODO2
-+ dodat informaci o sekundárních kritériích, kde kromě věku apod. se řeší právě KIR haplotyp a v návaznosti se výzkumně zjišťuje, zda může mít vliv nejen KIR haplotyp - takže i dědičnost KIR uvést, ale i KIR alely samotné
-\\
-\\
-TODO2 možná uvést někde rozdíl genotyp, fenotyp
-\\
-\\
-
-TODO2 U nepříbuzných jedinců lze tolerovat i shodu 9/10 či 8/10. V případě vyšší shody u nepříbuzenského dárce oproti shody u příbuzného dárce může být upřednostněn příbuzný. dnes už trochu jinak - viz haploidentické transplantace (najděte si info na webu)
-\\
-\\
-K typizaci se nejčastěji používá PCR – SSP (PCR se sekvenačně specifickými primery) či
-SBT (sequence based typing) technika, v posledních letech se stává zlatým standardem přímá
-sekvenace (SBT) HLA genu.
-neni sepsáno fričová
-
-
-\section{Natural Killer a KIR}
-Mezi rizika při transplantaci krvetvorných buněk patří reakce štěpu proti hostiteli nebo relaps oněmocnění (návrat nemoci). Podle nedávných studiích výsledky příjetí štěpu ovlivňují nejenom HLA geny ale i non-HLA geny. Jedním z nich může být právě killer immunoglobulin-like receptor (KIR). V případě kdy by bylo nalezeno více vhodných dárců, tj. se shodou 10/10 nebo 9/10, vybíralo by se následně podle KIR genů \cite{KIR_transplantace_jindra} \cite{Frycova_bakalarka}.
-
-
-\\
-\\
-Klíčovou vlastností NK buněk je nejenom schopnost rozlišit poškozené buňky od zdravích ale i poškozené buňky rychle a efektivně likvidovat. Poškozené buňky mohou být buňky infokované virem či buňky transfomované v nádorové. 
-
-\subsection{KIR}
-Killer immunoglobulin-like receptor (KIR) jsou receptory na povrchu NK buněk. Natural killer buňky oproti B- a T- lymfocitům (buňkám získané imunity) nemají antigenně specifické receptory. NK buňky rozpoznávají a zabíjejí buňky na základě interakce mezi KIR receptorem a HLA molekulou na povrchu zkoumané buňky. 
 \begin{figure}[H]		
 		\centering
 		\includegraphics[width=250px]{./img/kir_pozice.png}
-		\caption{KIR se nachází na 19 chromozomu. \cite{imgt_hla_database}}
+		\caption{KIR se nachází na 19 chromozomu v oblásni jménem leukocyte receptor complex (LRC). \cite{imgt_hla_database}}
 		\label{fig:kir_position}
 \end{figure}
 
-TODO2 určitě zmínit zde, že jich je 16, které jsou které S x L a jak jsou definovány KIR haplotypy A a B
-TODO 16 neni jich 15? Nebo jinak nevím čeho 16
-
-TODO 2 trochu popřeskládat a propojit s tím, co máte uvedeno dále v nomenklatuře
+\noindent
+Jak již bylo výše zmíněno KIR receptory můžeme rozdělit na inhibiční a aktivační. Zda dojde k aktivaci NK buňky rozhoduje právě jejich rovnováha na zkoumané buňce. Zatímco inhibiční receptory se váží hlavně na molekuly HLA, aktivační receptory rozpoznávají molekuly které jsou exprimovány na membránu při buněčném stresu.
 \\
 \\
-KIR receptory můžeme rozdělit na inhibiční a aktivační. Zda dojde k aktivaci NK buňky rozhoduje právě jejich rovnováha na zkoumané buňce. Zatímco inhibiční receptory se váží hlavně na molekuly HLA, aktivační receptory rozpoznávají molekuly které jsou exprimovány na membránu při buněčném stresu.
-\\
-\\
-TODO2 za tohle dát obrázek 2.7, takže možná tu nomenklaturu vložit někam mezi tyhle první odstavce
-\\
-\\
-NK buňky ustavičně prohledávají své okolí a testují přítomnost příslušných HLA ligand (specifická HLA molekula) pro své KIR receptory. Pokud je příslušný HLA ligand přítomen naváže se na NK buňku (\ref{fig:kir_princip} případ~1). Tímto systémem jsou ochráněny vlastní HLA buňky. Pokud přítomen není je spuštěna cytotoxická reakce (schopnost níčit buňky) a zkoumaná buňka je zníčena.
+NK buňky ustavičně prohledávají své okolí a testují přítomnost příslušných HLA ligand (specifická HLA molekula) pro své KIR receptory. Pokud je příslušný HLA ligand přítomen naváže se na NK buňku (\ref{fig:kir_princip} případ~1). Tímto systémem jsou ochráněny vlastní HLA buňky. Pokud přítomen není je spuštěna cytotoxická reakce a zkoumaná buňka je zníčena.
 \\
 \\
 Některé virem napadené buňky potlačují propsání HLA ligand na povrch buňky a tím se brání cytotoxicitě proti T lymfocitům, ale naopak jsou více citlivější na cytotoxicitu proti NK buňkám. Ukázano na obrázku \ref{fig:kir_princip} případ~3.
@@ -284,16 +209,9 @@ Některé virem napadené buňky potlačují propsání HLA ligand na povrch bu�
 		\label{fig:kir_princip}
 \end{figure}
 
-TODO Ligands for NK-cell-activat-
-ing receptors are often upregulated by cellular stress
-associated with viral infection or tumor development
-[26,27] and receptor engagement can lead to the
-
-
-TODO tohle si nejsem jistá, že je pravda V případě transplantace je jedním z možných řešení pacientovi dát štěp, který obsahuje aktivační KIR receptory, které nemají jeho buňky.
 
 \subsection{Nomenklatura KIR genů}
-KIR geny (na obrázku \ref{fig:img_kir_nomenklatura} se liší různou délkou cytoplasmatických ocásku (tail) a různým počtem imunoglobulin-like domén (lg-like). Na základě této rozmanitosti byla založena nomenklatura KIR genů, tedy jejich pojmenování. 
+KIR geny (na obrázku \ref{fig:img_kir_nomenklatura}) se liší různou délkou cytoplasmatických ocásku (tail) a různým počtem imunoglobulin-like domén (lg-like). Na základě této rozmanitosti byla založena nomenklatura KIR genů, tedy jejich pojmenování. 
 \\
 \\
 Jak je vidět na obrázku~\ref{fig:img_kir_nomenklatura}, cytoplasmatický ocásek může být dlouhý (long~-~L) nebo krátký (short~-~S). Oproti tomu imunoglubulínové domény se mohou vyskytovat 2~(2D) nebo 3~(3D). 
@@ -305,6 +223,7 @@ Jak je vidět na obrázku~\ref{fig:img_kir_nomenklatura}, cytoplasmatický ocás
 		\label{fig:img_kir_nomenklatura}
 \end{figure}
 
+\noindent
 Další rozdělení KIR genů je již výše zmíněné inhibiční a aktivační. Na obrázku~\ref{fig:img_kir_ligand} je možné si povšimnout detailu, že až na KIR2DL4 jsou aktivační KIR s krátkým ocáskem, zatímco inhibiční jsou s dlouhým ocáskem. Obrázek dále uvádí vazebné ligandy pro jednotlivé receptory. 
  
 \begin{figure}[H]		
@@ -314,8 +233,8 @@ Další rozdělení KIR genů je již výše zmíněné inhibiční a aktivačn�
 		\label{fig:img_kir_ligand}
 \end{figure}
 
-\section{KIR haplotyp}
-KIR haplotyp je vyjádření jaké konkrétní KIR geny genom obsahuje. Doposud nebylo zavedeno konkrétní pravidlo. Bylo navrženo, aby každý KIR haplotyp byl označen $"KH-"$ následovaným trojmístným číslem, které bude označovat konkrétní haplotyp. Bylo by tak možné pojmenovat 999 haplotypů. 
+\subsection{KIR haplotyp}
+KIR haplotyp je vyjádření jaké konkrétní KIR geny genom obsahuje. Doposud nebylo zavedeno konkrétní pravidlo na jejich pojmenovávání. Avšak bylo navrženo, aby každý KIR haplotyp byl označen $"KH-"$ následovaným trojmístným číslem, které bude označovat konkrétní haplotyp. Bylo by tak možné pojmenovat 999 haplotypů. 
 \\
 \\
 Dále by se haplotypy rozdělovali na dvě skupiny A a B. Skupina B musí obsahovat alespoň jeden z genů KIR2DL5, KIR2DS1, KIR2DS2, KIR2DS3, KIR2DS5 a KIR3DS1. Naopak skupina A neobsahuje ani jeden z těchto genů. Z tohoto pravidla je patrné, že haplotypy B mají vždy více aktivačních KIR než haplotypy A. Za trojmístným číslem by tedy dále bylo písmeno A nebo B.
@@ -324,44 +243,57 @@ Dále by se haplotypy rozdělovali na dvě skupiny A a B. Skupina B musí obsaho
 Nakonec by byl připojen 17-ti místný binární kód, který by označoval přítomnost $"1"$ či absenci $"0"$ genu. Pořadí genů by odpovídalo pořadí v genomu.
 \\
 \\
-Výsledné pojmenování by pak mohlo vypadat následovně:
+Výsledné pojmenování by mohlo vypadat následovně:
 \begin{align}
    \label{kir_haplotyp} KH-001A-11100010011011011
 \end{align}
 
-TODO ale když se kouknu na ten obrázek co jsem stáhla tak to asi neni úplně pravda protože mám i typy AB atd. Nesouhlasí mi to s tabulkou co mám dole, kterou jsem získala tady \url{https://www.ebi.ac.uk/ipd/kir/sequenced_haplotypes.html}
-a ani přímo popis na \url{https://www.ebi.ac.uk/ipd/kir/haplotypes.html} k tomu nesedí. Kde jsem teda vzala AB?
+\noindent
+Je třeba si zde uvědomit, že každý jedinec má 2 KIR haplotypy. Je tedy možné dostat 4 kombinace - A/A, A/B, B/A nebo B/B. Haplotyp jedince je označován za A v případě kdy má kombinaci A/A a za B v případě jedné z kombinací A/B, B/A nebo B/B. Je možné si povšimnout, že u haplotypu A převládají inhibiční KIR geny a proto jsou dárci lépe přijímáni. Zatímco haplotyp B má převahu aktivační KIR a proto má vliv na celkové přežití.
+
+
+\section{Porovnání vhodného dárce}
+Mezi rizika při transplantaci krvetvorných buněk patří reakce štěpu proti hostiteli nebo relaps oněmocnění (návrat nemoci). Ač je dárce vybírán podle shody v HLA znacích, sekundární kriteria jako jsou pohlaví a věk mohou také hrát roli pro úspěšnost transplantace. Navíc podle nedávných studiích výsledky příjetí štěpu ovlivňují nejenom HLA geny ale i non-HLA geny. Jedním z nich může být právě killer immunoglobulin-like receptor (KIR). V případě kdy by bylo nalezeno více vhodných dárců, tj. se shodou 10/10 nebo 9/10, vybíralo by se následně podle KIR genů. \cite{KIR_transplantace_jindra} \cite{Frycova_bakalarka}
 \\
 \\
-TODO co je to za haplotyp který jste mi zaslala? Já ho v tý tabulce nemůžu najít.
+Při určování shody dárce a pacienta se rozhoduje na základě schody alel u genů HLA -A, -B, -C, -DRB1, -DQB1. Díky velké diverzitě HLA genů je počet možných kombinací několik miliard. Některé kombinace genů se vyskytují na základě oblasti či národnosti častěji nebo mohou být naopak vzácné. HLA geny se obvykle dědí jako blok (cely haplotyp), avšak ve výjmečných případech může dojít k rekombinaci. Z tohoto důvodu je nejsnadnější nalést shodu v pokrevním příbuzenstvu.
+\\
+\\
+Jelikož každý jedinec má dvakrát geny na pozicích HLA -A, -B, -C, -DRB1 a -DQB1 (jednu pětici od otce, druhou pětici od matky), je maximální shoda 10/10 (shoda obou alel v lokusech). Čím je shoda menší tím větší je riziko nepřijetí stěpu. U nepříbuzných jedinců lze tolerovat shodu 9/10 či 8/10. \cite{Frycova_bakalarka} \cite{KIR_transplantace_jindra}
+\\
+\\
+V posledních letech se objevuje Haploidentická transplantace, kdy je možné použít krvetvorné buňky příbuzného pouze s poloviční shodou (např. všichni rodiče a děti). Umožnuje to podávání chemoterapie pár dní po transplantaci, která zníčí všechny buňky, které tělo nepřijme. Využívá se toho hlavně v případech časové tísně, kdy není čas hledat dárce v registrech. \cite{haploidenticka_transplantace}
+\\
+\\
+KIR geny se stejně jako HLA dědí celý blok. Jelikož HLA se nachází na 6 chromozomu a KIR na 19, tak shodní dárci v HLA znacích se jen menšinově shodují v KIR genech. V případě příbuzného dárce shodujícího se v HLA znacích je pouze 25\% shodných také v KIR. \cite{KIR_haplotypy}
+\\
+\\
+K zjištění typizace se používají sekvenační metody, typicky s polymerázovou řetězovou reakcí. 
 
 
-\begin{figure}[H]		
-		\centering
-		\includegraphics[width=\textwidth]{./img/KIR_haplotypes.png}
-		\caption{KIR haplotypy. \cite{ipd_database}}
-		\label{fig:kir_haplotypes}
-\end{figure}
-
-
-\subsection{Dědičnost KIR}
-
-HLA je na 6. chormozomu KIR je 19 chomozomu. tudiž se segregují nezávisle a Hla shodní dárci s příjemcem mají obvykle různé složení KIR genů
-Nesmírná variabilita alel tohoto systému ztěžuje úspěšnost allogeních transplantací. 
-
-Jelikož jsou geny kódovány na různých chrmozomech (HLA 6 a KIR 19) takže HLA schodní dárci s příjemcem mají různé složení KIR genů.
-KIR má dva haplotypy A a B .. a pak asi můžeš dělat kombinace AA, AB a BB.
-
- Tak jako geny HLA systému se i KIR geny dědí podobně a to jako celý blok
-genů – haplotyp (viz obr. 3).
-
-A je tam k tomu hezkej obrázek disertačka Jindra
-
-
+\section{Bordel haplotypy}
+TODO centromerních a telomenrích nechápu
 Bylo zjištěno, že
 specifické složení motivů centromerních a telomerních B haplotypů KIR genů přispívá
 k ochraně před relapsem a zvyšuje šanci na úplné vyléčení AML.
+\\
+\\
+TODO možná ještě znova projet 
+\url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2953880/}
 
+(1) “best” with a KIR B–content score of more than 2 where the KIR haplotype is Cen-B/B, Tel-x/x (defined as 2DL3 absent, 2DS2 and/or 2DL2 present);
+ (2) “better” with a KIR B–content score of more than 2 and the KIR haplotype is Cen-A/x, Tel-B/x (defined as 2DL3 present, 2DS2 and/or 2DL2 present, 3DS1 and/or 2DS1 present or 2DL3 present, 2DS2 and/or 2DL2 absent, and 3DS1 and/or 2DS1 present); or (3) “neutral” with a KIR B–content score of 0 or 1 (defined as 2DL3 present, 2DS2 and/or 2DL2 absent, 3DL1 and 2DS4 present).
+\\
+\\
+ B/x dárci v porovnání s A/A dárci jsou obecně lépe přijímáni, haplotyp B má protektivní vliv na celkové přežití a přežití bez příznaků onemocnění, možnost relapsu, úmrtnost související s transplantací a vznik aGvHD (stupeň II-IV) a cGvHD. Klinickými studiemi bylo zjištěno, že konkrétně se jedná o centromerickou část B haplotypu. Na základě B haplotypu lze rozdělit vliv KIR B haplotypů do 3 skupin podle schopnosti protektivního vlivu (tzv. KIR B-content skóre). 
+\\
+\\
+TODO budu to tam dopisovat? KIR2DL5 (Where two or more genes have very similar structures and have very similar sequences, they may be given the same number but distinguished by a final letter: for example, the KIR2DL5A and KIR2DL5B genes. The similarity of these two genes suggests they are related by a recent gene duplication event. ),
+\\
+\\
+ Previously, we showed that the outcome of unrelated donor transplantation for AML was significantly improved with B/x donors compared with A/A donors, whereas recipient KIR genotype had no effect.21  Similar effects have been reported by other investigators in unrelated donor and sibling donor settings.22,23  Because KIR B haplotypes are present in approximately two-thirds of unrelated registry donors, interventions that merely increase the probability of selecting KIR B donors are unlikely to affect survival because most donors already have this characteristic by chance. Further, the specific genetic mechanism for the protective effect of B haplotype donors, perhaps attributable to the presence or absence of individual or groups of inhibitory or activating KIR, remains unknown. This analysis was designed, from understanding of the organization of the KIR locus, to identify which particular B-specific genes improve the therapeutic effect of transplantation for AML. The results point to a clinically applicable donor selection strategy that could improve the success of transplantation.
+zdroj https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2953880/
+KIR genotypy je možné najlést na \url{http://www.allelefrequencies.net/kir6001a.asp}
 
 \section{Sekvence DNA}
 Po pojmem sekvence DNA se skrývá posloupnost písmen představujících primární strukturu reálné nebo hypotetické molekuly čí vlákna DNA, které nese nějakou informaci. Jednotlivá písmena jsou označována jako nukleotidy nebo nukleové báze. Nukleové báze mohou být A~-~adenin, C~-~cytosin, G~-~guanin a T thymin. \cite{genome_gov}
@@ -382,36 +314,37 @@ Příkladem může být následující úsek sekvence na základě obrázku \ref
 
 
 \section{Alela a gen}
-Alelu můžeme definovat jako variantu genu s nepatrným rozdílemem v sekvenci nukleotidů DNA oproti jiné alele stejného genu. Geny se vyskytují minimálně ve dvou formách (dvou alelách), mnohdy jich, ale může být více. U jednoho člověka můžou být přítomny pouze dvě rozdílné alely daného genu. 
+Alelu můžeme definovat jako variantu genu s nepatrným rozdílemem v sekvenci nukleotidů DNA oproti jiné alele stejného genu. Geny se vyskytují minimálně ve dvou formách (dvou alelách), mnohdy jich, ale může být více. U jednoho člověka můžou být přítomny pouze dvě rozdílné alely daného genu. Gen určuje výskyt nějaké vlastnosti, například tento živočich bude mít oči. Alela pak určuje jakou barvu budou mít.
 \\
 \\
-TODO: Když najdu novou sekvenci tak kde je rozdíl jestli je to nový gen nebo nová alela? Neni to tak že na daný pozici v genu je vždycky gen.. a alela určuje tu vlastnost? A na co je mi teda lotus? 
+V případě genu KIR2DL1 mohou být jeho alely 0010101 a 0010102. Zápis genů tak, jak s nimi budeme pracovat může vypadat způsobem zobrazeným v \ref{alela_gen_prikad}. 
+
+\begin{equation}\begin{split} 
+   \label{alela_gen_prikad}
+   		>KIR:KIR00001\: KIR2DL1*0010101\: 14738\: bp \\
+		GTTCGGGAGGTTGGATCTCAGACGTG...
+\end{split}\end{equation}
+
+TODO: Když najdu novou sekvenci tak kde je rozdíl jestli je to nový gen nebo nová alela? Neni to tak že na daný pozici v genomu je vždycky gen.. a alela určuje tu vlastnost? A na co je mi teda lotus? 
 \\
 \\
 TODO tohle je asi jen HLA nevím jestli existuje něco jako obecné rozdělení genu a aleli, možná že rozdíl bude jen v tom že těch čísel pak může být za hvězdičkou několik v závislosti o alelu jaké skupiny genů se jedná
-Aleli jdou definovány HLA-DRB1* což označuje označuje lokus, následované 4 čísly. První dvojíčíslí označuje sérologickou specifitu dané alely, druhé dvojčíslí označuje alelu na základě její aminokyselinové sekvence. Je možná se setkat ještě s pátým číslem které označuje záměnu nukleotidů bez změny aminokyselinové sekvence.
+Aleli jdou definovány HLA-DRB1* což označuje označuje lokus, následované 4 čísly. 
+TODO nevím jestli mám nějak rozebírat to že je tam HLA-DRB1 že tam je tam jednička na konci, já totiž nevím co to znamená
 \\
 \\
-Teda že gen nám řekne: ano tenhle živočich má oči a alela mi řekne že oči jsou modrý?
-možná do přílohy by se dalo dát jak vypadají dvě alely jednoho genu - to je asi blbost
-\\
-\\
+TODO tohle nevím jestli tam dávat: 
 Alela zajišťuje konkrétní fenotypový projev genu. U jedince mohou na homologních jaderných chromozomech být přítomny pouze dvě alely. Když jsou v párových lokusech obě alely shodné, jde buď o dominantního homozygota (AA) nebo o recesivního homozygota (aa). Když jsou na párových chromozomech v daném lokusu přítomny různé alely, jde o heterozygota (Aa). Značení alel vzniká dohodou.
-GEN je KIR3DP1 alela je *001 nebo *002
 
-Zápis genů jak snimi budeme pracovat může vypadat následujícím způsobem:
-GTTCGGGAGGTTGGATCTGAGACGTGTTGTGAGTTGGTCATAGTGAAGGACGTGAGGTGC 
 
-KIR:KIR00087 KIR3DP1*001 5713 bp
-GTTCGGGAGGTTGGATCTGAGACGTGTTGTGAGTTGGTCATAGTGAAGGACGTGAGGTGC
 
-\subsection{Alely KIR genů}
-Když budu mít třeba gen KIR2DL1
-tak jeho alely jsou 2DL1*0010101 nebo 2DL1*0010102
 
-jestli to chápu tak gen mi určuje že budu mít oko a alela mi určuje jakou barvu to oko bude mít.
 
 \section{Bordel - KIR}
+TODO Ligands for NK-cell-activat-
+ing receptors are often upregulated by cellular stress
+associated with viral infection or tumor development
+[26,27] and receptor engagement can lead to the
 
 haplotypycká variabilita
 Tzv. „framework“ KIR geny (2DL4, 3DL2 A 3DL3, viz obr. 4)
@@ -641,19 +574,12 @@ Nukleové kyseliny (polynukleotidy) jsou tvořeny dlouhými řetězci (mono)nukl
 
 
 \chapter{Sekvenační metody získávání DNA dat}
-Sekvenování DNA, někdy pouze sekvenování, jsou biochemické metody, kterými se zjišťuje pořadí nukleotidů (A, C, G, T) v sekvenci DNA. Sekvenační metody se liší zejména délkou řetězce, kterou dokáží zpracovat, cenou a rychlostí sekvenace. Většina sekvenačních metod využívá vlasnosti přitahováním báze do páru pouze jednou konkrétní bází. To znamená že se adenin vždy páruje s thyminem a cytosin se vždy páruje s guaninem. Z těchto párů vzniká již známá dvojitá šroubovice DNA. \cite{sekvenovani_ziva}
-
-
-Dodat roztříhání a že délka řetězce taky hraje roly
-
-možná tady ještě napsat něco o přípravě na sekvenování - je to dyžtak v tý přednášce co nám řikala na FAV
+Sekvenování DNA, někdy pouze sekvenování, jsou biochemické metody, kterými se zjišťuje pořadí nukleotidů (A, C, G, T) v sekvenci DNA. Sekvenační metody se liší zejména délkou řetězce, kterou dokáží zpracovat, cenou a rychlostí sekvenace. Pro porovnání sekvenování celého genomu sangorovo metodou by stálo několik milion dolarů a trvalo zrhuba 10 let. Při použítí dnešních metod by cena byla zhruba tisíc dolarů. Největším problémem u sekvenování je, že sekvence vzniklé ze sekvenátoru jsou jen kousky které je třeba poskládat zpět. Většina sekvenačních metod využívá vlasnosti přitahováním báze do páru pouze jednou konkrétní bází. To znamená že se adenin vždy páruje s thyminem a cytosin se vždy páruje s guaninem. Z těchto párů vzniká již známá dvojitá šroubovice DNA. Při sekvenování je možná se často setkat, že se sekvenuje jen kónkrétní kus DNA, který je zrovna potřeba. \cite{sekvenovani_ziva}
 \\
-
-Někdy se sekvenují pouze jisté části genomu které mají pro výzkumníka v daném okamžiku význam.
-Užitečné nejen ve výzkumu ale i v diagnostice nemocí či forenzní medicíně.
 \\
+TODO možná tady ještě napsat něco o přípravě na sekvenování - je to dyžtak v tý přednášce co nám řikala na FAV
 \section{Sanger sequencing}
-Vzájemné přitahování konkrétních bází umožňuje řetězce namnožit. V prvním kroce replikace jsou nastříhané řetězce rozděleny na dvě vlákna. Lze si představit, že tyto dvě oddělená vlákna jsou dána do směsy, kde plavou jednotlivé nukleotydy spolu s upravenými nukletidy, které nesou specifickou fluorescenční barvu a na které a za které neni možné nic navázat. Následně za pomoci střídaní tepoty volně plující nukleotidy tvoří postupné páry s řetězcem, který chceme namnožit. Pokud se povede celý řetězec namnožit je odtržen a může se dále množit. Postupně ale bude docházet k navazováním nukleotidů s fluorescenční barvou. Tím se vytvoří nekolik různě dlouhých sekvencí zakončených označeným nukleotidem. Podle jeho barvy je možné poznat o jaký nukleotid se jedná. Následně jsou za pomoci elektorforézy seřazeny v gelu podle délky. Elektroforéza rozděluje různě dlouhé sekvence na základně odlišnosti pohybu v elektrickém poly. Kratší doputují dále než delší.     
+Sanger sekvenování využívá možnosti namnožení řetězce díky vzájemnému přitahování konkrétních bází. V prvním kroce replikace jsou nastříhané řetězce rozděleny na dvě vlákna. Lze si představit, že tyto dvě oddělená vlákna jsou dána do směsy, kde plavou jednotlivé nukleotydy spolu s upravenými nukletidy, které nesou specifickou fluorescenční barvu a za které neni možné nic navázat. Následně za pomoci střídaní teploty volně plující nukleotidy tvoří postupné páry s řetězcem, který chceme namnožit. Pokud se povede celý řetězec namnožit je odtržen a může se dále množit. Postupně ale bude docházet k navazováním nukleotidů s fluorescenční barvou. Tím se vytvoří nekolik různě dlouhých sekvencí zakončených označeným nukleotidem. Podle jeho barvy je možné poznat o jaký nukleotid se jedná. Následně jsou za pomoci elektorforézy seřazeny v gelu podle délky. Elektroforéza rozděluje různě dlouhé sekvence na základně odlišnosti pohybu v elektrickém poly. Kratší doputují dále než delší. Pomocí sanger metody je možné sekvenovat řetěce dlouhé až 1000 bází.   
 
 \begin{figure}[H]		
 		\centering
@@ -662,207 +588,52 @@ Vzájemné přitahování konkrétních bází umožňuje řetězce namnožit. V
 		\label{fig:elektroforeza}
 \end{figure}
 
-
-
- Mezi hlavní metodu patří sanger sekvenování oproti jiným je pomalé a spíše se používá k porovnání s novějšími metodamy. 
+ 
 TODO možná sem ještě přidat obrázek tý destičky.. ale zatím se nenašla nějakej hezkej.
  
  
 \section{NGS next-generation sekvenování}
-Next-generation sekvenování někdy označováno jako metody druhé generace jsou v porovnání se Sangerovo sekvenováním rychlejší a levnější. NGS metody jsou schopné detakovat přidávání bází jednu po druhé a zároveň  
-
+Next-generation sekvenování někdy označováno jako metody druhé generace jsou v porovnání se Sangerovo sekvenováním rychlejší a levnější, na druhou stranu ale dokáží zpracovávat jen řetězce dlouhé 100 až 500 bází, mají menší přesnost a časteji chybují. Jejich rychlost spočívá především ve schopnosti detekovat přidávání bází jednu po druhé a zároveň sekvenovat tisíce až miliony rozdílných molekul DNA najednou. 
+\\
+\\
+Všechny tyto metody si předpřipraví řetězce nastříháním na krátké části a připevenín takzvaného adeptéru na jejich konec. Adaptér je krátká molekula DNA, která slouží k uchycení sekvenovaného úseku na pevný povrch. Řetězce DNA jsou namnoženy díky čemuž vzniknout klastry identických molekul koncentrovaných v jednom místě. Díky tomu je posílen signál, který by z pouhé jedné molekuly nebly dostatečně silný. Tento signál je zachycen kamerou. Jeden z důvodů popularity NGS metod jsou i cenově dostupné stolní sekvenátory.
  
-jsou schopny detekovat přídávání bází jednu po druhé a zároven sekvenovat tisíce až miliony rozdílných molekul DNA na jednou. 
-
-hlavní nevýhodou oproti saner je krátká maximální délka výsledních sekvencí. od 100 až po 500 bází (sanger nabízí až 1000 bází)
-menší přesnost a častější chyby
-nejdřívé nastříhané na malé krátké části na konec přilepen adaptér - velmi krátká molekula DNA o přesně dané sekvenci
-- slouží k následnému navázání sekvenovaného úseku na pevných povrch. Takto upravené DNA se říká sekvenační knihovna
-po uchycení pomocí adaptéru je každý řetězec DNA namnožen čímž vznikne klastr identických molekul DNA koncentrovaných v jednom místě
-tato koncentrace posílí výsledný signál zachycený kamerou neboť signál z pouhé jedné molekuly DNA by nebyl dostatečně silný
- 
-Je rychlé a relativné nenáročné zprácování jednotlivých vzorků. Tisíce až miliony sekvencí mohou být produkovány během jednoho sekvenčního procesu. K popularitě této metody nepomohla i komerciaze cenově dostupních stolních sekvenátorů.
-
 
 \subsection{454 sekvenování a Ion Torrent}
-454 bylo vypuštěno do světa v roce 2005. Dokáže analyzovat více než milion molekul DNA najednou a délka každé jednotlivé sekvence se pohybuje okolo 700 až 1000 bází.
+454 sekvenování bylo vypuštěno do světa v roce 2005. Dokáže analyzovat více než milion molekul DNA najednou a délka každé jednotlivé sekvence se pohybuje okolo 700 až 1000 bází.
 \\
 \\
-V prvním kroku sekvenování je molekula DNA přichycena na malou "kuličku" na jejimž povrchu se postupně namnoží až kuličku zcela pokryjí identické molekuly DNA. Následuje vložení kuličky i s DNA do jedné z milionů komůrek na destičce s reakční směsí. V určitém momentě je do této směsy přidán vždy jen jeden typ báze. Mezi jednotlivými fázemi přidávání určité báze jsou přebytečné nukleotidy z předešlého kroku odstraněny. To znamená že v reakční směsy je vždy jen jeden typ nukleotidů. Během vložení každé nové báze do rostoucího řetězce DNA je uvolněna molekula zvaná pyrofosfát.  Tento pyrofosfát se následně spustí několik chemických reakci. V poslední fází enzym luciferáza vydá světelný záblesk, který je možné zachytit citlivou kamerou.  Tento postup se nazývá pyrosekvenování. V případě kdy je do řetězce přidáno několik stejných bází za sebou, například gen obsahuje podřetězec AAA, je vyzářeno , v našem případě, třikrát více světla než v případě jedné přiřazené báze. Kamera snímá celou destičku a na základě. která komůrka se rozsvítí pozná kde přoběhlo přidání báze. Intenzita světla pak určuje kolik bází bylo přidáno na jednou. 
+V prvním kroku sekvenování je molekula DNA přichycena na malou "kuličku" na jejimž povrchu se postupně namnoží až kuličku zcela pokryjí identické molekuly DNA. Následuje vložení kuličky i s DNA do jedné z milionů komůrek na destičce s reakční směsí. V určitém momentě je do této směsy přidán vždy jen jeden typ báze. Mezi jednotlivými fázemi přidávání určité báze jsou přebytečné nukleotidy z předešlého kroku odstraněny. To znamená že v reakční směsy je vždy jen jeden typ nukleotidů. Během vložení každé nové báze do rostoucího řetězce DNA je uvolněna molekula zvaná pyrofosfát.  Tento pyrofosfát se následně spustí několik chemických reakci. V poslední fází enzym luciferáza vydá světelný záblesk, který je možné zachytit citlivou kamerou.  Tento postup se nazývá pyrosekvenování. V případě, kdy je do řetězce přidáno několik stejných bází za sebou, například gen obsahuje podřetězec AAA, je vyzářeno, v našem případě, třikrát více světla než v případě jedné přiřazené báze. Kamera snímá celou destičku a na základě. která komůrka se rozsvítí pozná kde přoběhlo přidání báze. Intenzita světla pak určuje kolik bází bylo přidáno na jednou. 
 \\
 \\
-Sekvenování Ion Torrent funguje na podobné princupu sekvenování s rozdílem, že místo světla se měří změna pH v reakční směsy. Podle intenzity změny pH pak pozná kolik nukleotidů bylo přidáno do rostoucího řetězce.
+Sekvenování Ion Torrent funguje na podobné princupu sekvenování s rozdílem, že místo světla se měří změna pH v reakční směsy. Podle intenzity změny pH lze pak poznat kolik nukleotidů bylo přidáno do rostoucího řetězce.
 \\
 \\
 Hlavní slabinou těchto dvou metod je značná chybovost při přidání mnoha stejných nukleotidů do řetězce za sebou. Například pří přidání 10 A, nebude odpověď jednoznačná zda je to 10 A nebo 9.
 
 
 \subsection{Illumina}
-Při sekvenování pomocí Illumina jsou páry dvoušrobovice rozděleny na dva řetězce. Jednotlivé řetezce jsou následně přichyceny na malou destičku pomocí adaptéru. Každý řetězec se následně opakovaně množí až na destičce vznikne několik shluků. Přidání jedné molekuly ke druhé probíhá obdobně jako u Sanger sekvenování. Každý shluk tvoří jednu skupinu vzájemně identických řetězců. Mezi volné nukleotidy jsou opět zahrnuty nukleotidy označená fluorescenční barvou za které nelze nic navázat. Oproti sangerovu sekvenování je ale tato blokace vratná a po přečtení citlivou kaměrou dojde k odstranění blukující části molekuly. Počítač si pak následně zpětně spočítá co to bylo za barvu (nukleotid.) 
-Nejčastější chybou je špatně určené písmenko
-  
+Při sekvenování pomocí Illumina jsou páry dvoušrobovice rozděleny na dva řetězce. Jednotlivé řetezce jsou následně přichyceny na malou destičku pomocí adaptéru. Každý řetězec se následně opakovaně množí až na destičce vznikne několik shluků. Přidání jedné molekuly ke druhé probíhá obdobně jako u Sanger sekvenování. Každý shluk tvoří jednu skupinu vzájemně identických řetězců. Mezi volné nukleotidy jsou opět zahrnuty nukleotidy označeny fluorescenční barvou za které nelze nic navázat. Oproti sangerovu sekvenování je ale tato blokace vratná a po přečtení citlivou kamerou dojde k odstranění blokující části molekuly. Počítač si pak následně zpětně spočítá co to bylo za barvu (nukleotid.) 
 
-
-Dokáže sekvenovat až 900 miliard? bází najednou. 
-potřebuje kratší sekvence - stovky bází
-
-
-
-Je tam hezká tabulka porovnání tak by se sem mohla taky dát
 
 \subsection{SOLiD}
-SOLiD (Sequencing by Oligonucleotide Ligation and Detection)
-narozdíl od předchozích nespolehá na enzym DNA polymerázu,ale na enzym ligáza, který umí připojit části jednořetězcových molekul DNA k stávajícím řětězcům DNA.
+SOLiD (Sequencing by Oligonucleotide Ligation and Detection) se spoléhá na enzym ligáza, který umožňuje připojení jednořetězcových molekul k stávajícím řetězcům. K teplátu jsou přidávány takzvané sondy, což jsou kousky DNA. Sondy začínají všemi možnými dvojkombinacemi čtyř základních nukleotidů. V součtu je 16 sond. Na každé sondě je jedna ze čtyř flurescenčních barev. V jednotlivých krocích jsou sondy připojeny k rostoucímu řetězci. Následně je přečtena fluorescenční barva, která je odstraněna a může se tak navázat další sonda. Z výsledného signálu lze pak ododit výslednou sekvenci DNA.
 
- Zjednodušeně lze říci,
-že při SOLiD sekvenování se k templátu
-přidají kousky DNA, tzv. sondy, které za -
-čínají všemi možnými dvojkombinacemi
-čtyř základních nukleotidů, tedy 16 různých sond. Každá sonda také nese jednu ze
-čtyř fluorescenčních značení, což znamená, že čtyři různé dvojkombinace nukleotidů jsou označeny stejnou fluorescenční
-značkou. V každém kroku pak enzym ligáza připojí k rostoucímu novému řetězci
-sondu nesoucí dvojkombinaci nukleotidů odpovídající templátové DNA a snímač
-přečte její fluorescenční značení, které je
-poté odstraněno a může se připojit další
-sonda. Aby došlo k přečtení kompletní sek -
-vence, je jedna templátová molekula čtena
-opakovaně, ale „začátek“ čtení se vždy
-posune o jeden nukleotid, a každá báze je
-tak přečtena několikrát. Z kombinace znalosti sekvence adaptéru, kterým sekvenovaná DNA začíná, a výsledného signálu
-čtyř fluorescenčních barev, jak jdou po
-sobě v jednotlivých čteních, lze odvodit
-výslednou DNA sekvenci. SOLiD sekveno -
-vání má podobný výstup jako Illumina
-a produkuje rovněž krátké sekvence (maximálně 100 bází). SOLiD má problémy se
-čtením palindromatických úseků (sekvencí shodných u obou komplementárních ře -
-tězců), jež mohou vytvářet smyčku v templátové DNA, která je pak nepřístupná pro
-nasednutí 
 
+TODO Je tam hezká tabulka porovnání tak by se sem mohla taky dát
 \section{Metody třetí generace}
-Narozdíl od drohé generace není DNA templat před sekvenováním nijak namnožen a tak je čten jen z jediné původní molekuly.
-
-Například PacBio od Pacific Bioscience
-k detekci sekvence také využívá fluoresenčně značené nukleotidy. 
-vysoká citlivost umožňuje v reálném čase zaznamenávat zařazení byť jediného nukleotidu do jediného řětězce DNA.
-
-Oxford Nanopore
- Zde je jednořetězcová molekula DNA protahována mikroskopickým pórem na syntetické membráně.
-Protože každá DNA báze má trochu jiný
-tvar, dochází při protahování k odlišnému
-„ucpání“ póru a citlivé snímače přístroje
-dokážou zjistit, jak výrazně je pór v danou
-chvíli „zaplněn“, a tedy jaká báze v daný
-okamžik membránou prochází.
-výhoda je velikost .. je to malý kapesní přístroj který se dá přes USB přípojit k počítači. 
-
-obě jsou schopné přečíst 10 i více tisíc bází v rámci jedné analyzované molekuly DNA a 
-
-vysoká frekvence chyb 10-15 procent
-
-sekvenování celého genomu pomocí sangerova metody stálo několik miliard dolarů a trvalo zhruba 10 let.
-dnes by to stálo zhruba desítky tisíc dolarů 
-
-největší problém u sekvenování je že jsou roztříhané na malé části a pak je musíme zpět poskládávat zpět.
+Velkým rozdílem oproti druhé generaci je že DNA templát není před sekvenování namnožen a je čten pouze z jedné původní molekuly. Existuje například PacBio od Pacific Bioscience, který k detekci využívá fluorescenčně značené nukleotidy. Díky jeho vysoké citlovosti je možné v reálnám čase zachytit přidání i jediného nukleotidu do jediného řetězce DNA. Další zástupce je Oxford Nanapore jehož výhodou je jeho velikost. Oxford využívá odlišného tvaru bází. Obě metody jsou schopné přečíst přes 10 tisíc bází v rámci jedné analyzované molekuly DNA. 
 
 
-zajímavost
-
-Další metodou, která se dočkala rozmachu díky sekvenování druhé generace, je
-sekvenování transkriptomů (viz Živa 2016,
-2: 61–63 a 3: 104–106). Při této metodě se
-místo kompletního genomu zjišťuje sek -
-vence pouze aktivních genů, tedy genů,
-které jsou v buňkách v danou chvíli přepisovány do mediátorové RNA (mRNA)
-a překládány do proteinů. Při sekvenování
-transkriptomů se nejdříve získá veškerá
-mRNA z daného organismu (nebo jen z urči -
-té tkáně, orgánu apod.) a přepíše se do DNA
-molekuly zvané copy DNA (cDNA). Teprve
-tato DNA je následně sekvenována. Výhoda sekvenace transkriptomů oproti celým
-genomům spočívá v získání sekvencí genů
-bez balastní (nepotřebné) nekódující části
-genomové DNA. Nekódující DNA totiž často tvoří podstatnou část genomu organismu a sekvence jednotlivých genů je proto
-potřeba v této záplavě pracně hledat, což
-se ne vždy spolehlivě daří. 
 
 
-Pomocí sekvenování transkriptomů také
-můžeme studovat odlišnou expresi (míru
-přepisu) jednotlivých genů v závislosti na
-vnějších nebo vnitřních podmínkách. Zpravidla porovnáváme transkriptomy získané z organismu nacházejícího se ve dvou
-či více různých „stavech“ – např. pěstova -
-ného při různých teplotách nebo ve zdravém či nemocném stavu apod. Porovnáním
-přítomnosti a četnosti sekvencí jednotlivých genů lze určit, které geny jsou v příslušné „fázi“ aktivnější, a tedy nejspíše
-zodpovídají za reakci daného organismu
-na tento „stav“, třeba na změnu teploty
-nebo onemocní.
 
 
-Další novinkou vzešlou z dílny sekveno -
-vání druhé generace je sekvenování „exomu“. Místo celého genomu nebo v danou
-chvíli aktivních genů (transkriptomů) sek -
-venujeme pouze kódující část genomu,
-tedy geny jako takové, bez intronů (Pozn.:
-U většiny eukaryotických organismů se
-většina genů skládá z exonů a intronů.
-Exony představují kódující část genu, za -
-tímco introny nic nekódují, a proto jsou
-před přeložením do patřičného genového
-produktu vystřiženy.). Samozřejmě předem potřebujeme velmi dobře znát genom
-daného organismu a hranice jednotlvých.
-
-
-kódujících částí příslušných genů. Tato
-metoda se často používá při klinických
-studiích některých geneticky podmíněných chorob. V takovém případě lze po -
-rovnat exomy jedinců trpících poruchou
-a jedinců zdravých, a následně tak identifikovat mutace, které jsou pravděpodobně zodpovědné za nástup nemoci. Právě
-cenová dostupnost a vysoká efektivita
-metod sekvenování druhé generace dnes
-umožňuje zkoumat a rozpoznat příčiny
-řady vzácných a dříve málo studovaných
-genetických poruch.
 \section{Read}
-Read je sekvence bází odpovídající celému genomu či nějaké jeho části. Ready jsou typický výstup sekvenačních technik, kdy výstupem je sekvence nukleotidů o kterých nikdo neví co znamenají. Může to být gen, část genu nebo několik různých genů. Význam readu (o jaký gen se jedná) se zjišťuje zarovnáváním kdy se daná sekvence porovnává vůči referenčnímu genu.  
-\\
-\\
-In DNA sequencing, a read is an inferred sequence of base pairs (or base pair probabilities) corresponding to all or part of a single DNA fragment. A typical sequencing experiment involves fragmentation of the genome into millions of molecules, which are size-selected and ligated to adapters. The set of fragments is referred to as a sequencing library, which is sequenced to produce a set of reads. Je to z wiki zase
-\\
-\\
-V DNA sekvenování, read je odvozená sekvece párů bází odpovídající celému fragmentu DNA nebo jeho části
-To znamená že read je kus DNA který by mohl odpovídat nějakého konkrétnímu genu? 
-\\
-\\
-Pak tam ještě bylo psaný něco o read lenght
-Sekvenační technologie se liší? v délce vyrobenybch readů. 
-Ready díkjy 20-40 párů bází (bp) jsou ultrakrátké
-Typická sekvenační metoda vytváří ready délky 100 až 500 bp
+Read je sekvence bází odpovídající celému genomu či nějaké jeho části. Ready jsou typický výstup sekvenačních technik, kdy výstupem je sekvence nukleotidů o kterých nikdo neví co znamenají. Může to být gen, část genu nebo několik různých genů. Význam readu (o jaký gen se jedná) se zjišťuje zarovnáváním, kdy se daná sekvence porovnává vůči referenčnímu genu.
+-wiki  
 
-DNA knihovny - podle wikiskripta
-DNA knihovny jsou kolekce klonovaných DNA fragmentů genomu určitého organismu (cDNA), které jsou skladovány uvnitř hostitelských organismů (zejména bakterií). cDNA (copy DNA, complementary DNA) je získávána přepisem z mRNA pomocí enzymu reverzní transkriptázy.
 
-Kvalita knihovny
-Při přípravě sekvenční knihovny je důležité získat co nejvyšší úroveň složitosti. Jinými slovy, je důležité, aby konečná knihovna co nejvíce odrážela jedinečnost výchozího materiálu. Tento výsledek lze získat především omezením počtu segmentových duplikací. Čím kratší jsou fragmenty, tím vyšší je pravděpodobnost, že jsou fragmenty méně specifické a mohou se zarovnat na více než jednom lokusu referenční sekvence. Složitost knihovny lze tedy v podstatě měřit procentem duplicitních čtení, které jsou přítomny v sekvenčních datech
-
-Sekvenování mRNA s použitıím NGS technologií umožňuje měření genové exprese celého
-transkriptomu. Postup a provedení RNA-seq experimentu je znázorněn na obr. 14.
-Prvním úkolem je vyčistit zkoumaný vzorek o rRNA, tRNA a mitochondriální RNA,
-které u prokaryot i eukaryot tvoří přibližně 75 procent všech RNA molekul. Navzdory použití
-purifikačních metod, mezi které patří například poly(A)purifikace a DNS normalizace,
-sekvenační data mohou obsahovat menší množství těchto RNA molekul [59]. Ty mo-
-hou být odfiltrovány v následujícíh krocích bioinformatickými postupy. Zbylá mRNA
-je poté nastříhána na menší části, a je z ní připravena knihovna krátkých fragmentů s
-navázanými adaptory. Ty jsou poté sekvenovány sekvenačním přístrojem a jako výsledek
-získáme tzv. ready. Anglické slovo ’read’ značí datovou reprezentaci krátké sekvence
-DNA obvykle 50-150 bp dlouhou, která byla vyprodukována sekvenačním přístrojem.
-Samotné ready však nemají žádnou vypovídající hodnotu, a proto jsou dále bioinformat-
-icky zpracovány. Namapováním na referenční sekvenci zjistíme jejich genomickou pozici,
-ze které byly odvozeny. Většina readů je namapována na exony, což jsou transkripčně
-aktivní jednotky, a pouze malé množství readů je namapováno na transposony. Ready
-které nejde namapovat v celku, jsou rozděleny na menší části a ty jsou namapovávány
-zvlášť. Rozdělené ready umožňují jednodušší identifikaci mezer mezi exony (angl. splice
-junctions)
-tohle je z tý diplomky single-pair
 \section{Bordel}
 SANGER
 Vybraná sekvence se vloží do reakční směsi s radioaktivně označným primer  
@@ -960,6 +731,45 @@ tato blokace je orpoti sangerovi vratná
 nejčatější chybou je špatně přečtené písmenko. 
 jinak má 99 procentní úspěšnost
 
+\subsubsection{Read bordel}
+In DNA sequencing, a read is an inferred sequence of base pairs (or base pair probabilities) corresponding to all or part of a single DNA fragment. A typical sequencing experiment involves fragmentation of the genome into millions of molecules, which are size-selected and ligated to adapters. The set of fragments is referred to as a sequencing library, which is sequenced to produce a set of reads. Je to z wiki zase
+\\
+\\
+V DNA sekvenování, read je odvozená sekvece párů bází odpovídající celému fragmentu DNA nebo jeho části
+To znamená že read je kus DNA který by mohl odpovídat nějakého konkrétnímu genu? 
+\\
+\\
+Pak tam ještě bylo psaný něco o read lenght
+Sekvenační technologie se liší? v délce vyrobenybch readů. 
+Ready díkjy 20-40 párů bází (bp) jsou ultrakrátké
+Typická sekvenační metoda vytváří ready délky 100 až 500 bp
+
+DNA knihovny - podle wikiskripta
+DNA knihovny jsou kolekce klonovaných DNA fragmentů genomu určitého organismu (cDNA), které jsou skladovány uvnitř hostitelských organismů (zejména bakterií). cDNA (copy DNA, complementary DNA) je získávána přepisem z mRNA pomocí enzymu reverzní transkriptázy.
+
+Kvalita knihovny
+Při přípravě sekvenční knihovny je důležité získat co nejvyšší úroveň složitosti. Jinými slovy, je důležité, aby konečná knihovna co nejvíce odrážela jedinečnost výchozího materiálu. Tento výsledek lze získat především omezením počtu segmentových duplikací. Čím kratší jsou fragmenty, tím vyšší je pravděpodobnost, že jsou fragmenty méně specifické a mohou se zarovnat na více než jednom lokusu referenční sekvence. Složitost knihovny lze tedy v podstatě měřit procentem duplicitních čtení, které jsou přítomny v sekvenčních datech
+
+Sekvenování mRNA s použitıím NGS technologií umožňuje měření genové exprese celého
+transkriptomu. Postup a provedení RNA-seq experimentu je znázorněn na obr. 14.
+Prvním úkolem je vyčistit zkoumaný vzorek o rRNA, tRNA a mitochondriální RNA,
+které u prokaryot i eukaryot tvoří přibližně 75 procent všech RNA molekul. Navzdory použití
+purifikačních metod, mezi které patří například poly(A)purifikace a DNS normalizace,
+sekvenační data mohou obsahovat menší množství těchto RNA molekul [59]. Ty mo-
+hou být odfiltrovány v následujícíh krocích bioinformatickými postupy. Zbylá mRNA
+je poté nastříhána na menší části, a je z ní připravena knihovna krátkých fragmentů s
+navázanými adaptory. Ty jsou poté sekvenovány sekvenačním přístrojem a jako výsledek
+získáme tzv. ready. Anglické slovo ’read’ značí datovou reprezentaci krátké sekvence
+DNA obvykle 50-150 bp dlouhou, která byla vyprodukována sekvenačním přístrojem.
+Samotné ready však nemají žádnou vypovídající hodnotu, a proto jsou dále bioinformat-
+icky zpracovány. Namapováním na referenční sekvenci zjistíme jejich genomickou pozici,
+ze které byly odvozeny. Většina readů je namapována na exony, což jsou transkripčně
+aktivní jednotky, a pouze malé množství readů je namapováno na transposony. Ready
+které nejde namapovat v celku, jsou rozděleny na menší části a ty jsou namapovávány
+zvlášť. Rozdělené ready umožňují jednodušší identifikaci mezer mezi exony (angl. splice
+junctions)
+tohle je z tý diplomky single-pair
+
 \chapter{Analyza dostupných bioinformatických nástrojů pro zpracování NGS dat}
 \section{Referenční geny}
 Referenční geny byly převzaty z IPD-KIR \cite{imgt_hla_database} konkrétně soubory ve formátu $fasta$ uloženy ve stejnojmené složce. Jednotlivé soubory jsou pojmenovány genem který obsahují např. $KIR2DL1\_gen.fasta$. Každý soubor představuje všechny dostupné alely konkrétníhé genu.
@@ -1008,7 +818,10 @@ to děláte správně, jen musíte vytvořit KIR haplotyp, který podšoupnete t
 2DS4: 001
 3DL2: 0020105, 0070102
 
+\section{Biopython}
+normálně přes pip3 install biopython
 
+tak to vypadá že i ten biopython umí aligned a že to dělá přes to Burrows wheeler aligner 
 \section{ART}
 ART (next-generation sequencing read simulator) je sada simulačních nástrojů, které generují syntetické ready, jako kdyby byli získány sekvenováním pomocí NGS. Nástroj ART dokáže simulovat ready ze sekvenátorů Illuminas, 454 společnosti Roch a SOLid od společnosti Applied biosystém. Ready, vytvořené nástrojem ART jsou používány pro testování a analýzů nástrojů zpracovávající právě NGS sekvence jako například zarovávání (nástroj Bowtie). 
 \\
@@ -1210,7 +1023,7 @@ dělala jsemt o podle tohohle webovky %http://bowtie-bio.sourceforge.net/bowtie2
 
 
 z bowtie pak teda leze asi SAM formát
-
+\subsection{Popis problému}
 \subsubsection{SAM}
 1. název readu který je zarovnáván
 
@@ -1241,9 +1054,15 @@ Thus, an unpaired read that aligns to the reverse reference strand will have fla
 
 SAM Sequence Alignment Map format), respektive jeho binárně
 komprimovaná verze BAM (z angl. Binary Alignment Map format).
-
+\section{IGV}
 nakonec jsem to pustila přes IGV ale stejně se tam museli ty indexi dodělat
 %java --module-path=lib -Xmx4g @igv.args --module=org.igv/org.broad.igv.ui.Main
+a musim byt ve slozce 
+$~/Dokumenty/FAV/Diplomka/existujicisw/IGV/IGV_Linux_2.8.0$
+
+když to otevřeš tak možná občas vypadá že tam nic neni tak musíš vybrat konkrétní úsek nahoře z toho rolovátka
+Možná by se pak dalo udělat to že ty víš že tam může být maximálně dva z toho jednoho KIR souboru.. jako že může mít maximálně dvě alely z jednoho souboru
+No akorát co mi to udělá když bude mít dvě stejný? 
 
 \chapter{Seznam zkratek}
 HLA
@@ -1259,6 +1078,8 @@ WHO
 možná zmínit národní registr
 genotyp 
 fenotyp tyhle kraviny
+Genotyp pro danou chromozomální oblast se pak u většiny lidí skládá ze dvou haplotypů).
+genom kompletní sekvence daného organismu
 % 
 % PRO ANGLICKOU SAZBU JE NUTNÉ ZMĚNIT
 % CITAČNÍ STYL!

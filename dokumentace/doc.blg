@@ -10,6 +10,7 @@ Warning--to sort, need author or key in chromosome_structure
 Warning--to sort, need author or key in haploidenticka_transplantace
 Warning--to sort, need author or key in genome_gov
 Warning--empty journal in NK_receptors
+Warning--empty journal in KIR_haplotypy
 Warning--empty journal in MIC
 Warning--empty journal in art
 Warning--empty journal in sekvenovani_ziva
@@ -21,45 +22,45 @@ Warning--empty journal in imgt_hla_database
 Warning--empty journal in ipd_database
 Warning--empty journal in KIR_img_princip
 Warning--empty publisher in en_smith
-You've used 20 entries,
+You've used 21 entries,
             2898 wiz_defined-function locations,
-            715 strings with 8101 characters,
-and the built_in function-call counts, 7203 in all, are:
-= -- 692
-> -- 362
+            721 strings with 8388 characters,
+and the built_in function-call counts, 7660 in all, are:
+= -- 729
+> -- 393
 < -- 8
-+ -- 126
-- -- 105
-* -- 581
-:= -- 1145
-add.period$ -- 73
-call.type$ -- 20
-change.case$ -- 63
-chr.to.int$ -- 19
-cite$ -- 60
-duplicate$ -- 365
-empty$ -- 553
-format.name$ -- 154
-if$ -- 1499
++ -- 136
+- -- 114
+* -- 624
+:= -- 1223
+add.period$ -- 77
+call.type$ -- 21
+change.case$ -- 67
+chr.to.int$ -- 20
+cite$ -- 63
+duplicate$ -- 388
+empty$ -- 586
+format.name$ -- 167
+if$ -- 1589
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 30
-newline$ -- 114
-num.names$ -- 75
-pop$ -- 208
+missing$ -- 31
+newline$ -- 120
+num.names$ -- 80
+pop$ -- 221
 preamble$ -- 1
-purify$ -- 63
+purify$ -- 67
 quote$ -- 0
-skip$ -- 265
+skip$ -- 280
 stack$ -- 0
-substring$ -- 62
-swap$ -- 36
+substring$ -- 64
+swap$ -- 39
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 210
-warning$ -- 16
-while$ -- 44
+type$ -- 221
+warning$ -- 17
+while$ -- 47
 width$ -- 0
-write$ -- 251
-(There were 17 warnings)
+write$ -- 264
+(There were 18 warnings)

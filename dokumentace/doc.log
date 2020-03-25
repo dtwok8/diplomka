@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.10.21)  19 MAR 2020 23:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.10.21)  25 MAR 2020 01:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -679,34 +679,28 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibsep=\skip57
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count117
-) (./doc.aux
-
-LaTeX Warning: Label `fig:hla_genome' multiply defined.
-
-
-LaTeX Warning: Label `fig:bunka_gen' multiply defined.
-
-)
+) (./doc.aux)
 \openout1 = `doc.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 92.
- (/usr/share/texmf/tex/latex/lm/t1lmr.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 93.
+
+(/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 *geometry* driver: auto-detecting
@@ -783,7 +777,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 )
-Package hyperref Info: Link coloring ON on input line 92.
+Package hyperref Info: Link coloring ON on input line 93.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -793,9 +787,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count124
 )
-LaTeX Info: Redefining \ref on input line 92.
-LaTeX Info: Redefining \pageref on input line 92.
-LaTeX Info: Redefining \nameref on input line 92.
+LaTeX Info: Redefining \ref on input line 93.
+LaTeX Info: Redefining \pageref on input line 93.
+LaTeX Info: Redefining \nameref on input line 93.
 
 (./doc.out) (./doc.out)
 \@outlinefile=\write3
@@ -807,33 +801,33 @@ LaTeX Info: Redefining \nameref on input line 92.
 [2] [3
 
 ]
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 95.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 96.
  (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 95.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 96.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 95.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 96.
 
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 95.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 96.
 
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 95.
+(Font)              <12> on input line 96.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 95.
+(Font)              <8> on input line 96.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 95.
+(Font)              <6> on input line 96.
  [4] [5] (./doc.toc [6
 
 ])
@@ -846,15 +840,15 @@ Kapitola 1.
 
 ]
 Kapitola 2.
-<./img/lidska_bunka.png, id=284, 1736.4875pt x 820.06375pt>
+<./img/lidska_bunka.png, id=289, 1736.4875pt x 820.06375pt>
 File: ./img/lidska_bunka.png Graphic file (type png)
 <use ./img/lidska_bunka.png>
-Package pdftex.def Info: ./img/lidska_bunka.png  used on input line 112.
+Package pdftex.def Info: ./img/lidska_bunka.png  used on input line 117.
 (pdftex.def)             Requested size: 200.75073pt x 94.7996pt.
-<./img/chromosome.jpg, id=287, 1606.0pt x 1127.21124pt>
+<./img/chromosome.jpg, id=292, 1606.0pt x 1127.21124pt>
 File: ./img/chromosome.jpg Graphic file (type jpg)
 <use ./img/chromosome.jpg>
-Package pdftex.def Info: ./img/chromosome.jpg  used on input line 119.
+Package pdftex.def Info: ./img/chromosome.jpg  used on input line 124.
 (pdftex.def)             Requested size: 250.93842pt x 176.12633pt.
 [9
 
@@ -863,70 +857,66 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.130 \subsection
-                 {VrozenÃ¡ imunita}pdfTeX warning (ext4): destination with the 
-same identifier (name{figure.2.2}) has been already used, duplicate ignored
+l.130 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+2.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.130 \subsection
-                 {VrozenÃ¡ imunita} <./img/lidska_bunka.png> <./img/chromosome.
-jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 141--145
+l.130 
+       <./img/lidska_bunka.png> <./img/chromosome.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 146--150
 
  []
 
 [10]
-<./img/genom6_mica.jpg, id=305, 853.1875pt x 539.01375pt>
+<./img/genom6_mica.jpg, id=311, 853.1875pt x 539.01375pt>
 File: ./img/genom6_mica.jpg Graphic file (type jpg)
 <use ./img/genom6_mica.jpg>
-Package pdftex.def Info: ./img/genom6_mica.jpg  used on input line 149.
+Package pdftex.def Info: ./img/genom6_mica.jpg  used on input line 154.
 (pdftex.def)             Requested size: 301.1261pt x 190.245pt.
-<./img/nk_receptory.jpg, id=309, 385.44pt x 234.1548pt>
-File: ./img/nk_receptory.jpg Graphic file (type jpg)
-<use ./img/nk_receptory.jpg>
-Package pdftex.def Info: ./img/nk_receptory.jpg  used on input line 159.
-(pdftex.def)             Requested size: 301.1261pt x 182.93298pt.
  [11pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
 3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.163 
-       <./img/genom6_mica.jpg>] [12pdfTeX warning (ext4): destination with the 
-same identifier (name{figure.2.4}) has been already used, duplicate ignored
+l.161 
+       <./img/genom6_mica.jpg>]
+<./img/nk_receptory.jpg, id=324, 385.44pt x 234.1548pt>
+File: ./img/nk_receptory.jpg Graphic file (type jpg)
+<use ./img/nk_receptory.jpg>
+Package pdftex.def Info: ./img/nk_receptory.jpg  used on input line 169.
+(pdftex.def)             Requested size: 301.1261pt x 182.93298pt.
+ [12pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
+4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.185 
-       <./img/nk_receptory.jpg>]
-<./img/genom6_hla.png, id=328, 360.59718pt x 648.17157pt>
-File: ./img/genom6_hla.png Graphic file (type png)
-<use ./img/genom6_hla.png>
-Package pdftex.def Info: ./img/genom6_hla.png  used on input line 198.
-(pdftex.def)             Requested size: 150.56305pt x 270.63786pt.
- [13]
-Underfull \hbox (badness 10000) in paragraph at lines 210--222
+l.179 \subsection
+                 {Receptor NKG2D a jeho ligandy MICA/MICB} <./img/nk_receptory.
+jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 180--184
+
+ []
+
+<./img/kir_pozice.png, id=340, 987.69pt x 1384.17125pt>
+File: ./img/kir_pozice.png Graphic file (type png)
+<use ./img/kir_pozice.png>
+Package pdftex.def Info: ./img/kir_pozice.png  used on input line 192.
+(pdftex.def)             Requested size: 250.93842pt x 351.66008pt.
+[13]
+<./img/NK_princip.jpg, id=353, 399.0839pt x 306.98761pt>
+File: ./img/NK_princip.jpg Graphic file (type jpg)
+<use ./img/NK_princip.jpg>
+Package pdftex.def Info: ./img/NK_princip.jpg  used on input line 207.
+(pdftex.def)             Requested size: 386.95749pt x 297.67458pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 197--210
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--222
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 210--222
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 210--222
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 210--222
+Underfull \hbox (badness 10000) in paragraph at lines 197--210
 
  []
 
@@ -935,341 +925,309 @@ Underfull \hbox (badness 10000) in paragraph at lines 210--222
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.222 
-       <./img/genom6_hla.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 223--233
+l.210 \end{figure}
+                   <./img/kir_pozice.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 214--218
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 223--233
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 223--233
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 234--241
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 247--251
-
- []
-
-[15]
-<./img/kir_pozice.png, id=355, 987.69pt x 1384.17125pt>
-File: ./img/kir_pozice.png Graphic file (type png)
-<use ./img/kir_pozice.png>
-Package pdftex.def Info: ./img/kir_pozice.png  used on input line 256.
-(pdftex.def)             Requested size: 250.93842pt x 351.66008pt.
- [16]
-<./img/NK_princip.jpg, id=365, 399.0839pt x 306.98761pt>
-File: ./img/NK_princip.jpg Graphic file (type jpg)
-<use ./img/NK_princip.jpg>
-Package pdftex.def Info: ./img/NK_princip.jpg  used on input line 279.
-(pdftex.def)             Requested size: 386.95749pt x 297.67458pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 264--282
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 264--282
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 264--282
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 264--282
-
- []
-
-[17pdfTeX warning (ext4): destination with the same identifier (name{figure.2.6
+[15pdfTeX warning (ext4): destination with the same identifier (name{figure.2.6
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.282 \end{figure}
-                   <./img/kir_pozice.png>] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 287--291
-
- []
-
-[19pdfTeX warning (ext4): destination with the same identifier (name{figure.2.7
-}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.291 
+l.218 
        <./img/NK_princip.jpg>]
-<./img/KIR_nomenklatura.png, id=387, 564.1075pt x 401.5pt>
+<./img/KIR_nomenklatura.png, id=370, 564.1075pt x 401.5pt>
 File: ./img/KIR_nomenklatura.png Graphic file (type png)
 <use ./img/KIR_nomenklatura.png>
-Package pdftex.def Info: ./img/KIR_nomenklatura.png  used on input line 294.
+Package pdftex.def Info: ./img/KIR_nomenklatura.png  used on input line 221.
 (pdftex.def)             Requested size: 386.95749pt x 275.41792pt.
-<./img/KIR_nomenklatura2.png, id=390, 1360.08125pt x 649.42625pt>
+<./img/KIR_nomenklatura2.png, id=373, 1360.08125pt x 649.42625pt>
 File: ./img/KIR_nomenklatura2.png Graphic file (type png)
 <use ./img/KIR_nomenklatura2.png>
-Package pdftex.def Info: ./img/KIR_nomenklatura2.png  used on input line 303.
+Package pdftex.def Info: ./img/KIR_nomenklatura2.png  used on input line 231.
 (pdftex.def)             Requested size: 386.95749pt x 184.76138pt.
- [20pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
-8}) has been already used, duplicate ignored
+ [16pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
+7}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.307 
+l.235 
        <./img/KIR_nomenklatura.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 309--319
+Underfull \hbox (badness 10000) in paragraph at lines 237--247
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 309--319
+Underfull \hbox (badness 10000) in paragraph at lines 237--247
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 309--319
+Underfull \hbox (badness 10000) in paragraph at lines 237--247
 
  []
 
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 323.
-
-(/usr/share/texmf/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Underfull \hbox (badness 10000) in paragraph at lines 323--328
-
- []
-
-[21pdfTeX warning (ext4): destination with the same identifier (name{figure.2.9
+[17pdfTeX warning (ext4): destination with the same identifier (name{figure.2.8
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.328 
+l.253 
        <./img/KIR_nomenklatura2.png>]
-<./img/KIR_haplotypes.png, id=410, 634.62094pt x 767.11594pt>
-File: ./img/KIR_haplotypes.png Graphic file (type png)
-<use ./img/KIR_haplotypes.png>
-Package pdftex.def Info: ./img/KIR_haplotypes.png  used on input line 332.
-(pdftex.def)             Requested size: 386.95749pt x 467.76447pt.
- [22pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
-10}) has been already used, duplicate ignored
+Underfull \hbox (badness 10000) in paragraph at lines 256--272
 
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.342 
-       <./img/KIR_haplotypes.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 358--363
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--272
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--272
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--272
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--272
+
+ []
+
+[18]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 282.
+
+ (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Underfull \hbox (badness 10000) in paragraph at lines 275--283
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 284--297
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 284--297
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 284--297
+
+ []
+
+
+Overfull \hbox (8.5552pt too wide) in paragraph at lines 284--297
+\T1/lmr/m/n/12 no-typy je moºné naj-lést na [][]$\T1/lmtt/m/n/12 http : / / www
+ . allelefrequencies . net / kir6001a .
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 299--304
 
  []
 
 File: ./img/chromosome.jpg Graphic file (type jpg)
 <use ./img/chromosome.jpg>
-Package pdftex.def Info: ./img/chromosome.jpg  used on input line 369.
+Package pdftex.def Info: ./img/chromosome.jpg  used on input line 310.
 (pdftex.def)             Requested size: 250.93842pt x 176.12633pt.
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 376--392
+
+Underfull \hbox (badness 10000) in paragraph at lines 317--321
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 376--392
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 376--392
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 376--392
-
- []
-
-[24pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1
-1}) has been already used, duplicate ignored
+[20pdfTeX warning (ext4): destination with the same identifier (name{figure.2.9
+}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.392 
-      ] [25] [26]
-Overfull \hbox (4.92717pt too wide) in paragraph at lines 509--510
+l.321 
+      ]
+Underfull \hbox (badness 10000) in paragraph at lines 328--338
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 328--338
+
+ []
+
+[21] [22] [23]
+Overfull \hbox (4.92717pt too wide) in paragraph at lines 451--452
 []\T1/lmr/m/n/12 HLA je roz-sáhlý kom-plex gen·, které de-ter-mi-nují (ur-£ují,
  roz-po-zná-vjí????)
  []
 
-[27]
-Underfull \hbox (badness 10000) in paragraph at lines 545--554
+
+Underfull \hbox (badness 10000) in paragraph at lines 487--496
 
  []
 
-[28]
-Overfull \hbox (14.15518pt too wide) in paragraph at lines 573--582
+[24]
+Overfull \hbox (14.15518pt too wide) in paragraph at lines 515--524
 \T1/lmr/m/n/12 a me-cha-nis-mus re-gu-lace cyto-to-xi-city NK bu-n¥k se jako ce
 -lek na-zývá 14^^Rmissing-
  []
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 624--630
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 566--572
 
  []
 
-[30]
+[26] [27]
 Kapitola 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 640--642
+Underfull \hbox (badness 10000) in paragraph at lines 577--581
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 643--646
-
- []
-
-<./img/elektroforeza.png, id=462, 988.44281pt x 484.05844pt>
+<./img/elektroforeza.png, id=455, 988.44281pt x 484.05844pt>
 File: ./img/elektroforeza.png Graphic file (type png)
 <use ./img/elektroforeza.png>
-Package pdftex.def Info: ./img/elektroforeza.png  used on input line 651.
+Package pdftex.def Info: ./img/elektroforeza.png  used on input line 586.
 (pdftex.def)             Requested size: 386.95749pt x 189.49847pt.
-[31
+[28
 
-] [32pdfTeX warning (ext4): destination with the same identifier (name{figure.3
-.1}) has been already used, duplicate ignored
+]
+Underfull \hbox (badness 10000) in paragraph at lines 596--600
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 603--613
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 603--613
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 603--613
+
+ []
+
+[29pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1
+}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.678 \subsection
-                 {454 sekvenovÃ¡nÃ­ a Ion Torrent} <./img/elektroforeza.png (PN
-G copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 679--689
+l.613 
+       <./img/elektroforeza.png (PNG copy)>] [30] [31] [32]
+Underfull \hbox (badness 10000) in paragraph at lines 735--746
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 679--689
+Underfull \hbox (badness 10000) in paragraph at lines 735--746
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 679--689
-
- []
-
-[33] [34] [35]
-Underfull \hbox (badness 10000) in paragraph at lines 817--831
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 817--831
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 817--831
-
- []
-
-[36] [37] [38] [39]
+[33] [34]
 Kapitola 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 956--966
+Underfull \hbox (badness 10000) in paragraph at lines 775--785
 
  []
 
 
-Overfull \hbox (4.45648pt too wide) in paragraph at lines 956--966
+Overfull \hbox (4.45648pt too wide) in paragraph at lines 775--785
 \T1/lmr/m/n/12 Krom¥ sou-bor· $\OMS/lmsy/m/n/12 ^^C[]\OML/lmm/m/it/12 gen:fasta
 $ \T1/lmr/m/n/12 ob-sa-huje sloºka $\OML/lmm/m/it/12 fasta$ \T1/lmr/m/n/12 také
  sou-bory $\OMS/lmsy/m/n/12 ^^C[]\OML/lmm/m/it/12 prot:fast$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 956--966
+Underfull \hbox (badness 10000) in paragraph at lines 775--785
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 956--966
+Underfull \hbox (badness 10000) in paragraph at lines 775--785
 
  []
 
-[40
+[35
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1004--1012
+Underfull \hbox (badness 10000) in paragraph at lines 826--834
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1004--1012
+Underfull \hbox (badness 10000) in paragraph at lines 826--834
 
  []
 
-[41]
-Overfull \hbox (47.35039pt too wide) in paragraph at lines 1031--1037
+[36]
+Overfull \hbox (47.35039pt too wide) in paragraph at lines 853--859
 \OML/lmm/m/it/12 omoje[]rt[]ata$ \T1/lmr/m/n/12 To-hle po-u-ºí-vej: $\OML/lmm/m
 /it/12 art[]llumina \OMS/lmsy/m/n/12 ^^@ \OML/lmm/m/it/12 ssMSv\OT1/lmr/m/n/12 
 1 \OMS/lmsy/m/n/12 ^^@ \OML/lmm/m/it/12 sam \OMS/lmsy/m/n/12 ^^@ \OML/lmm/m/it/
 12 iamplicon[]eference:fa \OMS/lmsy/m/n/12 ^^@
  []
 
-
-Overfull \hbox (10.25095pt too wide) in paragraph at lines 1082--1084
+[37]
+Overfull \hbox (10.25095pt too wide) in paragraph at lines 904--906
 \T1/lmr/m/n/12 plus (10) vlákno je od-li²ný od aln_start_pos mi-nus (-) vlákna.
 . ???? WHAT??? 
  []
 
-[42]
-Overfull \hbox (46.67099pt too wide) in paragraph at lines 1092--1093
+
+Overfull \hbox (46.67099pt too wide) in paragraph at lines 914--915
 []\T1/lmr/m/n/12 aln_start_pos is the alig-n-ment start po-si-tion of re-fe-ren
 ce sequence. aln_start_pos
  []
 
 
-Overfull \hbox (1.83516pt too wide) in paragraph at lines 1094--1096
+Overfull \hbox (1.83516pt too wide) in paragraph at lines 916--918
 \T1/lmr/m/n/12 from plus strand or mi-nus strand of the re-fe-rence sequence. r
 ead_seq_aligned
  []
 
 
-Overfull \hbox (56.56073pt too wide) in paragraph at lines 1101--1106
+Overfull \hbox (56.56073pt too wide) in paragraph at lines 923--928
 []\T1/lmr/m/n/12 pak jsou tady 4 do-po-ru-£ené po-u-ºití $\OML/lmm/m/it/12 art[
 ]llumina\OT1/lmr/m/n/12 [\OML/lmm/m/it/12 options\OT1/lmr/m/n/12 ] \OMS/lmsy/m/
 n/12 ^^@ \OML/lmm/m/it/12 ss < sequencing[]ystem >
  []
 
-[43] [44]
-Overfull \hbox (0.4659pt too wide) in paragraph at lines 1191--1192
+[38] [39]
+Overfull \hbox (0.4659pt too wide) in paragraph at lines 1013--1014
 []\T1/lmr/m/n/12 takºe za-rov-nání by mohlo být te-o-re-ticky na-ma-po-vání na 
 re-fe-ren£ní gen??? 
  []
 
 
-Overfull \hbox (103.68022pt too wide) in paragraph at lines 1194--1199
+Overfull \hbox (103.68022pt too wide) in paragraph at lines 1016--1021
 \T1/lmr/m/n/12 st°edí ex-port BT2_HOME=$\OML/lmm/m/it/12 =home=kate=Dokumenty=F
 AV=Diplomka=existujicisw=bowtie\OT1/lmr/m/n/12 2 \OMS/lmsy/m/n/12 ^^@
  []
 
-[45] [46]
+[40]
+Overfull \hbox (58.1254pt too wide) in paragraph at lines 1058--1062
+\T1/lmr/m/n/12 musim byt ve slo-zce $ \OML/lmm/m/it/12 =Dokumenty=FAV=Diplomka=
+existujicisw=IGV=IGV[]inux[]:\OT1/lmr/m/n/12 8\OML/lmm/m/it/12 :\OT1/lmr/m/n/12
+ 0$ 
+ []
+
+[41]
 Kapitola 5.
-[47
+[42
 
 ]
 Kapitola 6.
-(./doc.bbl [48
+(./doc.bbl [43
 
 ]
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -1280,32 +1238,28 @@ Overfull \hbox (33.90623pt too wide) in paragraph at lines 19--23
 ji-[]pomahaji-[]pribuzni$[][]\T1/lmr/m/n/10.95 .  
  []
 
-[49
+[44
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1263.
- [50]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1263.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1093.
+ [45]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1093.
  (./doc.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1263.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1263.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1093.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1093.
 
 Package rerunfilecheck Info: File `doc.out' has not changed.
-(rerunfilecheck)             Checksum: CB788FA6F6A67A236D0BC311686CA70C;6425.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1263.
+(rerunfilecheck)             Checksum: 280A9956D57BE2BC36343EB6EAF105DD;6767.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1093.
  ) 
 Here is how much of TeX's memory you used:
- 11492 strings out of 494271
- 158006 string characters out of 6162318
- 244103 words of memory out of 5000000
- 14556 multiletter control sequences out of 15000+600000
+ 11485 strings out of 494271
+ 157844 string characters out of 6162318
+ 243122 words of memory out of 5000000
+ 14553 multiletter control sequences out of 15000+600000
  72060 words of font info for 48 fonts, out of 8000000 for 9000
  382 hyphenation exceptions out of 8191
- 31i,8n,43p,1724b,524s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 31i,14n,43p,1724b,524s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
 ips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share
 /texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm
@@ -1317,10 +1271,10 @@ s/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb><
 ublic/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/sh
 are/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public
 /lm/lmtt12.pfb>
-Output written on doc.pdf (50 pages, 2004447 bytes).
+Output written on doc.pdf (45 pages, 1827965 bytes).
 PDF statistics:
- 667 PDF objects out of 1000 (max. 8388607)
- 579 compressed objects within 6 object streams
- 138 named destinations out of 1000 (max. 500000)
- 432 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 654 PDF objects out of 1000 (max. 8388607)
+ 573 compressed objects within 6 object streams
+ 136 named destinations out of 1000 (max. 500000)
+ 430 words of extra memory for PDF output out of 10000 (max. 10000000)
 
