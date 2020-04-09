@@ -1,4 +1,4 @@
-\begin{thebibliography}{21}
+\begin{thebibliography}{24}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -24,6 +24,18 @@
 \bibitem[hum()]{human_cell}
 \emph{Basic genetics} [online]. [cit.~2020/12/3].
 \newblock Dostupn{\'{e}}~z: \url{https://kintalk.org/genetics-101/}.
+
+\bibitem[kir()]{kir_genotypes_10}
+\emph{KIR genotypes} [online].
+\newblock Dostupn{\'{e}}~z:
+  \url{http://www.allelefrequencies.net/kir6001a.asp}.
+
+\bibitem[Baranwal -- Mehra(2017)Baranwal, Mehra]{chromozome6_mica}
+{\sc Baranwal}, A. -- {\sc Mehra}, N.
+\newblock Major Histocompatibility Complex Class I Chain-Related A (MICA)
+  Molecules: Relevance in Solid Organ Transplantation.
+\newblock \emph{Frontiers in Immunology}. 02 2017, 8.
+\newblock \doi{10.3389/fimmu.2017.00182}.
 
 \bibitem[Bernareggi et~al.(2019)Bernareggi, Pouyanfard,, Kaufman]{NK_receptors}
 {\sc Bernareggi}, D. -- {\sc Pouyanfard}, S. -- {\sc Kaufman}, D.~S.
@@ -52,6 +64,13 @@
 {\sc Hernychová}, L.
 \newblock Receptory NK buněk.
 \newblock 2012.
+
+\bibitem[Hsu et~al.(2002)Hsu, Chida, Geraghty,, Dupont]{KIR_haplotypy_ct}
+{\sc Hsu}, K.~C. et~al.
+\newblock \emph{The killer cell immunoglobulin‐like receptor (KIR) genomic
+  region: gene‐order, haplotypes and allelic polymorphism} [online]. 2002.
+\newblock Dostupn{\'{e}}~z:
+  \url{https://onlinelibrary.wiley.com/doi/full/10.1034/j.1600-065X.2002.19004.x}.
 
 \bibitem[Huang et~al.(2012)Huang, Li, Myers,, Marth]{art}
 {\sc Huang}, W. et~al.
@@ -105,18 +124,18 @@
 \newblock 2012.
 \newblock ISBN 978-80-247-3460-6.
 
-\bibitem[Robinson et~al.(2013{\natexlab{a}})Robinson, Halliwell, McWilliam,
-  Lopez,, Marsh]{imgt_hla_database}
-{\sc Robinson}, J. et~al.
-\newblock The IMGT/HLA Database.
-\newblock 2013{\natexlab{a}}.
-\newblock Dostupn{\'{e}}~z: \url{https://www.ebi.ac.uk/ipd/index.html}.
-
-\bibitem[Robinson et~al.(2013{\natexlab{b}})Robinson, Halliwell, McWilliam,
-  Lopez,, Marsh]{ipd_database}
+\bibitem[Robinson et~al.(2013)Robinson, Halliwell, McWilliam, Lopez,,
+  Marsh]{ipd_database}
 {\sc Robinson}, J. et~al.
 \newblock IPD—the Immuno Polymorphism Database.
-\newblock 2013{\natexlab{b}}.
+\newblock 2013.
+\newblock Dostupn{\'{e}}~z: \url{https://www.ebi.ac.uk/ipd/index.html}.
+
+\bibitem[Robinson et~al.(2015)Robinson, Halliwell, McWilliam, Lopez,,
+  Marsh]{imgt_hla_database}
+{\sc Robinson}, J. et~al.
+\newblock The IPD and IMGT/HLA Database:allele variant databases.
+\newblock 2015.
 \newblock Dostupn{\'{e}}~z: \url{https://www.ebi.ac.uk/ipd/index.html}.
 
 \bibitem[S.Kannana et~al.(2017)S.Kannana, ArianexysAquino-Lopez,,

@@ -27,7 +27,7 @@
 % Název práce
 \title{Nástroj pro automatickou identifikaci KIR alel}
 
-\thanktext{Ráda bych poděkovala Ing. Lucii Houdové, Ph.D. za cenné rady, věcné připomínky, trpělivost a ochotu, kterou mi v průběhu zpracování této práce věnovala.}
+\thanktext{Ráda bych poděkovala Ing. Lucii Houdové, Ph.D. za cenné rady, věcné připomínky, trpělivost a ochotu, kterou mi v průběhu zpracování této práce věnovala. Dále bych chtěla poděkovat panu ing. Jiřímu Fatkovi za jeho rady a pomoc při vytváření praktické části. }
 % 
 % Texty abstraktů (anglicky, česky)
 %
@@ -96,17 +96,13 @@
 \tableofcontents
 
 \chapter{Úvod}
-
-něco o transplantaci kostní dřeně, narazit že když by bylo 10/10 tak by bylo vhodné dělat porovnání těch KIR
-něco o AML
-Obtížnost transplantace krvetvorných buněk nespočívá v lékařské části procesu,
-nýbrž v následné imunitní odpovědi organismu.
-Proč KIR? pOrotože roste počet důkazů vluvu genů KIR že mají vliv na výsledky transplance  při leukemii
-NK buňky byli identifikovány jako schopné zabíjet nádorové buňky bez omezení lidského leukocytového antigenu (HLA)
-Oproti T-lymfocitům který potřebují HLA molekulu ke zprostředkování jejich činností
-NK odpovídají také na virové infekce v časné fázi ale bohužel i do odmítnutí transplantace orgánů či buněčné
-Z toho jak jsem tam našla tu velkou buňku
-
+Transplantace krvetvorných buněk se využívá jako terapeutická procedura pro mnoho vážných hematologických poruch mezi které patří například akutní myeloidní leukemie. Transplantace jako taková je poměrně jednoduchý proces, kdy jsou dárci odebrány krvetvorné buňky a vpraveny do těla pacienta trpícím hematologickou poruchou. Problém nastává při reakci imunitního systému na nově vložený štěp. V případě, že si štěp s imunitním systémem nebudou rozumět, může dojít k silné zánětlivé reakci, která může skončit až smrtí pacienta. 
+\\
+\\
+K potlačení odmítnutí se vybírají dárci podle shody v HLA znacích, věku a pohlaví. Ovšem ani to neni bezrizikové. V poslední době se množí studie, které prokazují vliv takzvaných non-HLA genů. Jedním z nich může být i gen Killer-cell immunoglobulin-like receptor (KIR). V případě, kdy by se rozhodovalo mezi více dárce by se mohl ten vhodnější vybrat právě na základě KIR. Pro zjištění jak HLA znaků tak KIR genů se využívají sekvenační metody. \citep{KIR_transplantace_jindra} 
+\\
+\\
+Cílem práce je navrhnout a implementovat nástroj pro automatickou identifikaci KIR alel. Vstupní data tzv. ready jsou neznámý kus DNA (posloupnost písmen A, C, G a T) a jsou výstupem ze sekvenačních metod. Tyto data budou pro vývoj nástroje simulována nástrojem ART a v konečné fázi testování budou data vyměněna za data z FN Plzeň. Jelikož je třeba odhadnout co se pod danou posloupností nachází, bude použit nástroj bowtie2 pro zarování readů vzhledem k referenčním KIR genům. V poslední fázi bude vyhodnocena shoda readů a referenčních genů.
 
 \chapter{Imunitní systém a jeho spojitost s geny}
 \section{Geny}
@@ -114,206 +110,45 @@ V každé buňce lidského organismu, konkrétně v buněčném jádře, je mož
 
 \begin{figure}[H]		
 		\centering
-		\includegraphics[width=200px]{./img/lidska_bunka.png}
-		\caption{Gen a vztah k lidské buňce. \cite{human_cell}}
-		\label{fig:bunka_gen}
-\end{figure}
-
-\begin{figure}[H]		
-		\centering
-		\includegraphics[width=250px]{./img/chromosome.jpg}
-		\caption{Struktura chromozomu. Na tomto obrázku je důležité si povšimnout p a q raménka a centromeru. \cite{chromosome_structure}}
+		\includegraphics[width=150px]{./img/lidska_bunka.png}
+		\includegraphics[width=200px]{./img/chromosome.jpg}
+		\caption{Převzato z \cite{human_cell} a \cite{chromosome_structure}}
 		\label{fig:chrmosome}
 \end{figure}
 
-Uvnitř buňky máme celý genom který se ovšem nemusí projevit na povrchu buňky. Pokud se vlastnost kterou gen přenáší projeví na povrchu buňky označujeme to jako exprese genu (jeho sebevyjádření). Od toho se odvíjí i označování něco za KIR gen či KIR receptor nebo molekulu.
+\noindent
+Uvnitř buňky máme celý genom který se ovšem nemusí projevit na povrchu buňky. Pokud se vlastnost kterou gen přenáší projeví na povrchu buňky označujeme to jako exprese genu (jeho sebevyjádření). Od toho se odvíjí i konkrétní názvosloví typu KIR gen, KIR receptor či molekula.
 
 
 \section{Imunitní systém}
-Imunitní systém chrání organismus před škodlivinami. Skládá se ze dvou hlavních částí vrozené imunity a získané imunity. 
-
-\subsection{Vrozená imunita}
-Vrozená imunita též označována přirozená, neadaptivní, antigenně nespecifická je neměnně zapsána v DNA. To znamená, že při každém setkání s antigenem odpoví stejnou reakcí. Buňky nesoucí vrozenou imunitu jsou stále přítomně v krvy, takže jejich případná aktivace je takřka okamžitá (minuty až hodiny). Do této imunity patří i natural killer buňky s KIR receptory, které budou dále rozebírány v textu. 
-
-\subsection{Získaná imunita}
-Získaná imunita též označována specifická či adaptivní oproti specifické má v genomu zapsány pouze své základy. V průběhu lidského života se vyvyjí a mění. Změna může nastat například očkování nebo proděláním patřičné choroby. Tato změna ovšem nemusí být trvalá. Z těchto důvodů může být odpověď ziskáné imunity při setkání se stejnou chorobou rozdílná. Fungování získané imunity zajišťují T- a B- lymfocyty, ale nefunguje samostantně. Při zabíjení patogenů spolupracuje s vrozenou imunitou.
-
-\subsection{Antigen}
-Antigeny jsou látky, které imunitní systém rozpozná a zareaguje na ně. V podstatě to může být jakákoli bílkoviná sloučenina. Antigen se obvykle nachází na povrchu buňky jako vyjádření genu. Imunitní systém následně zjistí o jaký antigen se jedná, respektivě o jakou buňku se jedná, zda tělu vlastní (např. zdravá buňka) nebo buňku tělu cizí (např. nádorová buňka), tedy jedná-li se o expresy lidského genu nebo například viru. Jedná-li se o buňku tělu cizí imunitní systém reaguje snahou ji zničit.
+Imunitní systém chrání organismus před škodlivinami. Skládá se ze dvou hlavních částí vrozené imunity a získané imunity. Reakce imunitního systému je vždy komplexní reakce organismu mezi jednotlivými buňkami imunitního systému reagující na přítomnost specifických antigenů. Antigeny jsou látky, které imunitní systém rozpozná a zareaguje na ně. V podstatě to může být jakákoli bílkoviná sloučenina. Antigen se obvykle nachází na povrchu buňky jako vyjádření genu. Imunitní systém následně zjistí o jaký antigen se jedná, respektivě o jakou buňku se jedná, zda tělu vlastní (např. zdravá buňka) nebo buňku tělu cizí (např. nádorová buňka), tedy jedná-li se o expresy lidského genu nebo například viru. Jedná-li se o buňku tělu cizí imunitní systém reaguje snahou ji zničit. 
+\\
+\\
+\textbf{Vrozená imunita} též označována přirozená, neadaptivní, antigenně nespecifická je neměnně zapsána v DNA. To znamená, že při každém setkání s antigenem odpoví stejnou reakcí. Buňky nesoucí vrozenou imunitu jsou stále přítomně v krvy, takže jejich případná aktivace je takřka okamžitá (minuty až hodiny). Do této imunity patří i natural killer buňky s KIR receptory, které budou dále rozebírány v textu. 
+\\
+\\
+\textbf{Získaná imunita} též označována specifická či adaptivní oproti specifické má v genomu zapsány pouze své základy. V průběhu lidského života se vyvyjí a mění. Změna může nastat například očkování nebo proděláním patřičné choroby. Tato změna ovšem nemusí být trvalá. Z těchto důvodů může být odpověď ziskáné imunity při setkání se stejnou chorobou rozdílná. Fungování získané imunity zajišťují T- a B- lymfocyty, ale nefunguje samostantně. Při zabíjení patogenů spolupracuje s vrozenou imunitou.
 
 
 \section{HLA a non-HLA geny}
 Human leucocyte antigen (HLA) je genetický systém, který je primárně zodpovědný za rozeznávání vlastního od cizorodého. Někdy je termín HLA zaměňován s MHC. MHC (Major histocompatibility complex) je souhrný termín pro všechny komplexy, kdy podskupinou jsou práve HLA (H - Human) který je pro lidi. Stejně tak existuje DLA (D - Dog) který je pro psy. Z funkčního i biologického hlediska jde však u všech savců o stejnou skupinu genů. \cite{KIR_transplantace_jindra}
 \\
 \\
-HLA a některé non-HLA geny se nacházejí na krátkém raménku 6 chromozomu, konkrétně 6p21.3 a zaujímá úsek přibližně jednu tisícinu genomu. Tento region je nejvíce komplexní a polymorfní na lidském genomu s více než 220 geny. Oproti tomu jedna ze skupin non-HLA genů, konkrétně KIR geny, se nachází na 19 chromozomu. Rozsáhlá diverzita genů vznikala snahou eliminovat neustále se měnící spektrum patogenů. Produkty těchto genů na povrch buňky významně ovlivňují odpověď na infekční choroby a výsledky buněčné či orgánové transplantace. \cite{imgt_hla_database}
-
+Přesná definice mezi HLA a non-HLA geny neexistuje. Mimo jiné i jejich rozdělení není v literaturách sjednocené. Jak je vidět z obrázku \ref{fig:hla_genome} je možné geny rozdělit do tří tříd. V některých literaturach je možné nalést označení non-HLA genů jako geny III.třídy v jiné, že jsou to všechny geny III třídy a některé geny třídy I. Tato práce se bude v označení za gen non-HLA či HLA odkazovat na hla.alleles \cite{imgt_hla_database}. Zjednodušeně tedy můžeme říci, že geny které nejsou řazeny k HLA skupinám jsou non-HLA. Je-li gen označen za non-HLA neznamená to, že by neměl souvislost s funkcí imunitního systému. Naopak má, jen ne výlučně s HLA systémem. Non-HLA geny kódují produkty spojené s imunitními procesy. Mezi non-HLA geny mimo jiné patří MICA, MICB a KIR. \cite{imgt_hla_database}
 
 \begin{figure}[H]		
 		\centering
 		\includegraphics[width=300px]{./img/genom6_mica.jpg}
-		\caption{6 chromozom. TODO ten spodní řádek bych asi usekla- stejně nevím co to znamená. }
+		\caption{Šestý chromozom zobrazující HLA i non-HLA geny. Protein vzniklý expresí MICA genu je definován exony, které definují přepis do RNA. Introny v praxi nehrají roli a často jsou sekvenovány jen exony. \cite{chromozome6_mica} 
+		}
 		\label{fig:hla_genome}
 \end{figure}
 
 \noindent
-Přesná definice mezi HLA a non-HLA geny neexistuje. Mimo jiné i jejich rozdělení není v literaturách sjednocené. Jak je vidět z obrázku \ref{fig:hla_genome} je možné geny rozdělit do tří tříd. V některých literaturach je možné nalést označení non-HLA genů jako geny III.třídy v jiné, že jsou to všechny geny III třídy a některé geny třídy I. Tato práce se bude v označení za gen non-HLA či HLA odkazovat na hla.alleles \cite{imgt_hla_database}. Zjednodušeně tedy můžeme říci, že geny které nejsou řazeny k HLA skupinám jsou non-HLA. Je-li gen označen za non-HLA neznamená to, že by neměl souvislost s funkcí imunitního systému. Naopak má, jen ne výlučně s HLA systémem. Non-HLA geny kódují produkty spojené s imunitními procesy. Mezi non-HLA geny mimo jiné patří MICA, MICB a KIR. \cite{imgt_hla_database}
-
-\section{Natural killer a jeho receptory}
-\subsection{Natural killer}
-Natural killer buňky (NK buňky) jsou velké granulární lymfocyty vrozeného imunitního systému. V krevním oběhu lidského těla je jich možné nalést $10-15\%$. Klíčovou vlastností NK buněk je nejenom schopnost rozlišit poškozené buňky od zdravích, ale i poškozené buňky rychle a efektivně likvidovat. Poškozené buňky mohou být buňky infokované virem či buňky transfomované v nádorové. Na povrchu NK buňky se nachází receptory, které jsou zobrazeny na obrázku \ref{fig:NK_receptors}, regulující odpověď imunitního systému. Natural killer buňky oproti B- a T- lymfocitům (buňkám získané imunity) nemají antigenně specifické receptory. Jedním ze způsobům jak NK buňky rozpoznávají a zabíjejí poškozené buňky je na základě interakce mezi KIR receptorem a HLA molekulou na povrchu zkoumané buňky. Stejně tak mohou zabíjet na základě receptoru NKG2D, který aktivuje cytoxickou reakci při setkání s ligandem MICA a MICB.
+HLA a některé non-HLA geny se nacházejí na krátkém raménku 6 chromozomu, konkrétně 6p21.3 a zaujímá úsek přibližně jednu tisícinu genomu. Tento region je nejvíce komplexní a polymorfní na lidském genomu s více než 220 geny. Oproti tomu jedna ze skupin non-HLA genů, konkrétně KIR geny, se nachází na 19 chromozomu. Rozsáhlá diverzita genů vznikala snahou eliminovat neustále se měnící spektrum patogenů. Produkty těchto genů na povrch buňky významně ovlivňují odpověď na infekční choroby a výsledky buněčné či orgánové transplantace. \cite{imgt_hla_database}
  
 
-\begin{figure}[H]		
-		\centering
-		\includegraphics[width=300px]{./img/nk_receptory.jpg}
-		\caption{Natural killer buňka a její receptory, rozděleny na aktivační a inhibiční. Pro tuto práci jsou důležité hlavně KIR receptory a NKG2D. \cite{NK_receptors} }
-		\label{fig:NK_receptors}
-\end{figure}
-
-\subsubsection{Ligand}
-Ligandem označujeme malou molekulu, která se váže na vazebné místo cílového proteinu a vyvolává fyziologickou odpověď. 
-TODO - wikipedie!!!!
-
-
-\subsection{Receptor NKG2D a jeho ligandy MICA/MICB}
-NKG2D je receptor na NK buňce rozpoznávající především buněčný stres a může spustit cytotoxicitu (shopnost níčit buňky) i když se na povrchu buňky nachází inhibiční HLA-I ligandy.  
-\\
-\\
-Geny skupiny MICA a MICB jsou dle hla.alleles \cite{imgt_hla_database} označeny jako class I chain-related gene. To znamená, že se běžně neřadí do I. třídy. Oproti HLA genům, které mají svoje produkty na lymfocytech, se produkty MICA a MICB nachází na epitelových buňkách. Nejedná se tedy o standardní HLA geny, proto jsou nověji v literaturách označovány jako non-HLA. Jejich expresí na povrch buňky jsou ligandy, které se váží na receptor NKG2D. Buňky s ligandy MICA a MICB se množí při nádorovém onemocnění, zanětu nebo pod vlivem různých forem buněčného stresu a díky navázáním na receptor může být spuštěna imunitní reakce. \cite{transfuzni_lekarstvi} \cite{MIC} \cite{NK_receptors}
-
-
-\subsection{KIR}
-Killer immunoglobulin-like receptor (KIR) je skupina genů řazených mezi non-HLA geny. Jejich zvláštností je fakt, že se nenachází na 6 chromozomu, ale na 19 a tak shodní dárci HLA znaků mohou být neshodní v KIR znacích. Jejich expresí jsou receptory na povrchu natural killer buněk. Dnes je známo 15 genů a 2 pseudogeny rozlišujících se na inhibiční a aktivační na základě cytoplasmatického ocásku a počtu imunoglobulínových domén. \citep{KIR_transplantace_jindra}
-
-
-\begin{figure}[H]		
-		\centering
-		\includegraphics[width=250px]{./img/kir_pozice.png}
-		\caption{KIR se nachází na 19 chromozomu v oblásni jménem leukocyte receptor complex (LRC). \cite{imgt_hla_database}}
-		\label{fig:kir_position}
-\end{figure}
-
-\noindent
-Jak již bylo výše zmíněno KIR receptory můžeme rozdělit na inhibiční a aktivační. Zda dojde k aktivaci NK buňky rozhoduje právě jejich rovnováha na zkoumané buňce. Zatímco inhibiční receptory se váží hlavně na molekuly HLA, aktivační receptory rozpoznávají molekuly které jsou exprimovány na membránu při buněčném stresu.
-\\
-\\
-NK buňky ustavičně prohledávají své okolí a testují přítomnost příslušných HLA ligand (specifická HLA molekula) pro své KIR receptory. Pokud je příslušný HLA ligand přítomen naváže se na NK buňku (\ref{fig:kir_princip} případ~1). Tímto systémem jsou ochráněny vlastní HLA buňky. Pokud přítomen není je spuštěna cytotoxická reakce a zkoumaná buňka je zníčena.
-\\
-\\
-Některé virem napadené buňky potlačují propsání HLA ligand na povrch buňky a tím se brání cytotoxicitě proti T lymfocitům, ale naopak jsou více citlivější na cytotoxicitu proti NK buňkám. Ukázano na obrázku \ref{fig:kir_princip} případ~3.
-\begin{figure}[H]		
-		\centering
-		\includegraphics[width=\textwidth]{./img/NK_princip.jpg}
-		\caption{Přirovnání fungování natural killer buňky k pasové kontrole \cite{KIR_img_princip}. V pravé části jsou zobrazené případy které mohou nastat když natural killer buňka potká jinou buňku. V prvním případě je tělu vlastní zdravá buňka, kde se KIR receptor naváže na HLA ligand a k cytotoxitické reakci nedojde. V druhém případě je červená krvinka k cytotoxicitě opět nedojde, protože na zkoumané buňce nepřevažují aktivační receptory. V 3 případě je to nádorová buňka, která schová HLA ligand (může nastat po transplantaci kostní dřeně) a tím se "schová" proti T- lymfocytům. Avšak aktivační receptory převládají a tak k cytotoxicitě dojde. Ve 4 příkladě je nádorová buňka nebo virem nakažená buňka (stresové ligandy). Aktivační receptory převládají k cytotoxicitě dojde.}
-		\label{fig:kir_princip}
-\end{figure}
-
-
-\subsection{Nomenklatura KIR genů}
-KIR geny (na obrázku \ref{fig:img_kir_nomenklatura}) se liší různou délkou cytoplasmatických ocásku (tail) a různým počtem imunoglobulin-like domén (lg-like). Na základě této rozmanitosti byla založena nomenklatura KIR genů, tedy jejich pojmenování. 
-\\
-\\
-Jak je vidět na obrázku~\ref{fig:img_kir_nomenklatura}, cytoplasmatický ocásek může být dlouhý (long~-~L) nebo krátký (short~-~S). Oproti tomu imunoglubulínové domény se mohou vyskytovat 2~(2D) nebo 3~(3D). 
-
-\begin{figure}[H]		
-		\centering
-		\includegraphics[width=\textwidth]{./img/KIR_nomenklatura.png}
-		\caption{Nomenklatura KIR genů. \cite{KIR_transplantace_jindra}}
-		\label{fig:img_kir_nomenklatura}
-\end{figure}
-
-\noindent
-Další rozdělení KIR genů je již výše zmíněné inhibiční a aktivační. Na obrázku~\ref{fig:img_kir_ligand} je možné si povšimnout detailu, že až na KIR2DL4 jsou aktivační KIR s krátkým ocáskem, zatímco inhibiční jsou s dlouhým ocáskem. Obrázek dále uvádí vazebné ligandy pro jednotlivé receptory. 
- 
-\begin{figure}[H]		
-		\centering
-		\includegraphics[width=\textwidth]{./img/KIR_nomenklatura2.png}
-		\caption{KIR geny a jejich vazebné ligandy. Pokud je v obrázku ? značí to, že pro daný receptor neni znám vazebný ligand. \cite{KIR_img_nomenklatura}}
-		\label{fig:img_kir_ligand}
-\end{figure}
-
-\subsection{KIR haplotyp}
-KIR haplotyp je vyjádření jaké konkrétní KIR geny genom obsahuje. Doposud nebylo zavedeno konkrétní pravidlo na jejich pojmenovávání. Avšak bylo navrženo, aby každý KIR haplotyp byl označen $"KH-"$ následovaným trojmístným číslem, které bude označovat konkrétní haplotyp. Bylo by tak možné pojmenovat 999 haplotypů. 
-\\
-\\
-Dále by se haplotypy rozdělovali na dvě skupiny A a B. Skupina B musí obsahovat alespoň jeden z genů KIR2DL5, KIR2DS1, KIR2DS2, KIR2DS3, KIR2DS5 a KIR3DS1. Naopak skupina A neobsahuje ani jeden z těchto genů. Z tohoto pravidla je patrné, že haplotypy B mají vždy více aktivačních KIR než haplotypy A. Za trojmístným číslem by tedy dále bylo písmeno A nebo B.
-\\
-\\
-Nakonec by byl připojen 17-ti místný binární kód, který by označoval přítomnost $"1"$ či absenci $"0"$ genu. Pořadí genů by odpovídalo pořadí v genomu.
-\\
-\\
-Výsledné pojmenování by mohlo vypadat následovně:
-\begin{align}
-   \label{kir_haplotyp} KH-001A-11100010011011011
-\end{align}
-
-\noindent
-Je třeba si zde uvědomit, že každý jedinec má 2 KIR haplotypy. Je tedy možné dostat 4 kombinace - A/A, A/B, B/A nebo B/B. Haplotyp jedince je označován za A v případě kdy má kombinaci A/A a za B v případě jedné z kombinací A/B, B/A nebo B/B. Je možné si povšimnout, že u haplotypu A převládají inhibiční KIR geny a proto jsou dárci lépe přijímáni. Zatímco haplotyp B má převahu aktivační KIR a proto má vliv na celkové přežití.
-
-
-\section{Porovnání vhodného dárce}
-Mezi rizika při transplantaci krvetvorných buněk patří reakce štěpu proti hostiteli nebo relaps oněmocnění (návrat nemoci). Ač je dárce vybírán podle shody v HLA znacích, sekundární kriteria jako jsou pohlaví a věk mohou také hrát roli pro úspěšnost transplantace. Navíc podle nedávných studiích výsledky příjetí štěpu ovlivňují nejenom HLA geny ale i non-HLA geny. Jedním z nich může být právě killer immunoglobulin-like receptor (KIR). V případě kdy by bylo nalezeno více vhodných dárců, tj. se shodou 10/10 nebo 9/10, vybíralo by se následně podle KIR genů. \cite{KIR_transplantace_jindra} \cite{Frycova_bakalarka}
-\\
-\\
-Při určování shody dárce a pacienta se rozhoduje na základě schody alel u genů HLA -A, -B, -C, -DRB1, -DQB1. Díky velké diverzitě HLA genů je počet možných kombinací několik miliard. Některé kombinace genů se vyskytují na základě oblasti či národnosti častěji nebo mohou být naopak vzácné. HLA geny se obvykle dědí jako blok (cely haplotyp), avšak ve výjmečných případech může dojít k rekombinaci. Z tohoto důvodu je nejsnadnější nalést shodu v pokrevním příbuzenstvu.
-\\
-\\
-Jelikož každý jedinec má dvakrát geny na pozicích HLA -A, -B, -C, -DRB1 a -DQB1 (jednu pětici od otce, druhou pětici od matky), je maximální shoda 10/10 (shoda obou alel v lokusech). Čím je shoda menší tím větší je riziko nepřijetí stěpu. U nepříbuzných jedinců lze tolerovat shodu 9/10 či 8/10. \cite{Frycova_bakalarka} \cite{KIR_transplantace_jindra}
-\\
-\\
-V posledních letech se objevuje Haploidentická transplantace, kdy je možné použít krvetvorné buňky příbuzného pouze s poloviční shodou (např. všichni rodiče a děti). Umožnuje to podávání chemoterapie pár dní po transplantaci, která zníčí všechny buňky, které tělo nepřijme. Využívá se toho hlavně v případech časové tísně, kdy není čas hledat dárce v registrech. \cite{haploidenticka_transplantace}
-\\
-\\
-KIR geny se stejně jako HLA dědí celý blok. Jelikož HLA se nachází na 6 chromozomu a KIR na 19, tak shodní dárci v HLA znacích se jen menšinově shodují v KIR genech. V případě příbuzného dárce shodujícího se v HLA znacích je pouze 25\% shodných také v KIR. \cite{KIR_haplotypy}
-\\
-\\
-K zjištění typizace se používají sekvenační metody, typicky s polymerázovou řetězovou reakcí. 
-
-
-\section{Bordel haplotypy}
-TODO centromerních a telomenrích nechápu
-Bylo zjištěno, že
-specifické složení motivů centromerních a telomerních B haplotypů KIR genů přispívá
-k ochraně před relapsem a zvyšuje šanci na úplné vyléčení AML.
-\\
-\\
-TODO možná ještě znova projet 
-\url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2953880/}
-
-(1) “best” with a KIR B–content score of more than 2 where the KIR haplotype is Cen-B/B, Tel-x/x (defined as 2DL3 absent, 2DS2 and/or 2DL2 present);
- (2) “better” with a KIR B–content score of more than 2 and the KIR haplotype is Cen-A/x, Tel-B/x (defined as 2DL3 present, 2DS2 and/or 2DL2 present, 3DS1 and/or 2DS1 present or 2DL3 present, 2DS2 and/or 2DL2 absent, and 3DS1 and/or 2DS1 present); or (3) “neutral” with a KIR B–content score of 0 or 1 (defined as 2DL3 present, 2DS2 and/or 2DL2 absent, 3DL1 and 2DS4 present).
-\\
-\\
- B/x dárci v porovnání s A/A dárci jsou obecně lépe přijímáni, haplotyp B má protektivní vliv na celkové přežití a přežití bez příznaků onemocnění, možnost relapsu, úmrtnost související s transplantací a vznik aGvHD (stupeň II-IV) a cGvHD. Klinickými studiemi bylo zjištěno, že konkrétně se jedná o centromerickou část B haplotypu. Na základě B haplotypu lze rozdělit vliv KIR B haplotypů do 3 skupin podle schopnosti protektivního vlivu (tzv. KIR B-content skóre). 
-\\
-\\
-TODO budu to tam dopisovat? KIR2DL5 (Where two or more genes have very similar structures and have very similar sequences, they may be given the same number but distinguished by a final letter: for example, the KIR2DL5A and KIR2DL5B genes. The similarity of these two genes suggests they are related by a recent gene duplication event. ),
-\\
-\\
- Previously, we showed that the outcome of unrelated donor transplantation for AML was significantly improved with B/x donors compared with A/A donors, whereas recipient KIR genotype had no effect.21  Similar effects have been reported by other investigators in unrelated donor and sibling donor settings.22,23  Because KIR B haplotypes are present in approximately two-thirds of unrelated registry donors, interventions that merely increase the probability of selecting KIR B donors are unlikely to affect survival because most donors already have this characteristic by chance. Further, the specific genetic mechanism for the protective effect of B haplotype donors, perhaps attributable to the presence or absence of individual or groups of inhibitory or activating KIR, remains unknown. This analysis was designed, from understanding of the organization of the KIR locus, to identify which particular B-specific genes improve the therapeutic effect of transplantation for AML. The results point to a clinically applicable donor selection strategy that could improve the success of transplantation.
-zdroj https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2953880/
-KIR genotypy je možné najlést na \url{http://www.allelefrequencies.net/kir6001a.asp}
-
-\section{Sekvence DNA}
-Po pojmem sekvence DNA se skrývá posloupnost písmen představujících primární strukturu reálné nebo hypotetické molekuly čí vlákna DNA, které nese nějakou informaci. Jednotlivá písmena jsou označována jako nukleotidy nebo nukleové báze. Nukleové báze mohou být A~-~adenin, C~-~cytosin, G~-~guanin a T thymin. \cite{genome_gov}
-\\
-\\
-\noindent
-Příkladem může být následující úsek sekvence na základě obrázku \ref{fig:chrmosome_sekvence} 
-\begin{align}
-   \label{sekvence_prikad} ACGTCA
-\end{align}
-
-\begin{figure}[H]		
-		\centering
-		\includegraphics[width=250px]{./img/chromosome.jpg}
-		\caption{Umístění nukleotidů v lidském genomu. \cite{chromosome_structure}}
-		\label{fig:chrmosome_sekvence}
-\end{figure}
-
-
-\section{Alela a gen}
+\subsection{Alela a gen}
 Alelu můžeme definovat jako variantu genu s nepatrným rozdílemem v sekvenci nukleotidů DNA oproti jiné alele stejného genu. Geny se vyskytují minimálně ve dvou formách (dvou alelách), mnohdy jich, ale může být více. U jednoho člověka můžou být přítomny pouze dvě rozdílné alely daného genu. Gen určuje výskyt nějaké vlastnosti, například tento živočich bude mít oči. Alela pak určuje jakou barvu budou mít.
 \\
 \\
@@ -326,6 +161,9 @@ V případě genu KIR2DL1 mohou být jeho alely 0010101 a 0010102. Zápis genů 
 \end{split}\end{equation}
 
 TODO: Když najdu novou sekvenci tak kde je rozdíl jestli je to nový gen nebo nová alela? Neni to tak že na daný pozici v genomu je vždycky gen.. a alela určuje tu vlastnost? A na co je mi teda lotus? 
+geny jsou již plně definované - The Human Genome Project (HGP) https://www.genome.gov/human-genome-project/What (geny jsou ty 2DL1, 3DL1....)
+
+jde o nové varianty - alelické skupiny, konkrétní alely - to je ve vazbě na to, jakej protein je kódován
 \\
 \\
 TODO tohle je asi jen HLA nevím jestli existuje něco jako obecné rozdělení genu a aleli, možná že rozdíl bude jen v tom že těch čísel pak může být za hvězdičkou několik v závislosti o alelu jaké skupiny genů se jedná
@@ -339,242 +177,172 @@ Alela zajišťuje konkrétní fenotypový projev genu. U jedince mohou na homolo
 
 
 
+\section{Natural killer a jeho receptory}
+\subsection{Natural killer}
+Natural killer buňky (NK buňky) jsou velké granulární lymfocyty vrozeného imunitního systému. V krevním oběhu lidského těla je jich možné nalést $10-15\%$. Klíčovou vlastností NK buněk je nejenom schopnost rozlišit poškozené buňky od zdravích, ale i poškozené buňky rychle a efektivně likvidovat. Poškozené buňky mohou být buňky infokované virem či buňky transfomované v nádorové. Na povrchu NK buňky se nachází receptory, které jsou zobrazeny na obrázku \ref{fig:NK_receptors}, regulující odpověď imunitního systému. Natural killer buňky oproti B- a T- lymfocitům (buňkám získané imunity) nemají antigenně specifické receptory. Jedním ze způsobů jak NK buňky rozpoznávají a zabíjejí poškozené buňky je na základě interakce mezi KIR receptorem a HLA molekulou na povrchu zkoumané buňky (podrobněji viz sekce KIR). Stejně tak mohou zabíjet na základě receptoru NKG2D, který aktivuje cytoxickou reakci při setkání s ligandem MICA a MICB. Ligandem označujeme malou molekulu, která se váže na vazebné místo cílového proteinu(receptoru) a vyvolává fyziologickou odpověď která může mít inihiční či aktivační charakter. 
+% https://www.khanacademy.org/science/biology/cell-signaling/mechanisms-of-cell-signaling/a/signal-perception
+\begin{figure}[H]		
+		\centering
+		\includegraphics[width=300px]{./img/nk_receptory.jpg}
+		\caption{Natural killer buňka a její receptory, rozděleny na aktivační a inhibiční. Pro tuto práci jsou důležité hlavně KIR receptory a NKG2D. \cite{NK_receptors} }
+		\label{fig:NK_receptors}
+\end{figure}
 
-\section{Bordel - KIR}
-TODO Ligands for NK-cell-activat-
-ing receptors are often upregulated by cellular stress
-associated with viral infection or tumor development
-[26,27] and receptor engagement can lead to the
-
-haplotypycká variabilita
-Tzv. „framework“ KIR geny (2DL4, 3DL2 A 3DL3, viz obr. 4)
-jsou přítomny prakticky u všech dosud typizovaných jedinců, ale přítomnost ostatních 14 KIR
-genů je výrazně variabilní. Tato variabilita v zastoupení je větší pro aktivační KIR geny („S“),
-které mají navíc limitovaný alelický polymorfismus. Inhibiční geny jsou obvykle vždy
-v genotypu přítomné, ale mají zase extenzívní alelický polymorfismus
-
-Bylo poprsáno celkem 15 exprimovaných KIR genů a 2 KIR pseudogeny
-
-
-Pokud jde o vazebné partnery KIR (jejich ligandy), pak tyto jsou
-známy především pro inhibiční receptory a ve všech případech jde o
-HLA specificity I. třídy. Jedná se především o skupinu alel HLA-C alel
-lišících se aminokyselinovým 
-reziduem na pozicích
- 77 a 80 $\alpha$
-- helixu molekuly HLA-C (7). Byla publikována rozsáhlá data ukazující
-10na význam inhibičních KIR a jejich HLA ligand pro výsledek
-transplantace krvetvorných buněk
-
-KIR geny/receptory a jejich vazební partneři (ligandy)
-- fryčová ta tabulka tam byla zajímavá, stejná je i v tý disertačce od Jindry odtamtu to asi bude lepší
-
-
-KIR geny jsou lokalizovány na chromosomu 19q13.4 v oblasti zvané „leukocyte receptor
-complex“ (LRC). Pro každý KIR gen navíc existují alelické varianty (Marsh et al, 2002;Hsu
-et al, 2002).
-
-Genetická diverzita KIR genů a genotypů připomíná diverzitu HLA
-systému. Přestože jsou geny kódující KIR a HLA lokalizované na
-různých chromozomech a segregují se tedy nezávisle, existují určité
-důkazy alespoň částečné koevoluce obou systémů. Lze tudíž
-předpokládat. U HLA restrihované populace lze tedy očekávat
-alespoň částečnou redukci v diverzitě KIR genů i genotypů.
-U HLA restrihované populace lze tedy očekávat
-alespoň částečnou redukci v diverzitě KIR genů i genotypů.
-
-Koevoluce je společný evoluční vývoj dvou či více druhů, při němž dochází k jejich vzájemnému přizpůsobování
-
-Haplotypická variability KIR genů
-KIR geny se vyskytují ve dvou hlavních haplotypech A a B, které jsou definovány typem a počtem specifických KIR genů.Ta je způsobena variabilitou v počtu a v typu
-zastoupených KIR genů na daném haplotypu
-Právě tato
-haplotypická diverzita je hlavním důvodem populační diverzity KIR
-genů a repertoáru NK buněk.
-Neni žádné univerzální kriterium kteréé by je odlišovali
-
-Skipina B je charakterizována přítomností alespoň jednoho nebo víze z následjících genů KIR2DL5, KIR2DS1, KIR2DS2, KIR2DS3, KIR2DS5 a KIR3DS1.
-
-Skupina A je charakterizována absenzí těchto genů. 
-
-Proto mají B více aktivačních KIR než A. A může mít jen KIR2DS4.
-
-
-
-\section{bordel}
-
-Je posloupnost písmen představující přimární strukturu reálné nebo hypotetické molekuly čí vlákna DNA, které má kapacitu nést informaci.
-označuje se buď nukleotidy nebo nukleové báze
-Používaná písmena A, C, G a T reprezentují čtyři nukleotidy ve vláknu DNA – adenin, cytosin, guanin a thymin, lišící se 
-typem báze kovalentně vázané k fosfátové páteři. Posloupnost libovolného množství nukleotidů většího než čtyři lze nazývat 
-sekvencí. Obvykle se sekvence vypisuje bez mezer, např. AAAGTCTGAC, ve směru 5 -> 3. Vzhledem k biologickým funkcím, které 
-mohou záviset na kontextu, sekvence buďto mají anebo nemají smysl a jsou tedy kódující nebo nekódující DNA. Typem nekódující 
-sekvence DNA je také tzv. „junk DNA“. TO je z wiki bacha na to.
-\subsection{bordel hla}
-K typizaci se nejčastěji používá PCR – SSP (PCR se sekvenačně specifickými primery) či
-SBT (sequence based typing) technika, v posledních letech se stává zlatým standardem přímá
-sekvenace (SBT) HLA genu.
-fričová
-
-
-Aby se určitý gen mohl fenotypově projevit (tj. přepsat se do určitého produktu),
-musejí se v jeho lokusu nacházet nejméně dvě alely – jedna pochází od matky, druhá od
-otce. HLA-antigeny však mají ve svých genových lokusech abnormálně velké množství
-alel, proto tvoří nejpolymorfnější systém v lidském těle.
-
-
-antigen Jedná se v základu o rozpoznávací molekuly - jsou to vlastně proteiny kódované konkrétním genem, ve výsledku je to to stejné :), protein je vlastně vyjádření genu 
-
-HLA antigeny jsou přítomny na povrchu jsou přítomny na povrchu všech jaderných buněk
-
-
-
-
-
- T-lymfocyty rozpoznávají
-cizí antigeny v komplexu s vlastními molekulami MHC, což vede k imunitní reakci,
-vlastní antigeny v komplexu s vlastními molekulami MHC, což vede k toleranci,
-cizí molekuly MHC (transplantační reakce).
-
-
-Antigeny jsou velmi polymorfní. To znamená, že v lokusu určitého genu na daném
-místě DNA, kde se uvedený gen nachází, je možné najít minimálně dvě různé varianty tohoto
-genu. Ty se nazývají alely. K tomu, aby měl gen možnost se genotypově projevit, musí jeho
-lokus obsahovat dvě alely – jednu od matky a jednu otcovu.
-MHC lokusy obecně jsou
-geneticky nejvariabilnější kódující lokusy u savců a totéž lze tvrdit i o lidských HLA
-lokusech.
-
-HLA antigeny je skupina bílkovin, jsou lokalizovány na povrchu buněk klíčové pro imunitní systém.
-Zjednodušeně lze říci že HLA molekuly, imunoglobuliny a receptory T-lymfocytů jsou základem adaptivní imunity člověka
-
-HLA je rozsáhlý komplex genů, které determinují (určují, rozpoznávjí????) povrchové molekuly (antigeny) umístěné v plazmatické membráně buněk
-
-Hlavní fyziologickou funkcí molekul MHC je předkládat antigeny nebo jejich fragmenty buňkám imunitního systému, především T-lymfocytům (prezentace antigenu je prvním předpokladem pro rozvoj imunitní reakce a tím obrany proti napadení mikroorganismy). Pomocí těchto molekul buňky imunitního systému vzájemně kooperují.
-
-\subsection{bordel zbytek}
-
-
-
-exprimovaný gen / pseudogeny
-takže exprimovaný je ten který se propíše na povrch buňky a pseudogen je ten který se nepropíše na povrch buňky
-Pseudogen je sekvence DNA, která je podobná genu, ale nedochází k jejímu přepisování v RNA (transkripci). Pseudogeny vznikají zpravidla určitou mutací, a to zejména v oblasti promotoru, regulační sekvence,[1] nebo sice RNA vzniká, ale je následně degradována.
-
-
-NK buňky mají schopnost identifikovat molekuly vlastního MHC systému (Major
-Histocompatilibity Compex), jmenovitě HLA I. třídy, které jsou normálně exprimovány
-prakticky na všech buňkách v těle. Nádorové a některé virem napadené buňky potlačují
-expresi HLA I. třídy a tím se brání napadení cytotoxickými T lymfocyty (Restifo, 1993).
-Snížená exprese HLA I. třídy činí abnormální buňky citlivé k cytotoxicitě NK buněk (Karre,
-1986). Molekuly HLA I. třídy rozpoznávají NK buňky pomocí pozitivních a negativních
-13receptorů, které mohou inhibovat nebo naopak aktivovat NK buňky k „zabíjení“
-
-Pokud to můžeme principálně zjednodušit, pak NK buňky neustále
-systematicky „zkoumají“ přítomnost či absenci příslušných HLA
-ligand pro své KIR receptory. Pokud je příslušný HLA ligand (HLA
-molekula) přítomen, pak dojde k vazbě KIR-ligand HLA a jelikož za
-normálních okolností vždy inhibiční KIR převládají nad aktivačními,
-nedochází ke spuštění cytotoxické reakce NK buněk a takto jsou
-„vlastní“ buňky chráněny před cytotoxicitou (viz část A a především D
-na obr. 1). Pokud receptory KIR nenaleznou příslušný ligand HLA
-(„vlastní“ molekulu HLA), nemůže být cytotoxicita příslušné NK buňky
-prostřednictvím inhibičních receptorů KIR a náležitá cytotoxická
-kaskáda je spuštěna
-
-
-Molekuly HLA I. třídy rozpoznávají NK buňky pomocí pozitivních a negativních receptorů, které mohou inhibovat nebo naopak aktivovat NK buňky k „zabíjení“
-
-Tato schopnost destruovat cílové buňky je právě dána vzájemnou
-interakcí mezi KIR receptory a příslušnou specifickou HLA molekulou
-na povrchu buněk, neboli ligandem KIR receptorů
+\subsection{NKG2D receptor}
+NKG2D je jeden z nejvýznamnějších aktivačních receptorů na NK buňce rozpoznávající především buněčný stres, který může spustit cytotoxicitu (shopnost níčit buňky) i když se na povrchu buňky nachází inhibiční HLA-I ligandy.  
 \\
 \\
-NK buňky neustále systématicky testují přítomnost čí absenci příslušných HLA ligand pro své KIR receptory. Pokud je přítomen dojde k vazbě KIR-ligand HLA a nedojde k cytotoxické reakci (schopnost níčit buňky) , ochrana vlastních buněk. Pokud je 
-nenajdou a je spuštěna cytotoxická kaskáda.
-Některé virem napadané buňky nebo nádorové buňky potlačují expresi a tím se brání napadění cytotoxickými T lymfocyty
-snížená exprese HLA I. třídy činí abnormální buňky cytlivé k cytotoxicitě NK buněk.
-
- Molekuly HLA I. třídy rozpoznávají NK buňky pomocí pozitivních a negativních
-13receptorů, které mohou inhibovat nebo naopak aktivovat NK buňky k „zabíjení“
-
-NK buňky maji shopnost identifikovat buňky vlastního MHC systému (HLA I.třídy) ktere jsou normálně exprimovány prakticky na všech buňkách v těle. 
-
-Lze-li stručně shrnout, pak NK buňky s potenciálem iniciovat
-cytotoxickou aloreakci používají KIRy jako inhibiční směrem k
-„vlastním“, zdravým buňkám. Pokud však příslušný vlastní ligand
-HLA na cílové buňce chybí, pak je iniciována cytotoxická reakce.
-Celý tento koncept interakce KIR/HLA
-a mechanismus regulace
-cytotoxicity NK buněk se nazývá „missing-self“ hypotéza (3). Tím je
-zaručena tolerance NK buněk k „vlastním“ a zdravým buňkám,
-naopak alogenní („cizí“) buňky, či buňky s „down“- regulovanou HLA
-molekulou (ligandem), což jsou typicky buňky nádorové či buňky
-napadené virem, jsou efektivně eliminovány
+Geny skupiny MICA a MICB jsou označeny jako class I chain-related gene. To znamená, že se běžně neřadí do I. třídy MHC. Takto označované geny mají souvislost s MHC I třídy, ale narozdíl od nich neváží peptidy. Oproti HLA genům, které mají svoje produkty na lymfocytech, se produkty MICA a MICB nachází na epitelových buňkách. Nejedná se tedy o standardní HLA geny, proto jsou nověji v literaturách označovány jako non-HLA. Jejich expresí na povrch buňky jsou ligandy, které se váží na receptor NKG2D. Buňky s ligandy MICA a MICB se množí při nádorovém onemocnění, zanětu nebo pod vlivem různých forem buněčného stresu a díky navázáním na receptor může být spuštěna imunitní reakce. \cite{transfuzni_lekarstvi} \cite{MIC} \cite{NK_receptors} \cite{imgt_hla_database}
 
 
-Stručně lze shrnout, že NK buňky s potenciálem iniciovat cytotoxickou aloreakci používají
-KIR receptory jako inhibiční, směrem k „vlastním“, zdravým buňkám. Pokud však příslušný
-vlastní ligand HLA na cílové buňce chybí, pak dochází k iniciaci cytotoxické reakce. Proces
-interakce KIR/HLA a mechanismus regulace cytotoxicity NK buněk se jako celek nazývá
-14„missing-self“ hypotéza (Gasser a Raulet, 2006). Takto je zaručena tolerance NK buněk k
-„vlastním“ a zdravým buňkám, naopak „cizí“ alogenní buňky, buňky s „down“ –
-regulovaným
-HLA ligandem (molekulou), což jsou typicky buňky napadené virem a
-nádorové buňky, které jsou efektivně eliminovány
+\subsection{KIR receptor}
+Killer immunoglobulin-like receptor (KIR) je skupina genů řazených mezi non-HLA geny. Jejich zvláštností je fakt, že se nenachází na 6 chromozomu, ale na 19 a tak shodní dárci HLA znaků mohou být neshodní v KIR znacích. Jejich expresí jsou receptory na povrchu natural killer buněk. Dnes je známo 15 genů a 2 pseudogeny rozlišujících se na inhibiční a aktivační na základě cytoplasmatického ocásku a počtu imunoglobulínových domén. \citep{KIR_transplantace_jindra}
 
- Tato schopnost destruovat cílové buňky je dána
-vzájemnou interakcí mezi KIR receptory a příslušnou specifickou
-HLA molekulou na povrchu buněk, neboli ligandem KIR receptorů.
+\begin{figure}[H]		
+		\centering
+		\includegraphics[width=250px]{./img/kir_pozice.png}
+		\caption{KIR se nachází na 19 chromozomu v oblásni jménem leukocyte receptor complex (LRC). \cite{imgt_hla_database}}
+		\label{fig:kir_position}
+\end{figure}
 
-
-\section{Bordel pro prvni kapitolu}
-
-lymfocyty 
-bílá krvinka je leukocyt
-- typ bbílé krvinyky 
-- T a B lymfocyty - specifická imunita
-- NK buňky nespecifická imunita
-- vznikají v z lymfatických kmenových buňek v kostní dřeni
-Aha takže lymfatické řečiště je více propustné proto to co nejde do cév jde sem pak se to odfiltruje a pak se to vrací do krevního řečiště.
-
-NK je v podstatě lymfocyt a to je typ bílé krvinky.
-
-neutrofilní granulocyty jsou schopny vycestovat z kapilár do místa zánětu
-přeměněné monocyty přítomné v játrech v tělních dutinách (hrudní, bříšní), ve slezině vy lymfatických uzlinách a kostní dřeni
-
-KIR
-KIR  Je to součástí genu
-- řadí se do přirozené (nespecifické) imunity narozdíl od B-buněk a T-buněk.
-- NK buňky představují 10-15\% lymfocitů v periferní krvi
-- jsou to buňky které reagují rychle a efektivně likvidují především nádorové buňky a buňky infokované virem
-
-NK nemají antigenné specifické receptory, jak rozeznávají abnormální buňky? 
-NK buňky identifikují molekuly vlastního MHC systému 
-
- jmenovitě HLA I. třídy, které jsou normálně exprimovány
-prakticky na všech buňkách v těle. Nádorové a některé virem napadené buňky potlačují
-expresi HLA I. třídy a tím se brání napadení cytotoxickými T lymfocyty (Restifo, 1993).
-Snížená exprese HLA I. třídy činí abnormální buňky citlivé k cytotoxicitě NK buněk (Karre,
-1986). Molekuly HLA I. třídy rozpoznávají NK buňky pomocí pozitivních a negativních 
-receptorů, které mohou inhibovat nebo naopak aktivovat NK buňky k „zabíjení“
-
-Stručně lze shrnout, že NK buňky s potenciálem iniciovat cytotoxickou aloreakci používají
-KIR receptory jako inhibiční, směrem k „vlastním“, zdravým buňkám. Pokud však příslušný
-vlastní ligand HLA na cílové buňce chybí, pak dochází k iniciaci cytotoxické reakce. Proces
-interakce KIR/HLA a mechanismus regulace cytotoxicity NK buněk se jako 
-
-recptory imunoglobinové (protilátka - protein, který je schopen jako součást imunitního systému identifikovat a zneškodnit cizí objekty - bakterie a viry) v těle. Protilátky jsou nositeli humorální imunity. Jsou to krevní bílkoviny vznikající v mízní tkáni.  povahy nacházejících se na povrchu Natural killers buněk a některých T-buněk (Variabilita v sekvenci).
+\subsubsection{Nomenklatura KIR genů}
+KIR geny (na obrázku \ref{fig:img_kir_nomenklatura}) se liší různou délkou cytoplasmatických ocásku (tail) a různým počtem imunoglobulin-like domén (lg-like). Na základě této rozmanitosti byla založena nomenklatura KIR genů, tedy jejich pojmenování. 
 \\
 \\
-\textbf{Struktura nukleových kyselin} \\
-jen skopírované z %https://www.wikiskripta.eu/w/Struktura_nukleov%C3%BDch_kyselin \\
-Nukleové kyseliny (polynukleotidy) jsou tvořeny dlouhými řetězci (mono)nukleotidů, vzájemně spojených fosfodiesterovými vazbami. Řadíme je k tzv.heteropolymérům, neboť jsou sestaveny z různých typů základních jednotek. Tato skutečnost je podstatná pro uchovávání a předávání informace, což je základní funkce nukleových kyselin v organismu. Homopolyméry (např. glykogen) obsahují pouze jeden typ monoméru (v našem případě glukózu), a tak nemohou plnit informační funkci.
+Jak je vidět na obrázku~\ref{fig:img_kir_nomenklatura}, cytoplasmatický ocásek může být dlouhý (long~-~L) nebo krátký (short~-~S). Oproti tomu imunoglubulínové domény se mohou vyskytovat 2~(2D) nebo 3~(3D). Právě z těchto vlastností vychází základ pojmenování KIR genů. Příkladem může být KIR2DL1*010101, kde 2D označuje dvě imunoglubulinové domény, L značí dlouhý ocásek, 1 značí že je to první 2DL protein. Následuje hvězdička oddělující gen od alely. První tři čísla označují alely, které se liší v sekvencích jejich kódovaných proteinů, další dvě číslice se používají k rozlišení alel, které se liší synonymnními rozdíly v kódující sekvenci. Konečné dvě cifry rozlišují alely na základě substituce v intronu, promotoru nebo jiné nekódující oblasti. \cite{imgt_hla_database}
+
+\begin{figure}[H]		
+		\centering
+		\includegraphics[width=\textwidth]{./img/KIR_nomenklatura.png}
+		\caption{Nomenklatura KIR genů. \cite{KIR_transplantace_jindra}}
+		\label{fig:img_kir_nomenklatura}
+\end{figure}
+
+\noindent
+Další rozdělení KIR genů je již výše zmíněné inhibiční a aktivační. Na obrázku~\ref{fig:img_kir_nomenklatura} je možné si povšimnout detailu, že až na KIR2DL4 jsou aktivační KIR s krátkým ocáskem, zatímco inhibiční jsou s dlouhým ocáskem. 
+
+\subsubsection{Aktivace NK buněk pomocí KIR}
+Jak již bylo výše zmíněno KIR receptory můžeme rozdělit na inhibiční a aktivační. Zda dojde k aktivaci NK buňky rozhoduje právě jejich rovnováha na zkoumané buňce. Zatímco inhibiční receptory se váží hlavně na molekuly HLA, aktivační receptory rozpoznávají molekuly které jsou exprimovány na membránu při buněčném stresu. Obrázek \ref{fig:img_kir_ligand} uvádí vazebné ligandy pro jednotlivé KIR receptory.  
+
+\begin{figure}[H]		
+		\centering
+		\includegraphics[width=\textwidth]{./img/KIR_nomenklatura2.png}
+		\caption{KIR geny a jejich vazebné ligandy. Pokud je v obrázku ? značí to, že pro daný receptor neni znám vazebný ligand. \cite{KIR_img_nomenklatura}}
+		\label{fig:img_kir_ligand}
+\end{figure}
+
+\noindent
+NK buňky ustavičně prohledávají své okolí a testují přítomnost příslušných HLA ligand pro své KIR receptory. Pokud je příslušný HLA ligand přítomen naváže se na NK buňku (\ref{fig:kir_princip} případ~1). Tímto systémem jsou ochráněny vlastní buňky. Pokud přítomen není je spuštěna cytotoxická reakce a zkoumaná buňka je zníčena.
+\\
+\\
+Některé virem napadené buňky potlačují propsání HLA ligand na povrch buňky a tím se brání cytotoxicitě proti T lymfocitům, ale naopak jsou více citlivější na cytotoxicitu proti NK buňkám, jak je zobrazeno na obrázku \ref{fig:kir_princip} případ~3.
+\begin{figure}[H]		
+		\centering
+		\includegraphics[width=\textwidth]{./img/NK_princip.jpg}
+		\caption{Přirovnání fungování natural killer buňky k pasové kontrole. V pravé části jsou zobrazené případy které mohou nastat když natural killer buňka potká jinou buňku. V prvním případě je tělu vlastní zdravá buňka, kde se KIR receptor naváže na HLA ligand a k cytotoxitické reakci nedojde. Druhým případem je červená krvinka. K reakci NK buňky opět nedojde, protože na zkoumané buňce nepřevažují aktivační receptory. V 3 případě je to nádorová buňka, která schová HLA ligand (může nastat po transplantaci kostní dřeně) a tím se "schová" proti T- lymfocytům. Avšak aktivační receptory převládají a tak k cytotoxicitě dojde. Ve 4 příkladě je nádorová buňka nebo virem nakažená buňka (stresové ligandy). Aktivační receptory převládají k cytotoxicitě dojde.\cite{KIR_img_princip}}
+		\label{fig:kir_princip}
+\end{figure}
+
+
+
+\subsubsection{KIR haplotyp}
+KIR haplotyp je vyjádření jaké konkrétní KIR geny genom obsahuje. Doposud nebylo zavedeno konkrétní pravidlo na jejich pojmenovávání. Avšak bylo navrženo, aby každý KIR haplotyp byl označen $"KH-"$ následovaným trojmístným číslem, které bude označovat konkrétní haplotyp. Bylo by tak možné pojmenovat 999 haplotypů. \cite{imgt_hla_database}
+\\
+\\
+Dále by se haplotypy rozdělovali na dvě skupiny A a B. Skupina B musí obsahovat alespoň jeden z genů KIR2DL5, KIR2DS1, KIR2DS2, KIR2DS3, KIR2DS5 a KIR3DS1. Naopak skupina A neobsahuje ani jeden z těchto genů. Z tohoto pravidla je patrné, že haplotypy B mají vždy více aktivačních KIR než haplotypy A. Za trojmístným číslem by tedy dále bylo písmeno A nebo B.
+\\
+\\
+Nakonec by byl připojen 17-ti místný binární kód, který by označoval přítomnost $"1"$ či absenci $"0"$ genu. Pořadí genů by odpovídalo pořadí v genomu od centrometrické části k telemetrické části.
+\\
+\\
+Výsledné pojmenování by mohlo vypadat následovně:
+\begin{align}
+   \label{kir_haplotyp} KH-001A-11100010011011011
+\end{align}
+
+\noindent
+Je třeba si zde uvědomit, že každý jedinec má 2 KIR haplotypy. Je tedy možné dostat 4 kombinace - A/A, A/B, B/A nebo B/B. Haplotyp jedince je označován za A v případě kdy má kombinaci A/A a za B v případě jedné z kombinací A/B, B/A nebo B/B. Je možné si povšimnout, že u haplotypu B převládají inhibiční KIR geny a proto jsou dárci lépe přijímáni.
+ 
+\begin{figure}[H]		
+		\centering
+		\includegraphics[width=\textwidth]{./img/KIR_haplotypy_priklad.png}
+		\caption{Deset nejčastější KIR haplotypů. Šedý obdelník značí přítomnost genu, bílí jeho nepřítomnost. \cite{kir_genotypes_10}}
+		\label{fig:kir_haplotypy_10}
+\end{figure}
+
+\noindent
+Na základě variací obsahu genů by bylo možné vytvořit nepřeberné množství KIR genotypů. Na základě sesbíraných haplotypů byl sestaven model, který toto množství mírně redukuje. Haplotyp se rozděluje na dvě části na centrometickou a telometrickou. Kdy jednotlivé části mezi sebou mohou být kombinovány. Existují vzácné varianty, které se do tohoto modelu nehodí. \cite{KIR_haplotypy_ct}
+\begin{figure}[H]		
+		\centering
+		\includegraphics[width=\textwidth]{./img/KIR_haplotypy.png}
+		\caption{Rozdělení KIR genů na centrometrickou a telometrickou část, pojmenování je na základě, zda je úsek blíže k centromeru nebo k telomeru (viz obrázek \ref{fig:chrmosome}). \cite{KIR_haplotypy_ct}}
+		\label{fig:kir_aplotypy_ct}
+\end{figure}
+
+\noindent 
+\textbf{Centrometická} polovina je charakterizována přítomností jednoho z 2DL3 nebo 2DL2, vzácně nemusí být přítomný ani jeden. V případě 2DL2 je následně přítomen 2DS2. Tento pár genů se následně objevu v kombinaci s -2DP1, -2DL1 a -3DP1. 2DL5 gen je v centromerické části párován s 2DL2 a 2DS3, ve vzácných případech se může objevit i s 2DL2 a 2DS5. Oproti tomu při přítomnosti KIR2DL3 se dále vyskytuje KIR2DP1, -2DL1 a -3DLP1.
+\\
+\\
+\textbf{Telometrická} polovina haplotypu je charakterizována přítomností jednoho z 3DL1 nebo 3DS1, vzácně nemusí být přítomný ani jeden. Gen 3DL1 se následně objevuje v přítomnosti s 2DS4, 1D nebo 3DL2. V případě KIR3DL se jedná o takzvaný krátký segment obsahující 2DS4 nebo KIR1D zakončené 3DL2. V případě KIR3DS1 se jedná o dlouhý segment obsahující 2DL5, párovaný s 2DS3 nebo 2DS5, následovaný 2DS1, 2DS4 nebo KIR1D opět zakončený 3DL2. \cite{KIR_haplotypy_ct}
+\\
+\\
+Podle některých studii zabývající se vlivem KIR haplotypů na výsledky transplantace bylo zjištěno, že KIR haplotypy ovlivňují výsledky u akutní myeloidní leukémie. Ve srovnání s haplotypem A měl haplotyp B, především jeho centrometická část, ochraný účinek před návratem nemoci a zárověň zvýšil pravděpodobnost přežití pacienta. Na základě této skutečnosti se mohou dárci řadit do tří skupin best, better a neutral. Best je definován jako Cen-B/B a Tel-x/x, better jako Cen-A/x a Tel-B/x, a netral v případě jedné B části nebo žádné. \cite{KIR_haplotypy}
+\\
+\\
+Dále je možné se setka s takzvaným B-skóre
+
+
+
+TODO podle tohohle se právě určuje B-content score pro definování úrovně B haplotypu, best varianta pro transplantaci je B/B (cen) s B/B (tel), viz další komentář
+
+
+We defined the KIR B–content score for each donor's KIR genotype as the number of centromeric and telomeric gene-content motifs containing B haplotype–defining genes. Permissible values for the KIR B–content score are 0, 1, 2, 3, and 4 (Figure 1C). A calculator for classification of the donor KIR B status (best, better, neutral) may be found at http://www.ebi.ac.uk/ipd/kir/.
+\\
+\\
+TODO to znamená že to b score je to best, better, neutral a ještě tam je přidaný none of this? 
+
+
+\section{Nalezení vhodného dárce}
+Mezi rizika při transplantaci krvetvorných buněk patří reakce štěpu proti hostiteli nebo relaps oněmocnění (návrat nemoci). Ač je dárce vybírán podle shody v HLA znacích, sekundární kriteria jako jsou pohlaví a věk hrají také roli pro úspěšnost transplantace. Navíc podle nedávných studiích výsledky příjetí štěpu ovlivňují nejenom HLA geny ale i non-HLA geny. Jedním z nich může být právě killer immunoglobulin-like receptor (KIR). V případě kdy by bylo nalezeno více vhodných dárců, tj. se shodou 10/10 nebo 9/10, vybíralo by se následně podle KIR genů. \cite{KIR_transplantace_jindra} \cite{Frycova_bakalarka}
+\\
+\\
+Při určování shody dárce a pacienta se rozhoduje na základě schody alel u genů HLA -A, -B, -C, -DRB1, -DQB1. Díky velké diverzitě HLA genů je počet možných kombinací několik miliard. Některé kombinace genů se vyskytují na základě oblasti či národnosti častěji nebo mohou být naopak vzácné. HLA geny se obvykle dědí jako blok (cely haplotyp), avšak ve výjmečných případech může dojít k rekombinaci. Z tohoto důvodu je nejsnadnější nalést shodu v pokrevním příbuzenstvu.
+\\
+\\
+Jelikož každý jedinec má dvakrát geny na pozicích HLA -A, -B, -C, -DRB1 a -DQB1 (jednu pětici od otce, druhou pětici od matky), je maximální shoda 10/10 (shoda obou alel v lokusech). Čím je shoda menší tím větší je riziko nepřijetí stěpu. U nepříbuzných jedinců lze tolerovat shodu 9/10 či 8/10. \cite{Frycova_bakalarka} \cite{KIR_transplantace_jindra}
+\\
+\\
+V posledních letech se objevuje Haploidentická transplantace, kdy je možné použít krvetvorné buňky příbuzného se shodou pouze jednoho haplotypu (5/10) například všichni rodiče a děti. Umožnuje to podávání chemoterapie pár dní po transplantaci, která zníčí všechny buňky, které tělo nepřijme. Využívá se toho hlavně v případech časové tísně, kdy není čas hledat dárce v registrech. \cite{haploidenticka_transplantace}
+\\
+\\
+KIR geny se stejně jako HLA dědí celý blok. Jelikož HLA se nachází na 6 chromozomu a KIR na 19, tak shodní dárci v HLA znacích se jen menšinově shodují v KIR genech. V případě příbuzného dárce shodujícího se v HLA znacích je pouze 25\% shodných také v KIR. \cite{KIR_haplotypy}
+\\
+\\
+TODO možná informaci o B-content score za tohle, proč u více shodných se řeší KIR, že se vybírají B haplotypový dárci a že v poslední době se řeší, zda kromě haplotypu nemají vliv konkrétní alelické varianty KIR genů (to je to, proč vy to žešíte v diplomce)
+\\
+\\
+K zjištění konkrétních alelických variant se pro tzv. typizaci využívají sekvenační metody, typicky s polymerázovou řetězovou reakcí. 
+
+
+\section{Bordel haplotypy}
+
+TODO budu to tam dopisovat? KIR2DL5 (Where two or more genes have very similar structures and have very similar sequences, they may be given the same number but distinguished by a final letter: for example, the KIR2DL5A and KIR2DL5B genes. The similarity of these two genes suggests they are related by a recent gene duplication event. ),
 
 
 
 
 \chapter{Sekvenační metody získávání DNA dat}
-Sekvenování DNA, někdy pouze sekvenování, jsou biochemické metody, kterými se zjišťuje pořadí nukleotidů (A, C, G, T) v sekvenci DNA. Sekvenační metody se liší zejména délkou řetězce, kterou dokáží zpracovat, cenou a rychlostí sekvenace. Pro porovnání sekvenování celého genomu sangorovo metodou by stálo několik milion dolarů a trvalo zrhuba 10 let. Při použítí dnešních metod by cena byla zhruba tisíc dolarů. Největším problémem u sekvenování je, že sekvence vzniklé ze sekvenátoru jsou jen kousky které je třeba poskládat zpět. Většina sekvenačních metod využívá vlasnosti přitahováním báze do páru pouze jednou konkrétní bází. To znamená že se adenin vždy páruje s thyminem a cytosin se vždy páruje s guaninem. Z těchto párů vzniká již známá dvojitá šroubovice DNA. Při sekvenování je možná se často setkat, že se sekvenuje jen kónkrétní kus DNA, který je zrovna potřeba. \cite{sekvenovani_ziva}
+Po pojmem sekvence DNA se skrývá posloupnost písmen představujících primární strukturu reálné nebo hypotetické molekuly čí vlákna DNA, které nese nějakou informaci. Jednotlivá písmena jsou označována jako nukleotidy nebo nukleové báze. Nukleové báze mohou být A~-~adenin, C~-~cytosin, G~-~guanin a T - thymin. \cite{genome_gov}
+\\
+\\
+\noindent
+Příkladem může být následující úsek sekvence na základě obrázku \ref{fig:chrmosome} 
+\begin{align}
+   \label{sekvence_prikad} ACGTCA
+\end{align}
+
+\noindent
+Sekvenování DNA, někdy pouze sekvenování, jsou biochemické metody, kterými se zjišťuje pořadí nukleotidů (A, C, G, T) v sekvenci DNA. Díky tomu je možné zjistit typizaci konkrétního člověka. Sekvenační metody se liší zejména délkou řetězce, kterou dokáží zpracovat, cenou a rychlostí sekvenace. Pro porovnání sekvenování celého genomu Sangerovo metodou by stálo několik milion dolarů a trvalo zrhuba 10 let. Při použítí dnešních metod by cena byla zhruba tisíc dolarů. Největším problémem u sekvenování je, že sekvence vzniklé ze sekvenátoru jsou jen kousky které je třeba poskládat zpět. Většina sekvenačních metod využívá vlasnosti přitahováním báze do páru pouze jednou konkrétní bází. To znamená že se adenin vždy páruje s thyminem a cytosin se vždy páruje s guaninem. Z těchto párů vzniká již známá dvojitá šroubovice DNA. Při sekvenování je možná se často setkat, že se sekvenuje jen kónkrétní kus DNA, který je zrovna potřeba. \cite{sekvenovani_ziva}
 \\
 \\
 TODO možná tady ještě napsat něco o přípravě na sekvenování - je to dyžtak v tý přednášce co nám řikala na FAV
@@ -587,10 +355,6 @@ Sanger sekvenování využívá možnosti namnožení řetězce díky vzájemné
 		\caption{Elektroforéza. \cite{elektroforeza_img}}
 		\label{fig:elektroforeza}
 \end{figure}
-
- 
-TODO možná sem ještě přidat obrázek tý destičky.. ale zatím se nenašla nějakej hezkej.
- 
  
 \section{NGS next-generation sekvenování}
 Next-generation sekvenování někdy označováno jako metody druhé generace jsou v porovnání se Sangerovo sekvenováním rychlejší a levnější, na druhou stranu ale dokáží zpracovávat jen řetězce dlouhé 100 až 500 bází, mají menší přesnost a časteji chybují. Jejich rychlost spočívá především ve schopnosti detekovat přidávání bází jednu po druhé a zároveň sekvenovat tisíce až miliony rozdílných molekul DNA najednou. 
@@ -600,6 +364,9 @@ Všechny tyto metody si předpřipraví řetězce nastříháním na krátké č
  
 
 \subsection{454 sekvenování a Ion Torrent}
+TODO tohle spojit do jednoho odstavce a zkrátit, možná vypustit i předchozí větu kdy nastoupilo
+\\
+\\
 454 sekvenování bylo vypuštěno do světa v roce 2005. Dokáže analyzovat více než milion molekul DNA najednou a délka každé jednotlivé sekvence se pohybuje okolo 700 až 1000 bází.
 \\
 \\
@@ -617,6 +384,7 @@ Při sekvenování pomocí Illumina jsou páry dvoušrobovice rozděleny na dva 
 
 
 \subsection{SOLiD}
+TODO vysvětlení enzymu ligáza vysvětlení co toje
 SOLiD (Sequencing by Oligonucleotide Ligation and Detection) se spoléhá na enzym ligáza, který umožňuje připojení jednořetězcových molekul k stávajícím řetězcům. K teplátu jsou přidávány takzvané sondy, což jsou kousky DNA. Sondy začínají všemi možnými dvojkombinacemi čtyř základních nukleotidů. V součtu je 16 sond. Na každé sondě je jedna ze čtyř flurescenčních barev. V jednotlivých krocích jsou sondy připojeny k rostoucímu řetězci. Následně je přečtena fluorescenční barva, která je odstraněna a může se tak navázat další sonda. Z výsledného signálu lze pak ododit výslednou sekvenci DNA.
 
 
@@ -819,18 +587,23 @@ to děláte správně, jen musíte vytvořit KIR haplotyp, který podšoupnete t
 3DL2: 0020105, 0070102
 
 \section{Biopython}
-normálně přes pip3 install biopython
+Biopython je sdružení vývojářů, kteří vytváří volné dostupné python nástoje vhodné pro výpočty v molekurární biologii. Biopython se snaží zjednoduší použití pythonu pro výzkum bioinformatiky. Mimo jiné obsahuje umí pracovat i s formáty souborů které se využívají v bioinformatice jako je například BLAST nebo Fasta   
+\\
+\\
+Instalaci jde provést pip install biopython
+\\
+\\
 
 tak to vypadá že i ten biopython umí aligned a že to dělá přes to Burrows wheeler aligner 
 \section{ART}
-ART (next-generation sequencing read simulator) je sada simulačních nástrojů, které generují syntetické ready, jako kdyby byli získány sekvenováním pomocí NGS. Nástroj ART dokáže simulovat ready ze sekvenátorů Illuminas, 454 společnosti Roch a SOLid od společnosti Applied biosystém. Ready, vytvořené nástrojem ART jsou používány pro testování a analýzů nástrojů zpracovávající právě NGS sekvence jako například zarovávání (nástroj Bowtie). 
+ART (next-generation sequencing read simulator) je sada simulačních nástrojů, které generují syntetické ready, jako kdyby byli získány sekvenováním pomocí NGS. Nástroj ART dokáže simulovat ready ze sekvenátorů Illuminas, 454 společnosti Roch a SOLid od společnosti Applied biosystém. Ready, vytvořené nástrojem ART jsou používány pro testování a analýzů nástrojů zpracovávající právě NGS sekvence jako například zarovávání (nástroj Bowtie). \cite{art}
 \\
 \\
 ART je implementován v jazyce C++ a je dostupný s licencí GPL verze~3 pro operační systémy Linux, MacOs a Windows. Je možné ho použít i jako C++ package. Pro jeho spuštění je nutní mít nainstalovaný compilator GNU g++ 4.0 nebo vyšší a knihovnu GNU gsl. 
 \\
 \\
 Data získána z FN Plzeň byla sekvenována nástrojem Illuminas proto i syntetické ready budou simulovat tento sekvenátor.    
- Výstupy se čtou ve formátu FASTQ a zarovnání ve formátu ALN. může generovat zarovánávání také ve formátu SAM nebo UCS BED. \cite{art}
+ Výstupy se čtou ve formátu FASTQ a zarovnání ve formátu ALN. může generovat zarovánávání také ve formátu SAM nebo UCS BED. 
 
 
 
@@ -1024,6 +797,19 @@ dělala jsemt o podle tohohle webovky %http://bowtie-bio.sourceforge.net/bowtie2
 
 z bowtie pak teda leze asi SAM formát
 \subsection{Popis problému}
+máme krátkou délku
+že read který dostáváme jsou 250 bp dlouhé a jeden gen může být dlouhý 14738 bp
+s tím že jednotlivé ready se nám tedy mohou překrývat
+můžou tam být chyby
+
+teoreticky mám maximálně dvě možné alely s jednoho souboru, ale nemusím mít ani jednu 
+
+pak by se tam dala přidat heurestika že bych brala známe haplotypy
+
+Možná pak ještě pracovat s pravděpodobností výskytu daného genu
+
+možná by se pak ještě dalo kolik readů tam bylo zarovnaných- ale to je blbost protože tam mám ready z několik genů ne jen z toho jednoho 
+
 \subsubsection{SAM}
 1. název readu který je zarovnáván
 

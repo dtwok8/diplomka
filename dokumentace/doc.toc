@@ -9,51 +9,43 @@
 \contentsline {chapter}{\numberline {1}\IeC {\'U}vod}{8}{chapter.1}
 \contentsline {chapter}{\numberline {2}Imunitn\IeC {\'\i } syst\IeC {\'e}m a jeho spojitost s geny}{9}{chapter.2}
 \contentsline {section}{\numberline {2.1}Geny}{9}{section.2.1}
-\contentsline {section}{\numberline {2.2}Imunitn\IeC {\'\i } syst\IeC {\'e}m}{10}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Vrozen\IeC {\'a} imunita}{10}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Z\IeC {\'\i }skan\IeC {\'a} imunita}{10}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Antigen}{10}{subsection.2.2.3}
-\contentsline {section}{\numberline {2.3}HLA a non-HLA geny}{11}{section.2.3}
+\contentsline {section}{\numberline {2.2}Imunitn\IeC {\'\i } syst\IeC {\'e}m}{9}{section.2.2}
+\contentsline {section}{\numberline {2.3}HLA a non-HLA geny}{10}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Alela a gen}{11}{subsection.2.3.1}
 \contentsline {section}{\numberline {2.4}Natural killer a jeho receptory}{12}{section.2.4}
 \contentsline {subsection}{\numberline {2.4.1}Natural killer}{12}{subsection.2.4.1}
-\contentsline {subsubsection}{Ligand}{13}{section*.6}
-\contentsline {subsection}{\numberline {2.4.2}Receptor NKG2D a jeho ligandy MICA/MICB}{13}{subsection.2.4.2}
-\contentsline {subsection}{\numberline {2.4.3}KIR}{13}{subsection.2.4.3}
-\contentsline {subsection}{\numberline {2.4.4}Nomenklatura KIR gen\IeC {\r u}}{15}{subsection.2.4.4}
-\contentsline {subsection}{\numberline {2.4.5}KIR haplotyp}{17}{subsection.2.4.5}
-\contentsline {section}{\numberline {2.5}Porovn\IeC {\'a}n\IeC {\'\i } vhodn\IeC {\'e}ho d\IeC {\'a}rce}{18}{section.2.5}
-\contentsline {section}{\numberline {2.6}Bordel haplotypy}{19}{section.2.6}
-\contentsline {section}{\numberline {2.7}Sekvence DNA}{20}{section.2.7}
-\contentsline {section}{\numberline {2.8}Alela a gen}{21}{section.2.8}
-\contentsline {section}{\numberline {2.9}Bordel - KIR}{21}{section.2.9}
-\contentsline {section}{\numberline {2.10}bordel}{23}{section.2.10}
-\contentsline {subsection}{\numberline {2.10.1}bordel hla}{23}{subsection.2.10.1}
-\contentsline {subsection}{\numberline {2.10.2}bordel zbytek}{24}{subsection.2.10.2}
-\contentsline {section}{\numberline {2.11}Bordel pro prvni kapitolu}{26}{section.2.11}
-\contentsline {chapter}{\numberline {3}Sekvena\IeC {\v c}n\IeC {\'\i } metody z\IeC {\'\i }sk\IeC {\'a}v\IeC {\'a}n\IeC {\'\i } DNA dat}{28}{chapter.3}
-\contentsline {section}{\numberline {3.1}Sanger sequencing}{28}{section.3.1}
-\contentsline {section}{\numberline {3.2}NGS next-generation sekvenov\IeC {\'a}n\IeC {\'\i }}{29}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}454 sekvenov\IeC {\'a}n\IeC {\'\i } a Ion Torrent}{30}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Illumina}{30}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}SOLiD}{31}{subsection.3.2.3}
-\contentsline {section}{\numberline {3.3}Metody t\IeC {\v r}et\IeC {\'\i } generace}{31}{section.3.3}
-\contentsline {section}{\numberline {3.4}Read}{31}{section.3.4}
-\contentsline {section}{\numberline {3.5}Bordel}{32}{section.3.5}
-\contentsline {subsubsection}{Read bordel}{33}{section*.7}
-\contentsline {chapter}{\numberline {4}Analyza dostupn\IeC {\'y}ch bioinformatick\IeC {\'y}ch n\IeC {\'a}stroj\IeC {\r u} pro zpracov\IeC {\'a}n\IeC {\'\i } NGS dat}{35}{chapter.4}
-\contentsline {section}{\numberline {4.1}Referen\IeC {\v c}n\IeC {\'\i } geny}{35}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Vytvo\IeC {\v r}en\IeC {\'\i } testovac\IeC {\'\i }ho haplotypu}{35}{subsection.4.1.1}
-\contentsline {section}{\numberline {4.2}Biopython}{36}{section.4.2}
-\contentsline {section}{\numberline {4.3}ART}{36}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}pokus to nejak spustit}{37}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}FASTQ}{37}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}bordel}{38}{subsection.4.3.3}
-\contentsline {section}{\numberline {4.4}Bowtie}{39}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Bordel}{39}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Bowtie 2}{40}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}bordel}{40}{subsection.4.4.3}
-\contentsline {subsubsection}{SAM}{41}{section*.8}
-\contentsline {section}{\numberline {4.5}IGV}{41}{section.4.5}
-\contentsline {chapter}{\numberline {5}Seznam zkratek}{42}{chapter.5}
-\contentsline {chapter}{\numberline {6}V\IeC {\'y}kladov\IeC {\'y} slovn\IeC {\'\i }k pojm\IeC {\r u}?}{43}{chapter.6}
-\contentsline {chapter}{Literatura}{44}{chapter*.9}
+\contentsline {subsection}{\numberline {2.4.2}NKG2D receptor}{13}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}KIR receptor}{14}{subsection.2.4.3}
+\contentsline {subsubsection}{Nomenklatura KIR gen\IeC {\r u}}{14}{section*.6}
+\contentsline {subsubsection}{Aktivace NK bun\IeC {\v e}k pomoc\IeC {\'\i } KIR}{16}{section*.7}
+\contentsline {subsubsection}{KIR haplotyp}{17}{section*.8}
+\contentsline {section}{\numberline {2.5}Nalezen\IeC {\'\i } vhodn\IeC {\'e}ho d\IeC {\'a}rce}{20}{section.2.5}
+\contentsline {section}{\numberline {2.6}Bordel haplotypy}{21}{section.2.6}
+\contentsline {chapter}{\numberline {3}Sekvena\IeC {\v c}n\IeC {\'\i } metody z\IeC {\'\i }sk\IeC {\'a}v\IeC {\'a}n\IeC {\'\i } DNA dat}{22}{chapter.3}
+\contentsline {section}{\numberline {3.1}Sanger sequencing}{22}{section.3.1}
+\contentsline {section}{\numberline {3.2}NGS next-generation sekvenov\IeC {\'a}n\IeC {\'\i }}{23}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}454 sekvenov\IeC {\'a}n\IeC {\'\i } a Ion Torrent}{24}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Illumina}{25}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}SOLiD}{25}{subsection.3.2.3}
+\contentsline {section}{\numberline {3.3}Metody t\IeC {\v r}et\IeC {\'\i } generace}{25}{section.3.3}
+\contentsline {section}{\numberline {3.4}Read}{26}{section.3.4}
+\contentsline {section}{\numberline {3.5}Bordel}{26}{section.3.5}
+\contentsline {subsubsection}{Read bordel}{28}{section*.9}
+\contentsline {chapter}{\numberline {4}Analyza dostupn\IeC {\'y}ch bioinformatick\IeC {\'y}ch n\IeC {\'a}stroj\IeC {\r u} pro zpracov\IeC {\'a}n\IeC {\'\i } NGS dat}{30}{chapter.4}
+\contentsline {section}{\numberline {4.1}Referen\IeC {\v c}n\IeC {\'\i } geny}{30}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Vytvo\IeC {\v r}en\IeC {\'\i } testovac\IeC {\'\i }ho haplotypu}{30}{subsection.4.1.1}
+\contentsline {section}{\numberline {4.2}Biopython}{31}{section.4.2}
+\contentsline {section}{\numberline {4.3}ART}{31}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}pokus to nejak spustit}{32}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}FASTQ}{32}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}bordel}{34}{subsection.4.3.3}
+\contentsline {section}{\numberline {4.4}Bowtie}{34}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Bordel}{34}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Bowtie 2}{35}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}bordel}{36}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}Popis probl\IeC {\'e}mu}{36}{subsection.4.4.4}
+\contentsline {subsubsection}{SAM}{36}{section*.10}
+\contentsline {section}{\numberline {4.5}IGV}{37}{section.4.5}
+\contentsline {chapter}{\numberline {5}Seznam zkratek}{38}{chapter.5}
+\contentsline {chapter}{\numberline {6}V\IeC {\'y}kladov\IeC {\'y} slovn\IeC {\'\i }k pojm\IeC {\r u}?}{39}{chapter.6}
+\contentsline {chapter}{Literatura}{40}{chapter*.11}
