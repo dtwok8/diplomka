@@ -539,23 +539,7 @@ junctions)
 tohle je z tý diplomky single-pair
 
 \chapter{Analyza dostupných bioinformatických nástrojů pro zpracování NGS dat}
-\section{Referenční geny}
-Referenční geny byly převzaty z IPD-KIR \cite{imgt_hla_database} konkrétně soubory ve formátu $fasta$ uloženy ve stejnojmené složce. Jednotlivé soubory jsou pojmenovány genem který obsahují např. $KIR2DL1\_gen.fasta$. Každý soubor představuje všechny dostupné alely konkrétníhé genu.
-\\
-\\
-Kromě souborů $*\_gen.fasta$ obsahuje složka $fasta$ také soubory $*\_prot.fast$ a $*\_nuc.fasta$. Soubor $*\_prot.fast$ obrahuje sekvenci proteinů, nuc obsahuje nucleotidy a gen obsahu genomic DNA sekvence
-\\
-\\
-TODO já vlastně nechápu jakej je rozdíl mezi nuc a gen? 
-\\
-\\
-All files in this folder are provided in the FASTA sequence format. Please note the FASTA format contains no alignment information.
 
-Files designated “X\_prot.fasta”, where X is a locus or gene, contain protein sequences. Please note that alleles that contain non-coding variations may be identical at the protein level. 
-
-Files designated “X\_nuc.fasta”, where X is a locus or gene, contain the nucleotide coding sequences (CDS). Please note that alleles that contain non-coding variations may be identical at the CDS level.
-
-Files designated “X\_gen.fasta”, where X is a locus or gene, contain genomic DNA sequences. Please note for alleles that do not possess genomic sequences, there will be no entry in the file.
 
 \subsection{Vytvoření testovacího haplotypu}
 
@@ -586,15 +570,7 @@ to děláte správně, jen musíte vytvořit KIR haplotyp, který podšoupnete t
 2DS4: 001
 3DL2: 0020105, 0070102
 
-\section{Biopython}
-Biopython je sdružení vývojářů, kteří vytváří volné dostupné python nástoje vhodné pro výpočty v molekurární biologii. Biopython se snaží zjednoduší použití pythonu pro výzkum bioinformatiky. Mimo jiné obsahuje umí pracovat i s formáty souborů které se využívají v bioinformatice jako je například BLAST nebo Fasta   
-\\
-\\
-Instalaci jde provést pip install biopython
-\\
-\\
 
-tak to vypadá že i ten biopython umí aligned a že to dělá přes to Burrows wheeler aligner 
 \section{ART}
 ART (next-generation sequencing read simulator) je sada simulačních nástrojů, které generují syntetické ready, jako kdyby byli získány sekvenováním pomocí NGS. Nástroj ART dokáže simulovat ready ze sekvenátorů Illuminas, 454 společnosti Roch a SOLid od společnosti Applied biosystém. Ready, vytvořené nástrojem ART jsou používány pro testování a analýzů nástrojů zpracovávající právě NGS sekvence jako například zarovávání (nástroj Bowtie). \cite{art}
 \\
@@ -732,46 +708,89 @@ musí se brát v potaz že z toho generátoru nikdy nebudou data taková jako re
 
 
 \section{Bowtie}
-Bowtie je rychlý a paměťové efektivní nástroj pro zarovnávání krátkých sekvencí DNA na velké genomy. Indexace pomocí Burrows-Wheelere transformace dovoluje zarovnávání více než 25 milionů readů za CPU hodinu pro lidský genom s pamětí příblížně 1.3 gigabajtů. Bowtie přidáváa k Burrows-Wheeler technice backtracking algoritmus pro sledování nekonzistence. ??
+Bowtie je rychlý a paměťové efektivní nástroj pro zarovnávání krátkých sekvencí DNA na velké genomy. Bowtie je shopný zarovnat více než 25 milionů readů za hodinu (při běhu na jednom CPU) pro lidský genom s malým využím paměti. Bowtie využívá FM indexaci s Burrows-Wheeler transformací a přidává k ní backtracking pro sledování nekonzistence. Novější verze Bowtie2 by měla by oproti Bowtie1 citlivější a rychlejší na delší ready než je 50 nukleotidů. Na lidský genom potřebuje 3.2 gigabajtů RAM. Nástroj bowtie je implementovaný v jazyce c++ s použitím knihovny SeqAn. \cite{bowtie} \cite{bowtie2} 
+\\
+\\
+Bowtie je open source. V porovnání s nástroji Maq a SOAP je Bowtie rychlejší na lidském genomu. Citlivost má bowtie srovnatelnou s nástojem SOAP a o něco menší než Maq. Ale je možnost pomocí příkazové řádky zvýšit citlivost na úkor rychlosti běhu progamu. Bowtie vytváří indexy referenčních genů permanentní a lze je tak použít napříč běhy. Podrporuje standardní vstupní formáty FASQ a FASTA.  Výstupní zárovnání z bowtie je ve formátu SAM, což umožňuje návaznost s dalšími nástroji jako je třeba SAMtools
+\\
+\\
+Zarovnávání bývá prvním krokem v mnoho genomických pipelinách. Často je to jejich nejpomalejší část, protože pro každý read musí zarovnávač vyřešit obtížný výpočetní problém. Určit pravděpodobné umístění v referenčním genomu. Mnoho zarovnávačů používá indexy k rychlému snižování kandidátů pro umístění zarovnáváného readů. FM index (Full-text minute-space) 
+Přestože je tento vyhledávácí prostor velký , mnoho jeho částí může být přeskočeno (odřezáno) bez ztráty citlivosti
+V praxi prořezávací strategie jako je dvojí indexování a obousměrné BWT usnadňuje v In practice, pruning strategies such as double indexing and bidirectional Burrows-Wheeler transform (BWT) facilitate very efficient untapped alignment of short reads.
+\\
+\\
+Zarovnávání pomocí indexů může být i neefektivní v případě, že by bylo povoleno aby alignmenty obsahovali mezery. 
+Mezery mohou být způsobeny chybou sekvenování nebo skutečným vložením a smazáním. 
+Bezmezerován zarovnávaře, jako je bowtie , neodkážou zarovnat ready překlenující mezery a 
+mezery zvyšují velikost vyhledávacího prostoru a zpomalují zarovnávání. 
+\\
+\\
+Pro každý read
+\begin{enumerate}
+	\item extrahování seed z readů a jeho zpětné doplňky - nemyslí se tohle to pairend atd
+	\item extrahované podřetězce jsou zarovnány na referenci v bezmezerové modelu za pomocí full-text minute index
+nebo neodděleně? 
+	\item seed aligmenty jsou priorizovány a jejich pozice na referenčním genom jsou spočítány z indexu
+	\item seedy jsou rozšířeny do úplného zarování pro zvýšení výkonu je použito SIMD -accelerated dynamic programming.
+\end{enumerate}
 
 
-\subsection{Bordel}
-Bowtie je napsanej v c++ a používá knihovnu seqAn
+\subsection{Burrows-Wheeler transformace}
+Burrows-Wheelerova transformace (BWT) je reverzibilní permutace řetězců v textu. Původně byla používána pro kompresy dat. Indexace založená na BWT umožňuje efektivní vyhledávání ve velké textu s malou paměťovou náročností. 
+\\
+\\
+BW transformace řetězce T, $BWT(T)$, je zobrazena na obrázku \ref{fig:bw_transform_1}. Znak~\$ je připojen na konec řetězce a zároveň musí platit, že se tento znak se v řetězci nevyskytuje. Burrows-Wheeler matice řetězce T je konstruovaná jako všechny cyklické rotace řetězce T, které byli seřazeny podle abecedy, kde znak \$ se bere, že je na záčátku abecedy. Výstup, BWT(T) pak představuje poslední sloupec matice. Tento řetězec má stejnou délku jako původní řetězec T. \cite{bowtie} 
 
-Na lidském genomu je nástoj Bowtie v porovnání s nástoji Maq a SOAP rychlejší. 
-Citlovost má bowtie srovnatelné s nástojem SOAP a o něco menší než Maq. Ale je možnost pomocí příkazové řádky zvýšit citlivost na úkor rychlosti běhu progamu.
-Oproti SOAP bowtie potřebuje méně paměti 1.3 GB RAM. 
-Bowtie zarovnává  25 milionů readů za hodinu. může běžet paralelně.
+\begin{figure}[H]		
+		\centering
+		\includegraphics[width=\textwidth]{./img/BWT_1.png}
+		\caption{Burrows-Wheeler transformace řetězce T. \cite{bw_transform}}
+		\label{fig:bw_transform_1}
+\end{figure}
 
-indexi vytváří permanentní a lze je použít napříč běhy 
-pro lidský genom je to 2.2 GB takže ho lze distribuovat přes internet
-rychlost a malá paměť způsobuje především Burrows wheeler v kombinaci s backtrackingem.
+\noindent
+Burrows-Wheeler matice má vlastnost, která se nazývá last first mapping (LF). To znamená, že i-tý výskyt znaku X v prvním sloupci je i-tý výskyt znaku X v posledním sloupci. V případě přidání indexu do řetězce T je toto pravidlo pro znak $a$ zobrazeno na obrázku \ref{fig:bw_transform_lf}. Obdobně to platí i pro ostatní znaky v řetězci.
 
-Podrporuje standardní vstupní formáty FASQ a FASTA.
-
-Bowtie je open source.
-
- 
-na stránkách elixir-europe což je oragnizace co má dávat dohromady všechny vědecký veci a bla bla.
+\begin{align}
+   \label{rerezec_t} T - a_0 \: b_0 \: a_1 \: a_2 \: b_1 \: a_3 \: \$
+\end{align}
 
 
 
-Tak tam je přímo Bowtie \cite{bowtie}
+\begin{figure}[H]		
+		\centering
+		\includegraphics[width=100px]{./img/BWT_2.png}
+		\caption{Burrows-Wheeler transformace last first mapping (LF). \cite{bw_transform}}
+		\label{fig:bw_transform_lf}
+\end{figure}
+
+\noindent
+Zpětné získání řetězce je znázorněno na obrázku \ref{fig:bw_transform_inverse}. L sloupec je řetězec který je výstupem BW transformace. F sloupec je snadné na základě L sloupce odvodit. Jelikož platí pravidlo, že počet jednotlivých znaků je stejný, stačí je pouze přemístit do F sloupce a seřadit podle abecedy. Dále s využítím LF je řetězec získán zpět. Jako první se vezme přidaný znak \$. Ve stejném řádku ve sloupci L se nachází $a_0$ . To znamená že řetězec začíná \$ a. Algoritmus pokračuje s $a_0$ v F sloupci. Ve stejném řádku v L sloupci je $b_0$. $b_0$ je přidáno do řetězce a pokračuje až do doby než by byl opět znak \$. 
+
+
+\begin{figure}[H]		
+		\centering
+		\includegraphics[width=80px]{./img/BWT_3.png}
+		\caption{Burrows-Wheeler transformace zpětné získání původního řetězce. \cite{bw_transform}}
+		\label{fig:bw_transform_inverse}
+\end{figure}
+
+
+\noindent
+Algoritmus, který by vyhledávál přesné shody neni v praxi použitelný, protože ready mohou obsahovat chyby vzniklé sekvenováním. Proto bowtie každé zarovnání zakládá na kvality znaku báze v daném readu. Bowtie postupně vytváří dlouhý sufix. Pokud se sufix nevyskytuje v textu pak se může algoritmus vrátit a v již vytvořeném sufixu nahradit bázi za jinou. Dále pokračuje obdobným způsobem. Pokud by měl algoritmus na výběr substituovat za více bází vybere tu s nejnižší kvalitou znaku v readu. Protože bowtie algoritmus je greedy je možné, že jeho nalezené řešení není to nejlepší. Pro nalezení toho nejlepšího řešení je třeba použít přepínač $--best$, jeho funkčnost je ale na úkor rychlosti, která může být 2x čí 3x pomalejší. 
+
 
 \subsection{Bowtie 2}
+ It is particularly good at aligning reads of about 50 up to 100s or 1,000s of characters, and particularly good at aligning to relatively long (e.g. mammalian) genomes.
+  Bowtie 2 supports gapped, local, and paired-end alignment modes.
+
 Note that SOAP2 and Bowtie do not permit gapped alignment of unpaired reads.
- memory footprint of Bowtie 2 (3.24 gigabytes)
+
  Bowtie 2 by mělo být vhodnější pro delší ready než Bowtie1.
  We extracted a random subset of 1 million reads from each and aligned them with BWA-SW and Bowtie 2. We did not align with Bowtie, BWA or SOAP2 because those tools are designed for shorter reads.
 Bowtie už je překonanej nejenom Bowtie2 ale i BWA.
 Bowtie2 je podle studie znatelně lepší než Bowtie, SOAP2.
 tyhle výsledky jsou na syntetických readech
-
-vypadá to že bowtie 2 už nepoužívá tamten index ale používá nějaký Full-text minute index–assisted search což vypadá že je kombinace burrows wheelera a ještě něčeho.
-We found that Bowtie 2, a method that combines the advantages of the full-text minute index and SIMD dynamic programming, achieved very fast and memory-efficient gapped alignment of sequencing reads
-
-je zase open source
-\cite{bowtie2}
 
 
 šla jsem přes docker docker image ls - zobrazi vsechny image pak docker run a ID image
@@ -796,19 +815,7 @@ dělala jsemt o podle tohohle webovky %http://bowtie-bio.sourceforge.net/bowtie2
 
 
 z bowtie pak teda leze asi SAM formát
-\subsection{Popis problému}
-máme krátkou délku
-že read který dostáváme jsou 250 bp dlouhé a jeden gen může být dlouhý 14738 bp
-s tím že jednotlivé ready se nám tedy mohou překrývat
-můžou tam být chyby
 
-teoreticky mám maximálně dvě možné alely s jednoho souboru, ale nemusím mít ani jednu 
-
-pak by se tam dala přidat heurestika že bych brala známe haplotypy
-
-Možná pak ještě pracovat s pravděpodobností výskytu daného genu
-
-možná by se pak ještě dalo kolik readů tam bylo zarovnaných- ale to je blbost protože tam mám ready z několik genů ne jen z toho jednoho 
 
 \subsubsection{SAM}
 1. název readu který je zarovnáván
@@ -850,6 +857,57 @@ když to otevřeš tak možná občas vypadá že tam nic neni tak musíš vybra
 Možná by se pak dalo udělat to že ty víš že tam může být maximálně dva z toho jednoho KIR souboru.. jako že může mít maximálně dvě alely z jednoho souboru
 No akorát co mi to udělá když bude mít dvě stejný? 
 
+\chapter{Implementace}
+\section{Popis problému}
+máme krátkou délku
+že read který dostáváme jsou 250 bp dlouhé a jeden gen může být dlouhý 14738 bp
+s tím že jednotlivé ready se nám tedy mohou překrývat
+můžou tam být chyby
+
+teoreticky mám maximálně dvě možné alely s jednoho souboru, ale nemusím mít ani jednu 
+
+pak by se tam dala přidat heurestika že bych brala známe haplotypy
+
+Možná pak ještě pracovat s pravděpodobností výskytu daného genu
+
+možná by se pak ještě dalo kolik readů tam bylo zarovnaných- ale to je blbost protože tam mám ready z několik genů ne jen z toho jednoho 
+\section{Návrh systému}
+\section{Referenční geny}
+Referenční geny byly převzaty z IPD-KIR \cite{imgt_hla_database} konkrétně soubory ve formátu $fasta$ uloženy ve stejnojmené složce. Jednotlivé soubory jsou pojmenovány genem který obsahují např. $KIR2DL1\_gen.fasta$. Každý soubor představuje všechny dostupné alely konkrétníhé genu.
+\\
+\\
+Kromě souborů $*\_gen.fasta$ obsahuje složka $fasta$ také soubory $*\_prot.fast$ a $*\_nuc.fasta$. Soubor $*\_prot.fast$ obrahuje sekvenci proteinů, nuc obsahuje nucleotidy a gen obsahu genomic DNA sekvence
+\\
+\\
+TODO já vlastně nechápu jakej je rozdíl mezi nuc a gen? 
+\\
+\\
+All files in this folder are provided in the FASTA sequence format. Please note the FASTA format contains no alignment information.
+
+Files designated “X\_prot.fasta”, where X is a locus or gene, contain protein sequences. Please note that alleles that contain non-coding variations may be identical at the protein level. 
+
+Files designated “X\_nuc.fasta”, where X is a locus or gene, contain the nucleotide coding sequences (CDS). Please note that alleles that contain non-coding variations may be identical at the CDS level.
+
+Files designated “X\_gen.fasta”, where X is a locus or gene, contain genomic DNA sequences. Please note for alleles that do not possess genomic sequences, there will be no entry in the file.
+
+\section{Použité programové prostředky}
+\subsection{Python}
+Program byl navržen a implementován na operačním systému Linux za použití především programovacího jazyku Python. 
+ Pro spuštění programu je nutné mít nainstalovaný Python ve verzi 3.
+\subsubsection{Biopython}
+Biopython je sdružení vývojářů, kteří vytváří volné dostupné python nástoje vhodné pro výpočty v molekurární biologii. Biopython se snaží zjednoduší použití pythonu pro výzkum bioinformatiky. Mimo jiné umí pracovat s formáty souborů, které se využívají v bioinformatice jako je například BLAST nebo Fasta   
+\\
+\\
+Instalaci jde provést pip install biopython
+\\
+\\
+
+tak to vypadá že i ten biopython umí aligned a že to dělá přes to Burrows wheeler aligner 
+
+
+\chapter{Vyhodnocení výsledků a jejich srovnání}
+\chapter{Závěr}
+
 \chapter{Seznam zkratek}
 HLA
 KIR
@@ -858,7 +916,7 @@ sekvence DNA cytosin, adenonin atd
 DNA (Deoxyribonuklenovou kyselinu)
 co ty formáty souboru?
 
-\chapter{Výkladový slovník pojmů?}
+\chapter{Výkladový slovník pojmů}
 WHO
 český národní registr 
 možná zmínit národní registr
@@ -866,6 +924,8 @@ genotyp
 fenotyp tyhle kraviny
 Genotyp pro danou chromozomální oblast se pak u většiny lidí skládá ze dvou haplotypů).
 genom kompletní sekvence daného organismu
+
+
 % 
 % PRO ANGLICKOU SAZBU JE NUTNÉ ZMĚNIT
 % CITAČNÍ STYL!
@@ -875,5 +935,12 @@ genom kompletní sekvence daného organismu
 {\raggedright\small
 \bibliography{literatura}
 }
+
+
+\appendix
+\chapter{Uživatelská dokumentace}
+
+\section{Nastavení ART a jeho spuštění}
+
 
 \end{document}

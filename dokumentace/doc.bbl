@@ -1,4 +1,4 @@
-\begin{thebibliography}{24}
+\begin{thebibliography}{25}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -91,6 +91,11 @@
 \newblock 2017.
 \newblock Dostupn{\'{e}}~z:
   \url{https://ziva.avcr.cz/files/ziva/pdf/moderni-metody-sekvenovani-dna.pdf}.
+
+\bibitem[Langmead()]{bw_transform}
+{\sc Langmead}, B.
+\newblock  [online]. [cit.~2019/03/1].
+\newblock Dostupn{\'{e}}~z: \url{http://www.langmead-lab.org/}.
 
 \bibitem[Langmead -- Salzberg(2012)Langmead, Salzberg]{bowtie2}
 {\sc Langmead}, B. -- {\sc Salzberg}, S.~L.

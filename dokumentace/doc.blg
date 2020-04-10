@@ -7,9 +7,9 @@ Warning--entry type for "Frycova_bakalarka" isn't style-file defined
 --line 79 of file literatura.bib
 Warning--to sort, need author or key in human_cell
 Warning--to sort, need author or key in chromosome_structure
+Warning--to sort, need author or key in kir_genotypes_10
 Warning--to sort, need author or key in haploidenticka_transplantace
 Warning--to sort, need author or key in genome_gov
-Warning--to sort, need author or key in kir_genotypes_10
 Warning--empty journal in NK_receptors
 Warning--empty journal in KIR_haplotypy
 Warning--empty journal in MIC
@@ -23,45 +23,45 @@ Warning--empty journal in ipd_database
 Warning--empty journal in imgt_hla_database
 Warning--empty journal in KIR_img_princip
 Warning--empty publisher in en_smith
-You've used 24 entries,
+You've used 25 entries,
             2898 wiz_defined-function locations,
-            737 strings with 9007 characters,
-and the built_in function-call counts, 8664 in all, are:
-= -- 844
-> -- 442
-< -- 9
-+ -- 152
-- -- 128
-* -- 706
-:= -- 1380
-add.period$ -- 88
-call.type$ -- 24
-change.case$ -- 76
-chr.to.int$ -- 24
-cite$ -- 71
-duplicate$ -- 433
-empty$ -- 650
-format.name$ -- 189
-if$ -- 1806
+            740 strings with 9059 characters,
+and the built_in function-call counts, 8948 in all, are:
+= -- 879
+> -- 453
+< -- 10
++ -- 156
+- -- 131
+* -- 724
+:= -- 1432
+add.period$ -- 92
+call.type$ -- 25
+change.case$ -- 78
+chr.to.int$ -- 25
+cite$ -- 73
+duplicate$ -- 446
+empty$ -- 665
+format.name$ -- 194
+if$ -- 1865
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 38
-newline$ -- 135
-num.names$ -- 89
-pop$ -- 239
+missing$ -- 41
+newline$ -- 140
+num.names$ -- 94
+pop$ -- 244
 preamble$ -- 1
-purify$ -- 76
+purify$ -- 78
 quote$ -- 0
-skip$ -- 323
+skip$ -- 332
 stack$ -- 0
-substring$ -- 71
-swap$ -- 44
+substring$ -- 73
+swap$ -- 45
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 254
+type$ -- 265
 warning$ -- 18
-while$ -- 52
+while$ -- 55
 width$ -- 0
-write$ -- 300
+write$ -- 312
 (There were 19 warnings)
