@@ -64,6 +64,7 @@
 % Umožňuje vkládání obrázků
 \usepackage[pdftex]{graphicx}
 
+\usepackage{subcaption}
 % Odkazy v PDF jsou aktivní; navíc se automaticky vkládá
 % balíček 'url', který umožňuje např. dělení slov
 % uvnitř URL
@@ -572,17 +573,201 @@ to děláte správně, jen musíte vytvořit KIR haplotyp, který podšoupnete t
 
 
 \section{ART}
-ART (next-generation sequencing read simulator) je sada simulačních nástrojů, které generují syntetické ready, jako kdyby byli získány sekvenováním pomocí NGS. Nástroj ART dokáže simulovat ready ze sekvenátorů Illuminas, 454 společnosti Roch a SOLid od společnosti Applied biosystém. Ready, vytvořené nástrojem ART jsou používány pro testování a analýzů nástrojů zpracovávající právě NGS sekvence jako například zarovávání (nástroj Bowtie). \cite{art}
+ART (next-generation sequencing read simulator) je sada simulačních nástrojů, které generují syntetické ready, jako kdyby byli získány sekvenováním pomocí NGS. Nástroj ART dokáže simulovat single-end a paired-end ready ze sekvenátorů Illuminas, 454 společnosti Roch a SOLid od společnosti Applied biosystém. Ready, vytvořené nástrojem ART jsou používány pro testování a analýzů nástrojů zpracovávající právě NGS sekvence jako například zarovávání (nástroj Bowtie). \cite{art}
+\\
+\\
+Podle \cite{art} je dostupných několik simulačních nástrojů (Wgsim, MetaSim, SimSeq, FlowSim), které fungují dobře pro platformy pro kterou byli určeny, ale žádný z nich se nedokázal vypořádat se všemi hlavními platformamy. Především v generování hlavních chyb, které jsou substituční a vložení čí smazání (INDEL - insert-deletion) na základě jednotlivých módu konkrétní platformy. ART obsahuje technologické profily chyb a navíc mu může být podsunut i uživatelsý profil chyb. Obsažené profily délky readů a jejich chyb byly získány z datasetu skutečných sekvenovaných dat. 
+\\
+\\
+TODO možná někde zmínit co přesně znamená konkrétní chyba
+\\
+\\
+TODO
+Proč? No protože přesně ví co tam dávají za data, protože mu podšoupnou ten referenční genom a tak pak můžou dobře sledovat co ten zarovnávač s tím dělá. 
+A proč je to o tolik výhodnější než když by měli nějakej realnej dataset? 
+Možná že si tam můžou ty chyby navolit tak jak se jim hodí?
+Jako bude v tom míň chyb, ale stejně. 
+\\
+\\
+TODO tohle někam dodat: ARTU je nutné podsunou refernční genom a ART vygeneruje ready způsobem napodobujícím sekvenční ready
+\\
+\\
+\textbf{Illumina} je sekvenování založené na vratném umístění báze označené barvou do rostoucího řetězce jehož nejčastější chybou je substituce. Pravděpodobnost chyby substituce je určená na základě kvality skoré dané báze, které je závyslé na pozici v rostoucím řetězci. Průměrné kvality score klesá v závyslosti na zvyšování pozice báze. ART simuluje substituční chybu na základě tohoto skore a emprického modelu získaného z trénovacích datasetů. INDEL chybu simuluje jen na základě empirického rozělení z trénovacích dat. Por paired-end similaci, ART používá dvě rozdílné quality skore sistribuce a error rates pro první a druhý read.
+\\
+\\
+\textbf{454} je sekvenování při kterém se zachycuje vyzářené světlo na základě toho pokud se báze přidala do řetězce či nikoliv. Jeho dominantní chybou je tedy nesprávné určení počtů přidaných bází. Pravděpodobnost chyby roste s frekvencí dlouhých úseků obsahující stejnou bázi. Proto ART modeluje rozdělení chyb na základě délky úseku obsahující stejnou bázi spolu s Markovovy řetězci.
+\\
+\\
+\textbf{SOLid} je založené na označení čtyř barev pro 16 různých skupin bází. Pro paired-end read simulaci délky fragmentu je použito Gausovské rozdělení. Rozdělení chyb je založena na empirické znalosti získané z readů generovaných Applied Biosystémem. ART zároveň nabází nastavené chybovosti základě lineárního měřítka. 
 \\
 \\
 ART je implementován v jazyce C++ a je dostupný s licencí GPL verze~3 pro operační systémy Linux, MacOs a Windows. Je možné ho použít i jako C++ package. Pro jeho spuštění je nutní mít nainstalovaný compilator GNU g++ 4.0 nebo vyšší a knihovnu GNU gsl. 
 \\
 \\
-Data získána z FN Plzeň byla sekvenována nástrojem Illuminas proto i syntetické ready budou simulovat tento sekvenátor.    
- Výstupy se čtou ve formátu FASTQ a zarovnání ve formátu ALN. může generovat zarovánávání také ve formátu SAM nebo UCS BED. 
+Data získána z FN Plzeň byla sekvenována nástrojem Illuminas proto i syntetické ready budou simulovat tento sekvenátor.   Výstupy se čtou ve formátu FASTQ a zarovnání ve formátu ALN. může generovat zarovánávání také ve formátu SAM nebo UCS BED. 
+
+
+\section{Bowtie}
+Bowtie je rychlý a paměťové efektivní nástroj pro zarovnávání krátkých sekvencí DNA na velké genomy. Bowtie je shopný zarovnat více než 25 milionů readů za hodinu (při běhu na jednom CPU) pro lidský genom s malým využím paměti. Bowtie využívá FM indexaci s Burrows-Wheeler transformací a přidává k ní backtracking pro sledování nekonzistence. Novější verze Bowtie2 by měla by oproti Bowtie1 citlivější a rychlejší na delší ready než je 50 nukleotidů. Na lidský genom potřebuje 3.2 gigabajtů RAM. Nástroj bowtie je implementovaný v jazyce c++ s použitím knihovny SeqAn. \cite{bowtie} \cite{bowtie2} 
+\\
+\\
+Bowtie je open source. V porovnání s nástroji Maq a SOAP je Bowtie rychlejší na lidském genomu. Citlivost má bowtie srovnatelnou s nástojem SOAP a o něco menší než Maq. Ale je možnost pomocí příkazové řádky zvýšit citlivost na úkor rychlosti běhu progamu. Bowtie vytváří indexy referenčních genů permanentní a lze je tak použít napříč běhy. Podrporuje standardní vstupní formáty FASQ a FASTA.  Výstupní zárovnání z bowtie je ve formátu SAM, což umožňuje návaznost s dalšími nástroji jako je třeba SAMtools
+\\
+\\
+Zarovnávání bývá prvním krokem v mnoho genomických pipelinách. Často je to jejich nejpomalejší část, protože pro každý read musí zarovnávač vyřešit obtížný výpočetní problém. Určit pravděpodobné umístění v referenčním genomu. Mnoho zarovnávačů používá indexy k rychlému snižování kandidátů pro umístění zarovnáváného readu. FM index (Full-text minute-space) 
+Přestože je tento vyhledávácí prostor velký , mnoho jeho částí může být přeskočeno (odřezáno) bez ztráty citlivosti
+V praxi prořezávací strategie jako je dvojí indexování a obousměrné BWT usnadňuje v In practice, pruning strategies such as double indexing and bidirectional Burrows-Wheeler transform (BWT) facilitate very efficient untapped alignment of short reads.
+\\
+\\
+Zarovnávání pomocí indexů může být i neefektivní v případě, že by bylo povoleno aby alignmenty obsahovali mezery. 
+Mezery mohou být způsobeny chybou sekvenování nebo skutečným vložením a smazáním. 
+Bezmezerován zarovnávaře, jako je bowtie , neodkážou zarovnat ready překlenující mezery a 
+mezery zvyšují velikost vyhledávacího prostoru a zpomalují zarovnávání. 
+\\
+\\
+Pro každý read
+\begin{enumerate}
+	\item extrahování seed z readů a jeho zpětné doplňky - nemyslí se tohle to pairend atd
+	\item extrahované podřetězce jsou zarovnány na referenci v bezmezerové modelu za pomocí full-text minute index
+nebo neodděleně? 
+	\item seed aligmenty jsou priorizovány a jejich pozice na referenčním genom jsou spočítány z indexu
+	\item seedy jsou rozšířeny do úplného zarování pro zvýšení výkonu je použito SIMD -accelerated dynamic programming.
+\end{enumerate}
+
+
+\subsection{Burrows-Wheeler transformace}
+Burrows-Wheelerova transformace (BWT) je reverzibilní permutace řetězců v textu. Původně byla používána pro kompresy dat. Indexace založená na BWT umožňuje efektivní vyhledávání ve velké textu s malou paměťovou náročností. 
+\\
+\\
+BW transformace řetězce T, $BWT(T)$, je zobrazena na obrázku \ref{fig:bw_transform_1}. Znak~\$ je připojen na konec řetězce a zároveň musí platit, že se tento znak se v řetězci nevyskytuje. Burrows-Wheeler matice řetězce T je konstruovaná jako všechny cyklické rotace řetězce T, které byli seřazeny podle abecedy, kde znak \$ se bere, že je na záčátku abecedy. Výstup, BWT(T) pak představuje poslední sloupec matice. Tento řetězec má stejnou délku jako původní řetězec T. \cite{bowtie} 
+
+\begin{figure}[H]		
+		\centering
+		\includegraphics[width=.8\textwidth]{./img/BWT_1.png}
+		\caption{Burrows-Wheeler transformace řetězce T. \cite{bw_transform}}
+		\label{fig:bw_transform_1}
+\end{figure}
+
+\noindent
+Burrows-Wheeler matice má vlastnost, která se nazývá last first mapping (LF). To znamená, že i-tý výskyt znaku X v prvním sloupci je i-tý výskyt znaku X v posledním sloupci. V případě přidání indexu do řetězce T je toto pravidlo pro znak $a$ zobrazeno na obrázku \ref{fig:bw_transform_lf}. Obdobně to platí i pro ostatní znaky v řetězci.
+
+\begin{align}
+   \label{rerezec_t} T - a_0 \: b_0 \: a_1 \: a_2 \: b_1 \: a_3 \: \$
+\end{align}
 
 
 
+\begin{figure}[H]		
+		\centering
+		\includegraphics[width=100px]{./img/BWT_2.png}
+		\caption{Burrows-Wheeler transformace last first mapping (LF). \cite{bw_transform}}
+		\label{fig:bw_transform_lf}
+\end{figure}
+
+\noindent
+Zpětné získání řetězce je znázorněno na obrázku \ref{fig:bw_transform_inverse}. L sloupec je řetězec který je výstupem BW transformace. F sloupec je snadné na základě L sloupce odvodit. Jelikož platí pravidlo, že počet jednotlivých znaků je stejný, stačí je pouze přemístit do F sloupce a seřadit podle abecedy. Dále s využítím LF je řetězec získán zpět. Jako první se vezme přidaný znak \$. Ve stejném řádku ve sloupci L se nachází $a_0$ . To znamená že řetězec začíná \$ a. Algoritmus pokračuje s $a_0$ v F sloupci. Ve stejném řádku v L sloupci je $b_0$. $b_0$ je přidáno do řetězce a pokračuje až do doby než by byl opět znak \$. 
+
+
+\begin{figure}[H]		
+		\centering
+		\includegraphics[width=80px]{./img/BWT_3.png}
+		\caption{Burrows-Wheeler transformace zpětné získání původního řetězce. \cite{bw_transform}}
+		\label{fig:bw_transform_inverse}
+\end{figure}
+
+\noindent
+Díky vztahu mezi F a L sloupcem je možné vyhledávat daný řětezec (zobrazeno na obrázku \ref{fig:fm_index}). Například vyhledávány řetězec bude $P = aba$. Při pohledu do F sloupce jsou nalezeny všechy sloupce začínající $a$, následně v L sloupci ve stejných řádcích jsou nalezeny dva výskyty $b$. Již je získán sufix $ba$, který existuje. Pokračuje se dále na řádky, které začínají právě nalezenými $b$. V sloupci L pro dané řádky jsou nalezna $a$. Řětezec $P = aba$ se v textu vyskytuje. FM index má více optimalizačních řešení, které dále nebudou rozebírány.
+
+\begin{figure}[H]
+		\centering
+		\begin{subfigure}[t]{.4\textwidth}
+			\centering
+			\includegraphics[width=100px]{./img/FM_index_1.png}
+		\end{subfigure}
+		%
+		\begin{subfigure}[t]{.4\textwidth}
+			\centering
+			\includegraphics[width=100px]{./img/FM_index_2.png}
+		\end{subfigure}	
+		\caption{FM index - získání prefixu. \cite{bw_transform}}
+		\label{fig:fm_index}
+\end{figure}
+
+
+
+\noindent
+Algoritmus, který by vyhledávál přesné shody neni v praxi použitelný, protože ready mohou obsahovat chyby vzniklé sekvenováním. Proto bowtie každé zarovnání zakládá na kvalitě znaku báze v daném readu. Bowtie postupně vytváří dlouhý sufix. Pokud se sufix nevyskytuje v textu pak se může algoritmus vrátit a v již vytvořeném sufixu nahradit bázi za jinou. Dále pokračuje obdobným způsobem. Pokud by měl algoritmus na výběr substituovat za více bází vybere tu s nejnižší kvalitou znaku v readu. Protože bowtie algoritmus je greedy je možné, že jeho nalezené řešení není to nejlepší. Pro nalezení toho nejlepšího řešení je třeba použít přepínač $--best$, jeho funkčnost je ale na úkor rychlosti, která může být 2x čí 3x pomalejší. Zároveň je možné nastavit maximální počet nahrazených bází v readu.
+
+
+
+
+\subsection{bordel}
+ It is particularly good at aligning reads of about 50 up to 100s or 1,000s of characters, and particularly good at aligning to relatively long (e.g. mammalian) genomes.
+  Bowtie 2 supports gapped, local, and paired-end alignment modes.
+
+Note that SOAP2 and Bowtie do not permit gapped alignment of unpaired reads.
+
+ Bowtie 2 by mělo být vhodnější pro delší ready než Bowtie1.
+ We extracted a random subset of 1 million reads from each and aligned them with BWA-SW and Bowtie 2. We did not align with Bowtie, BWA or SOAP2 because those tools are designed for shorter reads.
+Bowtie už je překonanej nejenom Bowtie2 ale i BWA.
+Bowtie2 je podle studie znatelně lepší než Bowtie, SOAP2.
+tyhle výsledky jsou na syntetických readech
+
+
+šla jsem přes docker docker image ls - zobrazi vsechny image pak docker run a ID image
+sudo docker run -i -t 3c2b9a287f82 /bin/bash
+sudo docker ps -a
+
+Tak jsem nakonec žádnej docker nepotřebovala a stáhla jsem to tady %http://bowtie-bio.sourceforge.net/tutorial.shtml
+ po kliknuti na bowtie binary release.
+
+na strance 25.4 je řečeno o hledání tch nejlepších zarovnání a je tam možnost --best ale že je dvakrát nebo třikrát pomalejší než normální mod.. a jde o to že najde první přijatelný a to označní kdežto při tom best prohledá co nejvíc a hledá to nejlepší i mezi těma přijatelnýma a to je pomalý.
+
+takže zarovnání by mohlo být teoreticky namapování na referenční gen???
+
+\subsection{bordel}
+tak jsem  to stáhla dala do složky a musela jsem teda nastavit proměnou prostředí 
+export BT2\_HOME=$/home/kate/Dokumenty/FAV/Diplomka/existujicisw/bowtie2-2.4.1-linux-x86_64/$
+pak jsem pustila tohle: 
+\$BT2\_HOME/bowtie2-build \$ $BT2_HOME/example/reference/lambda_virus.fa lambda_virus$
+a nakonec se mi vytvořili nějaký nový soubory lambda virus 1 atd.. v tom bowtie 2 adresáři
+
+dělala jsemt o podle tohohle webovky %http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#getting-started-with-bowtie-2-lambda-phage-example
+
+
+z bowtie pak teda leze asi SAM formát
+
+
+\subsubsection{SAM}
+1. název readu který je zarovnáván
+
+2. Sum of all applicable flags. Flags relevant to Bowtie are:
+součet všechn aplikovaných (příslušných flags). Flagy relevantní k bowtie jsou: 
+1 - read je jeden z páru
+2 - zarovnání je one z paired proper (The alignment is one end of a proper paired-end alignment)
+4 - read má reported alignments
+8 - read je jeden z páru a má reportovaný zarovnání
+16 - zarování je obrácená reference vlákna
+32 - The other mate in the paired-end alignment is aligned to the reverse reference strand
+64 - read je mate 1 in a pair
+128 - read je mate 2 in a pair
+
+Thus, an unpaired read that aligns to the reverse reference strand will have flag 16. A paired-end read that aligns and is the first mate in the pair will have flag 83 (= 64 + 16 + 2 + 1).
+
+3. jméno referecnce ze které zarování patří
+4. 1-based offset into the forward reference strand where leftmost character of the alignment occurs 1-based odszaneí v následující referenci 
+5. kvalita mapování
+6. CIGAR reprezentace zarovnání
+7. název reference kde je zarovnán kamarád 
+8. 1-based zarování ofsetu k nálsedující refenrenci 
+9. Odvozená délka fragmentu. Velikost v závoru je že se mate nachází předtím. 0 že jsem nezarovnali mate
+10. read sekvence
+11. ASCII encoded read kvalita, stejné jako u FASTQ
+12. optional pole
+
+
+\chapter{Bordel}
+\section{ART}
 
 \subsection{pokus to nejak spustit}
 Takze kdyz otebru hlavni readme tak mi to riká že tam jsou read me pro jednotlivy verze sekvenatoru ..
@@ -703,146 +888,6 @@ tak jsem stáhla normálně nejnovější verzi z niehs.nih.gov a podle instrukc
 
 
 musí se brát v potaz že z toho generátoru nikdy nebudou data taková jako reálná.. realná budou horší 
-
-
-
-
-\section{Bowtie}
-Bowtie je rychlý a paměťové efektivní nástroj pro zarovnávání krátkých sekvencí DNA na velké genomy. Bowtie je shopný zarovnat více než 25 milionů readů za hodinu (při běhu na jednom CPU) pro lidský genom s malým využím paměti. Bowtie využívá FM indexaci s Burrows-Wheeler transformací a přidává k ní backtracking pro sledování nekonzistence. Novější verze Bowtie2 by měla by oproti Bowtie1 citlivější a rychlejší na delší ready než je 50 nukleotidů. Na lidský genom potřebuje 3.2 gigabajtů RAM. Nástroj bowtie je implementovaný v jazyce c++ s použitím knihovny SeqAn. \cite{bowtie} \cite{bowtie2} 
-\\
-\\
-Bowtie je open source. V porovnání s nástroji Maq a SOAP je Bowtie rychlejší na lidském genomu. Citlivost má bowtie srovnatelnou s nástojem SOAP a o něco menší než Maq. Ale je možnost pomocí příkazové řádky zvýšit citlivost na úkor rychlosti běhu progamu. Bowtie vytváří indexy referenčních genů permanentní a lze je tak použít napříč běhy. Podrporuje standardní vstupní formáty FASQ a FASTA.  Výstupní zárovnání z bowtie je ve formátu SAM, což umožňuje návaznost s dalšími nástroji jako je třeba SAMtools
-\\
-\\
-Zarovnávání bývá prvním krokem v mnoho genomických pipelinách. Často je to jejich nejpomalejší část, protože pro každý read musí zarovnávač vyřešit obtížný výpočetní problém. Určit pravděpodobné umístění v referenčním genomu. Mnoho zarovnávačů používá indexy k rychlému snižování kandidátů pro umístění zarovnáváného readů. FM index (Full-text minute-space) 
-Přestože je tento vyhledávácí prostor velký , mnoho jeho částí může být přeskočeno (odřezáno) bez ztráty citlivosti
-V praxi prořezávací strategie jako je dvojí indexování a obousměrné BWT usnadňuje v In practice, pruning strategies such as double indexing and bidirectional Burrows-Wheeler transform (BWT) facilitate very efficient untapped alignment of short reads.
-\\
-\\
-Zarovnávání pomocí indexů může být i neefektivní v případě, že by bylo povoleno aby alignmenty obsahovali mezery. 
-Mezery mohou být způsobeny chybou sekvenování nebo skutečným vložením a smazáním. 
-Bezmezerován zarovnávaře, jako je bowtie , neodkážou zarovnat ready překlenující mezery a 
-mezery zvyšují velikost vyhledávacího prostoru a zpomalují zarovnávání. 
-\\
-\\
-Pro každý read
-\begin{enumerate}
-	\item extrahování seed z readů a jeho zpětné doplňky - nemyslí se tohle to pairend atd
-	\item extrahované podřetězce jsou zarovnány na referenci v bezmezerové modelu za pomocí full-text minute index
-nebo neodděleně? 
-	\item seed aligmenty jsou priorizovány a jejich pozice na referenčním genom jsou spočítány z indexu
-	\item seedy jsou rozšířeny do úplného zarování pro zvýšení výkonu je použito SIMD -accelerated dynamic programming.
-\end{enumerate}
-
-
-\subsection{Burrows-Wheeler transformace}
-Burrows-Wheelerova transformace (BWT) je reverzibilní permutace řetězců v textu. Původně byla používána pro kompresy dat. Indexace založená na BWT umožňuje efektivní vyhledávání ve velké textu s malou paměťovou náročností. 
-\\
-\\
-BW transformace řetězce T, $BWT(T)$, je zobrazena na obrázku \ref{fig:bw_transform_1}. Znak~\$ je připojen na konec řetězce a zároveň musí platit, že se tento znak se v řetězci nevyskytuje. Burrows-Wheeler matice řetězce T je konstruovaná jako všechny cyklické rotace řetězce T, které byli seřazeny podle abecedy, kde znak \$ se bere, že je na záčátku abecedy. Výstup, BWT(T) pak představuje poslední sloupec matice. Tento řetězec má stejnou délku jako původní řetězec T. \cite{bowtie} 
-
-\begin{figure}[H]		
-		\centering
-		\includegraphics[width=\textwidth]{./img/BWT_1.png}
-		\caption{Burrows-Wheeler transformace řetězce T. \cite{bw_transform}}
-		\label{fig:bw_transform_1}
-\end{figure}
-
-\noindent
-Burrows-Wheeler matice má vlastnost, která se nazývá last first mapping (LF). To znamená, že i-tý výskyt znaku X v prvním sloupci je i-tý výskyt znaku X v posledním sloupci. V případě přidání indexu do řetězce T je toto pravidlo pro znak $a$ zobrazeno na obrázku \ref{fig:bw_transform_lf}. Obdobně to platí i pro ostatní znaky v řetězci.
-
-\begin{align}
-   \label{rerezec_t} T - a_0 \: b_0 \: a_1 \: a_2 \: b_1 \: a_3 \: \$
-\end{align}
-
-
-
-\begin{figure}[H]		
-		\centering
-		\includegraphics[width=100px]{./img/BWT_2.png}
-		\caption{Burrows-Wheeler transformace last first mapping (LF). \cite{bw_transform}}
-		\label{fig:bw_transform_lf}
-\end{figure}
-
-\noindent
-Zpětné získání řetězce je znázorněno na obrázku \ref{fig:bw_transform_inverse}. L sloupec je řetězec který je výstupem BW transformace. F sloupec je snadné na základě L sloupce odvodit. Jelikož platí pravidlo, že počet jednotlivých znaků je stejný, stačí je pouze přemístit do F sloupce a seřadit podle abecedy. Dále s využítím LF je řetězec získán zpět. Jako první se vezme přidaný znak \$. Ve stejném řádku ve sloupci L se nachází $a_0$ . To znamená že řetězec začíná \$ a. Algoritmus pokračuje s $a_0$ v F sloupci. Ve stejném řádku v L sloupci je $b_0$. $b_0$ je přidáno do řetězce a pokračuje až do doby než by byl opět znak \$. 
-
-
-\begin{figure}[H]		
-		\centering
-		\includegraphics[width=80px]{./img/BWT_3.png}
-		\caption{Burrows-Wheeler transformace zpětné získání původního řetězce. \cite{bw_transform}}
-		\label{fig:bw_transform_inverse}
-\end{figure}
-
-
-\noindent
-Algoritmus, který by vyhledávál přesné shody neni v praxi použitelný, protože ready mohou obsahovat chyby vzniklé sekvenováním. Proto bowtie každé zarovnání zakládá na kvality znaku báze v daném readu. Bowtie postupně vytváří dlouhý sufix. Pokud se sufix nevyskytuje v textu pak se může algoritmus vrátit a v již vytvořeném sufixu nahradit bázi za jinou. Dále pokračuje obdobným způsobem. Pokud by měl algoritmus na výběr substituovat za více bází vybere tu s nejnižší kvalitou znaku v readu. Protože bowtie algoritmus je greedy je možné, že jeho nalezené řešení není to nejlepší. Pro nalezení toho nejlepšího řešení je třeba použít přepínač $--best$, jeho funkčnost je ale na úkor rychlosti, která může být 2x čí 3x pomalejší. 
-
-
-\subsection{Bowtie 2}
- It is particularly good at aligning reads of about 50 up to 100s or 1,000s of characters, and particularly good at aligning to relatively long (e.g. mammalian) genomes.
-  Bowtie 2 supports gapped, local, and paired-end alignment modes.
-
-Note that SOAP2 and Bowtie do not permit gapped alignment of unpaired reads.
-
- Bowtie 2 by mělo být vhodnější pro delší ready než Bowtie1.
- We extracted a random subset of 1 million reads from each and aligned them with BWA-SW and Bowtie 2. We did not align with Bowtie, BWA or SOAP2 because those tools are designed for shorter reads.
-Bowtie už je překonanej nejenom Bowtie2 ale i BWA.
-Bowtie2 je podle studie znatelně lepší než Bowtie, SOAP2.
-tyhle výsledky jsou na syntetických readech
-
-
-šla jsem přes docker docker image ls - zobrazi vsechny image pak docker run a ID image
-sudo docker run -i -t 3c2b9a287f82 /bin/bash
-sudo docker ps -a
-
-Tak jsem nakonec žádnej docker nepotřebovala a stáhla jsem to tady %http://bowtie-bio.sourceforge.net/tutorial.shtml
- po kliknuti na bowtie binary release.
-
-na strance 25.4 je řečeno o hledání tch nejlepších zarovnání a je tam možnost --best ale že je dvakrát nebo třikrát pomalejší než normální mod.. a jde o to že najde první přijatelný a to označní kdežto při tom best prohledá co nejvíc a hledá to nejlepší i mezi těma přijatelnýma a to je pomalý.
-
-takže zarovnání by mohlo být teoreticky namapování na referenční gen???
-
-\subsection{bordel}
-tak jsem  to stáhla dala do složky a musela jsem teda nastavit proměnou prostředí 
-export BT2\_HOME=$/home/kate/Dokumenty/FAV/Diplomka/existujicisw/bowtie2-2.4.1-linux-x86_64/$
-pak jsem pustila tohle: 
-\$BT2\_HOME/bowtie2-build \$ $BT2_HOME/example/reference/lambda_virus.fa lambda_virus$
-a nakonec se mi vytvořili nějaký nový soubory lambda virus 1 atd.. v tom bowtie 2 adresáři
-
-dělala jsemt o podle tohohle webovky %http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#getting-started-with-bowtie-2-lambda-phage-example
-
-
-z bowtie pak teda leze asi SAM formát
-
-
-\subsubsection{SAM}
-1. název readu který je zarovnáván
-
-2. Sum of all applicable flags. Flags relevant to Bowtie are:
-součet všechn aplikovaných (příslušných flags). Flagy relevantní k bowtie jsou: 
-1 - read je jeden z páru
-2 - zarovnání je one z paired proper (The alignment is one end of a proper paired-end alignment)
-4 - read má reported alignments
-8 - read je jeden z páru a má reportovaný zarovnání
-16 - zarování je obrácená reference vlákna
-32 - The other mate in the paired-end alignment is aligned to the reverse reference strand
-64 - read je mate 1 in a pair
-128 - read je mate 2 in a pair
-
-Thus, an unpaired read that aligns to the reverse reference strand will have flag 16. A paired-end read that aligns and is the first mate in the pair will have flag 83 (= 64 + 16 + 2 + 1).
-
-3. jméno referecnce ze které zarování patří
-4. 1-based offset into the forward reference strand where leftmost character of the alignment occurs 1-based odszaneí v následující referenci 
-5. kvalita mapování
-6. CIGAR reprezentace zarovnání
-7. název reference kde je zarovnán kamarád 
-8. 1-based zarování ofsetu k nálsedující refenrenci 
-9. Odvozená délka fragmentu. Velikost v závoru je že se mate nachází předtím. 0 že jsem nezarovnali mate
-10. read sekvence
-11. ASCII encoded read kvalita, stejné jako u FASTQ
-12. optional pole
 
 
 SAM Sequence Alignment Map format), respektive jeho binárně

@@ -1,3 +1,27 @@
+@HD	VN:1.0	SO:unsorted
+@SQ	SN:KIR:KIR00037	LN:14577
+@SQ	SN:KIR:KIR00302	LN:14578
+@SQ	SN:KIR:KIR00270	LN:14579
+@SQ	SN:KIR:KIR00336	LN:14395
+@SQ	SN:KIR:KIR00446	LN:14546
+@SQ	SN:KIR:KIR00447	LN:14548
+@SQ	SN:KIR:KIR00448	LN:14547
+@SQ	SN:KIR:KIR00449	LN:14547
+@SQ	SN:KIR:KIR00450	LN:14546
+@SQ	SN:KIR:KIR00451	LN:14547
+@SQ	SN:KIR:KIR00623	LN:14546
+@SQ	SN:KIR:KIR00635	LN:14546
+@PG	ID:bowtie2	PN:bowtie2	VN:2.4.1	CL:"/home/kate/Dokumenty/FAV/Diplomka/existujicisw/bowtie2-2.4.1-linux-x86_64/bowtie2-align-s --wrapper basic-0 -x KIR2DS2_gen -S /home/kate/Dokumenty/FAV/Diplomka/software/mydata/result/KIR2DS2_gen_result2.sam -1 /home/kate/Dokumenty/FAV/Diplomka/software/mydata/kir-genotyp1.fq -2 /home/kate/Dokumenty/FAV/Diplomka/software/mydata/kir-genotyp2.fq"
+header
+souvisí to nějak s tím jak to pustíš-moc to nechápu: 
+Ve výchozím nastavení bowtie2 tiskne záhlaví SAM s řádky @HD, @SQ a @PG. Když je zadán jeden nebo více argumentů --rg, bowtie2 také vytiskne řádek @RG, který obsahuje všechny uživatelem definované tokeny --rg oddělené tabulátory.
+header řádek začíná s @ zatímco aligment lines ne
+@HD VN by měla být verze
+
+
+
+Add <text> (usually of the form TAG:VAL, e.g. SM:Pool1) as a field on the @RG header line. Note: in order for the @RG line to appear, --rg-id must also be specified. This is because the ID tag is required by the SAM Spec. Specify --rg multiple times to set multiple fields. See the SAM Spec for details about what fields are legal.
+
 KIR:KIR00138-4900 jméno reference ze které zarovnání patří
 	77 - součet flagů	
 	* - název reference
