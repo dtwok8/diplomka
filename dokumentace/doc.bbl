@@ -1,4 +1,4 @@
-\begin{thebibliography}{25}
+\begin{thebibliography}{27}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -24,6 +24,10 @@
 \bibitem[hum()]{human_cell}
 \emph{Basic genetics} [online]. [cit.~2020/12/3].
 \newblock Dostupn{\'{e}}~z: \url{https://kintalk.org/genetics-101/}.
+
+\bibitem[ill()]{illumina}
+\emph{Illumina} [online]. [cit.~2019/03/1].
+\newblock Dostupn{\'{e}}~z: \url{https://www.illumina.com/}.
 
 \bibitem[kir()]{kir_genotypes_10}
 \emph{KIR genotypes} [online].
@@ -110,6 +114,12 @@
 \newblock 2009.
 \newblock Dostupn{\'{e}}~z:
   \url{https://genomebiology.biomedcentral.com/articles/10.1186/gb-2009-10-3-r25}.
+
+\bibitem[Merzker(2013)]{ngs_merzker}
+{\sc Merzker}, M.~L.
+\newblock Sequencing technologies-the next generation.
+\newblock 2013.
+\newblock \doi{10.1038/nrg2626}.
 
 \bibitem[MUDr. Pavel~Jindra(2011)]{KIR_transplantace_jindra}
 {\sc MUDr. Pavel~Jindra}, P.~D.

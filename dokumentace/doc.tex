@@ -86,6 +86,7 @@
 % lze snadno modifikovat vzhled citací v textu
 \usepackage[numbers,sort&compress]{natbib}
 
+\usepackage{multirow}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % VLASTNÍ TEXT PRÁCE
@@ -343,7 +344,7 @@ Příkladem může být následující úsek sekvence na základě obrázku \ref
 \end{align}
 
 \noindent
-Sekvenování DNA, někdy pouze sekvenování, jsou biochemické metody, kterými se zjišťuje pořadí nukleotidů (A, C, G, T) v sekvenci DNA. Díky tomu je možné zjistit typizaci konkrétního člověka. Sekvenační metody se liší zejména délkou řetězce, kterou dokáží zpracovat, cenou a rychlostí sekvenace. Pro porovnání sekvenování celého genomu Sangerovo metodou by stálo několik milion dolarů a trvalo zrhuba 10 let. Při použítí dnešních metod by cena byla zhruba tisíc dolarů. Největším problémem u sekvenování je, že sekvence vzniklé ze sekvenátoru jsou jen kousky které je třeba poskládat zpět. Většina sekvenačních metod využívá vlasnosti přitahováním báze do páru pouze jednou konkrétní bází. To znamená že se adenin vždy páruje s thyminem a cytosin se vždy páruje s guaninem. Z těchto párů vzniká již známá dvojitá šroubovice DNA. Při sekvenování je možná se často setkat, že se sekvenuje jen kónkrétní kus DNA, který je zrovna potřeba. \cite{sekvenovani_ziva}
+\textbf{Sekvenování DNA}, někdy pouze sekvenování, jsou biochemické metody, kterými se zjišťuje pořadí nukleotidů (A, C, G, T) v sekvenci DNA. Díky tomu je možné zjistit typizaci konkrétního člověka. Sekvenační metody se liší zejména délkou řetězce, kterou dokáží zpracovat, cenou a rychlostí sekvenace. Pro porovnání sekvenování celého genomu Sangerovo metodou by stálo několik milion dolarů a trvalo zrhuba 10 let. Při použítí dnešních metod by cena byla zhruba tisíc dolarů. Většina sekvenačních metod využívá vlasnosti přitahováním báze do páru pouze jednou konkrétní bází. To znamená že se adenin vždy páruje s thyminem a cytosin se vždy páruje s guaninem. Z těchto párů vzniká již známá dvojitá šroubovice DNA. Při sekvenování je možná se často setkat, že se sekvenuje jen kónkrétní kus DNA, který je zrovna potřeba. Největším problémem u sekvenování je, že ready vzniklé ze sekvenátoru jsou jen kousky, které je třeba poskládat zpět. K tomu slouží zarovnávání. \cite{sekvenovani_ziva}
 \\
 \\
 TODO možná tady ještě napsat něco o přípravě na sekvenování - je to dyžtak v tý přednášce co nám řikala na FAV
@@ -361,19 +362,22 @@ Sanger sekvenování využívá možnosti namnožení řetězce díky vzájemné
 Next-generation sekvenování někdy označováno jako metody druhé generace jsou v porovnání se Sangerovo sekvenováním rychlejší a levnější, na druhou stranu ale dokáží zpracovávat jen řetězce dlouhé 100 až 500 bází, mají menší přesnost a časteji chybují. Jejich rychlost spočívá především ve schopnosti detekovat přidávání bází jednu po druhé a zároveň sekvenovat tisíce až miliony rozdílných molekul DNA najednou. 
 \\
 \\
-Všechny tyto metody si předpřipraví řetězce nastříháním na krátké části a připevenín takzvaného adeptéru na jejich konec. Adaptér je krátká molekula DNA, která slouží k uchycení sekvenovaného úseku na pevný povrch. Řetězce DNA jsou namnoženy díky čemuž vzniknout klastry identických molekul koncentrovaných v jednom místě. Díky tomu je posílen signál, který by z pouhé jedné molekuly nebly dostatečně silný. Tento signál je zachycen kamerou. Jeden z důvodů popularity NGS metod jsou i cenově dostupné stolní sekvenátory.
+Všechny tyto metody si předpřipraví řetězce nastříháním na krátké části a připevenín takzvaného adeptéru na jejich konec. Adaptér je krátká molekula DNA, která slouží k uchycení sekvenovaného úseku na pevný povrch. Řetězce DNA jsou namnoženy díky čemuž vzniknout klastry identických molekul koncentrovaných v jednom místě. Díky tomu je posílen signál, který by z pouhé jedné molekuly nebyl dostatečně silný. Tento signál je zachycen kamerou. Jeden z důvodů popularity NGS metod jsou i cenově dostupné stolní sekvenátory.
  
 
 \subsection{454 sekvenování a Ion Torrent}
-TODO tohle spojit do jednoho odstavce a zkrátit, možná vypustit i předchozí větu kdy nastoupilo
-\\
-\\
-454 sekvenování bylo vypuštěno do světa v roce 2005. Dokáže analyzovat více než milion molekul DNA najednou a délka každé jednotlivé sekvence se pohybuje okolo 700 až 1000 bází.
-\\
-\\
-V prvním kroku sekvenování je molekula DNA přichycena na malou "kuličku" na jejimž povrchu se postupně namnoží až kuličku zcela pokryjí identické molekuly DNA. Následuje vložení kuličky i s DNA do jedné z milionů komůrek na destičce s reakční směsí. V určitém momentě je do této směsy přidán vždy jen jeden typ báze. Mezi jednotlivými fázemi přidávání určité báze jsou přebytečné nukleotidy z předešlého kroku odstraněny. To znamená že v reakční směsy je vždy jen jeden typ nukleotidů. Během vložení každé nové báze do rostoucího řetězce DNA je uvolněna molekula zvaná pyrofosfát.  Tento pyrofosfát se následně spustí několik chemických reakci. V poslední fází enzym luciferáza vydá světelný záblesk, který je možné zachytit citlivou kamerou.  Tento postup se nazývá pyrosekvenování. V případě, kdy je do řetězce přidáno několik stejných bází za sebou, například gen obsahuje podřetězec AAA, je vyzářeno, v našem případě, třikrát více světla než v případě jedné přiřazené báze. Kamera snímá celou destičku a na základě. která komůrka se rozsvítí pozná kde přoběhlo přidání báze. Intenzita světla pak určuje kolik bází bylo přidáno na jednou. 
-\\
-\\
+Pomocí 454 sekvenování je možné analyzovat více než milion molekul DNA najednou a délka každé jednotlivé sekvence se pohybuje okolo 700 až 1000 bází. V prvním kroku sekvenování je fragment DNA přichycena na malou "kuličku" na jejimž povrchu se postupně namnoží až kuličku zcela pokryjí identické fragmenty DNA. Následuje vložení kuličky i s DNA do jedné z milionů komůrek na destičce s reakční směsí. Postup znázorněn na obrázku \ref{fig:sekvenovani_454}. V určitém momentě je do této směsy přidán vždy jen jeden typ báze. Mezi jednotlivými fázemi přidávání určité báze jsou přebytečné nukleotidy z předešlého kroku odstraněny. To znamená že v reakční směsy je vždy jen jeden typ nukleotidů. Během vložení každé nové báze do rostoucího řetězce DNA je uvolněna molekula zvaná pyrofosfát, která spustí několik chemických reakcí. V poslední fází enzym luciferáza vydá světelný záblesk, který je možné zachytit citlivou kamerou.  Tento postup se nazývá pyrosekvenování. V případě, kdy je do řetězce přidáno několik stejných bází za sebou, například gen obsahuje podřetězec AAA, je vyzářeno, v našem případě, třikrát více světla než v případě jedné přiřazené báze. Kamera snímá celou destičku a na základě. která komůrka se rozsvítí pozná, kde proběhlo přidání báze. Intenzita světla pak určuje kolik bází bylo přidáno na jednou. 
+
+
+\begin{figure}[H]		
+		\centering
+		\includegraphics[width=300px]{./img/sekvenace_454_1.png}
+		\includegraphics[width=150px]{./img/sekvenace_454_2.png}
+		\caption{454 sekvenování. \cite{ngs_merzker}}
+		\label{fig:sekvenovani_454}
+\end{figure}
+
+\noindent
 Sekvenování Ion Torrent funguje na podobné princupu sekvenování s rozdílem, že místo světla se měří změna pH v reakční směsy. Podle intenzity změny pH lze pak poznat kolik nukleotidů bylo přidáno do rostoucího řetězce.
 \\
 \\
@@ -381,144 +385,35 @@ Hlavní slabinou těchto dvou metod je značná chybovost při přidání mnoha 
 
 
 \subsection{Illumina}
-Při sekvenování pomocí Illumina jsou páry dvoušrobovice rozděleny na dva řetězce. Jednotlivé řetezce jsou následně přichyceny na malou destičku pomocí adaptéru. Každý řetězec se následně opakovaně množí až na destičce vznikne několik shluků. Přidání jedné molekuly ke druhé probíhá obdobně jako u Sanger sekvenování. Každý shluk tvoří jednu skupinu vzájemně identických řetězců. Mezi volné nukleotidy jsou opět zahrnuty nukleotidy označeny fluorescenční barvou za které nelze nic navázat. Oproti sangerovu sekvenování je ale tato blokace vratná a po přečtení citlivou kamerou dojde k odstranění blokující části molekuly. Počítač si pak následně zpětně spočítá co to bylo za barvu (nukleotid.) 
+Při sekvenování pomocí Illumina jsou páry dvoušrobovice rozděleny na dva řetězce. Jednotlivé řetezce jsou následně přichyceny na malou destičku pomocí adaptéru. Každý řetězec se následně opakovaně množí až na destičce vznikne několik shluků. Přidání jedné molekuly ke druhé probíhá obdobně jako u Sanger sekvenování. Každý shluk tvoří jednu skupinu vzájemně identických řetězců. Mezi volné nukleotidy jsou opět zahrnuty nukleotidy označeny fluorescenční barvou za které nelze nic navázat. Oproti sangerovu sekvenování je ale tato blokace vratná a po přečtení citlivou kamerou dojde k odstranění blokující části molekuly. Počítač si pak následně zpětně spočítá co to bylo za barvu (nukleotid). \cite{illumina} \cite{sekvenovani_ziva} 
 
 
 \subsection{SOLiD}
-TODO vysvětlení enzymu ligáza vysvětlení co toje
-SOLiD (Sequencing by Oligonucleotide Ligation and Detection) se spoléhá na enzym ligáza, který umožňuje připojení jednořetězcových molekul k stávajícím řetězcům. K teplátu jsou přidávány takzvané sondy, což jsou kousky DNA. Sondy začínají všemi možnými dvojkombinacemi čtyř základních nukleotidů. V součtu je 16 sond. Na každé sondě je jedna ze čtyř flurescenčních barev. V jednotlivých krocích jsou sondy připojeny k rostoucímu řetězci. Následně je přečtena fluorescenční barva, která je odstraněna a může se tak navázat další sonda. Z výsledného signálu lze pak ododit výslednou sekvenci DNA.
+SOLiD (Sequencing by Oligonucleotide Ligation and Detection) se spoléhá na enzym ligáza. Enzym je bílkovina, která určuje rychlost chemických reakcí. Enzym ligáza konkrétně umožňuje připojení jednořetězcových molekul k stávajícím řetězcům. K teplátu jsou přidávány takzvané sondy, což jsou kousky DNA. Sondy začínají všemi možnými dvojkombinacemi čtyř základních nukleotidů. V součtu je 16 sond. Na každé sondě je jedna ze čtyř flurescenčních barev. V jednotlivých krocích jsou sondy připojeny k rostoucímu řetězci. Následně je přečtena fluorescenční barva, která je odstraněna a může se tak navázat další sonda. Z výsledného signálu lze pak odvodit sekvenci DNA.
 
 
-TODO Je tam hezká tabulka porovnání tak by se sem mohla taky dát
 \section{Metody třetí generace}
 Velkým rozdílem oproti druhé generaci je že DNA templát není před sekvenování namnožen a je čten pouze z jedné původní molekuly. Existuje například PacBio od Pacific Bioscience, který k detekci využívá fluorescenčně značené nukleotidy. Díky jeho vysoké citlovosti je možné v reálnám čase zachytit přidání i jediného nukleotidu do jediného řetězce DNA. Další zástupce je Oxford Nanapore jehož výhodou je jeho velikost. Oxford využívá odlišného tvaru bází. Obě metody jsou schopné přečíst přes 10 tisíc bází v rámci jedné analyzované molekuly DNA. 
 
 
-
-
-
-
 \section{Read}
 Read je sekvence bází odpovídající celému genomu či nějaké jeho části. Ready jsou typický výstup sekvenačních technik, kdy výstupem je sekvence nukleotidů o kterých nikdo neví co znamenají. Může to být gen, část genu nebo několik různých genů. Význam readu (o jaký gen se jedná) se zjišťuje zarovnáváním, kdy se daná sekvence porovnává vůči referenčnímu genu.
--wiki  
-
+\\
+\\
+TODO je to z wiki, musím tady nutně udávat zdroj?   
+\section{Single-end, paired-end a mate-pair}
+Single-end je sekvenování pouze jednoho konce molekuly. Nevýhoda tohoto způsobu se projeví především na krátkých readech, kde se zvýší problém jejich správného umístění. Oproti tomu v případě paired-end se sekvenuje z obou konci daného úseku. Vzniklé dva ready jsou označeny, v případě ART to naznačuje stejný název souboru spolu s 1 čí 2 na jeho konci a zároveň je známá vzdálenost mezi oběma ready, která se pohybuje od 200 do 400 bp (base pair). Mate-pair je v podstatě paired-end s rozdílem, že je mezi ready větší vzdálenosti od 2 do 5 kb (kilobase) - takže přibližně 2000 - 5000 bp. \cite{illumina}  
+\\
+\\
+TODO obrázek je z trochu blbího zdroje nejsem si jistá jestli ho můžu použít, ale mě přišel dobrej. \url{https://www.yourgenome.org/facts/how-do-you-put-a-genome-back-together-after-sequencing}
+\begin{figure}[H]		
+		\centering
+		\includegraphics[width=200px]{./img/single_end_pair_end_reads_yourgenome.png}
+		\caption{Single-end a paired-end read.}
+		\label{fig:single_end_paired_end}
+\end{figure}
 
 \section{Bordel}
-SANGER
-Vybraná sekvence se vloží do reakční směsi s radioaktivně označným primer  
-
-Během procesu replikace jsou řetězce rozděleniny na dvě vlákna. 
-V praxi to není tak snadné a hrají roly i další proteiny. 
-Mezi nukleotydi plavou i uprvené nukleotidy které nesou specifickou fluorescenční barvu a za ně už neni možné aby s něco nevázalo.  Podle barvy poznáme o jakou bázi se jedná. 
-Náhodný přerušováním syntézy vznikají různě dlouhé molekuly. 
-
-výhody dlouhá délka sekvencí které se dají sekvenovat jedinou reakci a vysoká přenost čtení
-v rámci celého procesu dochází k sekvenování pouze jednoho úseku DNA 
-vysoká cena a nízká rychlost
- K sekvenaci se použtívá gelová elektrofézy
- použitelná k sekvenování krátké sekvence jednovláknové DNA. 
- využívá biologického procesu replikace DNA
- Vybraná sekvence se vloží do reakční směsi s radioaktivně označným primer
- rozdělí se to na přibližně 
- namnoží se to .. 
- pak se to hodí do něčeho co nakonci svítí tak ty se navážou na příslušnej konec.. 
- pak to pustíme do gelu .. 
- nejkratší projedou nejdál
- nejdelší zůstanou co nejblíž a podle toho pak sestavuju jak ta sekvence vypadá
-Sekvenování DNA je souhrný termín pro biochemické metody, jímiž se zjišťuje pořadí nukleových bází (A, C, G, T) v sekvencí DNA. Tyto sekvence jsou součástí dědičné informace v jádru.
-Adenin s thyminem a cytosins s guaninem.
-
-zjišťvání přímární struktury nukleových kyselin (sekvencování)
-Někdy se sekvenují pouze jisté části genomu které mají pro výzkumníka v daném okamžiku význam.
-Užitečné nejen ve výzkumu ale i v diagnostice nemocí či forenzní medicíně. 
-
-
-454 
-, kde probíhá sekvenační reakce na principu pyrosekvenování.  
-
- Pyrosekvenování se za -
-kládá na skutečnosti, že během vložení
-každé nové báze do rostoucího řetězce
-DNA se uvolní molekula zvaná pyrofosfát
-(proto pyrosekvenování). Uvolněný pyrofosfát se posléze stane součástí několika
-na sebe navazujících enzymatických reakcí, na jejichž konci čeká enzym luciferáza
-Ten vydá světelný záblesk, jenž lze za -
-chytit vysoce citlivou kamerou
-
-
- Při 454 sek -
-venování je v určitém momentě přidán do
-reakční směsi vždy pouze jeden typ báze
-a v okamžiku, kdy je tato báze vložena do
-rostoucího řetězce DNA, dojde přes uvolněný pyrofosfát a luciferázu ke světelnému
-záblesku. Pokud je do rostoucího řetězce
-DNA zařazeno několik stejných bází za se -
-bou, např. když DNA molekula templátu
-obsahuje sekvenci AAA a je tedy přidáno
-třikrát T, vyzáří se třikrát více světla než
-v případě přiřazení jednoho T
-
-. Kamera
-snímá celou destičku a podle toho, která
-komůrka se rozsvítí, pozná, kde proběhlo
-přidání báze, a podle intenzity světla ko -
-lik bází bylo přidáno najednou
-
-Nukleotidy jsou přidávýny jeden po druhém a mezi jednotlivými dochází k odtranění přebytečných nukleotidů.
-takže v rekční směsy je vždy jen jeden typ nukleotidů.
-
-
-Ion Torrent je na podobném principu jako pyrosekvenování
-ale neměří světlo ale změnu pH v reakční směsy. Pod
-podle intenzity změny pH
-
-protože spolehají na sílu signálu aby věděli kolik bází bylo přidáno  nejednou mají obě metody problém se čtením dělších řetězců obsahující práce jen jednu bázi například AAAAA. nebude jednoznačná odpověď zda je to 9 A nebo 10.
-
-Ilumina
-Dokáže sekvenovat až 900 miliard? bází najednou. 
-potřebuje kratší sekvence - stovky bází
-pomocí adaptéru přichyceny molekuly DNA na malou destičku
-
-Každá molekula DNA se pak opakovaně namnoží, až na destičce vznikne
-mozaika milionů klastrů, přičemž každou
-skupinu tvoří vzájemně identické molekuly. Vlastní sekvenační proces pak využí -
-vá podobného mechanismu jako Sange -
-rovo sekvenování, kdy jsou do rostoucího
-řetězce zařazeny báze s navázanou fluorescenční barvou (každé písmeno má speci -
-fickou barvu), které syntézu zastaví.
-
-tato blokace je orpoti sangerovi vratná
- popřečtení citlivou kamerou dojde k odstranění fluorescenčního značení i blokující části molekuly
- a může se pokračovat
- 
- kamera snímá celou destičku
- a podle rozdílné fluorescence pozná co bylo přidáno u každého z milionů skupin
- 
- počítač si to pak zpětně přechroupa krok po kroku.
- 
-
-nejčatější chybou je špatně přečtené písmenko. 
-jinak má 99 procentní úspěšnost
-
-\subsubsection{Read bordel}
-In DNA sequencing, a read is an inferred sequence of base pairs (or base pair probabilities) corresponding to all or part of a single DNA fragment. A typical sequencing experiment involves fragmentation of the genome into millions of molecules, which are size-selected and ligated to adapters. The set of fragments is referred to as a sequencing library, which is sequenced to produce a set of reads. Je to z wiki zase
-\\
-\\
-V DNA sekvenování, read je odvozená sekvece párů bází odpovídající celému fragmentu DNA nebo jeho části
-To znamená že read je kus DNA který by mohl odpovídat nějakého konkrétnímu genu? 
-\\
-\\
-Pak tam ještě bylo psaný něco o read lenght
-Sekvenační technologie se liší? v délce vyrobenybch readů. 
-Ready díkjy 20-40 párů bází (bp) jsou ultrakrátké
-Typická sekvenační metoda vytváří ready délky 100 až 500 bp
-
-DNA knihovny - podle wikiskripta
-DNA knihovny jsou kolekce klonovaných DNA fragmentů genomu určitého organismu (cDNA), které jsou skladovány uvnitř hostitelských organismů (zejména bakterií). cDNA (copy DNA, complementary DNA) je získávána přepisem z mRNA pomocí enzymu reverzní transkriptázy.
-
-Kvalita knihovny
-Při přípravě sekvenční knihovny je důležité získat co nejvyšší úroveň složitosti. Jinými slovy, je důležité, aby konečná knihovna co nejvíce odrážela jedinečnost výchozího materiálu. Tento výsledek lze získat především omezením počtu segmentových duplikací. Čím kratší jsou fragmenty, tím vyšší je pravděpodobnost, že jsou fragmenty méně specifické a mohou se zarovnat na více než jednom lokusu referenční sekvence. Složitost knihovny lze tedy v podstatě měřit procentem duplicitních čtení, které jsou přítomny v sekvenčních datech
-
 Sekvenování mRNA s použitıím NGS technologií umožňuje měření genové exprese celého
 transkriptomu. Postup a provedení RNA-seq experimentu je znázorněn na obr. 14.
 Prvním úkolem je vyčistit zkoumaný vzorek o rRNA, tRNA a mitochondriální RNA,
@@ -528,8 +423,7 @@ sekvenační data mohou obsahovat menší množství těchto RNA molekul [59]. T
 hou být odfiltrovány v následujícíh krocích bioinformatickými postupy. Zbylá mRNA
 je poté nastříhána na menší části, a je z ní připravena knihovna krátkých fragmentů s
 navázanými adaptory. Ty jsou poté sekvenovány sekvenačním přístrojem a jako výsledek
-získáme tzv. ready. Anglické slovo ’read’ značí datovou reprezentaci krátké sekvence
-DNA obvykle 50-150 bp dlouhou, která byla vyprodukována sekvenačním přístrojem.
+získáme tzv. ready.
 Samotné ready však nemají žádnou vypovídající hodnotu, a proto jsou dále bioinformat-
 icky zpracovány. Namapováním na referenční sekvenci zjistíme jejich genomickou pozici,
 ze které byly odvozeny. Většina readů je namapována na exony, což jsou transkripčně
@@ -542,34 +436,6 @@ tohle je z tý diplomky single-pair
 \chapter{Analyza dostupných bioinformatických nástrojů pro zpracování NGS dat}
 
 
-\subsection{Vytvoření testovacího haplotypu}
-
-TODO navíc hned když se podívám na 3DL3: 00402 tak tam mám dvě možnosti
-TODO a co když tam nějakej není, tak prostě pokračuju tím dalším, nebo se tam něco dává jako mezera? Myslím když jste třeba napsala 2DL5B:
-TODO Co je 2DP1, ve FASTA jsem je nenašla tak jsem to skopčila z \url{https://www.ebi.ac.uk/cgi-bin/ipd/kir/get_allele.cgi?2DP1*0020103} - p značí pseudogen
-A prej by měli být v KIR-gen.fasta ale já to tam za boha nemůžu najít
-jo tak tam je v tom KIR\_gen fasta
-ale nahoře jsou i jiný co asi úplně nejsou pesudogeny tak to moc nechápu ..
- 
-to děláte správně, jen musíte vytvořit KIR haplotyp, který podšoupnete tomu ARTu, nejenom jeden konkrétní KIR, aby Vám vytvořil ready, tj. např. kombinaci (tophle je jedna známá linie, sloučíte si ty KIRy za sebe):
-3DL3: 00402, 00802
-2DS2: 00101
-2DL2: 00301
-2DL3: 001
-2DL5B:
-2DS3:
-2DP1: 00201
-2DL1: 00302
-3DP1: 007, 00901
-2DL4: 00102, 00501
-3DL1: 01502
-3DS1: 01301
-2DL5A: 001
-2DS3:
-2DS5: 00201
-2DS1: 00201
-2DS4: 001
-3DL2: 0020105, 0070102
 
 
 \section{ART}
@@ -592,7 +458,7 @@ Jako bude v tom míň chyb, ale stejně.
 TODO tohle někam dodat: ARTU je nutné podsunou refernční genom a ART vygeneruje ready způsobem napodobujícím sekvenční ready
 \\
 \\
-\textbf{Illumina} je sekvenování založené na vratném umístění báze označené barvou do rostoucího řetězce jehož nejčastější chybou je substituce. Pravděpodobnost chyby substituce je určená na základě kvality skoré dané báze, které je závyslé na pozici v rostoucím řetězci. Průměrné kvality score klesá v závyslosti na zvyšování pozice báze. ART simuluje substituční chybu na základě tohoto skore a emprického modelu získaného z trénovacích datasetů. INDEL chybu simuluje jen na základě empirického rozělení z trénovacích dat. Por paired-end similaci, ART používá dvě rozdílné quality skore sistribuce a error rates pro první a druhý read.
+\textbf{Illumina} je sekvenování založené na vratném umístění báze označené barvou do rostoucího řetězce jehož nejčastější chybou je substituce. Pravděpodobnost chyby substituce je určená na základě kvality skoré dané báze, které je závyslé na pozici v rostoucím řetězci. Průměrné kvality score klesá v závyslosti na zvyšování pozice báze. ART simuluje substituční chybu na základě tohoto skore a emprického modelu získaného z trénovacích datasetů. INDEL chybu simuluje jen na základě empirického rozdělení z trénovacích dat. Por paired-end similaci, ART používá dvě rozdílné quality skore sistribuce a error rates pro první a druhý read.
 \\
 \\
 \textbf{454} je sekvenování při kterém se zachycuje vyzářené světlo na základě toho pokud se báze přidala do řetězce či nikoliv. Jeho dominantní chybou je tedy nesprávné určení počtů přidaných bází. Pravděpodobnost chyby roste s frekvencí dlouhých úseků obsahující stejnou bázi. Proto ART modeluje rozdělení chyb na základě délky úseku obsahující stejnou bázi spolu s Markovovy řetězci.
@@ -934,6 +800,35 @@ Files designated “X\_prot.fasta”, where X is a locus or gene, contain protei
 Files designated “X\_nuc.fasta”, where X is a locus or gene, contain the nucleotide coding sequences (CDS). Please note that alleles that contain non-coding variations may be identical at the CDS level.
 
 Files designated “X\_gen.fasta”, where X is a locus or gene, contain genomic DNA sequences. Please note for alleles that do not possess genomic sequences, there will be no entry in the file.
+
+\subsection{Vytvoření testovacího haplotypu}
+
+TODO navíc hned když se podívám na 3DL3: 00402 tak tam mám dvě možnosti
+TODO a co když tam nějakej není, tak prostě pokračuju tím dalším, nebo se tam něco dává jako mezera? Myslím když jste třeba napsala 2DL5B:
+TODO Co je 2DP1, ve FASTA jsem je nenašla tak jsem to skopčila z \url{https://www.ebi.ac.uk/cgi-bin/ipd/kir/get_allele.cgi?2DP1*0020103} - p značí pseudogen
+A prej by měli být v KIR-gen.fasta ale já to tam za boha nemůžu najít
+jo tak tam je v tom KIR\_gen fasta
+ale nahoře jsou i jiný co asi úplně nejsou pesudogeny tak to moc nechápu ..
+ 
+to děláte správně, jen musíte vytvořit KIR haplotyp, který podšoupnete tomu ARTu, nejenom jeden konkrétní KIR, aby Vám vytvořil ready, tj. např. kombinaci (tophle je jedna známá linie, sloučíte si ty KIRy za sebe):
+3DL3: 00402, 00802
+2DS2: 00101
+2DL2: 00301
+2DL3: 001
+2DL5B:
+2DS3:
+2DP1: 00201
+2DL1: 00302
+3DP1: 007, 00901
+2DL4: 00102, 00501
+3DL1: 01502
+3DS1: 01301
+2DL5A: 001
+2DS3:
+2DS5: 00201
+2DS1: 00201
+2DS4: 001
+3DL2: 0020105, 0070102
 
 \section{Použité programové prostředky}
 \subsection{Python}
