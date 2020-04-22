@@ -16,7 +16,7 @@
 \contentsline {subsection}{\numberline {2.4.1}Natural killer}{12}{subsection.2.4.1}
 \contentsline {subsection}{\numberline {2.4.2}NKG2D receptor}{13}{subsection.2.4.2}
 \contentsline {subsection}{\numberline {2.4.3}KIR receptor}{14}{subsection.2.4.3}
-\contentsline {subsubsection}{Nomenklatura KIR gen\IeC {\r u}}{14}{section*.10}
+\contentsline {subsubsection}{Nomenklatura KIR gen\IeC {\r u}}{15}{section*.10}
 \contentsline {subsubsection}{Aktivace NK bun\IeC {\v e}k pomoc\IeC {\'\i } KIR}{16}{section*.12}
 \contentsline {subsubsection}{KIR haplotyp}{17}{section*.15}
 \contentsline {section}{\numberline {2.5}Nalezen\IeC {\'\i } vhodn\IeC {\'e}ho d\IeC {\'a}rce}{20}{section.2.5}
@@ -32,30 +32,33 @@
 \contentsline {section}{\numberline {3.5}Single-end, paired-end a mate-pair}{26}{section.3.5}
 \contentsline {section}{\numberline {3.6}Bordel}{27}{section.3.6}
 \contentsline {chapter}{\numberline {4}Analyza dostupn\IeC {\'y}ch bioinformatick\IeC {\'y}ch n\IeC {\'a}stroj\IeC {\r u} pro zpracov\IeC {\'a}n\IeC {\'\i } NGS dat}{28}{chapter.4}
-\contentsline {subsection}{\numberline {4.0.1}Vytvo\IeC {\v r}en\IeC {\'\i } testovac\IeC {\'\i }ho haplotypu}{28}{subsection.4.0.1}
 \contentsline {section}{\numberline {4.1}ART}{28}{section.4.1}
-\contentsline {section}{\numberline {4.2}Bowtie}{30}{section.4.2}
+\contentsline {section}{\numberline {4.2}Bowtie}{29}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Burrows-Wheeler transformace}{31}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}bordel}{34}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}bordel}{34}{subsection.4.2.3}
-\contentsline {subsubsection}{SAM}{35}{section*.25}
-\contentsline {chapter}{\numberline {5}Bordel}{36}{chapter.5}
-\contentsline {section}{\numberline {5.1}ART}{36}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}pokus to nejak spustit}{36}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}FASTQ}{36}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}bordel}{38}{subsection.5.1.3}
-\contentsline {section}{\numberline {5.2}IGV}{38}{section.5.2}
-\contentsline {chapter}{\numberline {6}Implementace}{39}{chapter.6}
-\contentsline {section}{\numberline {6.1}Popis probl\IeC {\'e}mu}{39}{section.6.1}
-\contentsline {section}{\numberline {6.2}N\IeC {\'a}vrh syst\IeC {\'e}mu}{39}{section.6.2}
-\contentsline {section}{\numberline {6.3}Referen\IeC {\v c}n\IeC {\'\i } geny}{39}{section.6.3}
-\contentsline {section}{\numberline {6.4}Pou\IeC {\v z}it\IeC {\'e} programov\IeC {\'e} prost\IeC {\v r}edky}{40}{section.6.4}
-\contentsline {subsection}{\numberline {6.4.1}Python}{40}{subsection.6.4.1}
-\contentsline {subsubsection}{Biopython}{40}{section*.26}
-\contentsline {chapter}{\numberline {7}Vyhodnocen\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u} a jejich srovn\IeC {\'a}n\IeC {\'\i }}{41}{chapter.7}
-\contentsline {chapter}{\numberline {8}Z\IeC {\'a}v\IeC {\v e}r}{42}{chapter.8}
-\contentsline {chapter}{\numberline {9}Seznam zkratek}{43}{chapter.9}
-\contentsline {chapter}{\numberline {10}V\IeC {\'y}kladov\IeC {\'y} slovn\IeC {\'\i }k pojm\IeC {\r u}}{44}{chapter.10}
-\contentsline {chapter}{Literatura}{45}{chapter*.27}
-\contentsline {chapter}{\numberline {A}U\IeC {\v z}ivatelsk\IeC {\'a} dokumentace}{48}{appendix.A}
-\contentsline {section}{\numberline {A.1}Nastaven\IeC {\'\i } ART a jeho spu\IeC {\v s}t\IeC {\v e}n\IeC {\'\i }}{48}{section.A.1}
+\contentsline {section}{\numberline {4.3}IGV}{34}{section.4.3}
+\contentsline {chapter}{\numberline {5}Implementace}{35}{chapter.5}
+\contentsline {section}{\numberline {5.1}Popis probl\IeC {\'e}mu}{35}{section.5.1}
+\contentsline {section}{\numberline {5.2}N\IeC {\'a}vrh syst\IeC {\'e}mu}{35}{section.5.2}
+\contentsline {section}{\numberline {5.3}Referen\IeC {\v c}n\IeC {\'\i } geny}{36}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Bordel}{37}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Vytvo\IeC {\v r}en\IeC {\'\i } testovac\IeC {\'\i }ho haplotypu}{37}{subsection.5.3.2}
+\contentsline {section}{\numberline {5.4}Pou\IeC {\v z}it\IeC {\'e} programov\IeC {\'e} prost\IeC {\v r}edky}{38}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Python}{38}{subsection.5.4.1}
+\contentsline {subsubsection}{Biopython}{38}{section*.26}
+\contentsline {section}{\numberline {5.5}Vyhodnoceni zarovn\IeC {\'a}v\IeC {\'a}n\IeC {\'\i }}{38}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Experiment1}{38}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}Experiment2}{39}{subsection.5.5.2}
+\contentsline {chapter}{\numberline {6}Vyhodnocen\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u} a jejich srovn\IeC {\'a}n\IeC {\'\i }}{40}{chapter.6}
+\contentsline {chapter}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{41}{chapter.7}
+\contentsline {chapter}{\numberline {8}V\IeC {\'y}kladov\IeC {\'y} slovn\IeC {\'\i }k pojm\IeC {\r u} a zkratek}{42}{chapter.8}
+\contentsline {chapter}{\numberline {9}V\IeC {\'y}kladov\IeC {\'y} slovn\IeC {\'\i }k pojm\IeC {\r u}-zahodit?}{43}{chapter.9}
+\contentsline {chapter}{Literatura}{44}{chapter*.27}
+\contentsline {chapter}{\numberline {A}U\IeC {\v z}ivatelsk\IeC {\'a} dokumentace}{47}{appendix.A}
+\contentsline {section}{\numberline {A.1}Nastaven\IeC {\'\i } ART a jeho spu\IeC {\v s}t\IeC {\v e}n\IeC {\'\i }}{47}{section.A.1}
+\contentsline {subsection}{\numberline {A.1.1}pokus to nejak spustit}{47}{subsection.A.1.1}
+\contentsline {section}{\numberline {A.2}Bowtie}{48}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}FASTQ}{48}{subsection.A.2.1}
+\contentsline {section}{\numberline {A.3}Pou\IeC {\v z}ivan\IeC {\'e} soubory}{49}{section.A.3}
+\contentsline {subsection}{\numberline {A.3.1}FASTQ}{49}{subsection.A.3.1}
+\contentsline {subsection}{\numberline {A.3.2}SAM a BAM}{49}{subsection.A.3.2}

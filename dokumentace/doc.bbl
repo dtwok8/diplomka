@@ -105,7 +105,8 @@
 {\sc Langmead}, B. -- {\sc Salzberg}, S.~L.
 \newblock Fast gapped-read alignment with Bowtie 2.
 \newblock 2012.
-\newblock Dostupn{\'{e}}~z: \url{https://www.nature.com/articles/nmeth.1923}.
+\newblock Dostupn{\'{e}}~z:
+  \url{https://www.researchgate.net/publication/221886241_Langmead_B_Salzberg_SL_Fast_gapped-read_alignment_with_Bowtie_2_Nat_Methods_9_357-359}.
 
 \bibitem[Langmead et~al.(2009)Langmead, Trapnell, Pop,, Salzberg]{bowtie}
 {\sc Langmead}, B. et~al.

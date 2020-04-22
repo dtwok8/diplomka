@@ -87,6 +87,12 @@
 \usepackage[numbers,sort&compress]{natbib}
 
 \usepackage{multirow}
+
+%pouzite zkratky
+\usepackage{blindtext}
+\usepackage{scrextend}
+\addtokomafont{labelinglabel}{\sffamily}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % VLASTNÍ TEXT PRÁCE
@@ -162,6 +168,10 @@ V případě genu KIR2DL1 mohou být jeho alely 0010101 a 0010102. Zápis genů 
 		GTTCGGGAGGTTGGATCTCAGACGTG...
 \end{split}\end{equation}
 
+\noindent 
+Označení $KIR:KIR0001$ označuje pořadové číslo, kdy alela byla nalezena. Oproti tomu $KIR2DL1*0010101$ je označení genu podle jeho vlastnotí.
+\\
+\\ 
 TODO: Když najdu novou sekvenci tak kde je rozdíl jestli je to nový gen nebo nová alela? Neni to tak že na daný pozici v genomu je vždycky gen.. a alela určuje tu vlastnost? A na co je mi teda lotus? 
 geny jsou již plně definované - The Human Genome Project (HGP) https://www.genome.gov/human-genome-project/What (geny jsou ty 2DL1, 3DL1....)
 
@@ -402,7 +412,7 @@ Read je sekvence bází odpovídající celému genomu či nějaké jeho části
 \\
 TODO je to z wiki, musím tady nutně udávat zdroj?   
 \section{Single-end, paired-end a mate-pair}
-Single-end je sekvenování pouze jednoho konce molekuly. Nevýhoda tohoto způsobu se projeví především na krátkých readech, kde se zvýší problém jejich správného umístění. Oproti tomu v případě paired-end se sekvenuje z obou konci daného úseku. Vzniklé dva ready jsou označeny, v případě ART to naznačuje stejný název souboru spolu s 1 čí 2 na jeho konci a zároveň je známá vzdálenost mezi oběma ready, která se pohybuje od 200 do 400 bp (base pair). Mate-pair je v podstatě paired-end s rozdílem, že je mezi ready větší vzdálenosti od 2 do 5 kb (kilobase) - takže přibližně 2000 - 5000 bp. \cite{illumina}  
+Single-end je sekvenování pouze jednoho konce molekuly. Nevýhoda tohoto způsobu se projeví především na krátkých readech, kde se zvýší problém jejich správného umístění. Oproti tomu v případě paired-end se sekvenuje z obou konci daného úseku. Vzniklé dva ready jsou označeny a zárověň je známá jejich vzdálenost mezi oběma ready, která se pohybuje od 200 do 400 bp (base pair). V případě ART to naznačuje stejný název souboru spolu s 1 čí 2 na jeho konci. Mate-pair je v podstatě paired-end s rozdílem, že je mezi ready větší vzdálenosti od 2 do 5 kb (kilobase) - takže přibližně 2000 - 5000 bp. \cite{illumina}  
 \\
 \\
 TODO obrázek je z trochu blbího zdroje nejsem si jistá jestli ho můžu použít, ale mě přišel dobrej. \url{https://www.yourgenome.org/facts/how-do-you-put-a-genome-back-together-after-sequencing}
@@ -439,13 +449,13 @@ tohle je z tý diplomky single-pair
 
 
 \section{ART}
-ART (next-generation sequencing read simulator) je sada simulačních nástrojů, které generují syntetické ready, jako kdyby byli získány sekvenováním pomocí NGS. Nástroj ART dokáže simulovat single-end a paired-end ready ze sekvenátorů Illuminas, 454 společnosti Roch a SOLid od společnosti Applied biosystém. Ready, vytvořené nástrojem ART jsou používány pro testování a analýzů nástrojů zpracovávající právě NGS sekvence jako například zarovávání (nástroj Bowtie). \cite{art}
+ART (next-generation sequencing read simulator) je sada simulačních nástrojů, které generují syntetické ready, jako kdyby byli získány sekvenováním pomocí NGS. Nástroj ART dokáže simulovat single-end a paired-end ready ze sekvenátorů Illuminas, 454 společnosti Roch a SOLid od společnosti Applied biosystém. Ready, vytvořené nástrojem ART jsou používány pro testování a analýzů nástrojů zpracovávající právě NGS sekvence jako například zarovávání (nástroj Bowtie). Při použítí nástroje ART je vstupním souborem sekvence genů na základě kterých jsou vygenerovány ready. \cite{art}
 \\
 \\
-Podle \cite{art} je dostupných několik simulačních nástrojů (Wgsim, MetaSim, SimSeq, FlowSim), které fungují dobře pro platformy pro kterou byli určeny, ale žádný z nich se nedokázal vypořádat se všemi hlavními platformamy. Především v generování hlavních chyb, které jsou substituční a vložení čí smazání (INDEL - insert-deletion) na základě jednotlivých módu konkrétní platformy. ART obsahuje technologické profily chyb a navíc mu může být podsunut i uživatelsý profil chyb. Obsažené profily délky readů a jejich chyb byly získány z datasetu skutečných sekvenovaných dat. 
+Podle \cite{art} je dostupných několik simulačních nástrojů (Wgsim, MetaSim, SimSeq, FlowSim), které fungují dobře pro sekvenátory pro které byli určeny, ale žádný z nich se nedokázal vypořádat se všemi nejvíce používanými. Jejich slabinou je především v generovaní chyb na základě jednotlivých módů konkrétního sekvenátoru. Nejčastější chyby jsou substituční a vložení čí smazání (INDEL - insert-deletion). ART obsahuje technologické profily chyb a navíc mu může použít i uživatelský profil chyb. Profily které obsahují délky readů a chyby byly získány z datasetu skutečných sekvenovaných dat. 
 \\
 \\
-TODO možná někde zmínit co přesně znamená konkrétní chyba
+TODO možná napsat co znamenají konkrétní chyby
 \\
 \\
 TODO
@@ -455,10 +465,7 @@ Možná že si tam můžou ty chyby navolit tak jak se jim hodí?
 Jako bude v tom míň chyb, ale stejně. 
 \\
 \\
-TODO tohle někam dodat: ARTU je nutné podsunou refernční genom a ART vygeneruje ready způsobem napodobujícím sekvenční ready
-\\
-\\
-\textbf{Illumina} je sekvenování založené na vratném umístění báze označené barvou do rostoucího řetězce jehož nejčastější chybou je substituce. Pravděpodobnost chyby substituce je určená na základě kvality skoré dané báze, které je závyslé na pozici v rostoucím řetězci. Průměrné kvality score klesá v závyslosti na zvyšování pozice báze. ART simuluje substituční chybu na základě tohoto skore a emprického modelu získaného z trénovacích datasetů. INDEL chybu simuluje jen na základě empirického rozdělení z trénovacích dat. Por paired-end similaci, ART používá dvě rozdílné quality skore sistribuce a error rates pro první a druhý read.
+\textbf{Illumina} je sekvenování založené na vratném umístění báze označené barvou do rostoucího řetězce jehož nejčastější chybou je substituce. Pravděpodobnost chyby substituce je určená na základě kvality skoré dané báze, které je závislé na pozici v rostoucím řetězci. Průměrné kvality skore klesá v závislosti na zvyšování pozice báze. ART simuluje substituční chybu na základě tohoto skore a emprického modelu získaného z trénovacích datasetů. INDEL chyba je simulována jen na základě empirického rozdělení z trénovacích dat. Pro paired-end simulaci, ART využívá dvou rozdílných kvality skore pro každý pár readu jiný. 
 \\
 \\
 \textbf{454} je sekvenování při kterém se zachycuje vyzářené světlo na základě toho pokud se báze přidala do řetězce či nikoliv. Jeho dominantní chybou je tedy nesprávné určení počtů přidaných bází. Pravděpodobnost chyby roste s frekvencí dlouhých úseků obsahující stejnou bázi. Proto ART modeluje rozdělení chyb na základě délky úseku obsahující stejnou bázi spolu s Markovovy řetězci.
@@ -474,29 +481,48 @@ Data získána z FN Plzeň byla sekvenována nástrojem Illuminas proto i syntet
 
 
 \section{Bowtie}
-Bowtie je rychlý a paměťové efektivní nástroj pro zarovnávání krátkých sekvencí DNA na velké genomy. Bowtie je shopný zarovnat více než 25 milionů readů za hodinu (při běhu na jednom CPU) pro lidský genom s malým využím paměti. Bowtie využívá FM indexaci s Burrows-Wheeler transformací a přidává k ní backtracking pro sledování nekonzistence. Novější verze Bowtie2 by měla by oproti Bowtie1 citlivější a rychlejší na delší ready než je 50 nukleotidů. Na lidský genom potřebuje 3.2 gigabajtů RAM. Nástroj bowtie je implementovaný v jazyce c++ s použitím knihovny SeqAn. \cite{bowtie} \cite{bowtie2} 
+Bowtie je rychlý a paměťové efektivní nástroj pro zarovnávání krátkých sekvencí DNA na velké genomy. Bowtie2 je schopný zarovnat více než 25 milionů readů dlouhých 35 bp za hodinu (při běhu na jednom CPU) pro lidský genom s malým využím paměti. Bowtie využívá FM indexaci s Burrows-Wheeler transformací (BWT) a přidává k ní backtracking pro sledování nekonzistence. Novější verze Bowtie2 by měla by oproti Bowtie1 citlivější a rychlejší na delší ready než je 50 nukleotidů a navíc je oproti první verzi schopná se vypořádat z chybami vložení čí smazání báze způsobené sekvenováním. Na lidský genom potřebuje Bowtie2 3.2 gigabajtů RAM. Nástroj bowtie je implementovaný v jazyce C++ s použitím knihovny SeqAn a je open source. Podporuje standardní vstupní formáty FASTQ a FASTA.  Výstupní zárovnání z Bowtie je ve formátu SAM, což umožňuje návaznost s dalšími nástroji jako je třeba SAMtools. \cite{bowtie} \cite{bowtie2}   
 \\
 \\
-Bowtie je open source. V porovnání s nástroji Maq a SOAP je Bowtie rychlejší na lidském genomu. Citlivost má bowtie srovnatelnou s nástojem SOAP a o něco menší než Maq. Ale je možnost pomocí příkazové řádky zvýšit citlivost na úkor rychlosti běhu progamu. Bowtie vytváří indexy referenčních genů permanentní a lze je tak použít napříč běhy. Podrporuje standardní vstupní formáty FASQ a FASTA.  Výstupní zárovnání z bowtie je ve formátu SAM, což umožňuje návaznost s dalšími nástroji jako je třeba SAMtools
+Zarovnávání bývá prvním krokem v mnoho genomických pipelinách. Často je to jejich nejpomalejší část, protože pro každý read musí zarovnávač vyřešit obtížný výpočetní problém. Určit pravděpodobné umístění v referenčním genomu. Mnoho zarovnávačů používá indexy k rychlému snižování kandidátů pro umístění zarovnáváného readu. Bowtie vytváří indexy referenčních genů permanentní a lze je tak použít napříč běhy. Algoritmus FM indexu obyvykle funguje na vyhledává přesně shody. V případě hledání umístění readů na referenční gen není toto řešení použitelné, protože ready mohou obsahovat chyby vzniklé sekvenováním případně genové mutace. Proto bowtie každé zarovnání zakládá na kvalitě znaku báze v daném readu. Bowtie postupně vytváří dlouhý sufix. Pokud se sufix nevyskytuje v textu pak se může algoritmus vrátit a v již vytvořeném sufixu nahradit bázi za jinou. Dále pokračuje obdobným způsobem. Pokud by měl algoritmus na výběr substituovat za více bází vybere tu s nejnižší kvalitou znaku v readu. Protože bowtie algoritmus v základu bere první přijetelné řešení je možné, že jeho nalezené řešení není to nejlepší. Pro nalezení toho nejlepšího řešení je třeba použít přepínač $--best$, jeho funkčnost je ale na úkor rychlosti, která může být 2x čí 3x pomalejší. Zároveň je možné nastavit maximální počet nahrazených bází v readu. \cite{bowtie}
 \\
 \\
-Zarovnávání bývá prvním krokem v mnoho genomických pipelinách. Často je to jejich nejpomalejší část, protože pro každý read musí zarovnávač vyřešit obtížný výpočetní problém. Určit pravděpodobné umístění v referenčním genomu. Mnoho zarovnávačů používá indexy k rychlému snižování kandidátů pro umístění zarovnáváného readu. FM index (Full-text minute-space) 
-Přestože je tento vyhledávácí prostor velký , mnoho jeho částí může být přeskočeno (odřezáno) bez ztráty citlivosti
-V praxi prořezávací strategie jako je dvojí indexování a obousměrné BWT usnadňuje v In practice, pruning strategies such as double indexing and bidirectional Burrows-Wheeler transform (BWT) facilitate very efficient untapped alignment of short reads.
+V případě že backtracking mechanismus není uspěšný může docházet k jeho nadměrnému vyskytu. Bowtie se tento jev snaží zmírnit dvojím indexováním. První index obsahuje BWT genomu a je označován jako dopředný index. Druhý obsahuje opět BWT genomu, ale se znaky v sekvenci v opačném pořadí, označovaný jako zrcadlový index. Read je pak v půlce rozdělen na dvě části a jejich zarovnávání probíhá odděleně tak, že je vždy backtracking povolen jen v dané části, která je zrovna zarovnávána. Pravá část je zarovnáváná podle dopředného indexu a levá část je zarovnávána podle zrcadlového indexu. 
 \\
 \\
-Zarovnávání pomocí indexů může být i neefektivní v případě, že by bylo povoleno aby alignmenty obsahovali mezery. 
-Mezery mohou být způsobeny chybou sekvenování nebo skutečným vložením a smazáním. 
-Bezmezerován zarovnávaře, jako je bowtie , neodkážou zarovnat ready překlenující mezery a 
-mezery zvyšují velikost vyhledávacího prostoru a zpomalují zarovnávání. 
+TODO já nevím mě občas přijde že opisuju ten článek, a nevím jestli je to dobrý a stejně tomu na půl nerozumím .. 
+\\
+\\
+TODO tohle prostě nedává smysl..možná se mrkni ještě na stránky bowtie jestli tam o tom něco neni napsaný
+\\
+\\
+Ačkoliv je full text minute index často použávanej kvůli své rychlosti a nízké paměťové náročnosti ale neni vhodný na dlouhé zarovnávání které může obsahovat mezery. Bowtie 2 combinuje obojí sílu full text minute index s flexibilitou a 
+
+Zarovnávači používají indexy k rychlému snižování kanditádů 
+aligmenty mají maximální počet kolik změn tam může být 
+S mezerami se nám prostor pro vyhledání správné pozice ještě zvětší
+ale tento prostor může být změnšen díky dvojímu indexování bezmezerových aligmentů
+Zarovnávání pomocí indexů, ale může být neefektivní v případě pokud zarovnávaný read obsahuje mezery
+ 
+ mezery zvětšují prohledávaná prostor a redukují efektivitu prořezávání
+ 
+  
+
+Alignment gaps can result either from sequencing errors or from true insertions and deletions. 
+TODO co je sakra true insertions and deletions - jako genová mutace? 
+
+Bowtie 2 rozšiřuje full-text minute index aby bylo možné se vypořádat s mezerami.
+a rozděluje algoritmus zarovnání na dvě části
+-bezmezerový vyhledávání seed - semene? , který vyhledává na základě full text minute indexu
+- a mezerové které využívá dynamckého programování a těží z efektivity single- instruction multiple data parrall processing
+ SIMD mě navádí na vektory? To má být to zrychlení? Jen že ten prostor dokáže rychlejc projít?
 \\
 \\
 Pro každý read
 \begin{enumerate}
-	\item extrahování seed z readů a jeho zpětné doplňky - nemyslí se tohle to pairend atd
+	\item extrahování seed z readů a jeho zpětné doplňky - ne to je to dvojí indexování
 	\item extrahované podřetězce jsou zarovnány na referenci v bezmezerové modelu za pomocí full-text minute index
-nebo neodděleně? 
-	\item seed aligmenty jsou priorizovány a jejich pozice na referenčním genom jsou spočítány z indexu
+	\item seed aligmenty jsou priorizovány a jejich pozice na referenčním genom jsou spočítány z Full text minute indexu
 	\item seedy jsou rozšířeny do úplného zarování pro zvýšení výkonu je použito SIMD -accelerated dynamic programming.
 \end{enumerate}
 
@@ -542,7 +568,7 @@ Zpětné získání řetězce je znázorněno na obrázku \ref{fig:bw_transform_
 \end{figure}
 
 \noindent
-Díky vztahu mezi F a L sloupcem je možné vyhledávat daný řětezec (zobrazeno na obrázku \ref{fig:fm_index}). Například vyhledávány řetězec bude $P = aba$. Při pohledu do F sloupce jsou nalezeny všechy sloupce začínající $a$, následně v L sloupci ve stejných řádcích jsou nalezeny dva výskyty $b$. Již je získán sufix $ba$, který existuje. Pokračuje se dále na řádky, které začínají právě nalezenými $b$. V sloupci L pro dané řádky jsou nalezna $a$. Řětezec $P = aba$ se v textu vyskytuje. FM index má více optimalizačních řešení, které dále nebudou rozebírány.
+Díky vztahu mezi F a L sloupcem je možné vyhledávat daný řětezec (zobrazeno na obrázku \ref{fig:fm_index}). Například vyhledávány řetězec bude $P = aba$. Při pohledu do F sloupce jsou nalezeny všechy sloupce začínající $a$, následně v L sloupci ve stejných řádcích jsou nalezeny dva výskyty $b$. Již je získán sufix $ba$, který existuje. Pokračuje se dále na řádky, které začínají právě nalezenými $b$. V sloupci L pro dané řádky jsou nalezna $a$. Řětezec $P = aba$ se v textu vyskytuje. 
 
 \begin{figure}[H]
 		\centering
@@ -561,79 +587,259 @@ Díky vztahu mezi F a L sloupcem je možné vyhledávat daný řětezec (zobraze
 
 
 
-\noindent
-Algoritmus, který by vyhledávál přesné shody neni v praxi použitelný, protože ready mohou obsahovat chyby vzniklé sekvenováním. Proto bowtie každé zarovnání zakládá na kvalitě znaku báze v daném readu. Bowtie postupně vytváří dlouhý sufix. Pokud se sufix nevyskytuje v textu pak se může algoritmus vrátit a v již vytvořeném sufixu nahradit bázi za jinou. Dále pokračuje obdobným způsobem. Pokud by měl algoritmus na výběr substituovat za více bází vybere tu s nejnižší kvalitou znaku v readu. Protože bowtie algoritmus je greedy je možné, že jeho nalezené řešení není to nejlepší. Pro nalezení toho nejlepšího řešení je třeba použít přepínač $--best$, jeho funkčnost je ale na úkor rychlosti, která může být 2x čí 3x pomalejší. Zároveň je možné nastavit maximální počet nahrazených bází v readu.
 
 
 
 
 \subsection{bordel}
+
+FM index (Full-text minute-space) 
+Přestože je tento vyhledávácí prostor velký , mnoho jeho částí může být přeskočeno (odřezáno) bez ztráty citlivosti
+V praxi prořezávací strategie jako je dvojí indexování a obousměrné BWT usnadňuje v In practice, pruning strategies such as double indexing and bidirectional Burrows-Wheeler transform (BWT) facilitate very efficient untapped alignment of short reads.
+
  It is particularly good at aligning reads of about 50 up to 100s or 1,000s of characters, and particularly good at aligning to relatively long (e.g. mammalian) genomes.
   Bowtie 2 supports gapped, local, and paired-end alignment modes.
 
 Note that SOAP2 and Bowtie do not permit gapped alignment of unpaired reads.
 
- Bowtie 2 by mělo být vhodnější pro delší ready než Bowtie1.
  We extracted a random subset of 1 million reads from each and aligned them with BWA-SW and Bowtie 2. We did not align with Bowtie, BWA or SOAP2 because those tools are designed for shorter reads.
 Bowtie už je překonanej nejenom Bowtie2 ale i BWA.
 Bowtie2 je podle studie znatelně lepší než Bowtie, SOAP2.
 tyhle výsledky jsou na syntetických readech
 
 
-šla jsem přes docker docker image ls - zobrazi vsechny image pak docker run a ID image
-sudo docker run -i -t 3c2b9a287f82 /bin/bash
-sudo docker ps -a
+pak tam máš parametry 
 
-Tak jsem nakonec žádnej docker nepotřebovala a stáhla jsem to tady %http://bowtie-bio.sourceforge.net/tutorial.shtml
- po kliknuti na bowtie binary release.
+a jak dlouhý chceme simulovat ready? 
 
-na strance 25.4 je řečeno o hledání tch nejlepších zarovnání a je tam možnost --best ale že je dvakrát nebo třikrát pomalejší než normální mod.. a jde o to že najde první přijatelný a to označní kdežto při tom best prohledá co nejvíc a hledá to nejlepší i mezi těma přijatelnýma a to je pomalý.
-
-takže zarovnání by mohlo být teoreticky namapování na referenční gen???
-
-\subsection{bordel}
-tak jsem  to stáhla dala do složky a musela jsem teda nastavit proměnou prostředí 
-export BT2\_HOME=$/home/kate/Dokumenty/FAV/Diplomka/existujicisw/bowtie2-2.4.1-linux-x86_64/$
-pak jsem pustila tohle: 
-\$BT2\_HOME/bowtie2-build \$ $BT2_HOME/example/reference/lambda_virus.fa lambda_virus$
-a nakonec se mi vytvořili nějaký nový soubory lambda virus 1 atd.. v tom bowtie 2 adresáři
-
-dělala jsemt o podle tohohle webovky %http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#getting-started-with-bowtie-2-lambda-phage-example
+Výstupy se čtou ve formátu FASQ a zarování ve formátu ALN. 
+ART může také generovat zarovnávání ve formátu SAM nebo UCSC BED
+ART lze použít společně se simulátory varient genomů VarSim 
+\\
+to je odtud %https://www.niehs.nih.gov/research/resources/software/biostatistics/art/index.cfm
+454 sekvenování je pyrosekvenování, které cycklicky testuje přítomnost každého ze čtyř nukleotidů DNA (T, A, C, G)
 
 
-z bowtie pak teda leze asi SAM formát
+TODO nekam dopsat? musí se brát v potaz že z toho generátoru nikdy nebudou data taková jako reálná.. realná budou horší 
 
 
-\subsubsection{SAM}
-1. název readu který je zarovnáván
+SAM Sequence Alignment Map format), respektive jeho binárně
+komprimovaná verze BAM (z angl. Binary Alignment Map format).
+\section{IGV}
+nakonec jsem to pustila přes IGV ale stejně se tam museli ty indexi dodělat
+%java --module-path=lib -Xmx4g @igv.args --module=org.igv/org.broad.igv.ui.Main
+a musim byt ve slozce 
+$~/Dokumenty/FAV/Diplomka/existujicisw/IGV/IGV_Linux_2.8.0$
 
-2. Sum of all applicable flags. Flags relevant to Bowtie are:
-součet všechn aplikovaných (příslušných flags). Flagy relevantní k bowtie jsou: 
-1 - read je jeden z páru
-2 - zarovnání je one z paired proper (The alignment is one end of a proper paired-end alignment)
-4 - read má reported alignments
-8 - read je jeden z páru a má reportovaný zarovnání
-16 - zarování je obrácená reference vlákna
-32 - The other mate in the paired-end alignment is aligned to the reverse reference strand
-64 - read je mate 1 in a pair
-128 - read je mate 2 in a pair
+když to otevřeš tak možná občas vypadá že tam nic neni tak musíš vybrat konkrétní úsek nahoře z toho rolovátka
+Možná by se pak dalo udělat to že ty víš že tam může být maximálně dva z toho jednoho KIR souboru.. jako že může mít maximálně dvě alely z jednoho souboru
+No akorát co mi to udělá když bude mít dvě stejný? 
 
-Thus, an unpaired read that aligns to the reverse reference strand will have flag 16. A paired-end read that aligns and is the first mate in the pair will have flag 83 (= 64 + 16 + 2 + 1).
+\chapter{Implementace}
+\section{Popis problému}
+máme krátkou délku
+že read který dostáváme jsou 250 bp dlouhé a jeden gen může být dlouhý 14738 bp
+s tím že jednotlivé ready se nám tedy mohou překrývat
+můžou tam být chyby
 
-3. jméno referecnce ze které zarování patří
-4. 1-based offset into the forward reference strand where leftmost character of the alignment occurs 1-based odszaneí v následující referenci 
-5. kvalita mapování
-6. CIGAR reprezentace zarovnání
-7. název reference kde je zarovnán kamarád 
-8. 1-based zarování ofsetu k nálsedující refenrenci 
-9. Odvozená délka fragmentu. Velikost v závoru je že se mate nachází předtím. 0 že jsem nezarovnali mate
-10. read sekvence
-11. ASCII encoded read kvalita, stejné jako u FASTQ
-12. optional pole
+teoreticky mám maximálně dvě možné alely s jednoho souboru, ale nemusím mít ani jednu 
+
+pak by se tam dala přidat heurestika že bych brala známe haplotypy
+
+Možná pak ještě pracovat s pravděpodobností výskytu daného genu
+
+možná by se pak ještě dalo kolik readů tam bylo zarovnaných- ale to je blbost protože tam mám ready z několik genů ne jen z toho jednoho 
+
+TODO jen by mě teda zajímalo jak to bere ten bowtie jestli když mu podšoupnu celej ten gen tak jestli se to snaží zarovnat vzhledem k celýmu geno jako takovýmu nebo to bere postupně podle alel.. 
+po celym genomu by to asi bylo lepší protože pak by se dalo líp vyřešit to pokrytí 
+
+jenže bowtie může klidně někam zarovant tam kam to ve skutečnosti napatří protože tam hledá třeba backtracking a nebo vložení a smazaní chybu
 
 
-\chapter{Bordel}
-\section{ART}
+
+\section{Návrh systému}
+Systém byl navržen jako modulární, díky tomu je možná jednoduchá náhrada jakékoliv jeho části.
+\\
+\\ 
+Vše začíná získáním dat pro která má být vyhodnoceno, které KIR alely obsahuje. Buď je možné dostat přímo data z Fakulní nemocnice čí biomedicínského centra. To jsou data na kterých bude prováděna verifikace nástroje. Druhou možností je data vyrobit. Na těchto datech byl nástroj vyvíjen a laděn. Data mohou být vyrobena ručně, popis je v sekci (TODO doplnit sekci) nebo je k tomu připravený skript $create\_haplotype.py$. V dalším kroku musí být haplotyp "rozbit" do podoby jako by vyšel ze sekvenátoru. Rozdělí se na ready a vytvoří s v něm chyby. To se provádí za pomoci nástroje ART.
+\\
+\\
+V následující části jsou získaná data, tedy ready, zarovnána na referenční genom pomocí nástroje Bowtie. Nakonec je zarovnání vyhodnoceno a rozpoznáno o jaké alely genů se pravděpodoně jedná. Vyhodnocení je rozděleno do několika experimentů. Pro zjednodušení práce s výsledky je doplněn krok kdy jsou názvy alel podle pořadových čísel nahrazen na názvy alel podle jejich skladby.
+\\
+\\
+TODO doplnit jaké soubory z toho lezou
+%\includegraphics[width=]{./img/navrh_systemu.pdf}
+
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{./img/navrh_systemu.pdf}
+		\caption{Návrh systému. TODO to vyhodnoceni chce předělat. }
+		\label{fig:navrh_systemu}
+\end{figure}
+
+\section{Referenční geny}
+Referenční geny byly převzaty z IPD-KIR \cite{imgt_hla_database} konkrétně soubory ve formátu $fasta$ uloženy ve stejnojmené složce. Jednotlivé soubory jsou pojmenovány genem, který obsahují např. $KIR2DL1\_gen.fasta$. Každý soubor představuje všechny dostupné alely konkrétního genu. Jedinou vyjímku tvoří soubory $KIR\_gen.*$, které obsahují pseudogeny. 
+\\
+\\
+Kromě souborů $*\_gen.fasta$ obsahuje složka $fasta$ také soubory $*\_prot.fast$ a $*\_nuc.fasta$. Soubor $\_gen.fasta$ obsahuje informace o celých genech. Oproti tomu $\_nuc.fasta$ obsahuje nucleotidy, tedy pouze exony bez intronů. Soubor $*\_prot.fast$ obsahuje sekvence proteinů, které vznikly z RNA. 
+\\
+\\
+TODO takže mě by ve finále mělo zajímát to nuc? 
+\\
+\\
+\subsection{Bordel}
+gen - jsou informace o celých genech, resp. jejich sekvencích, kdežto v nuc informace o nukleotidech - tedy jenom o exonech bez intronů, které při přepisu nehrají roli, tudíž se stává, že v nuc jsou stejné sekvence pro různé alely (jsou různé na třetí úrovni v názvu) - tím pádem je třeba zase se zkusit nějak vypořádat s podobností jednotlivých sekvencí
+
+podobnost sekvencí je základním kamenem úrazu při identifikaci KIR a ta největší výzva při Vaší práci :)
+
+gen obsahuje transkribované části bolasti přímo kódujícící pořadí aminikyselin proteinu (exony) i oblasti nekodující (introny), 
+
+Co znamená konec 3 a konec 5? 
+\\
+\\
+TODO takže mě by ve finále mělo zajímát to nuc? Co dostanu z nemocnice za data? Poprosit o poslání. 
+
+\subsection{Vytvoření testovacího haplotypu}
+Vytvoření haplotypu provádí skript $create_haplotype.py$ v rámci vytváření syntetických readů. Ruční vytvoření testovacího haplotypu lze udělat následujícím způsobem. V prvním kroku je vybrán gen, který je žádocí vložit. V referenčních genech je vybrán jeho soubor a v tomto souboru je nalezena konkrétní alela. Někdy je možná najít shoda kdy se alely liší jen v konečné fazí jejich označení a v haplotypu je pouze první 5 čísel. S tímto jevem je možné se setkat například v případě alely 3DL3: 00402. V tomto případě může mít vložena jakákoli z těchto alel. Vkladaná alela musí být vložena včetně její hlavičky tedy: $>KIR:KIR00138 \: KIR3DL3*0040201 \: 12390 \: bp$ 
+\\
+\\  
+TODO když vytvářím gen tak tam dávám i tu hlavičku, bez ní mi Art totiž vytvořilo prázdný a navíc pan Fatka když mi posílal tu testovací tak to tam taky měl.. a pak mi bowtie píše magic number či co 
+Myslím že pan Fatka mi poslal $\_gen$
+TODO jak je vlastně možný že mi tam vzniknou mezery s tím že nějakej gen není v haplotypu tak tam budu mít mezeru - jak je to v těch realných datech?
+Nebo já jinak fakt nevím jak se identifikuje že tady je tenhle gen a tady je jinej gen?  
+
+\section{Použité programové prostředky}
+\subsection{Python}
+Program byl navržen a implementován na operačním systému Linux za použití především programovacího jazyku Python. 
+ Pro spuštění programu je nutné mít nainstalovaný Python ve verzi 3.
+\subsubsection{Biopython}
+Biopython je sdružení vývojářů, kteří vytváří volné dostupné python nástoje vhodné pro výpočty v molekurární biologii. Biopython se snaží zjednoduší použití pythonu pro výzkum bioinformatiky. Mimo jiné umí pracovat s formáty souborů, které se využívají v bioinformatice jako je například BLAST nebo Fasta   
+\\
+\\
+TODO
+Instalaci jde provést pip install biopython
+tak to vypadá že i ten biopython umí aligned a že to dělá přes to Burrows wheeler aligner 
+
+\section{Vyhodnoceni zarovnávání}
+\subsection{Experiment1}
+	Počítání jen pokrytí za použití pysam.coverage či co 
+	Klidně tam nějake graf algoritmu, hodí se to sem? 
+	nevím jestli se nějak víc šťourat v těch bowtie nastavení.. u artu to nemá smysl protože tam se hlavně musím držet toho aby byli co nejvíc podobný těm z němocnice
+	
+TODO2: tenhle přístup mi nepřijde špatný, ale je nutno se zamyslet nad podobností alel a jak této informace využít, zkusit nějakou formu seskupování či identifikaci rozdílů alel a na základě jejich pokrytí (právě třeba maxima) rozhodovat či tak nějak něco
+
+TODO jak je možné žé různé alely pro jeden gen mohou být různě dlouhé?
+TODO2jedná se o různé varianty genu - mutace, chcete-li, tudíž tam mohlo docházet k insertům, deletům apod. a tudíž délka je jiná
+
+\subsection{Experiment2}
+zkoušela jsem v pythonu přes pysam.depth, zkusit nějaký odhad na alely. Tak, že jsem zkusila vzít ty, které mají největší pokrytí. Brala jsem v úvahu i že každá alela je různě dlouhá, takže jsem to brala v procentech vzhledem k velikosti alely.  Zkrátka přijde mi, že to moc nefunguje, ale všimla jsem si takové zvláštnosti, že kolikrát se celý gen pohybuje kolem 99 procent pokrytí
+
+tenhle přístup mi nepřijde špatný, ale je nutno se zamyslet nad podobností alel a jak této informace využít, zkusit nějakou formu seskupování či identifikaci rozdílů alel a na základě jejich pokrytí (právě třeba maxima) rozhodovat či tak nějak něco
+
+
+podobnost sekvencí je základním kamenem úrazu při identifikaci KIR a ta největší výzva při Vaší práci :)
+
+About 80 procent of the exons on each chromosome are < 200 bp in length.
+
+Když bych chtěla dělat podobnost textů tak se dá dělat hamingova vzdálenost. Vpodstatě vezmu dva řětězce a spočítám kolik mezi sebou mají rozdílů
+- ale to je takový divný protože tam může být podobnost třeba posunutá ..
+
+Levenshteinova metoda je o něco složitější. Jde o jeden z nejpoužívanějších algoritmů
+pro zjištění vzdálenosti textových řetězců. Vyjadřuje podobnost/rozdílnost dvou textů na
+základně počtu změn, které je potřeba udělat, abychom z jednoho řetězce dostali druhý.
+Existují dvě hlaví varianty této metody - první, jednodušší a starší metoda je založená
+na počtu úprav, které je nutno v řetězci provézt, abychom získali dva stejné řetězce.
+Závisí tedy na počtu vložení, smazání nebo substituci. Ve své nejjednodušší podobě tento
+algoritmus známý již přes čtyřicet let spočítá počet vložení, nahrazení a smazání nutných
+k této transformaci
+Druhá metoda je poněkud chytřejší a počítá i se složitostí daných operací, což ji dělá
+realističtější, ale za to náročnější na výpočty.
+- tady se dají řešit i ty posuny a tohle
+
+Možná se dá ještě počítat frekvence výskytu jednotlivých znaků - ale máš 4 tak nevím jak hodně to je prokazatelný
+
+TODO nikde jsem se nedočetla jak to přesně bere ten bowtie? Jestli zarovnává každou alelu v souboru zvlášť nebo dohromady? 
+\chapter{Vyhodnocení výsledků a jejich srovnání}
+\chapter{Závěr}
+
+\chapter{Výkladový slovník pojmů a zkratek}
+
+\begin{labeling}{alligator}
+	\item [WHO] World health organization, světová zdravotnická organizace
+	\item [ČNRDD] Český národní registr dárců kostní dřeně
+	\item [MHC] Major histocompatibility complex, genetický systém	
+	\item [HLA] Human leucocyte antigen, podskupina MHC
+	\item [KIR] Killer imunoglobilin like-receptor, skupina genů
+	\item [NK] Natural killer, buňka imunitního systému
+	\item [DNA] Deoxyribonukleová kyselina; dvoušroubovice, která obsahuje páry bází C, G, A, T 
+	\item [RNA] Ribonuklové kyselina; obsahuje báze C, G, A, U; šablona přímo pro vytvoření proteinů; hlavní funkcí zajištění překladu DNA do struktury proteinů (DNA -> mRNA -> rRNA -> tRNA -> RNA) 
+	\item [Báze] nukleové báze; A - Adenin, C - Cytosin, G - Guanin, T - Thymin
+	\item [bp] base pair; jeden z párů A - T nebo C - G
+	\item [kb] kilobase 1 kb = 1000 bp
+	\item [ART] nástroj na vytváření syntetických readů
+	\item [Bowtie] nástroj na zarovnání readů proti referenčním genům
+	\item [Fenotyp] adwda
+	\item [Genotyp] adawwd
+\end{labeling}
+
+
+TODO tímhle si nejsem moc jistá tak jsem to pochopila je to dobře? DNA -> mRNA -> rRNA -> tRNA -> RNA
+\\
+\\
+TODO co ty formáty souboru?
+
+\chapter{Výkladový slovník pojmů-zahodit?}
+WHO
+český národní registr 
+možná zmínit národní registr
+genotyp 
+fenotyp tyhle kraviny
+Genotyp pro danou chromozomální oblast se pak u většiny lidí skládá ze dvou haplotypů).
+genom kompletní sekvence daného organismu
+
+\textbf{DNA (Deoxyribonukleová kyselina)} \\ 
+ - dvoušroubovice, která obsahuje páry bází C, G, A, T \\
+
+
+obojí obsahuje nukleotidy bází? 
+Rozdíl mezi DNA a RNA
+DNA dvoušrobovice, která obsahuje páry bází - C G A T, kdežto RNA je již šablona přímo pro vytvoření proteinů takže jedna půlka šroubovice bez intronů. 
+Hlavní funkcí RNA je zajištění překladu genetického kódu (DNA) do struktury proteinů
+nejdřív je DNA  mRNA, rRNA tRNA RNA
+
+Co znamená konec 3 a konec 5? 
+
+% 
+% PRO ANGLICKOU SAZBU JE NUTNÉ ZMĚNIT
+% CITAČNÍ STYL!
+%
+\nocite{*}
+\bibliographystyle{csplainnatkiv}
+{\raggedright\small
+\bibliography{literatura}
+}
+
+
+\appendix
+\chapter{Uživatelská dokumentace}
+Program byl napsán a otestován na ART ve verzi MountRainier, Bowtie 2 ve verzi 2.4.1, Python ve verzi 3.6, Knihovnu pro python pysam==0.14 
+ 
+ samTools
+
+Následující postupy jsou uvedeny pro operační  systém Linux. Na jiném opračním systému se mohou postupy lišit
+
+Veškeré nastavení aplikace probíhá pomocí souboru config.py
+
+Parametry configu
+
+Spuštění programu
+python run.py v připadě spuštění všech skrpnů postupně
+
+výstupy programu
+
+Doporučená adresářová struktura
+\section{Nastavení ART a jeho spuštění}
+tak jsem stáhla normálně nejnovější verzi z niehs.nih.gov a podle instrukcí co byli v souboru INSTAL dala % ./configure && make && make install
 
 \subsection{pokus to nejak spustit}
 Takze kdyz otebru hlavni readme tak mi to riká že tam jsou read me pro jednotlivy verze sekvenatoru ..
@@ -656,6 +862,53 @@ tak se má používát MSv1
 $art_illumina -ss MSv3 -sam -i amplicon_reference.fa -p -l 250 -f 10 -m 300 -s 10 -o moje_art_data$
 Tohle používej:
 $art_illumina -ss MSv1 -sam -i amplicon_reference.fa -p -l 250 -f 100 -m 300 -s 10 -o moje_art_data$
+
+
+\section{Bowtie}
+ a stáhla jsem to tady %http://bowtie-bio.sourceforge.net/tutorial.shtml
+ po kliknuti na bowtie binary release.
+
+na strance 25.4 je řečeno o hledání tch nejlepších zarovnání a je tam možnost --best ale že je dvakrát nebo třikrát pomalejší než normální mod.. a jde o to že najde první přijatelný a to označní kdežto při tom best prohledá co nejvíc a hledá to nejlepší i mezi těma přijatelnýma a to je pomalý.
+
+
+tak jsem  to stáhla dala do složky a musela jsem teda nastavit proměnou prostředí 
+export BT2\_HOME=$/home/kate/Dokumenty/FAV/Diplomka/existujicisw/bowtie2-2.4.1-linux-x86_64/$
+pak jsem pustila tohle: 
+\$BT2\_HOME/bowtie2-build \$ $BT2_HOME/example/reference/lambda_virus.fa lambda_virus$
+a nakonec se mi vytvořili nějaký nový soubory lambda virus 1 atd.. v tom bowtie 2 adresáři
+
+dělala jsemt o podle tohohle webovky %http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#getting-started-with-bowtie-2-lambda-phage-example
+
+\subsection{FASTQ}
+
+	    
+	    aln\_start\_pos označuje počáteční pozicí v referenci sekvence, je vždy relativní vzhledem k vláknu referenční sekvence
+	    To znamená že aln\_start\_pos plus (10) vlákno je odlišný od  aln\_start\_pos minus (-) vlákna.. ???? WHAT???
+	    
+		ref\_seq\_aligned je zarovnaná oblast referenční sekvence, která může být plus vlákno nebo mínos vlákno referenční sekvence
+		ref\_seq\_aligned je zarovanný read, který je vždy ve stejné orientaci jako stejný read v odpovívajícím fastq suboru.  
+		
+		
+			    
+	    
+	       	
+		aln\_start\_pos is the alignment start position of reference sequence. aln\_start\_pos is always relative to the strand of reference sequence. That is, aln\_start\_pos 10 in the plus (+) strand is different from aln\_start\_pos 10 in the minus (‐) stand.  
+	
+		ref\_seq\_aligned is the aligned region of reference sequence, which can be from plus strand or minus strand of the reference sequence. 
+		read\_seq\_aligned is the aligned sequence read, which always in the same orientation of the same read in the corresponding fastq file. 
+
+SAM je standardní formát pro NG sekvence ready zarování
+BED o tom tam nic neni jen 
+NOTE: both ALN and BED format files use 0-based coordinate system while SAM format uses 1-based coordinate system.
+
+pak jsou tady 4 doporučené použití
+$art_illumina [options] -ss <sequencing_system> -sam -i <seq_ref_file> -l <read_length> -f <fold_coverage> -o <outfile_prefix>$
+$art_illumina [options] -ss <sequencing_system> -sam -i <seq_ref_file> -l <read_length> -c <num_reads_per_sequence> -o <outfile_prefix>$
+$art_illumina [options] -ss <sequencing_system> -sam -i <seq_ref_file> -l <read_length> -f <fold_coverage> -m <mean_fragsize> -s <std_fragsize> -o <outfile_prefix>$
+$art_illumina [options] -ss <sequencing_system> -sam -i <seq_ref_file> -l <read_length> -c <num_reads_per_sequence> -m <mean_fragsize> -s <std_fragsize> -o <outfile_prefix>$
+
+
+\section{Použivané soubory}
 
 \subsection{FASTQ}
 Sekvenační přístroje produkují data ve formátu FASTQ takže i ART musí logicky generovat tenhle formát.
@@ -700,187 +953,31 @@ v body jsou všechny zarovnání
 %		>ref_seq_id	read_id	aln_start_pos	ref_seq_strand
 %	       	ref_seq_aligned
 %	       	read_seq_aligned 
-	    
-	    aln\_start\_pos označuje počáteční pozicí v referenci sekvence, je vždy relativní vzhledem k vláknu referenční sekvence
-	    To znamená že aln\_start\_pos plus (10) vlákno je odlišný od  aln\_start\_pos minus (-) vlákna.. ???? WHAT???
-	    
-		ref\_seq\_aligned je zarovnaná oblast referenční sekvence, která může být plus vlákno nebo mínos vlákno referenční sekvence
-		ref\_seq\_aligned je zarovanný read, který je vždy ve stejné orientaci jako stejný read v odpovívajícím fastq suboru.  
-		
-		
-			    
-	    
-	       	
-		aln\_start\_pos is the alignment start position of reference sequence. aln\_start\_pos is always relative to the strand of reference sequence. That is, aln\_start\_pos 10 in the plus (+) strand is different from aln\_start\_pos 10 in the minus (‐) stand.  
-	
-		ref\_seq\_aligned is the aligned region of reference sequence, which can be from plus strand or minus strand of the reference sequence. 
-		read\_seq\_aligned is the aligned sequence read, which always in the same orientation of the same read in the corresponding fastq file. 
 
-SAM je standardní formát pro NG sekvence ready zarování
-BED o tom tam nic neni jen 
-NOTE: both ALN and BED format files use 0-based coordinate system while SAM format uses 1-based coordinate system.
+\subsection{SAM a BAM}
+1. název readu který je zarovnáván
 
-pak jsou tady 4 doporučené použití
-$art_illumina [options] -ss <sequencing_system> -sam -i <seq_ref_file> -l <read_length> -f <fold_coverage> -o <outfile_prefix>$
-$art_illumina [options] -ss <sequencing_system> -sam -i <seq_ref_file> -l <read_length> -c <num_reads_per_sequence> -o <outfile_prefix>$
-$art_illumina [options] -ss <sequencing_system> -sam -i <seq_ref_file> -l <read_length> -f <fold_coverage> -m <mean_fragsize> -s <std_fragsize> -o <outfile_prefix>$
-$art_illumina [options] -ss <sequencing_system> -sam -i <seq_ref_file> -l <read_length> -c <num_reads_per_sequence> -m <mean_fragsize> -s <std_fragsize> -o <outfile_prefix>$
+2. Sum of all applicable flags. Flags relevant to Bowtie are:
+součet všechn aplikovaných (příslušných flags). Flagy relevantní k bowtie jsou: 
+1 - read je jeden z páru
+2 - zarovnání je one z paired proper (The alignment is one end of a proper paired-end alignment)
+4 - read má reported alignments
+8 - read je jeden z páru a má reportovaný zarovnání
+16 - zarování je obrácená reference vlákna
+32 - The other mate in the paired-end alignment is aligned to the reverse reference strand
+64 - read je mate 1 in a pair
+128 - read je mate 2 in a pair
 
-pak tam máš parametry 
+Thus, an unpaired read that aligns to the reverse reference strand will have flag 16. A paired-end read that aligns and is the first mate in the pair will have flag 83 (= 64 + 16 + 2 + 1).
 
-a jak dlouhý chceme simulovat ready? 
-
-
-
-\subsection{bordel}
-ART is freely available to public. The binary packages of ART are available for three major operating systems: Linux, Macintosh, and Windows. ART is also available as Platform-independent C++ source packages. Each package includes programs, documents and usage examples.
-
-ART simuluje ready napodobobáním skutečných procesů sekvenování s empirickým chybovým modelem nebo quality profiles summarized from large recalibrated sequencing data
-ART může také simlovat čtené pomocí uživatelského vlastního read arror modelu nebo quality profiles
-
-TODO - tohle úplně nechápu ART podporuje simulaci jedno párových, dvou párovcýh tří hlavních komerčních sekvenčních platfoem 
-Výstupy se čtou ve formátu FASQ a zarování ve formátu ALN. 
-ART může také generovat zarovnávání ve formátu SAM nebo UCSC BED
-ART lze použít společně se simulátory varient genomů VarSim 
-\\
-to je odtud %https://www.niehs.nih.gov/research/resources/software/biostatistics/art/index.cfm
-454 sekvenování je pyrosekvenování, které cycklicky testuje přítomnost každého ze čtyř nukleotidů DNA (T, A, C, G)
-
-SOLid ke kódování 16 různých dinukleotidů používá čtyči fluoresenční barevná barviva, každé barvivo kóduje čtyři dinukleotidy
- 
-
-
-tak jsem stáhla normálně nejnovější verzi z niehs.nih.gov a podle instrukcí co byli v souboru INSTAL dala % ./configure && make && make install
-
-
-musí se brát v potaz že z toho generátoru nikdy nebudou data taková jako reálná.. realná budou horší 
-
-
-SAM Sequence Alignment Map format), respektive jeho binárně
-komprimovaná verze BAM (z angl. Binary Alignment Map format).
-\section{IGV}
-nakonec jsem to pustila přes IGV ale stejně se tam museli ty indexi dodělat
-%java --module-path=lib -Xmx4g @igv.args --module=org.igv/org.broad.igv.ui.Main
-a musim byt ve slozce 
-$~/Dokumenty/FAV/Diplomka/existujicisw/IGV/IGV_Linux_2.8.0$
-
-když to otevřeš tak možná občas vypadá že tam nic neni tak musíš vybrat konkrétní úsek nahoře z toho rolovátka
-Možná by se pak dalo udělat to že ty víš že tam může být maximálně dva z toho jednoho KIR souboru.. jako že může mít maximálně dvě alely z jednoho souboru
-No akorát co mi to udělá když bude mít dvě stejný? 
-
-\chapter{Implementace}
-\section{Popis problému}
-máme krátkou délku
-že read který dostáváme jsou 250 bp dlouhé a jeden gen může být dlouhý 14738 bp
-s tím že jednotlivé ready se nám tedy mohou překrývat
-můžou tam být chyby
-
-teoreticky mám maximálně dvě možné alely s jednoho souboru, ale nemusím mít ani jednu 
-
-pak by se tam dala přidat heurestika že bych brala známe haplotypy
-
-Možná pak ještě pracovat s pravděpodobností výskytu daného genu
-
-možná by se pak ještě dalo kolik readů tam bylo zarovnaných- ale to je blbost protože tam mám ready z několik genů ne jen z toho jednoho 
-\section{Návrh systému}
-\section{Referenční geny}
-Referenční geny byly převzaty z IPD-KIR \cite{imgt_hla_database} konkrétně soubory ve formátu $fasta$ uloženy ve stejnojmené složce. Jednotlivé soubory jsou pojmenovány genem který obsahují např. $KIR2DL1\_gen.fasta$. Každý soubor představuje všechny dostupné alely konkrétníhé genu.
-\\
-\\
-Kromě souborů $*\_gen.fasta$ obsahuje složka $fasta$ také soubory $*\_prot.fast$ a $*\_nuc.fasta$. Soubor $*\_prot.fast$ obrahuje sekvenci proteinů, nuc obsahuje nucleotidy a gen obsahu genomic DNA sekvence
-\\
-\\
-TODO já vlastně nechápu jakej je rozdíl mezi nuc a gen? 
-\\
-\\
-All files in this folder are provided in the FASTA sequence format. Please note the FASTA format contains no alignment information.
-
-Files designated “X\_prot.fasta”, where X is a locus or gene, contain protein sequences. Please note that alleles that contain non-coding variations may be identical at the protein level. 
-
-Files designated “X\_nuc.fasta”, where X is a locus or gene, contain the nucleotide coding sequences (CDS). Please note that alleles that contain non-coding variations may be identical at the CDS level.
-
-Files designated “X\_gen.fasta”, where X is a locus or gene, contain genomic DNA sequences. Please note for alleles that do not possess genomic sequences, there will be no entry in the file.
-
-\subsection{Vytvoření testovacího haplotypu}
-
-TODO navíc hned když se podívám na 3DL3: 00402 tak tam mám dvě možnosti
-TODO a co když tam nějakej není, tak prostě pokračuju tím dalším, nebo se tam něco dává jako mezera? Myslím když jste třeba napsala 2DL5B:
-TODO Co je 2DP1, ve FASTA jsem je nenašla tak jsem to skopčila z \url{https://www.ebi.ac.uk/cgi-bin/ipd/kir/get_allele.cgi?2DP1*0020103} - p značí pseudogen
-A prej by měli být v KIR-gen.fasta ale já to tam za boha nemůžu najít
-jo tak tam je v tom KIR\_gen fasta
-ale nahoře jsou i jiný co asi úplně nejsou pesudogeny tak to moc nechápu ..
- 
-to děláte správně, jen musíte vytvořit KIR haplotyp, který podšoupnete tomu ARTu, nejenom jeden konkrétní KIR, aby Vám vytvořil ready, tj. např. kombinaci (tophle je jedna známá linie, sloučíte si ty KIRy za sebe):
-3DL3: 00402, 00802
-2DS2: 00101
-2DL2: 00301
-2DL3: 001
-2DL5B:
-2DS3:
-2DP1: 00201
-2DL1: 00302
-3DP1: 007, 00901
-2DL4: 00102, 00501
-3DL1: 01502
-3DS1: 01301
-2DL5A: 001
-2DS3:
-2DS5: 00201
-2DS1: 00201
-2DS4: 001
-3DL2: 0020105, 0070102
-
-\section{Použité programové prostředky}
-\subsection{Python}
-Program byl navržen a implementován na operačním systému Linux za použití především programovacího jazyku Python. 
- Pro spuštění programu je nutné mít nainstalovaný Python ve verzi 3.
-\subsubsection{Biopython}
-Biopython je sdružení vývojářů, kteří vytváří volné dostupné python nástoje vhodné pro výpočty v molekurární biologii. Biopython se snaží zjednoduší použití pythonu pro výzkum bioinformatiky. Mimo jiné umí pracovat s formáty souborů, které se využívají v bioinformatice jako je například BLAST nebo Fasta   
-\\
-\\
-Instalaci jde provést pip install biopython
-\\
-\\
-
-tak to vypadá že i ten biopython umí aligned a že to dělá přes to Burrows wheeler aligner 
-
-
-\chapter{Vyhodnocení výsledků a jejich srovnání}
-\chapter{Závěr}
-
-\chapter{Seznam zkratek}
-HLA
-KIR
-NK
-sekvence DNA cytosin, adenonin atd
-DNA (Deoxyribonuklenovou kyselinu)
-co ty formáty souboru?
-
-\chapter{Výkladový slovník pojmů}
-WHO
-český národní registr 
-možná zmínit národní registr
-genotyp 
-fenotyp tyhle kraviny
-Genotyp pro danou chromozomální oblast se pak u většiny lidí skládá ze dvou haplotypů).
-genom kompletní sekvence daného organismu
-
-
-% 
-% PRO ANGLICKOU SAZBU JE NUTNÉ ZMĚNIT
-% CITAČNÍ STYL!
-%
-\nocite{*}
-\bibliographystyle{csplainnatkiv}
-{\raggedright\small
-\bibliography{literatura}
-}
-
-
-\appendix
-\chapter{Uživatelská dokumentace}
-
-\section{Nastavení ART a jeho spuštění}
-
-
+3. jméno referecnce ze které zarování patří
+4. 1-based offset into the forward reference strand where leftmost character of the alignment occurs 1-based odszaneí v následující referenci 
+5. kvalita mapování
+6. CIGAR reprezentace zarovnání
+7. název reference kde je zarovnán kamarád 
+8. 1-based zarování ofsetu k nálsedující refenrenci 
+9. Odvozená délka fragmentu. Velikost v závoru je že se mate nachází předtím. 0 že jsem nezarovnali mate
+10. read sekvence
+11. ASCII encoded read kvalita, stejné jako u FASTQ
+12. optional pole
 \end{document}

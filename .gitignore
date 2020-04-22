@@ -1,4 +1,12 @@
 # Untracked files
 existujicisw/*
 software/index/*
-software/mydata/result/*
+software/data/result/*
+software/data/alignments/*
+software/data/bam/*
+software/data/bowtie_index/*
+software/data/haplotype/*
+software/data/reads/*
+software/data/result/*
+bordel
+

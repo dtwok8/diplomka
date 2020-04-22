@@ -4,7 +4,7 @@ The top-level auxiliary file: doc.aux
 The style file: csplainnatkiv.bst
 Database file #1: literatura.bib
 Warning--entry type for "Frycova_bakalarka" isn't style-file defined
---line 85 of file literatura.bib
+--line 86 of file literatura.bib
 Warning--to sort, need author or key in human_cell
 Warning--to sort, need author or key in chromosome_structure
 Warning--to sort, need author or key in kir_genotypes_10
@@ -27,7 +27,7 @@ Warning--empty journal in KIR_img_princip
 Warning--empty publisher in en_smith
 You've used 27 entries,
             2898 wiz_defined-function locations,
-            747 strings with 9187 characters,
+            747 strings with 9281 characters,
 and the built_in function-call counts, 9479 in all, are:
 = -- 941
 > -- 464
