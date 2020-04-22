@@ -1,2 +1,0 @@
-@HD	VN:1.4	SO:unsorted
-@PG	ID:01	PN:ART_Illumina	CL:art_illumina -ss MSv1 -sam -i /home/kate/Dokumenty/FAV/Diplomka/software/data/haplotype/haplotype2.fa -p -l 250 -f 100 -m 300 -s 10 -o /home/kate/Dokumenty/FAV/Diplomka/software/mydata -rs 1587207932
