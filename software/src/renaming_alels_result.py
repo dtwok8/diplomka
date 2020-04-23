@@ -38,17 +38,17 @@ def make_gen_dictionary(reference_kir_gens_folder: str):
 def run(aligment_result_file_rename = None, aligment_result_file = None):
 	KIR_dictionary = make_gen_dictionary(config.REFERENCE_KIR_GENS_FOLDER)
 
-	aligment_result_file = open(config.ALIGMENT_RESULT_FILE, "r")
-	aligment_result_str = aligment_result_file.read()
-	aligment_result_file.close()
-	print("replacing...")
+	result_files = [f for f in os.listdir(config.RESULT_FOLDER) if os.path.isfile(os.path.join(config.RESULT_FOLDER, f))]
+	
+	for file in result_files:
+		aligment_result_file = open(os.path.join(config.RESULT_FOLDER, file), "r")
+		aligment_result_str = aligment_result_file.read()
+		aligment_result_file.close()
+		print("replacing...", file)
 
-	for key, item in KIR_dictionary.items():
-		aligment_result_str = aligment_result_str.replace(key.strip(), item)
+		for key, item in KIR_dictionary.items():
+			aligment_result_str = aligment_result_str.replace(key.strip(), item)
 
-	aligment_result_file_rename = open(config.ALIGMENT_RESULT_FILE_RENAME, "w")
-	aligment_result_file_rename.write(aligment_result_str)
-	aligment_result_file_rename.close()
-
-
-run()
+		aligment_result_file_rename = open(os.path.join(config.RESULT_FOLDER, file), "w")
+		aligment_result_file_rename.write(aligment_result_str)
+		aligment_result_file_rename.close()

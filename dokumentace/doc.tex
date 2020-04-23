@@ -639,7 +639,7 @@ No akorát co mi to udělá když bude mít dvě stejný?
 \section{Popis problému}
 máme krátkou délku
 že read který dostáváme jsou 250 bp dlouhé a jeden gen může být dlouhý 14738 bp
-s tím že jednotlivé ready se nám tedy mohou překrývat
+s tím že jednotlivé ready se nám tedy mohou překrývat- tohle si nejsem jistá jestli se můžou překrývat
 můžou tam být chyby
 
 teoreticky mám maximálně dvě možné alely s jednoho souboru, ale nemusím mít ani jednu 
@@ -655,6 +655,8 @@ po celym genomu by to asi bylo lepší protože pak by se dalo líp vyřešit to
 
 jenže bowtie může klidně někam zarovant tam kam to ve skutečnosti napatří protože tam hledá třeba backtracking a nebo vložení a smazaní chybu
 
+
+asi sem dopsat že i ty alely pro jeden gen můžou být různě dlouhé protože tam probíhají mutace
 
 
 \section{Návrh systému}
@@ -685,6 +687,9 @@ Kromě souborů $*\_gen.fasta$ obsahuje složka $fasta$ také soubory $*\_prot.f
 \\
 \\
 TODO takže mě by ve finále mělo zajímát to nuc? 
+\\
+\\
+TODO: KIR_gen.fasta  includes the DNA sequence for all alleles, which have genomic sequences available.
 \\
 \\
 \subsection{Bordel}
@@ -721,6 +726,14 @@ Instalaci jde provést pip install biopython
 tak to vypadá že i ten biopython umí aligned a že to dělá přes to Burrows wheeler aligner 
 
 \section{Vyhodnoceni zarovnávání}
+\subsection{Experiment3}
+asi smazat experiment 2 udělat z něj experiment 1 a pak udělat experiment 3
+a tam je pak problém že mi to napíše i víc alel který tam můžou být takže kde je pak ta hranice kdy už nee
+a navíc ten konec ty alely kolikrát neni specifikovanej ..
+a podle toho co mi tam vychází tak je to po genech určitě blbost dělat protože twn bowtie se to snaží někam dát za každou cenu.
+
+Já jsem to možná všechno dělala zbytečně moc složitě i to vytváření haplotypu, ten zbytek se dá zahladit tak, že prostě se tam dá vždycky jen ten jeden soubor .. že v těch referenčních genech tam nechá jenom to jedno pro který to bude chtít zarovnat zrovna 
+
 \subsection{Experiment1}
 	Počítání jen pokrytí za použití pysam.coverage či co 
 	Klidně tam nějake graf algoritmu, hodí se to sem? 
@@ -732,8 +745,14 @@ TODO jak je možné žé různé alely pro jeden gen mohou být různě dlouhé?
 TODO2jedná se o různé varianty genu - mutace, chcete-li, tudíž tam mohlo docházet k insertům, deletům apod. a tudíž délka je jiná
 
 \subsection{Experiment2}
+rozdil oproti experimentu jedna je že jsem vzala jen KIR_gen kde jsou všechny alely a tam to vypadá že to docela funguje
+
+
+
 zkoušela jsem v pythonu přes pysam.depth, zkusit nějaký odhad na alely. Tak, že jsem zkusila vzít ty, které mají největší pokrytí. Brala jsem v úvahu i že každá alela je různě dlouhá, takže jsem to brala v procentech vzhledem k velikosti alely.  Zkrátka přijde mi, že to moc nefunguje, ale všimla jsem si takové zvláštnosti, že kolikrát se celý gen pohybuje kolem 99 procent pokrytí
 
+
+\subsection{Mimo}
 tenhle přístup mi nepřijde špatný, ale je nutno se zamyslet nad podobností alel a jak této informace využít, zkusit nějakou formu seskupování či identifikaci rozdílů alel a na základě jejich pokrytí (právě třeba maxima) rozhodovat či tak nějak něco
 
 

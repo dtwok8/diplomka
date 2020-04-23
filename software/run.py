@@ -2,12 +2,15 @@ import sys, getopt
 
 import src.create_syntetic_reads as create_syntetic_reads 
 import src.alignment_reads_to_reference as alignment_reads_to_reference
-
+import src.evaluation_alignment.experiment1 as experiment1
+import src.evaluation_alignment.experiment2 as experiment2
+import src.evaluation_alignment.experiment3 as experiment3
+import src.renaming_alels_result as renaming_alels_result
 
 
 def main(argv):
-	create_reads = True
-	align = True
+	create_reads = False
+	align = False
 	evaluate = True
    
 	try:
@@ -36,6 +39,10 @@ def main(argv):
 	if(align):
 		alignment_reads_to_reference.run()
 
+	if(evaluate):
+		#experiment1.run()
+		experiment3.run()
+		renaming_alels_result.run()
 
 if __name__ == "__main__":
 	main(sys.argv[1:])

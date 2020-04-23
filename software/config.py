@@ -62,10 +62,15 @@ BOWTIE_BUILD_INDEX = False
 ALIGNMENT_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/alignments"
 
 
+# bam for experiments
+BAM_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/bam"
+
+
 
 
 # renaming_alels_result.py
-ALIGMENT_RESULT_FILE = "/home/kate/Dokumenty/FAV/Diplomka/software/data/result/vysledky.txt"
-
+RESULT_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/result"
+# pak by result chtelo vymenit za main result a all result.
+# teoreticky ten soubor můžu přepsat ne  s tím rename? 
 # renaming_alels_result.py
-ALIGMENT_RESULT_FILE_RENAME = "/home/kate/Dokumenty/FAV/Diplomka/software/data/result/vysledky2.txt"
+#RESUL = "/home/kate/Dokumenty/FAV/Diplomka/software/data/result/vysledky2.txt"
