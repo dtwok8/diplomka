@@ -31,9 +31,11 @@
 % 
 % Texty abstraktů (anglicky, česky)
 %
-\abstracttexten{The text of the abstract (in English). It contains the English translation of the thesis title and a short description of the thesis.}
+\abstracttexten{The text of the abstract (in English). It contains the English translation of the thesis title and a short description of the thesis.
+Text abstraktu (česky). Obsahuje krátkou anotaci (cca 10 řádek) v češtině. Budete ji potřebovat i při vyplňování údajů o bakalářské práci ve STAGu. Český i anglický abstrakt by měly být na stejné stránce a měly by si obsahem co možná nejvíce odpovídat (samozřejmě není možný doslovný překlad!).}
 
-\abstracttextcz{Text abstraktu (česky). Obsahuje krátkou anotaci (cca 10 řádek) v češtině. Budete ji potřebovat i při vyplňování údajů o bakalářské práci ve STAGu. Český i anglický abstrakt by měly být na stejné stránce a měly by si obsahem co možná nejvíce odpovídat (samozřejmě není možný doslovný překlad!).
+\abstracttextcz{Diplomová práce se zabývá identifikací KIR alel. Cílem práce je vytvořit nástroj pro jejich automatickou identifikaci. V práci byli rozebrány metody získávaní dat z DNA, konkrétně next-generation sequencing (NGS) a dále analyzovány bioinformatické nástoje ART a Bowtie. Nástoj byl vyvíjen na syntetických readech vytvořených pomocí nástroje ART a nakonec testován na datech získaných z FN Plzeň případně z BC LF UK Plzeň. 
+
 }
 
 % Na titulní stranu a do textu prohlášení se automaticky vkládá 
@@ -298,7 +300,10 @@ Na základě variací obsahu genů by bylo možné vytvořit nepřeberné množs
 \textbf{Telometrická} polovina haplotypu je charakterizována přítomností jednoho z 3DL1 nebo 3DS1, vzácně nemusí být přítomný ani jeden. Gen 3DL1 se následně objevuje v přítomnosti s 2DS4, 1D nebo 3DL2. V případě KIR3DL se jedná o takzvaný krátký segment obsahující 2DS4 nebo KIR1D zakončené 3DL2. V případě KIR3DS1 se jedná o dlouhý segment obsahující 2DL5, párovaný s 2DS3 nebo 2DS5, následovaný 2DS1, 2DS4 nebo KIR1D opět zakončený 3DL2. \cite{KIR_haplotypy_ct}
 \\
 \\
-Podle některých studii zabývající se vlivem KIR haplotypů na výsledky transplantace bylo zjištěno, že KIR haplotypy ovlivňují výsledky u akutní myeloidní leukémie. Ve srovnání s haplotypem A měl haplotyp B, především jeho centrometická část, ochraný účinek před návratem nemoci a zárověň zvýšil pravděpodobnost přežití pacienta. Na základě této skutečnosti se mohou dárci řadit do tří skupin best, better a neutral. Best je definován jako Cen-B/B a Tel-x/x, better jako Cen-A/x a Tel-B/x, a netral v případě jedné B části nebo žádné. \cite{KIR_haplotypy}
+Podle některých studii zabývající se vlivem KIR haplotypů na výsledky transplantace bylo zjištěno, že KIR haplotypy ovlivňují výsledky u akutní myeloidní leukémie. Ve srovnání s haplotypem A měl haplotyp B, především jeho centrometická část, ochraný účinek před návratem nemoci a zárověň zvýšil pravděpodobnost přežití pacienta. Na základě této skutečnosti se mohou dárci řadit do tří skupin best, better a neutral. Best je definován jako Cen-B/B a Tel-x/x, better jako Cen-A/x a Tel-B/x, a neutral v případě jedné B části nebo žádné. \cite{KIR_haplotypy}
+\\
+\\
+TODO tohle je divný vždyť jedna ta část B je i u better?
 \\
 \\
 Dále je možné se setka s takzvaným B-skóre
@@ -445,9 +450,6 @@ tohle je z tý diplomky single-pair
 
 \chapter{Analyza dostupných bioinformatických nástrojů pro zpracování NGS dat}
 
-
-
-
 \section{ART}
 ART (next-generation sequencing read simulator) je sada simulačních nástrojů, které generují syntetické ready, jako kdyby byli získány sekvenováním pomocí NGS. Nástroj ART dokáže simulovat single-end a paired-end ready ze sekvenátorů Illuminas, 454 společnosti Roch a SOLid od společnosti Applied biosystém. Ready, vytvořené nástrojem ART jsou používány pro testování a analýzů nástrojů zpracovávající právě NGS sekvence jako například zarovávání (nástroj Bowtie). Při použítí nástroje ART je vstupním souborem sekvence genů na základě kterých jsou vygenerovány ready. \cite{art}
 \\
@@ -526,6 +528,7 @@ Pro každý read
 	\item seedy jsou rozšířeny do úplného zarování pro zvýšení výkonu je použito SIMD -accelerated dynamic programming.
 \end{enumerate}
 
+TODO možná dopsat že díky experimentu 1 a 2 a pak porovnání výsledků když jsem to pustila blbě na všechny ty geny a pak když jsem to pustila na jeden jsem vydedukovala jak to bowtie zarovnává nebo bych to měla dát až k tomu experimentu přímo? 
 
 \subsection{Burrows-Wheeler transformace}
 Burrows-Wheelerova transformace (BWT) je reverzibilní permutace řetězců v textu. Původně byla používána pro kompresy dat. Indexace založená na BWT umožňuje efektivní vyhledávání ve velké textu s malou paměťovou náročností. 
@@ -625,15 +628,7 @@ TODO nekam dopsat? musí se brát v potaz že z toho generátoru nikdy nebudou d
 
 SAM Sequence Alignment Map format), respektive jeho binárně
 komprimovaná verze BAM (z angl. Binary Alignment Map format).
-\section{IGV}
-nakonec jsem to pustila přes IGV ale stejně se tam museli ty indexi dodělat
-%java --module-path=lib -Xmx4g @igv.args --module=org.igv/org.broad.igv.ui.Main
-a musim byt ve slozce 
-$~/Dokumenty/FAV/Diplomka/existujicisw/IGV/IGV_Linux_2.8.0$
 
-když to otevřeš tak možná občas vypadá že tam nic neni tak musíš vybrat konkrétní úsek nahoře z toho rolovátka
-Možná by se pak dalo udělat to že ty víš že tam může být maximálně dva z toho jednoho KIR souboru.. jako že může mít maximálně dvě alely z jednoho souboru
-No akorát co mi to udělá když bude mít dvě stejný? 
 
 \chapter{Implementace}
 \section{Popis problému}
@@ -658,29 +653,8 @@ jenže bowtie může klidně někam zarovant tam kam to ve skutečnosti napatř�
 
 asi sem dopsat že i ty alely pro jeden gen můžou být různě dlouhé protože tam probíhají mutace
 
-
-\section{Návrh systému}
-Systém byl navržen jako modulární, díky tomu je možná jednoduchá náhrada jakékoliv jeho části.
-\\
-\\ 
-Vše začíná získáním dat pro která má být vyhodnoceno, které KIR alely obsahuje. Buď je možné dostat přímo data z Fakulní nemocnice čí biomedicínského centra. To jsou data na kterých bude prováděna verifikace nástroje. Druhou možností je data vyrobit. Na těchto datech byl nástroj vyvíjen a laděn. Data mohou být vyrobena ručně, popis je v sekci (TODO doplnit sekci) nebo je k tomu připravený skript $create\_haplotype.py$. V dalším kroku musí být haplotyp "rozbit" do podoby jako by vyšel ze sekvenátoru. Rozdělí se na ready a vytvoří s v něm chyby. To se provádí za pomoci nástroje ART.
-\\
-\\
-V následující části jsou získaná data, tedy ready, zarovnána na referenční genom pomocí nástroje Bowtie. Nakonec je zarovnání vyhodnoceno a rozpoznáno o jaké alely genů se pravděpodoně jedná. Vyhodnocení je rozděleno do několika experimentů. Pro zjednodušení práce s výsledky je doplněn krok kdy jsou názvy alel podle pořadových čísel nahrazen na názvy alel podle jejich skladby.
-\\
-\\
-TODO doplnit jaké soubory z toho lezou
-%\includegraphics[width=]{./img/navrh_systemu.pdf}
-
-\begin{figure}[H]
-		\centering
-		\includegraphics[width=\textwidth]{./img/navrh_systemu.pdf}
-		\caption{Návrh systému. TODO to vyhodnoceni chce předělat. }
-		\label{fig:navrh_systemu}
-\end{figure}
-
 \section{Referenční geny}
-Referenční geny byly převzaty z IPD-KIR \cite{imgt_hla_database} konkrétně soubory ve formátu $fasta$ uloženy ve stejnojmené složce. Jednotlivé soubory jsou pojmenovány genem, který obsahují např. $KIR2DL1\_gen.fasta$. Každý soubor představuje všechny dostupné alely konkrétního genu. Jedinou vyjímku tvoří soubory $KIR\_gen.*$, které obsahují pseudogeny. 
+Referenční geny byly převzaty z IPD-KIR \cite{imgt_hla_database} konkrétně soubory ve formátu $fasta$ uloženy ve stejnojmené složce. Jednotlivé soubory jsou pojmenovány genem, který obsahují např. $KIR2DL1\_gen.fasta$. Každý soubor představuje všechny dostupné alely konkrétního genu. Jedinou vyjímku tvoří soubory $KIR\_gen.*$, které obsahují všechny geny a navíc i pseudogeny. 
 \\
 \\
 Kromě souborů $*\_gen.fasta$ obsahuje složka $fasta$ také soubory $*\_prot.fast$ a $*\_nuc.fasta$. Soubor $\_gen.fasta$ obsahuje informace o celých genech. Oproti tomu $\_nuc.fasta$ obsahuje nucleotidy, tedy pouze exony bez intronů. Soubor $*\_prot.fast$ obsahuje sekvence proteinů, které vznikly z RNA. 
@@ -689,9 +663,40 @@ Kromě souborů $*\_gen.fasta$ obsahuje složka $fasta$ také soubory $*\_prot.f
 TODO takže mě by ve finále mělo zajímát to nuc? 
 \\
 \\
-TODO: KIR_gen.fasta  includes the DNA sequence for all alleles, which have genomic sequences available.
+TODO: KIR\_gen.fasta  includes the DNA sequence for all alleles, which have genomic sequences available.
 \\
 \\
+TODO sem asi dodat ty věci ohledně dat z nemocnice
+
+\section{Návrh systému}
+Systém byl navržen jako modulární, díky tomu je možná jednoduchá náhrada jakékoliv jeho části. 
+\\
+\\ 
+Vše začíná získáním dat pro která má být vyhodnoceno, které KIR alely obsahuje. Buď je možné dostat přímo data z Fakulní nemocnice čí biomedicínského centra. To jsou data na kterých bude prováděna verifikace nástroje. Druhou možností je data vyrobit. Na těchto datech byl nástroj vyvíjen a laděn. Data mohou být vyrobena ručně nebo je lze vyrobit za pomoci programu. V dalším kroku musí být haplotyp "rozbit" do podoby jako by vyšel ze sekvenátoru. Rozdělí se na ready a vytvoří s v něm chyby. To se provádí za pomoci nástroje ART.
+\\
+\\
+V následující části jsou získaná data, tedy ready, zarovnána na referenční genom pomocí nástroje Bowtie. Nakonec je zarovnání vyhodnoceno a rozpoznáno o jaké alely genů se pravděpodoně jedná. Vyhodnocení je rozděleno do několika experimentů. Pro zjednodušení práce s výsledky je doplněn krok, kdy jsou názvy alel podle pořadových čísel nahrazen na názvy alel podle jejich skladby.
+
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{./img/navrh_systemu.pdf}
+		\caption{Návrh systému. TODO to vyhodnoceni chce předělat. }
+		\label{fig:navrh_systemu}
+\end{figure}
+
+\section{Použité programové prostředky}
+\subsection{Python}
+Program byl navržen a implementován na operačním systému Linux za použití především programovacího jazyku Python. 
+ Pro spuštění programu je nutné mít nainstalovaný Python ve verzi 3.6.
+\subsubsection{Biopython}
+Biopython je sdružení vývojářů, kteří vytváří volné dostupné python nástoje vhodné pro výpočty v molekurární biologii. Biopython se snaží zjednoduší použití pythonu pro výzkum bioinformatiky. Mimo jiné umí pracovat s formáty souborů, které se využívají v bioinformatice jako je například BLAST nebo Fasta  
+\\
+\\
+TODO
+biopython jsem zatím ještě nepoužila
+Instalaci jde provést pip install biopython
+tak to vypadá že i ten biopython umí aligned a že to dělá přes to Burrows wheeler aligner 
+
 \subsection{Bordel}
 gen - jsou informace o celých genech, resp. jejich sekvencích, kdežto v nuc informace o nukleotidech - tedy jenom o exonech bez intronů, které při přepisu nehrají roli, tudíž se stává, že v nuc jsou stejné sekvence pro různé alely (jsou různé na třetí úrovni v názvu) - tím pádem je třeba zase se zkusit nějak vypořádat s podobností jednotlivých sekvencí
 
@@ -704,29 +709,45 @@ Co znamená konec 3 a konec 5?
 \\
 TODO takže mě by ve finále mělo zajímát to nuc? Co dostanu z nemocnice za data? Poprosit o poslání. 
 
-\subsection{Vytvoření testovacího haplotypu}
-Vytvoření haplotypu provádí skript $create_haplotype.py$ v rámci vytváření syntetických readů. Ruční vytvoření testovacího haplotypu lze udělat následujícím způsobem. V prvním kroku je vybrán gen, který je žádocí vložit. V referenčních genech je vybrán jeho soubor a v tomto souboru je nalezena konkrétní alela. Někdy je možná najít shoda kdy se alely liší jen v konečné fazí jejich označení a v haplotypu je pouze první 5 čísel. S tímto jevem je možné se setkat například v případě alely 3DL3: 00402. V tomto případě může mít vložena jakákoli z těchto alel. Vkladaná alela musí být vložena včetně její hlavičky tedy: $>KIR:KIR00138 \: KIR3DL3*0040201 \: 12390 \: bp$ 
+
+
+\section{Modulové jednotky programu}
+Vše potřebné pro samotný běh programu obstarává skript $run.py$ spolu s nastavením v souboru $config.py$. Skript $tun.py$ postupně pouští jednotlivé moduly. Díky nastavení v $config.py$ je možné si zvolit spuštění jen některých modulů. Například pouhé vytvoření testovacích dat nebo pouze jejich zarovnání a v neposlední řádě pouštět vyhodnocování zarovnávaných dat.
+
+\subsection{Config}
+S konfiguračním souborem \textit{config.py} jsou spojeny všechny skripty a obsahuje jejich veškerá nastavení. Jak již bylo zmíněno je možné pomocí tohoto nastavení spustit jednotlivé moduly. Jedná se především o položky \textit{CREATE\_READS}, která udržuje informaci o spuštění vytvoření syntetických readů. \textit{ALIGN} starající se o spuštění zarovnání a \textit{EVALUATE}, která řídí spuštění vyhodnocení zarovnání. Důležitou položkou v configu jsou cesty ke zdrojovým a výstupním složkám. Dalším nastavením je obsah haplotypu při případném vygenerování testovacích dat.
 \\
-\\  
+\\
+Pro urychlení běhu celého programu je v případě zmiňovanných referenčních genů možné použít poze soubor \textit{KIR\_gen.fasta}. Nastavení configu je jednoduché a to, nechat složku kam ukazuje \textit{REFERENCE\_KIR\_GENS\_FOLDER} prázdnou a položku \textit{REFERENCE\_KIR\_GENS\_FOLDER} nechat ukazovat na soubor \textit{KIR\_gen.fasta}.
+
+\subsection{Simulování dat}
+TODO to automatický vytváření mám možná trošku neefektivně , ale nevím jestli to úplně vadí nebo ne? 
+třeba můžu napsat, že to nebylo stěžejní cíl práce tak že to vím, ale že už jsem to pak neupravovala, nebo to mám přepsat? Jako to přepsání asi bude rychlí
+TODO hlavně mám v nastavení to kir gen folder a pak reference kir gens pseudogen file
+TODO hele zkontroluj si v kodu jestli si náhodou někam napsala ručně to tvý \_gen.fasta
+TODO možná že napsat že tahle chyba pro mě byla přínosem a tak pro někoho kdo se tím chce víc zabívat tak by to pro něj mohlo být také přínosem se podívat na to co mu to vlastně vyhazuje, je to experiment neni to program do praxe.
+
+TODO no a tady zase nevím jestli to dělám dobře nebo ne protože já natahuju všechny ty soubory a přitom by mi vlastne stačil jedno a výhoda toho by byla že by to netrvalo tak dlouho, jako vždycky můžu dát do tý složky na referenční geny jen jeden soubor.. tak záleží co chci.. takhle tam teoreticky můžu strkat i víc těch referenčních genů a třeba koukat na který se to hodí víc nebo to porovnávat mezi sebou
+i to jak se třeba chovají
+tak nevím jestli někam třeba přidat sekci jak se vypozorovalo jak se chová bowtie třeba?
+\\
+\\
+O simulování dat se stará skript \textit{create\_syntetic\_reads.py} a je rozděleno na dva kroky: vytvoření haplotypů a vytvoření readů. Mezi těmito dvěma fázemi vzniká soubory s příponou \textit{.fa}. Každý tento soubor obsahuje právě jeden KIR haplotyp. Tyto haplotypy jsou následně použíty jako vstupní soubor pro vytvoření readů, které se provádí za pomocí nástroje ART. Pro vytvoření haplotypů je volán skript \textit{create\_haplotype.py}, který vytvoří haplotypy na základě nastavení v configu pod položkou \textit{HAPLOTYPES} a za pomoci referenčních genů ve složce pod položkou \textit{REFERENCE\_KIR\_GENS\_FOLDER}. Vytvoření probíhá obdobně jako je popsáno níže u ručního vytvoření testovacího haplotypu. Výsledné haplotypy jsou uloženy do adresáře z configu \textit{HAPLOTYPE\_FOLDER}. Výstupem modulu \textit{create\_syntetic\_reads} je soubor s příponou \textit{.fq}, který by měl odpovídát formátu dat z nemocnice případně biomedicínského centra. Výstupní soubory jsou uloženy do složky pod promněnou \textit{READS\_FOLDER}.
+\\
+\\
+\textbf{Ruční vytvoření testovacího haplotypu} lze udělat následujícím způsobem. V prvním kroku je vybrán gen, který je žádoucí vložit. V referenčních genech je vybrán jeho soubor a v tomto souboru je nalezena konkrétní alela. Někdy je možná najít shoda kdy se alely liší jen v konečné fazí jejich označení a v haplotypu je pouze první 5 čísel. S tímto jevem je možné se setkat například v případě alely 3DL3: 00402. V tomto případě může být vložena jakákoli z těchto alel. Vkladaná alela musí být vložena včetně její hlavičky tedy: \textit{>KIR:KIR00138 \: KIR3DL3*0040201 \: 12390 \: bp}. Je možné se setkat z genem, který se mezi soubory nenachází. Může se jednat například o pseudegen. Tyto geny je možné nalést v souboru \textit{KIR\_gen.fasta}, který obsahuje všechny geny pro které je známá jejich sekvence. Dalším způsobem vytvoření haplotypu je právě využítí souboru \textit{KIR\_gen.fasta}, díky čemuž je záskán stejný výsledek za použítí jen jednoho souboru. 
+\\
+\\
 TODO když vytvářím gen tak tam dávám i tu hlavičku, bez ní mi Art totiž vytvořilo prázdný a navíc pan Fatka když mi posílal tu testovací tak to tam taky měl.. a pak mi bowtie píše magic number či co 
-Myslím že pan Fatka mi poslal $\_gen$
+Myslím že pan Fatka mi poslal \textit{\_gen}
 TODO jak je vlastně možný že mi tam vzniknou mezery s tím že nějakej gen není v haplotypu tak tam budu mít mezeru - jak je to v těch realných datech?
 Nebo já jinak fakt nevím jak se identifikuje že tady je tenhle gen a tady je jinej gen?  
 
-\section{Použité programové prostředky}
-\subsection{Python}
-Program byl navržen a implementován na operačním systému Linux za použití především programovacího jazyku Python. 
- Pro spuštění programu je nutné mít nainstalovaný Python ve verzi 3.
-\subsubsection{Biopython}
-Biopython je sdružení vývojářů, kteří vytváří volné dostupné python nástoje vhodné pro výpočty v molekurární biologii. Biopython se snaží zjednoduší použití pythonu pro výzkum bioinformatiky. Mimo jiné umí pracovat s formáty souborů, které se využívají v bioinformatice jako je například BLAST nebo Fasta   
-\\
-\\
-TODO
-Instalaci jde provést pip install biopython
-tak to vypadá že i ten biopython umí aligned a že to dělá přes to Burrows wheeler aligner 
+\subsection{Zarovnání vzhledem k referenčním genům}
+Zarovnávání obstarává skript \textit{alignment\_reads\_to\_reference.py} s pomocí nástroje Bowtie. V nastavení je nutné vyplnit \textit{BOWTIE\_HOME\_DIRECTORY} podle umístění nástroje Bowtie na konkrétním počítači. V prvním kroku jsou vytvořeny bowtie indexy, které je možné použít na příč běhy, proto je v nastavení položka \textit{BOWTIE\_BUIL\_INDEX}, díky které je možné toto vytvoření povolit nebo zakázat. Bez vytovřených indexů, tedy indexů z minulých běhů, ale bowtie nebude zarovnávat. Bowtie vytváří indexy na základě obsahu složky \textit{REFERENCE\_KIR\_GENS\_FOLDER}. V dalším kroku jsem načteny všechny ready ze složky uvedené v \textit{READS\_FOLDER} a nasledně je na ně puštěn nástroj Bowtie. Tady je nutné aby byli ready paired end a to tedy aby se vyskytovali dvakrát jednou z \textit{1} na konci a podruhé s \textit{2}. V základu tento předpoklad zajistí správné nastavení ARTU, který je takto nastaven. Výstupní soubory jsou ve formátu \textit{.sam} a jsou umístěny dle položky \textit{ALIGMENT\_FOLDER} v nastavení. 
 
-\section{Vyhodnoceni zarovnávání}
-\subsection{Experiment3}
+\subsection{Vyhodnoceni zarovnání}
+\subsubsection{Experiment3}
 asi smazat experiment 2 udělat z něj experiment 1 a pak udělat experiment 3
 a tam je pak problém že mi to napíše i víc alel který tam můžou být takže kde je pak ta hranice kdy už nee
 a navíc ten konec ty alely kolikrát neni specifikovanej ..
@@ -734,7 +755,7 @@ a podle toho co mi tam vychází tak je to po genech určitě blbost dělat prot
 
 Já jsem to možná všechno dělala zbytečně moc složitě i to vytváření haplotypu, ten zbytek se dá zahladit tak, že prostě se tam dá vždycky jen ten jeden soubor .. že v těch referenčních genech tam nechá jenom to jedno pro který to bude chtít zarovnat zrovna 
 
-\subsection{Experiment1}
+\subsubsection{Experiment1}
 	Počítání jen pokrytí za použití pysam.coverage či co 
 	Klidně tam nějake graf algoritmu, hodí se to sem? 
 	nevím jestli se nějak víc šťourat v těch bowtie nastavení.. u artu to nemá smysl protože tam se hlavně musím držet toho aby byli co nejvíc podobný těm z němocnice
@@ -744,15 +765,17 @@ TODO2: tenhle přístup mi nepřijde špatný, ale je nutno se zamyslet nad podo
 TODO jak je možné žé různé alely pro jeden gen mohou být různě dlouhé?
 TODO2jedná se o různé varianty genu - mutace, chcete-li, tudíž tam mohlo docházet k insertům, deletům apod. a tudíž délka je jiná
 
-\subsection{Experiment2}
-rozdil oproti experimentu jedna je že jsem vzala jen KIR_gen kde jsou všechny alely a tam to vypadá že to docela funguje
+\subsubsection{Experiment2}
+rozdil oproti experimentu jedna je že jsem vzala jen KIR\_gen kde jsou všechny alely a tam to vypadá že to docela funguje
 
 
 
 zkoušela jsem v pythonu přes pysam.depth, zkusit nějaký odhad na alely. Tak, že jsem zkusila vzít ty, které mají největší pokrytí. Brala jsem v úvahu i že každá alela je různě dlouhá, takže jsem to brala v procentech vzhledem k velikosti alely.  Zkrátka přijde mi, že to moc nefunguje, ale všimla jsem si takové zvláštnosti, že kolikrát se celý gen pohybuje kolem 99 procent pokrytí
 
+\subsection{Překlad alel}
+Při použití Bowtie vyvstal problém kdy jsou výsledné alely pojménovány pořadovým čísel jak byli objeveny nikoli názvem vyjadřující jejich skladbu. Proto vznikl modul překlad alel z pořadových čísel do názvů vyjadřující skladbu alely obsahující skript \textit{renaming\_alels\_result.py}, který projde všechny soubory ve složce pod proměnou \textit{RESULT\_FOLDER} a nahradí pořadová čísla příslušným názvem. Nakonec nahradí původní soubor, takto upraveným souborem.
 
-\subsection{Mimo}
+\subsubsection{Mimo}
 tenhle přístup mi nepřijde špatný, ale je nutno se zamyslet nad podobností alel a jak této informace využít, zkusit nějakou formu seskupování či identifikaci rozdílů alel a na základě jejich pokrytí (právě třeba maxima) rozhodovat či tak nějak něco
 
 
@@ -778,8 +801,32 @@ realističtější, ale za to náročnější na výpočty.
 Možná se dá ještě počítat frekvence výskytu jednotlivých znaků - ale máš 4 tak nevím jak hodně to je prokazatelný
 
 TODO nikde jsem se nedočetla jak to přesně bere ten bowtie? Jestli zarovnává každou alelu v souboru zvlášť nebo dohromady? 
+\\
+\\
+TODO zmínit někde běhy programu? Jako ono ten Bowtie běží celkem fest pomalu
+\\
+\\
+TODO nevím jestli je úplně dobře že mám číslování stránek na obsahu a že mit o začíná od 6?
+\section{Nastavení ART a bowtie}
+
+pair end
+250 dlouhy ready
+misto MSv3 pouzit MSv1 protoze tak budou i data co dostanu
+-f 100 pokryti 100
+-na značí že nemá vytvořit soubor zarovnání
 \chapter{Vyhodnocení výsledků a jejich srovnání}
 \chapter{Závěr}
+V práci bylo řešeno 
+
+V teoretické části byli popsány a rozbrány Geny 
+
+V realiziační části byl navržen a implementován program v jazyce Python 
+
+Parametry ARTU byli nastaveny na základě dat z FN protože používají zrovna tenhle sekvenátor
+
+Testování bylo prováděno na syntetických readech a následná validace byla provedena na datech z FN
+
+Do budoucna by to chtělo co?
 
 \chapter{Výkladový slovník pojmů a zkratek}
 
@@ -797,6 +844,8 @@ TODO nikde jsem se nedočetla jak to přesně bere ten bowtie? Jestli zarovnáv�
 	\item [kb] kilobase 1 kb = 1000 bp
 	\item [ART] nástroj na vytváření syntetických readů
 	\item [Bowtie] nástroj na zarovnání readů proti referenčním genům
+	\item [SAM] Sequence Alignment/Map; Formát souboru na uložení zarovnání
+	\item [BAM] Binární verze souboru SAM
 	\item [Fenotyp] adwda
 	\item [Genotyp] adawwd
 \end{labeling}
@@ -807,11 +856,6 @@ TODO tímhle si nejsem moc jistá tak jsem to pochopila je to dobře? DNA -> mRN
 \\
 TODO co ty formáty souboru?
 
-\chapter{Výkladový slovník pojmů-zahodit?}
-WHO
-český národní registr 
-možná zmínit národní registr
-genotyp 
 fenotyp tyhle kraviny
 Genotyp pro danou chromozomální oblast se pak u většiny lidí skládá ze dvou haplotypů).
 genom kompletní sekvence daného organismu
@@ -841,22 +885,55 @@ Co znamená konec 3 a konec 5?
 
 \appendix
 \chapter{Uživatelská dokumentace}
-Program byl napsán a otestován na ART ve verzi MountRainier, Bowtie 2 ve verzi 2.4.1, Python ve verzi 3.6, Knihovnu pro python pysam==0.14 
- 
- samTools
+Program byl napsán a otestován za použití ART ve verzi MountRainier, Bowtie 2 ve verzi 2.4.1, Python ve verzi 3.6. Dále byla použita pytnovská knihovny pysam ve verzi 0.14. 
+\\
+\\
+Následující postupy jsou uvedeny pro operační systém Linux a pro jiné operační systémy se mohou lišit. Veškeré nastavení aplikace probíhá pomocí souboru \textit{config.py}
+\\
+\\
+\noindent
+Parametry configu:
+\begin{itemize}
+	\item CREATE\_READS - Značí zda má být spuštěn modul vytvoření syntetických readů. Očekávaný hodnota je True nebo False.
+	\item ALIGN - Značí zda má být spuštěn modul pro zarovnání readů vzhledem k referenčním genům. Očekávaná hodnota je True nebo False.
+	\item EVALUATE - Značí zda má být spuštěno vyhodnocení zarovaných readů. Očekávaná hodnota je True nebo False.
+	\item REFERENCE\_KIR\_GENS\_FOLDER - Referenční geny by měli obsahovat cestu k složce ve které se nachází referenční geny.
+	\item REFERENCE\_KIR\_GENS\_PSEUDOGENS\_FILE - Dodatečný soubor, který se bude prohledávat v případě že gen nebude nalezen ve složce REFERENCE\_KIR\_GENS\_FOLDER. Typickým příkladem mohou být pseudegeny. 
+	\item HAPLOTYPE\_FOLDER - Označuje cestu složky do které jsou ukládány vytvořené haplotypy. 
+	\item HAPLOTYPES - Slovník, který definuje haplotypy podle obsahů genů. Na základě toho budou vytvořeny haplotypy.
+	\item BOWTIE\_HOME\_DIRECTORY - Označuje cestu ke nástroji Bowtie.
+	\item READS\_FOLDER - Označuje složku do které budou ukládany ready. Případně z které budou načítány.
+	\item BOWTIE\_INDEX\_FOLDER - Označuje složku do které budou ukládány indexy z Bowtie. Případně z které budou načítány. 
+	\item BOWTIE\_BUILD\_INDEX - Značí zda mají být vytvořeny Bowtie indexy. Pokud bude hodnota nastavena na False, musí být přítomny indexy z minulého běhu, jinak zarovnávání nebude fungovat. Očekávaná hodnota je True nebo False.
+	\item BOWTIE\_THREADS - Počet vláken na která má být Bowtie spuštěn.	
+	\item ALIGNMENT\_FOLDER - Označuje složku do které budou ukládány zarovnané ready. Případně z které budou načítány. 
+	\item BAM\_FOLDER - Označuje složku na uložení BAM souborů.  
+	\item RESULT\_FOLDER - Označuje složku do které budou uloženy výsledky vyhodnocení zarovnání.
+\end{itemize}
 
-Následující postupy jsou uvedeny pro operační  systém Linux. Na jiném opračním systému se mohou postupy lišit
 
-Veškeré nastavení aplikace probíhá pomocí souboru config.py
+\section{Spuštění programu}
+Program je možné spustit z příkazové řádky pomocí příkazu \textit {python run.py}. Podmínkou fungování tohoto postupu je, že je třeba se nacházet v umístění skriptu. 
 
-Parametry configu
+\section{Doporučená adresářová struktura pro data}
+\begin{itemize}
+	\item data
+		\begin{itemize}
+			\item alignments
+			\item bam
+			\item bowtie\_index
+			\item haplotype
+			\item reads
+			\item result
+		\end{itemize}
+\end{itemize}
 
-Spuštění programu
-python run.py v připadě spuštění všech skrpnů postupně
+\section{Výstupy programu}
+V případě tvorby vlastních haplotypů s doporučenou adresářovou strukturou najdeme ve složce \textit{haplotype} soubory s příponou \textit{.fa}. Každý soubor obsahuje jeden haplotyp.
+Vytvořené ready se budou nacházet ve složce reads. Protože haplotypy jsou paired-end náleží každému haplotypu dva soubory s příponou \textit{.fq}. Jeden s \textit{1} na konci a druhý s \textit{2} na konci. 
+V případě zarovnání mohou být výstupní soubory indexy ve složce \textit{bowtie\_index}. Kdy pro každý referenční gen je vytvořeno 6 souborů s příponou \textit{.1.ebwt}, \textit{.2.ebwt}, \textit{.3.ebwt}, \textit{.4.ebwt}, \textit{.rev.1.ebwt} a \textit{.rev.2.ebwt}. Výsledné zarování se pak nachází ve složce \textit{alignments} ve formátu \textit{.sam}. Vyhodnocení zarovnání se pak nacháze ve složce \textit{result} ve formátu \textit{.txt}
 
-výstupy programu
-
-Doporučená adresářová struktura
+\chapter{Uživatelská dokumentace ART???}
 \section{Nastavení ART a jeho spuštění}
 tak jsem stáhla normálně nejnovější verzi z niehs.nih.gov a podle instrukcí co byli v souboru INSTAL dala % ./configure && make && make install
 
@@ -882,7 +959,7 @@ $art_illumina -ss MSv3 -sam -i amplicon_reference.fa -p -l 250 -f 10 -m 300 -s 1
 Tohle používej:
 $art_illumina -ss MSv1 -sam -i amplicon_reference.fa -p -l 250 -f 100 -m 300 -s 10 -o moje_art_data$
 
-
+\chapter{Uživatelská dokumentace Bowtie ??}
 \section{Bowtie}
  a stáhla jsem to tady %http://bowtie-bio.sourceforge.net/tutorial.shtml
  po kliknuti na bowtie binary release.
@@ -898,6 +975,13 @@ a nakonec se mi vytvořili nějaký nový soubory lambda virus 1 atd.. v tom bow
 
 dělala jsemt o podle tohohle webovky %http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#getting-started-with-bowtie-2-lambda-phage-example
 
+
+
+indexy
+bowtie-build builds a Bowtie index from a set of DNA sequences. bowtie-build outputs a set of 6 files with suffixes .1.ebwt, .2.ebwt, .3.ebwt, .4.ebwt, .rev.1.ebwt, and .rev.2.ebwt. (If the total length of all the input sequences is greater than about 4 billion, then the index files will end in ebwtl instead of ebwt.)
+ These files together constitute the index: they are all that is needed to align reads to that reference. The original sequence files are no longer used by Bowtie once the index is built.
+
+\chapter{Používané soubory}
 \subsection{FASTQ}
 
 	    
@@ -925,10 +1009,6 @@ $art_illumina [options] -ss <sequencing_system> -sam -i <seq_ref_file> -l <read_
 $art_illumina [options] -ss <sequencing_system> -sam -i <seq_ref_file> -l <read_length> -c <num_reads_per_sequence> -o <outfile_prefix>$
 $art_illumina [options] -ss <sequencing_system> -sam -i <seq_ref_file> -l <read_length> -f <fold_coverage> -m <mean_fragsize> -s <std_fragsize> -o <outfile_prefix>$
 $art_illumina [options] -ss <sequencing_system> -sam -i <seq_ref_file> -l <read_length> -c <num_reads_per_sequence> -m <mean_fragsize> -s <std_fragsize> -o <outfile_prefix>$
-
-
-\section{Použivané soubory}
-
 \subsection{FASTQ}
 Sekvenační přístroje produkují data ve formátu FASTQ takže i ART musí logicky generovat tenhle formát.
 Pokud jsou ready v páru tak je na konci .1

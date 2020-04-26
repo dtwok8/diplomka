@@ -1,0 +1,9 @@
+\section{IGV}
+nakonec jsem to pustila přes IGV ale stejně se tam museli ty indexi dodělat
+%java --module-path=lib -Xmx4g @igv.args --module=org.igv/org.broad.igv.ui.Main
+a musim byt ve slozce 
+$~/Dokumenty/FAV/Diplomka/existujicisw/IGV/IGV_Linux_2.8.0$
+
+když to otevřeš tak možná občas vypadá že tam nic neni tak musíš vybrat konkrétní úsek nahoře z toho rolovátka
+Možná by se pak dalo udělat to že ty víš že tam může být maximálně dva z toho jednoho KIR souboru.. jako že může mít maximálně dvě alely z jednoho souboru
+No akorát co mi to udělá když bude mít dvě stejný? 

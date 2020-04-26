@@ -3,6 +3,10 @@ from datetime import datetime
 
 import config
 
+
+""" Because there can be more files, like nuc and another"""
+END_REFERENCE_GEN_FILE = "_gen.fasta"
+
 """
 	Split content of file into list by alels and
 	try to find the right alel
@@ -58,7 +62,7 @@ def run():
 			if( not gen[0].startswith('KIR')):
 				gen[0] = 'KIR'+gen[0]
 
-			gen_file_name = os.path.join(config.REFERENCE_KIR_GENS_FOLDER, gen[0]+"_gen.fasta")
+			gen_file_name = os.path.join(config.REFERENCE_KIR_GENS_FOLDER, gen[0]+END_REFERENCE_GEN_FILE)
 			if(os.path.isfile(gen_file_name)):
 				result_haplotype, result_haplotype_legend = search_alel_in_file(gen_file_name, gen,  result_haplotype, result_haplotype_legend)	
 
@@ -75,7 +79,7 @@ def run():
 					print("Can not find file ", gen_file_name, "or", gen_file_name2)
 
 
-		output_file = os.path.join(config.HAPLOTYPE_OUTPUT_FOLDER, key+".fa" )
+		output_file = os.path.join(config.HAPLOTYPE_FOLDER, key+".fa" )
 		aligment_result_file_rename = open(output_file, "w+")
 		aligment_result_file_rename.write(result_haplotype)
 		aligment_result_file_rename.close()

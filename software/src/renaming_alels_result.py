@@ -1,6 +1,5 @@
 import os
 
-# my file
 import config
 
 """
@@ -15,10 +14,16 @@ import config
 	Then replace KIR:KIR00978 by KIR2DL1*0010102
 """ 
 
+""" Because there can be more files, like nuc and another"""
+END_REFERENCE_GEN_FILE = "_gen.fasta"
 
+"""
+	Create dictionary like KIR:KIR00978 => KIR2DL1*0010102
+	Then replace KIR:KIR00978 by KIR2DL1*0010102	
+"""
 def make_gen_dictionary(reference_kir_gens_folder: str):
 	# make dictionary KIR:KIR00978 => KIR2DL1*0010102
-	onlyfiles = [f for f in os.listdir(reference_kir_gens_folder) if os.path.isfile(os.path.join(reference_kir_gens_folder, f)) and f.endswith("_gen.fasta") ]
+	onlyfiles = [f for f in os.listdir(reference_kir_gens_folder) if os.path.isfile(os.path.join(reference_kir_gens_folder, f)) and f.endswith(END_REFERENCE_GEN_FILE) ]
 
 	KIR_dictionary = dict()
 
@@ -33,8 +38,15 @@ def make_gen_dictionary(reference_kir_gens_folder: str):
 		print("make dictionary: ", onlyfiles[i])
 	
 	return KIR_dictionary
+	
 		
-
+"""
+	Get KIR dictionary like KIR:KIR00978 => KIR2DL1*0010102
+	Get all result file
+	Find KIR***** (example KIR:KIR00978)
+	Find it in dictionary and replace for KIR2DL1*0010102
+	Then save modified string into same file.
+"""
 def run(aligment_result_file_rename = None, aligment_result_file = None):
 	KIR_dictionary = make_gen_dictionary(config.REFERENCE_KIR_GENS_FOLDER)
 

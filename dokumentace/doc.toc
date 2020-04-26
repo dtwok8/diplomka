@@ -34,31 +34,41 @@
 \contentsline {chapter}{\numberline {4}Analyza dostupn\IeC {\'y}ch bioinformatick\IeC {\'y}ch n\IeC {\'a}stroj\IeC {\r u} pro zpracov\IeC {\'a}n\IeC {\'\i } NGS dat}{28}{chapter.4}
 \contentsline {section}{\numberline {4.1}ART}{28}{section.4.1}
 \contentsline {section}{\numberline {4.2}Bowtie}{29}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Burrows-Wheeler transformace}{31}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.1}Burrows-Wheeler transformace}{32}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}bordel}{34}{subsection.4.2.2}
-\contentsline {section}{\numberline {4.3}IGV}{34}{section.4.3}
-\contentsline {chapter}{\numberline {5}Implementace}{35}{chapter.5}
-\contentsline {section}{\numberline {5.1}Popis probl\IeC {\'e}mu}{35}{section.5.1}
-\contentsline {section}{\numberline {5.2}N\IeC {\'a}vrh syst\IeC {\'e}mu}{35}{section.5.2}
-\contentsline {section}{\numberline {5.3}Referen\IeC {\v c}n\IeC {\'\i } geny}{36}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Bordel}{37}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}Vytvo\IeC {\v r}en\IeC {\'\i } testovac\IeC {\'\i }ho haplotypu}{37}{subsection.5.3.2}
+\contentsline {chapter}{\numberline {5}Implementace}{36}{chapter.5}
+\contentsline {section}{\numberline {5.1}Popis probl\IeC {\'e}mu}{36}{section.5.1}
+\contentsline {section}{\numberline {5.2}Referen\IeC {\v c}n\IeC {\'\i } geny}{36}{section.5.2}
+\contentsline {section}{\numberline {5.3}N\IeC {\'a}vrh syst\IeC {\'e}mu}{37}{section.5.3}
 \contentsline {section}{\numberline {5.4}Pou\IeC {\v z}it\IeC {\'e} programov\IeC {\'e} prost\IeC {\v r}edky}{38}{section.5.4}
 \contentsline {subsection}{\numberline {5.4.1}Python}{38}{subsection.5.4.1}
-\contentsline {subsubsection}{Biopython}{38}{section*.26}
-\contentsline {section}{\numberline {5.5}Vyhodnoceni zarovn\IeC {\'a}v\IeC {\'a}n\IeC {\'\i }}{38}{section.5.5}
-\contentsline {subsection}{\numberline {5.5.1}Experiment1}{38}{subsection.5.5.1}
-\contentsline {subsection}{\numberline {5.5.2}Experiment2}{39}{subsection.5.5.2}
-\contentsline {chapter}{\numberline {6}Vyhodnocen\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u} a jejich srovn\IeC {\'a}n\IeC {\'\i }}{40}{chapter.6}
-\contentsline {chapter}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{41}{chapter.7}
-\contentsline {chapter}{\numberline {8}V\IeC {\'y}kladov\IeC {\'y} slovn\IeC {\'\i }k pojm\IeC {\r u} a zkratek}{42}{chapter.8}
-\contentsline {chapter}{\numberline {9}V\IeC {\'y}kladov\IeC {\'y} slovn\IeC {\'\i }k pojm\IeC {\r u}-zahodit?}{43}{chapter.9}
-\contentsline {chapter}{Literatura}{44}{chapter*.27}
-\contentsline {chapter}{\numberline {A}U\IeC {\v z}ivatelsk\IeC {\'a} dokumentace}{47}{appendix.A}
-\contentsline {section}{\numberline {A.1}Nastaven\IeC {\'\i } ART a jeho spu\IeC {\v s}t\IeC {\v e}n\IeC {\'\i }}{47}{section.A.1}
-\contentsline {subsection}{\numberline {A.1.1}pokus to nejak spustit}{47}{subsection.A.1.1}
-\contentsline {section}{\numberline {A.2}Bowtie}{48}{section.A.2}
-\contentsline {subsection}{\numberline {A.2.1}FASTQ}{48}{subsection.A.2.1}
-\contentsline {section}{\numberline {A.3}Pou\IeC {\v z}ivan\IeC {\'e} soubory}{49}{section.A.3}
-\contentsline {subsection}{\numberline {A.3.1}FASTQ}{49}{subsection.A.3.1}
-\contentsline {subsection}{\numberline {A.3.2}SAM a BAM}{49}{subsection.A.3.2}
+\contentsline {subsubsection}{Biopython}{39}{section*.26}
+\contentsline {subsection}{\numberline {5.4.2}Bordel}{39}{subsection.5.4.2}
+\contentsline {section}{\numberline {5.5}Modulov\IeC {\'e} jednotky programu}{39}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Config}{39}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}Simulov\IeC {\'a}n\IeC {\'\i } dat}{40}{subsection.5.5.2}
+\contentsline {subsection}{\numberline {5.5.3}Zarovn\IeC {\'a}n\IeC {\'\i } vzhledem k referen\IeC {\v c}n\IeC {\'\i }m gen\IeC {\r u}m}{41}{subsection.5.5.3}
+\contentsline {subsection}{\numberline {5.5.4}Vyhodnoceni zarovn\IeC {\'a}n\IeC {\'\i }}{42}{subsection.5.5.4}
+\contentsline {subsubsection}{Experiment3}{42}{section*.27}
+\contentsline {subsubsection}{Experiment1}{42}{section*.28}
+\contentsline {subsubsection}{Experiment2}{42}{section*.29}
+\contentsline {subsection}{\numberline {5.5.5}P\IeC {\v r}eklad alel}{43}{subsection.5.5.5}
+\contentsline {subsubsection}{Mimo}{43}{section*.30}
+\contentsline {section}{\numberline {5.6}Nastaven\IeC {\'\i } ART a bowtie}{44}{section.5.6}
+\contentsline {chapter}{\numberline {6}Vyhodnocen\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u} a jejich srovn\IeC {\'a}n\IeC {\'\i }}{45}{chapter.6}
+\contentsline {chapter}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{46}{chapter.7}
+\contentsline {chapter}{\numberline {8}V\IeC {\'y}kladov\IeC {\'y} slovn\IeC {\'\i }k pojm\IeC {\r u} a zkratek}{47}{chapter.8}
+\contentsline {chapter}{Literatura}{49}{chapter*.31}
+\contentsline {chapter}{\numberline {A}U\IeC {\v z}ivatelsk\IeC {\'a} dokumentace}{52}{appendix.A}
+\contentsline {section}{\numberline {A.1}Spu\IeC {\v s}t\IeC {\v e}n\IeC {\'\i } programu}{53}{section.A.1}
+\contentsline {section}{\numberline {A.2}Doporu\IeC {\v c}en\IeC {\'a} adres\IeC {\'a}\IeC {\v r}ov\IeC {\'a} struktura pro data}{53}{section.A.2}
+\contentsline {section}{\numberline {A.3}V\IeC {\'y}stupy programu}{53}{section.A.3}
+\contentsline {chapter}{\numberline {B}U\IeC {\v z}ivatelsk\IeC {\'a} dokumentace ART???}{55}{appendix.B}
+\contentsline {section}{\numberline {B.1}Nastaven\IeC {\'\i } ART a jeho spu\IeC {\v s}t\IeC {\v e}n\IeC {\'\i }}{55}{section.B.1}
+\contentsline {subsection}{\numberline {B.1.1}pokus to nejak spustit}{55}{subsection.B.1.1}
+\contentsline {chapter}{\numberline {C}U\IeC {\v z}ivatelsk\IeC {\'a} dokumentace Bowtie ??}{56}{appendix.C}
+\contentsline {section}{\numberline {C.1}Bowtie}{56}{section.C.1}
+\contentsline {chapter}{\numberline {D}Pou\IeC {\v z}\IeC {\'\i }van\IeC {\'e} soubory}{57}{appendix.D}
+\contentsline {subsection}{\numberline {D.0.1}FASTQ}{57}{subsection.D.0.1}
+\contentsline {subsection}{\numberline {D.0.2}FASTQ}{57}{subsection.D.0.2}
+\contentsline {subsection}{\numberline {D.0.3}SAM a BAM}{58}{subsection.D.0.3}
