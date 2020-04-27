@@ -1,12 +1,6 @@
 # Untracked files
 existujicisw/*
-software/index/*
-software/data/result/*
-software/data/alignments/*
-software/data/bam/*
-software/data/bowtie_index/*
-software/data/haplotype/*
-software/data/reads/*
-software/data/result/*
+software/__pycache__
+software/src/__pycache__
 bordel
 

@@ -2,7 +2,7 @@
 # values True/False
 CREATE_READS = False
 ALIGN = True
-EVALUATE = False
+EVALUATE = True
 
 """ create_haplotype """
 REFERENCE_KIR_GENS_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/referencni/IPDKIR-Latest/fasta"

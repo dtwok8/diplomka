@@ -20,7 +20,7 @@ def run():
 	print("creating new haplotypes ...")
 	create_haplotype.run()
 
-	haplotype_files = [f for f in os.listdir(config.HAPLOTYPE_FOLDER) if os.path.isfile(os.path.join(config.HAPLOTYPE_FOLDER, f))]
+	haplotype_files = [f for f in os.listdir(config.HAPLOTYPE_FOLDER) if os.path.isfile(os.path.join(config.HAPLOTYPE_FOLDER, f)) and (f!=".gitignore")]
 	print("run ART for: ", haplotype_files)
 
 	for ha_file in haplotype_files:

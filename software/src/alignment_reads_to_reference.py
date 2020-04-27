@@ -12,7 +12,7 @@ END_REFERENCE_GEN_FILE = "_gen.fasta"
 
 """
 def bowtie_build_index():
-	ref_kir_gen_files = [f for f in os.listdir(config.REFERENCE_KIR_GENS_FOLDER) if os.path.isfile(os.path.join(config.REFERENCE_KIR_GENS_FOLDER, f)) and f.endswith(END_REFERENCE_GEN_FILE)]
+	ref_kir_gen_files = [f for f in os.listdir(config.REFERENCE_KIR_GENS_FOLDER) if os.path.isfile(os.path.join(config.REFERENCE_KIR_GENS_FOLDER, f)) and f.endswith(END_REFERENCE_GEN_FILE) and (f!=".gitignore")]
 	
 	for i in range(0,len(ref_kir_gen_files)):
 		name = os.path.splitext(os.path.basename(ref_kir_gen_files[i]))[0]
@@ -26,7 +26,7 @@ def bowtie_build_index():
 	Because Bowtie create 6 files for one reference gens, then we have to find unique files and the correct name for index.
 """
 def alignment_read(read1: str, read2: str, basic_read_name: str):
-	b_index = [f for f in os.listdir(config.BOWTIE_INDEX_FOLDER) if os.path.isfile(os.path.join(config.BOWTIE_INDEX_FOLDER, f))]
+	b_index = [f for f in os.listdir(config.BOWTIE_INDEX_FOLDER) if os.path.isfile(os.path.join(config.BOWTIE_INDEX_FOLDER, f)) and (f!=".gitignore")]
 
 	if(len(b_index)==0):
 		print("Error no index")
@@ -56,8 +56,9 @@ def run():
 	if(config.BOWTIE_BUILD_INDEX):
 		bowtie_build_index()
 	
-	all_reads = [f for f in os.listdir(config.READS_FOLDER) if os.path.isfile(os.path.join(config.READS_FOLDER, f)) and f.endswith(".fq") ]
+	all_reads = [f for f in os.listdir(config.READS_FOLDER) if os.path.isfile(os.path.join(config.READS_FOLDER, f)) and f.endswith(".fq") and (not f.endswith(".gitignore"))]
 
+	print(all_reads)
 	# we know that it fill end 1.fq a 2.fq
 	# get basic name, unique withnout 1.fq and 2.fq
 	read_basic_list = list()
@@ -68,7 +69,7 @@ def run():
 
 	unique_set = set(read_basic_list)
 	unique_read_list = list(unique_set)
-	print(unique_read_list)
+	print("reads list: ", unique_read_list)
 
 	for basic_read_name2 in unique_read_list:
 		read1 = os.path.join(config.READS_FOLDER, basic_read_name2+"1.fq")
