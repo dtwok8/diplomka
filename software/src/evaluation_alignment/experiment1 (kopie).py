@@ -1,6 +1,7 @@
 import pysam
 import sys
 import os
+import pickle
 
 import config
 """
@@ -21,11 +22,10 @@ def count_statistic(sort_bam_file: str):
 	alel_size = 0
 	max_histogram = 0
 	alels_statistics = dict()
-
+	nucleotids = list()
 
 	for item_nuc in coverage_list:
 		item_nuc_list = item_nuc.split()
-
 
 		if(item_nuc_list[0] != curent_alel):
 			#skip the first change
@@ -35,14 +35,18 @@ def count_statistic(sort_bam_file: str):
 				alels_statistics[curent_alel]['sum_nuc_coverage'] = sum_nuc_coverage
 				alels_statistics[curent_alel]['alel_size'] = alel_size
 				alels_statistics[curent_alel]['max_histogram'] = max_histogram
+				alels_statistics[curent_alel]['nucleotids'] = nucleotids
+
 
 			curent_alel = item_nuc_list[0]
 			number_nuc_coverage = 0	
 			sum_nuc_coverage = 0
 			alel_size = 0
 			max_histogram = 0
+			nucleotids = list()
 
 		alel_size += 1
+		nucleotids.append(int(item_nuc_list[2]));
 
 		if(int(item_nuc_list[2]) != 0):
 			number_nuc_coverage += 1
@@ -74,13 +78,13 @@ def evaluate_statistics(haplotype_gen_statistics: dict, output_file_name: str):
 
 	for alel, values in sorted_x.items():
 		#if(values['number_nuc_coverage'] > 0):
-
 		print(alel, " c: ", values['normalize_coverage'], " sum: ", values['sum_nuc_coverage'], "max histogram: ", values['max_histogram'] , file=output_file)
 
 		#print(alel, " c: ", values['normalize_coverage'], "max_value_in_histogram", values['max_histogram'], file=output_file)
 
 	output_file.close()
 	print("create result file ", output_file_name)
+	return sorted_x
 
 
 """"
@@ -152,4 +156,8 @@ def run():
 			haplotype_gen_statistics = count_statistic(sort_bam_file)
 
 		result_file = os.path.join(config.RESULT_FOLDER, haplotype+"exp3.txt")
-		evaluate_statistics(haplotype_gen_statistics, result_file)	
+
+		alels_statistics = evaluate_statistics(haplotype_gen_statistics, result_file)
+
+		with open(config.ALELS_STATISTICS_FILE_PYC, 'wb') as handle:
+   			pickle.dump(alels_statistics, handle, protocol=pickle.HIGHEST_PROTOCOL)	

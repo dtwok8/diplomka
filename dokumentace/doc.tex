@@ -260,13 +260,7 @@ Některé virem napadené buňky potlačují propsání HLA ligand na povrch bu�
 
 
 \subsubsection{KIR haplotyp}
-KIR haplotyp je vyjádření jaké konkrétní KIR geny genom obsahuje. Doposud nebylo zavedeno konkrétní pravidlo na jejich pojmenovávání. Avšak bylo navrženo, aby každý KIR haplotyp byl označen $"KH-"$ následovaným trojmístným číslem, které bude označovat konkrétní haplotyp. Bylo by tak možné pojmenovat 999 haplotypů. \cite{imgt_hla_database}
-\\
-\\
-Dále by se haplotypy rozdělovali na dvě skupiny A a B. Skupina B musí obsahovat alespoň jeden z genů KIR2DL5, KIR2DS1, KIR2DS2, KIR2DS3, KIR2DS5 a KIR3DS1. Naopak skupina A neobsahuje ani jeden z těchto genů. Z tohoto pravidla je patrné, že haplotypy B mají vždy více aktivačních KIR než haplotypy A. Za trojmístným číslem by tedy dále bylo písmeno A nebo B.
-\\
-\\
-Nakonec by byl připojen 17-ti místný binární kód, který by označoval přítomnost $"1"$ či absenci $"0"$ genu. Pořadí genů by odpovídalo pořadí v genomu od centrometrické části k telemetrické části.
+KIR haplotyp je vyjádření jaké konkrétní KIR geny genom obsahuje. Doposud nebylo zavedeno konkrétní pravidlo na jejich pojmenovávání. Avšak bylo navrženo, aby každý KIR haplotyp byl označen $"KH-"$ následovaným trojmístným číslem, které bude označovat konkrétní haplotyp. Bylo by tak možné pojmenovat 999 haplotypů. Dále by se haplotypy rozdělovali na dvě skupiny A a B. Skupina B musí obsahovat alespoň jeden z genů KIR2DL5, KIR2DS1, KIR2DS2, KIR2DS3, KIR2DS5 a KIR3DS1. Naopak skupina A neobsahuje ani jeden z těchto genů. Z tohoto pravidla je patrné, že haplotypy B mají vždy více aktivačních KIR než haplotypy A. Za trojmístným číslem by tedy dále bylo písmeno A nebo B. Nakonec by byl připojen 17-ti místný binární kód, který by označoval přítomnost $"1"$ či absenci $"0"$ genu. Pořadí genů by odpovídalo pořadí v genomu od centrometrické části k telemetrické části. \cite{imgt_hla_database}
 \\
 \\
 Výsledné pojmenování by mohlo vypadat následovně:
@@ -285,40 +279,30 @@ Je třeba si zde uvědomit, že každý jedinec má 2 KIR haplotypy. Je tedy mo�
 \end{figure}
 
 \noindent
-Na základě variací obsahu genů by bylo možné vytvořit nepřeberné množství KIR genotypů. Na základě sesbíraných haplotypů byl sestaven model, který toto množství mírně redukuje. Haplotyp se rozděluje na dvě části na centrometickou a telometrickou. Kdy jednotlivé části mezi sebou mohou být kombinovány. Existují vzácné varianty, které se do tohoto modelu nehodí. \cite{KIR_haplotypy_ct}
+Na základě variací obsahu genů by bylo možné vytvořit nepřeberné množství KIR genotypů. Na základě sesbíraných haplotypů byl sestaven model, který toto množství mírně redukuje. Haplotyp se rozděluje na dvě části na centrometickou a telometrickou. Kdy jednotlivé části mezi sebou mohou být kombinovány. Existují vzácné varianty, které se do tohoto modelu nehodí. Zařazení haplotypu do typu A čí B lze odvodi i od značení těchto částí. V případě kdy jsou obě části A/A je haplotyp označen za A, v ostatních kombinací (A/B, B/A, B/B) je haplotyp B. \cite{KIR_haplotypy_ct}
+
+
 \begin{figure}[H]		
 		\centering
 		\includegraphics[width=\textwidth]{./img/KIR_haplotypy.png}
-		\caption{Rozdělení KIR genů na centrometrickou a telometrickou část, pojmenování je na základě, zda je úsek blíže k centromeru nebo k telomeru (viz obrázek \ref{fig:chrmosome}). \cite{KIR_haplotypy_ct}}
+		\caption{Rozdělení KIR genů na centrometrickou a telometrickou část, pojmenování je na základě, zda je úsek blíže k centromeru nebo k telomeru (viz obrázek \ref{fig:chrmosome}). Je možné si zde povšimnout, že je možné některé geny najít jak v centromerické části tak v telomerické části  TODO ten obrázek co jste mi ukazovala byl asi lepší než tenhle. \cite{KIR_haplotypy_ct}}
 		\label{fig:kir_aplotypy_ct}
 \end{figure}
 
+\noindent
+Podle některých studii zabývající se vlivem KIR haplotypů na výsledky transplantace bylo zjištěno, že KIR haplotypy ovlivňují výsledky u akutní myeloidní leukémie. Ve srovnání s haplotypem A měl haplotyp B, především jeho centrometická část, ochraný účinek před návratem nemoci a zárověň zvýšil pravděpodobnost přežití pacienta. Na základě této skutečnosti se mohou dárci řadit do tří skupin best, better a neutral. Rozřazení do třídy se vyhodnocuje jako počet B a jejich umístění, v centromerické oblasti či telomerické oblasti. Mimo jiné je možné se setkat s B-skórem. Toto číslo udává počet B, které se v daném haplotypu nachází. Best je definován s B-skórem alespoň 2, přičemž dvě B se musejí nacházet v centromerické oblasti Cen-B/B a Tel-x/x. Better je definován s B-skorém alespoň 2, aby nebyl haplotyp zařezen do Best musí být logicky alespoň jedna z Centromerických oblastí A - Cen-A/x a Tel-B/x. Neutral je v případě jedné B části nebo žádné. \cite{KIR_haplotypy}
+
+
+\section{Bordel}
+TODO ten popis centromerická a telomerická asi vyhodím
+\\
+\\
 \noindent 
 \textbf{Centrometická} polovina je charakterizována přítomností jednoho z 2DL3 nebo 2DL2, vzácně nemusí být přítomný ani jeden. V případě 2DL2 je následně přítomen 2DS2. Tento pár genů se následně objevu v kombinaci s -2DP1, -2DL1 a -3DP1. 2DL5 gen je v centromerické části párován s 2DL2 a 2DS3, ve vzácných případech se může objevit i s 2DL2 a 2DS5. Oproti tomu při přítomnosti KIR2DL3 se dále vyskytuje KIR2DP1, -2DL1 a -3DLP1.
 \\
 \\
 \textbf{Telometrická} polovina haplotypu je charakterizována přítomností jednoho z 3DL1 nebo 3DS1, vzácně nemusí být přítomný ani jeden. Gen 3DL1 se následně objevuje v přítomnosti s 2DS4, 1D nebo 3DL2. V případě KIR3DL se jedná o takzvaný krátký segment obsahující 2DS4 nebo KIR1D zakončené 3DL2. V případě KIR3DS1 se jedná o dlouhý segment obsahující 2DL5, párovaný s 2DS3 nebo 2DS5, následovaný 2DS1, 2DS4 nebo KIR1D opět zakončený 3DL2. \cite{KIR_haplotypy_ct}
 \\
-\\
-Podle některých studii zabývající se vlivem KIR haplotypů na výsledky transplantace bylo zjištěno, že KIR haplotypy ovlivňují výsledky u akutní myeloidní leukémie. Ve srovnání s haplotypem A měl haplotyp B, především jeho centrometická část, ochraný účinek před návratem nemoci a zárověň zvýšil pravděpodobnost přežití pacienta. Na základě této skutečnosti se mohou dárci řadit do tří skupin best, better a neutral. Best je definován jako Cen-B/B a Tel-x/x, better jako Cen-A/x a Tel-B/x, a neutral v případě jedné B části nebo žádné. \cite{KIR_haplotypy}
-\\
-\\
-TODO tohle je divný vždyť jedna ta část B je i u better?
-\\
-\\
-Dále je možné se setka s takzvaným B-skóre
-
-
-
-TODO podle tohohle se právě určuje B-content score pro definování úrovně B haplotypu, best varianta pro transplantaci je B/B (cen) s B/B (tel), viz další komentář
-
-
-We defined the KIR B–content score for each donor's KIR genotype as the number of centromeric and telomeric gene-content motifs containing B haplotype–defining genes. Permissible values for the KIR B–content score are 0, 1, 2, 3, and 4 (Figure 1C). A calculator for classification of the donor KIR B status (best, better, neutral) may be found at http://www.ebi.ac.uk/ipd/kir/.
-\\
-\\
-TODO to znamená že to b score je to best, better, neutral a ještě tam je přidaný none of this? 
-
-
 \section{Nalezení vhodného dárce}
 Mezi rizika při transplantaci krvetvorných buněk patří reakce štěpu proti hostiteli nebo relaps oněmocnění (návrat nemoci). Ač je dárce vybírán podle shody v HLA znacích, sekundární kriteria jako jsou pohlaví a věk hrají také roli pro úspěšnost transplantace. Navíc podle nedávných studiích výsledky příjetí štěpu ovlivňují nejenom HLA geny ale i non-HLA geny. Jedním z nich může být právě killer immunoglobulin-like receptor (KIR). V případě kdy by bylo nalezeno více vhodných dárců, tj. se shodou 10/10 nebo 9/10, vybíralo by se následně podle KIR genů. \cite{KIR_transplantace_jindra} \cite{Frycova_bakalarka}
 \\
@@ -335,16 +319,10 @@ V posledních letech se objevuje Haploidentická transplantace, kdy je možné p
 KIR geny se stejně jako HLA dědí celý blok. Jelikož HLA se nachází na 6 chromozomu a KIR na 19, tak shodní dárci v HLA znacích se jen menšinově shodují v KIR genech. V případě příbuzného dárce shodujícího se v HLA znacích je pouze 25\% shodných také v KIR. \cite{KIR_haplotypy}
 \\
 \\
-TODO možná informaci o B-content score za tohle, proč u více shodných se řeší KIR, že se vybírají B haplotypový dárci a že v poslední době se řeší, zda kromě haplotypu nemají vliv konkrétní alelické varianty KIR genů (to je to, proč vy to žešíte v diplomce)
+TODO možná informaci o B-content score za tohle, proč u více shodných se řeší KIR, že se vybírají B haplotypový dárci a že v poslední době se řeší, zda kromě haplotypu nemají vliv konkrétní alelické varianty KIR genů (to je to, proč vy to řešíte v diplomce) - s tímhle ještě moc nevím co budu dělat.
 \\
 \\
 K zjištění konkrétních alelických variant se pro tzv. typizaci využívají sekvenační metody, typicky s polymerázovou řetězovou reakcí. 
-
-
-\section{Bordel haplotypy}
-
-TODO budu to tam dopisovat? KIR2DL5 (Where two or more genes have very similar structures and have very similar sequences, they may be given the same number but distinguished by a final letter: for example, the KIR2DL5A and KIR2DL5B genes. The similarity of these two genes suggests they are related by a recent gene duplication event. ),
-
 
 
 
@@ -492,7 +470,7 @@ Zarovnávání bývá prvním krokem v mnoho genomických pipelinách. Často je
 V případě že backtracking mechanismus není uspěšný může docházet k jeho nadměrnému vyskytu. Bowtie se tento jev snaží zmírnit dvojím indexováním. První index obsahuje BWT genomu a je označován jako dopředný index. Druhý obsahuje opět BWT genomu, ale se znaky v sekvenci v opačném pořadí, označovaný jako zrcadlový index. Read je pak v půlce rozdělen na dvě části a jejich zarovnávání probíhá odděleně tak, že je vždy backtracking povolen jen v dané části, která je zrovna zarovnávána. Pravá část je zarovnáváná podle dopředného indexu a levá část je zarovnávána podle zrcadlového indexu. 
 \\
 \\
-TODO já nevím mě občas přijde že opisuju ten článek, a nevím jestli je to dobrý a stejně tomu na půl nerozumím .. 
+TODO já nevím mě občas přijde že opisuju ten článek, a nevím jestli je to dobrý ...
 \\
 \\
 TODO tohle prostě nedává smysl..možná se mrkni ještě na stránky bowtie jestli tam o tom něco neni napsaný
@@ -633,7 +611,7 @@ komprimovaná verze BAM (z angl. Binary Alignment Map format).
 \chapter{Implementace}
 \section{Popis problému}
 máme krátkou délku
-že read který dostáváme jsou 250 bp dlouhé a jeden gen může být dlouhý 14738 bp
+že read který dostáváme jsou 250 bp dlouhé a jeden gen může být dlouhý 14738 bp, akorát že z nemocnice ti dají 251
 s tím že jednotlivé ready se nám tedy mohou překrývat- tohle si nejsem jistá jestli se můžou překrývat
 můžou tam být chyby
 
@@ -654,19 +632,27 @@ jenže bowtie může klidně někam zarovant tam kam to ve skutečnosti napatř�
 asi sem dopsat že i ty alely pro jeden gen můžou být různě dlouhé protože tam probíhají mutace
 
 \section{Referenční geny}
-Referenční geny byly převzaty z IPD-KIR \cite{imgt_hla_database} konkrétně soubory ve formátu $fasta$ uloženy ve stejnojmené složce. Jednotlivé soubory jsou pojmenovány genem, který obsahují např. $KIR2DL1\_gen.fasta$. Každý soubor představuje všechny dostupné alely konkrétního genu. Jedinou vyjímku tvoří soubory $KIR\_gen.*$, které obsahují všechny geny a navíc i pseudogeny. 
+Referenční geny byly převzaty z IPD-KIR \cite{imgt_hla_database} konkrétně soubory ve formátu \textit{fasta} uloženy ve stejnojmené složce. Jednotlivé soubory jsou pojmenovány genem, který obsahují např. \textit{KIR2DL1\_gen.fasta}. Každý soubor představuje všechny dostupné alely konkrétního genu. Jedinou vyjímku tvoří soubory \textit{KIR\_gen.*}, které obsahují všechny geny a navíc i pseudogeny. 
 \\
 \\
-Kromě souborů $*\_gen.fasta$ obsahuje složka $fasta$ také soubory $*\_prot.fast$ a $*\_nuc.fasta$. Soubor $\_gen.fasta$ obsahuje informace o celých genech. Oproti tomu $\_nuc.fasta$ obsahuje nucleotidy, tedy pouze exony bez intronů. Soubor $*\_prot.fast$ obsahuje sekvence proteinů, které vznikly z RNA. 
+Kromě souborů \textit{*\_gen.fasta} obsahuje složka \textit{fasta} také soubory \textit{*\_prot.fast} a \textit{*\_nuc.fasta}. Soubor \textit{\_gen.fasta} obsahuje informace o celých genech. Oproti tomu \textit{\_nuc.fasta} obsahuje nucleotidy, tedy pouze exony bez intronů. Soubor \textit{*\_prot.fast} obsahuje sekvence proteinů, které vznikly z RNA. Data získaná z nemocnice budou odpovídat alelam uvedených v \textit{\_gen.fasta}. 
 \\
 \\
-TODO takže mě by ve finále mělo zajímát to nuc? 
+Při analýze porovnávání souboru \textit{nuc} a \textit{gen} bylo zjištěno, že v souboru \textit{nuc} je více alel než v souboru \textit{gen}. Konkrétně v souboru \textit{gen} je 461 alel a v souboru \textit{nuc} je 1109 alel. Nejmenší vzdálenost je 1
+max:  15943 , min:  1 , average_distance:  4768.984212015467
+\\
+\\
+TODO co je sakra:  KIR3DS1*049N ???? - Kde jsem to našla v nuc nebo gen?
 \\
 \\
 TODO: KIR\_gen.fasta  includes the DNA sequence for all alleles, which have genomic sequences available.
 \\
 \\
 TODO sem asi dodat ty věci ohledně dat z nemocnice
+\\
+\\
+TODO ještě dodat že tady asi nebudou všechny známí alely.
+Musíme porovnat nuc a gen jak jsou ty geny s alelama mezi sebou
 
 \section{Návrh systému}
 Systém byl navržen jako modulární, díky tomu je možná jednoduchá náhrada jakékoliv jeho části. 
@@ -718,7 +704,7 @@ Vše potřebné pro samotný běh programu obstarává skript $run.py$ spolu s n
 S konfiguračním souborem \textit{config.py} jsou spojeny všechny skripty a obsahuje jejich veškerá nastavení. Jak již bylo zmíněno je možné pomocí tohoto nastavení spustit jednotlivé moduly. Jedná se především o položky \textit{CREATE\_READS}, která udržuje informaci o spuštění vytvoření syntetických readů. \textit{ALIGN} starající se o spuštění zarovnání a \textit{EVALUATE}, která řídí spuštění vyhodnocení zarovnání. Důležitou položkou v configu jsou cesty ke zdrojovým a výstupním složkám. Dalším nastavením je obsah haplotypu při případném vygenerování testovacích dat.
 \\
 \\
-Pro urychlení běhu celého programu je v případě zmiňovanných referenčních genů možné použít poze soubor \textit{KIR\_gen.fasta}. Nastavení configu je jednoduché a to, nechat složku kam ukazuje \textit{REFERENCE\_KIR\_GENS\_FOLDER} prázdnou a položku \textit{REFERENCE\_KIR\_GENS\_FOLDER} nechat ukazovat na soubor \textit{KIR\_gen.fasta}.
+Pro urychlení běhu celého programu je v případě zmiňovanných referenčních genů možné použít pouze soubor \textit{KIR\_gen.fasta}.
 
 \subsection{Simulování dat}
 TODO to automatický vytváření mám možná trošku neefektivně , ale nevím jestli to úplně vadí nebo ne? 
@@ -727,9 +713,7 @@ TODO hlavně mám v nastavení to kir gen folder a pak reference kir gens pseudo
 TODO hele zkontroluj si v kodu jestli si náhodou někam napsala ručně to tvý \_gen.fasta
 TODO možná že napsat že tahle chyba pro mě byla přínosem a tak pro někoho kdo se tím chce víc zabívat tak by to pro něj mohlo být také přínosem se podívat na to co mu to vlastně vyhazuje, je to experiment neni to program do praxe.
 
-TODO no a tady zase nevím jestli to dělám dobře nebo ne protože já natahuju všechny ty soubory a přitom by mi vlastne stačil jedno a výhoda toho by byla že by to netrvalo tak dlouho, jako vždycky můžu dát do tý složky na referenční geny jen jeden soubor.. tak záleží co chci.. takhle tam teoreticky můžu strkat i víc těch referenčních genů a třeba koukat na který se to hodí víc nebo to porovnávat mezi sebou
-i to jak se třeba chovají
-tak nevím jestli někam třeba přidat sekci jak se vypozorovalo jak se chová bowtie třeba?
+TODO tak nevím jestli někam třeba přidat sekci jak se vypozorovalo jak se chová bowtie třeba?
 \\
 \\
 O simulování dat se stará skript \textit{create\_syntetic\_reads.py} a je rozděleno na dva kroky: vytvoření haplotypů a vytvoření readů. Mezi těmito dvěma fázemi vzniká soubory s příponou \textit{.fa}. Každý tento soubor obsahuje právě jeden KIR haplotyp. Tyto haplotypy jsou následně použíty jako vstupní soubor pro vytvoření readů, které se provádí za pomocí nástroje ART. Pro vytvoření haplotypů je volán skript \textit{create\_haplotype.py}, který vytvoří haplotypy na základě nastavení v configu pod položkou \textit{HAPLOTYPES} a za pomoci referenčních genů ve složce pod položkou \textit{REFERENCE\_KIR\_GENS\_FOLDER}. Vytvoření probíhá obdobně jako je popsáno níže u ručního vytvoření testovacího haplotypu. Výsledné haplotypy jsou uloženy do adresáře z configu \textit{HAPLOTYPE\_FOLDER}. Výstupem modulu \textit{create\_syntetic\_reads} je soubor s příponou \textit{.fq}, který by měl odpovídát formátu dat z nemocnice případně biomedicínského centra. Výstupní soubory jsou uloženy do složky pod promněnou \textit{READS\_FOLDER}.
@@ -747,13 +731,6 @@ Nebo já jinak fakt nevím jak se identifikuje že tady je tenhle gen a tady je 
 Zarovnávání obstarává skript \textit{alignment\_reads\_to\_reference.py} s pomocí nástroje Bowtie. V nastavení je nutné vyplnit \textit{BOWTIE\_HOME\_DIRECTORY} podle umístění nástroje Bowtie na konkrétním počítači. V prvním kroku jsou vytvořeny bowtie indexy, které je možné použít na příč běhy, proto je v nastavení položka \textit{BOWTIE\_BUIL\_INDEX}, díky které je možné toto vytvoření povolit nebo zakázat. Bez vytovřených indexů, tedy indexů z minulých běhů, ale bowtie nebude zarovnávat. Bowtie vytváří indexy na základě obsahu složky \textit{REFERENCE\_KIR\_GENS\_FOLDER}. V dalším kroku jsem načteny všechny ready ze složky uvedené v \textit{READS\_FOLDER} a nasledně je na ně puštěn nástroj Bowtie. Tady je nutné aby byli ready paired end a to tedy aby se vyskytovali dvakrát jednou z \textit{1} na konci a podruhé s \textit{2}. V základu tento předpoklad zajistí správné nastavení ARTU, který je takto nastaven. Výstupní soubory jsou ve formátu \textit{.sam} a jsou umístěny dle položky \textit{ALIGMENT\_FOLDER} v nastavení. 
 
 \subsection{Vyhodnoceni zarovnání}
-\subsubsection{Experiment3}
-asi smazat experiment 2 udělat z něj experiment 1 a pak udělat experiment 3
-a tam je pak problém že mi to napíše i víc alel který tam můžou být takže kde je pak ta hranice kdy už nee
-a navíc ten konec ty alely kolikrát neni specifikovanej ..
-a podle toho co mi tam vychází tak je to po genech určitě blbost dělat protože twn bowtie se to snaží někam dát za každou cenu.
-
-Já jsem to možná všechno dělala zbytečně moc složitě i to vytváření haplotypu, ten zbytek se dá zahladit tak, že prostě se tam dá vždycky jen ten jeden soubor .. že v těch referenčních genech tam nechá jenom to jedno pro který to bude chtít zarovnat zrovna 
 
 \subsubsection{Experiment1}
 	Počítání jen pokrytí za použití pysam.coverage či co 
@@ -768,7 +745,11 @@ TODO2jedná se o různé varianty genu - mutace, chcete-li, tudíž tam mohlo do
 \subsubsection{Experiment2}
 rozdil oproti experimentu jedna je že jsem vzala jen KIR\_gen kde jsou všechny alely a tam to vypadá že to docela funguje
 
+a tam je pak problém že mi to napíše i víc alel který tam můžou být takže kde je pak ta hranice kdy už nee
+a navíc ten konec ty alely kolikrát neni specifikovanej ..
+a podle toho co mi tam vychází tak je to po genech určitě blbost dělat protože twn bowtie se to snaží někam dát za každou cenu.
 
+Já jsem to možná všechno dělala zbytečně moc složitě i to vytváření haplotypu, ten zbytek se dá zahladit tak, že prostě se tam dá vždycky jen ten jeden soubor .. že v těch referenčních genech tam nechá jenom to jedno pro který to bude chtít zarovnat zrovna 
 
 zkoušela jsem v pythonu přes pysam.depth, zkusit nějaký odhad na alely. Tak, že jsem zkusila vzít ty, které mají největší pokrytí. Brala jsem v úvahu i že každá alela je různě dlouhá, takže jsem to brala v procentech vzhledem k velikosti alely.  Zkrátka přijde mi, že to moc nefunguje, ale všimla jsem si takové zvláštnosti, že kolikrát se celý gen pohybuje kolem 99 procent pokrytí
 
@@ -799,11 +780,6 @@ realističtější, ale za to náročnější na výpočty.
 - tady se dají řešit i ty posuny a tohle
 
 Možná se dá ještě počítat frekvence výskytu jednotlivých znaků - ale máš 4 tak nevím jak hodně to je prokazatelný
-
-TODO nikde jsem se nedočetla jak to přesně bere ten bowtie? Jestli zarovnává každou alelu v souboru zvlášť nebo dohromady? 
-\\
-\\
-TODO zmínit někde běhy programu? Jako ono ten Bowtie běží celkem fest pomalu
 \\
 \\
 TODO nevím jestli je úplně dobře že mám číslování stránek na obsahu a že mit o začíná od 6?
@@ -931,7 +907,7 @@ Program je možné spustit z příkazové řádky pomocí příkazu \textit {pyt
 \section{Výstupy programu}
 V případě tvorby vlastních haplotypů s doporučenou adresářovou strukturou najdeme ve složce \textit{haplotype} soubory s příponou \textit{.fa}. Každý soubor obsahuje jeden haplotyp.
 Vytvořené ready se budou nacházet ve složce reads. Protože haplotypy jsou paired-end náleží každému haplotypu dva soubory s příponou \textit{.fq}. Jeden s \textit{1} na konci a druhý s \textit{2} na konci. 
-V případě zarovnání mohou být výstupní soubory indexy ve složce \textit{bowtie\_index}. Kdy pro každý referenční gen je vytvořeno 6 souborů s příponou \textit{.1.ebwt}, \textit{.2.ebwt}, \textit{.3.ebwt}, \textit{.4.ebwt}, \textit{.rev.1.ebwt} a \textit{.rev.2.ebwt}. Výsledné zarování se pak nachází ve složce \textit{alignments} ve formátu \textit{.sam}. Vyhodnocení zarovnání se pak nacháze ve složce \textit{result} ve formátu \textit{.txt}
+V případě zarovnání mohou být výstupní soubory indexy ve složce \textit{bowtie\_index}. Kdy pro každý referenční gen je vytvořeno 6 souborů s příponou \textit{bt2}. Výsledné zarování se pak nachází ve složce \textit{alignments} ve formátu \textit{.sam}. Vyhodnocení zarovnání se pak nacháze ve složce \textit{result} ve formátu \textit{.txt}
 
 \chapter{Uživatelská dokumentace ART???}
 \section{Nastavení ART a jeho spuštění}

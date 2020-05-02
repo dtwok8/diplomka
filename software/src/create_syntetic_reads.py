@@ -4,6 +4,8 @@ import os
 import src.create_haplotype as create_haplotype
 import config
 
+
+HAPLOTYPE_END_FILE = '.fa'
 """
 	Create haplotypes.
 	Run ART for all files in haplotype folder.
@@ -20,7 +22,7 @@ def run():
 	print("creating new haplotypes ...")
 	create_haplotype.run()
 
-	haplotype_files = [f for f in os.listdir(config.HAPLOTYPE_FOLDER) if os.path.isfile(os.path.join(config.HAPLOTYPE_FOLDER, f)) and (f!=".gitignore")]
+	haplotype_files = [f for f in os.listdir(config.HAPLOTYPE_FOLDER) if os.path.isfile(os.path.join(config.HAPLOTYPE_FOLDER, f)) and (f.endswith(HAPLOTYPE_END_FILE))]
 	print("run ART for: ", haplotype_files)
 
 	for ha_file in haplotype_files:

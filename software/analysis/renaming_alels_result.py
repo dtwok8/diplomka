@@ -66,3 +66,6 @@ def run(aligment_result_file_rename = None, aligment_result_file = None):
 		aligment_result_file_rename = open(os.path.join(config.RESULT_FOLDER, file), "w")
 		aligment_result_file_rename.write(aligment_result_str)
 		aligment_result_file_rename.close()
+
+
+run()

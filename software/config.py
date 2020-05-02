@@ -1,7 +1,7 @@
 """ Steps of program """
 # values True/False
 CREATE_READS = False
-ALIGN = True
+ALIGN = False
 EVALUATE = True
 
 """ create_haplotype """
@@ -69,3 +69,12 @@ BAM_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/bam"
 
 """ Folder for result from evaluation alignment """
 RESULT_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/result"
+
+ALELS_STATISTICS_FILE_PYC = "/home/kate/Dokumenty/FAV/Diplomka/software/data/alels_statistics.pyc"
+
+# %
+CUT_COVERAGE_ALELS = 60
+CLOSE_DISTANCE = 1000
+# k hovnu
+ALELS_DISTANCE_FILE_PYC = "/home/kate/Dokumenty/FAV/Diplomka/software/data/alels_distance.pyc"
+ALELS_DISTANCE_FILE_TXT = "/home/kate/Dokumenty/FAV/Diplomka/software/data/alels_distance.txt"

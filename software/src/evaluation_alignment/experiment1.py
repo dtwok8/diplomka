@@ -1,8 +1,13 @@
 import pysam
 import sys
 import os
+import pickle
 
 import config
+"""
+	Take just KIR_gen file, where is all alels.
+"""
+
 
 """
 	Make statistics like coverage of allels and sum of histogram covarage.
@@ -15,12 +20,12 @@ def count_statistic(sort_bam_file: str):
 	number_nuc_coverage = 0
 	sum_nuc_coverage = 0
 	alel_size = 0
+	max_histogram = 0
 	alels_statistics = dict()
-
+	cov_nucleotids = list()
 
 	for item_nuc in coverage_list:
 		item_nuc_list = item_nuc.split()
-
 
 		if(item_nuc_list[0] != curent_alel):
 			#skip the first change
@@ -29,17 +34,26 @@ def count_statistic(sort_bam_file: str):
 				alels_statistics[curent_alel]['number_nuc_coverage'] = number_nuc_coverage
 				alels_statistics[curent_alel]['sum_nuc_coverage'] = sum_nuc_coverage
 				alels_statistics[curent_alel]['alel_size'] = alel_size
+				alels_statistics[curent_alel]['max_histogram'] = max_histogram
+				alels_statistics[curent_alel]['cov_nucleotids'] = cov_nucleotids
+
 
 			curent_alel = item_nuc_list[0]
 			number_nuc_coverage = 0	
 			sum_nuc_coverage = 0
 			alel_size = 0
+			max_histogram = 0
+			cov_nucleotids = list()
 
 		alel_size += 1
+		cov_nucleotids.append(int(item_nuc_list[2]));
 
 		if(int(item_nuc_list[2]) != 0):
 			number_nuc_coverage += 1
 			sum_nuc_coverage += int(item_nuc_list[2])
+
+			if(max_histogram < int(item_nuc_list[2])):
+				max_histogram = int(item_nuc_list[2])
 
 	return alels_statistics
 
@@ -49,72 +63,29 @@ def count_statistic(sort_bam_file: str):
 	and write it into result file.
 """
 def evaluate_statistics(haplotype_gen_statistics: dict, output_file_name: str):
+
+	for alel, values in haplotype_gen_statistics.items():
+		values["normalize_coverage"] = values['number_nuc_coverage'] / (values['alel_size'] / 100)
+			
+	# asi muzeme predpokladat za budou serazeny
+	# takze by to asi jen chtelo seradit
+	# {'KIR:KIR00001': {'number_nuc_coverage': 7407, 'sum_nuc_coverage': 19500, 'alel_size': 14738, 'max_histogram': 6, 'normalize_coverage': 50.25783688424481}, 'KIR:KIR00978': 
+	#sorted_x = sorted(haplotype_gen_statistics.items(), key=operator.itemgetter(1["normalize_coverage"]))
+	
+	sorted_x = {k: v for k, v in sorted(haplotype_gen_statistics.items(), key=lambda item: item[1]["normalize_coverage"], reverse= True)}
+	# takze nejdriv je seradit podle coverage
 	output_file = open(output_file_name, "w")
-	max_coverage1 = 0
-	max_coverage1_string = ""
 
-	max_coverage2 = 0
-	max_coverage2_string = ""
+	for alel, values in sorted_x.items():
+		#if(values['number_nuc_coverage'] > 0):
+		print(alel, " c: ", values['normalize_coverage'], " sum: ", values['sum_nuc_coverage'], "max histogram: ", values['max_histogram'] , file=output_file)
 
-	max_coverage_sum1 = 0
-	max_coverage_sum1_string = ""
+		#print(alel, " c: ", values['normalize_coverage'], "max_value_in_histogram", values['max_histogram'], file=output_file)
 
-	max_coverage_sum2 = 0
-	max_coverage_sum2_string = ""
-
-	for gene, alels_statistics in haplotype_gen_statistics.items():
-		print(gene, file=output_file)
-
-		max_coverage1 = 0
-		max_coverage1_string = ""
-
-		max_coverage2 = 0
-		max_coverage2_string = ""
-
-		max_coverage_sum1 = 0
-		max_coverage_sum1_string = ""
-
-		max_coverage_sum2 = 0
-		max_coverage_sum2_string = ""
-
-		for alel, values in alels_statistics.items():
-			if(values['number_nuc_coverage'] > 0):
-				coverage =  values['number_nuc_coverage'] / (values['alel_size'] / 100)
-				if(coverage > max_coverage1):
-					max_coverage2 = max_coverage1
-					max_coverage2_string = max_coverage1_string	
-
-					max_coverage1 = coverage
-					max_coverage1_string = alel	
-				elif (coverage > max_coverage2):
-					max_coverage2 = coverage
-					max_coverage2_string = alel	
-
-				sum_nuc_coverage_normalized = values['sum_nuc_coverage']
-				if(sum_nuc_coverage_normalized > max_coverage_sum1):
-					max_coverage_sum2 = max_coverage_sum1
-					max_coverage_sum2_string = max_coverage_sum1_string
-
-					max_coverage_sum1 = sum_nuc_coverage_normalized
-					max_coverage_sum1_string = alel
-
-				elif (sum_nuc_coverage_normalized > max_coverage_sum2):
-					max_coverage_sum2 = sum_nuc_coverage_normalized
-					max_coverage_sum2_string = alel	
-
-				#print(alel, "c:" ,coverage, "sum: ", sum_nuc_coverage_normalized)
-				#f.write()
-				print(alel, " c: ", coverage, " sum: ", sum_nuc_coverage_normalized, file=output_file)
-
-			#print(values['number_nuc_coverage'], values['sum_nuc_coverage'], values['alel_size'])	
-			#print(alel_statistics)
-		print("max_coverage1 ", max_coverage1_string, max_coverage1 , file=output_file)
-		print("max_coverage2 ",  max_coverage2_string, max_coverage2 , file=output_file)
-		print("max_sum1 ", max_coverage_sum1_string, max_coverage_sum1 , file=output_file)
-		print("max_sum2 ", max_coverage_sum2_string, max_coverage_sum2 , file=output_file)
 	output_file.close()
 	print("create result file ", output_file_name)
-	
+	return sorted_x
+
 
 """"
 	Find all haplotypes in sam folder.
@@ -153,10 +124,11 @@ def run():
 
 	for haplotype in haplotype_name_list_unique:
 		print(haplotype)
-		algiments_file_haplotype = [f for f in aligments_sam_files if f.startswith(haplotype)]
+		aligments_file_haplotype = [f for f in aligments_sam_files if f.startswith(haplotype+"KIR_gen")]
+		print(aligments_file_haplotype)
 		haplotype_gen_statistics = {}
 		
-		for sam_file in algiments_file_haplotype:
+		for sam_file in aligments_file_haplotype:
 			file_name_split = sam_file.split('_')
 			
 			# find KIR 
@@ -181,7 +153,11 @@ def run():
 			#count statistics
 			print("counting ", haplotype, kir_name, "...")
 
-			haplotype_gen_statistics[kir_name] = count_statistic(sort_bam_file)
+			haplotype_gen_statistics = count_statistic(sort_bam_file)
 
 		result_file = os.path.join(config.RESULT_FOLDER, haplotype+"exp1.txt")
-		evaluate_statistics(haplotype_gen_statistics, result_file)	
+
+		alels_statistics = evaluate_statistics(haplotype_gen_statistics, result_file)
+
+		with open(config.ALELS_STATISTICS_FILE_PYC, 'wb') as handle:
+   			pickle.dump(alels_statistics, handle, protocol=pickle.HIGHEST_PROTOCOL)	
