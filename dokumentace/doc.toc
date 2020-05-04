@@ -35,7 +35,9 @@
 \contentsline {section}{\numberline {4.1}ART}{28}{section.4.1}
 \contentsline {section}{\numberline {4.2}Bowtie}{29}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Burrows-Wheeler transformace}{32}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}bordel}{34}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Dal\IeC {\v s}\IeC {\'\i } pomocn\IeC {\'e} metody}{34}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Levenshteinova vzd\IeC {\'a}lenost}{34}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}bordel}{34}{subsection.4.3.2}
 \contentsline {chapter}{\numberline {5}Implementace}{36}{chapter.5}
 \contentsline {section}{\numberline {5.1}Popis probl\IeC {\'e}mu}{36}{section.5.1}
 \contentsline {section}{\numberline {5.2}Referen\IeC {\v c}n\IeC {\'\i } geny}{36}{section.5.2}
@@ -51,23 +53,23 @@
 \contentsline {subsection}{\numberline {5.5.4}Vyhodnoceni zarovn\IeC {\'a}n\IeC {\'\i }}{42}{subsection.5.5.4}
 \contentsline {subsubsection}{Experiment1}{42}{section*.27}
 \contentsline {subsubsection}{Experiment2}{42}{section*.28}
-\contentsline {subsection}{\numberline {5.5.5}P\IeC {\v r}eklad alel}{43}{subsection.5.5.5}
+\contentsline {subsection}{\numberline {5.5.5}P\IeC {\v r}eklad alel}{42}{subsection.5.5.5}
 \contentsline {subsubsection}{Mimo}{43}{section*.29}
-\contentsline {section}{\numberline {5.6}Nastaven\IeC {\'\i } ART a bowtie}{44}{section.5.6}
-\contentsline {chapter}{\numberline {6}Vyhodnocen\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u} a jejich srovn\IeC {\'a}n\IeC {\'\i }}{45}{chapter.6}
-\contentsline {chapter}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{46}{chapter.7}
-\contentsline {chapter}{\numberline {8}V\IeC {\'y}kladov\IeC {\'y} slovn\IeC {\'\i }k pojm\IeC {\r u} a zkratek}{47}{chapter.8}
-\contentsline {chapter}{Literatura}{49}{chapter*.30}
-\contentsline {chapter}{\numberline {A}U\IeC {\v z}ivatelsk\IeC {\'a} dokumentace}{52}{appendix.A}
-\contentsline {section}{\numberline {A.1}Spu\IeC {\v s}t\IeC {\v e}n\IeC {\'\i } programu}{53}{section.A.1}
-\contentsline {section}{\numberline {A.2}Doporu\IeC {\v c}en\IeC {\'a} adres\IeC {\'a}\IeC {\v r}ov\IeC {\'a} struktura pro data}{53}{section.A.2}
-\contentsline {section}{\numberline {A.3}V\IeC {\'y}stupy programu}{53}{section.A.3}
-\contentsline {chapter}{\numberline {B}U\IeC {\v z}ivatelsk\IeC {\'a} dokumentace ART???}{55}{appendix.B}
-\contentsline {section}{\numberline {B.1}Nastaven\IeC {\'\i } ART a jeho spu\IeC {\v s}t\IeC {\v e}n\IeC {\'\i }}{55}{section.B.1}
-\contentsline {subsection}{\numberline {B.1.1}pokus to nejak spustit}{55}{subsection.B.1.1}
-\contentsline {chapter}{\numberline {C}U\IeC {\v z}ivatelsk\IeC {\'a} dokumentace Bowtie ??}{56}{appendix.C}
-\contentsline {section}{\numberline {C.1}Bowtie}{56}{section.C.1}
-\contentsline {chapter}{\numberline {D}Pou\IeC {\v z}\IeC {\'\i }van\IeC {\'e} soubory}{57}{appendix.D}
-\contentsline {subsection}{\numberline {D.0.1}FASTQ}{57}{subsection.D.0.1}
-\contentsline {subsection}{\numberline {D.0.2}FASTQ}{57}{subsection.D.0.2}
-\contentsline {subsection}{\numberline {D.0.3}SAM a BAM}{58}{subsection.D.0.3}
+\contentsline {section}{\numberline {5.6}Nastaven\IeC {\'\i } ART a bowtie}{43}{section.5.6}
+\contentsline {chapter}{\numberline {6}Vyhodnocen\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u} a jejich srovn\IeC {\'a}n\IeC {\'\i }}{44}{chapter.6}
+\contentsline {chapter}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{45}{chapter.7}
+\contentsline {chapter}{\numberline {8}V\IeC {\'y}kladov\IeC {\'y} slovn\IeC {\'\i }k pojm\IeC {\r u} a zkratek}{46}{chapter.8}
+\contentsline {chapter}{Literatura}{48}{chapter*.30}
+\contentsline {chapter}{\numberline {A}U\IeC {\v z}ivatelsk\IeC {\'a} dokumentace}{51}{appendix.A}
+\contentsline {section}{\numberline {A.1}Spu\IeC {\v s}t\IeC {\v e}n\IeC {\'\i } programu}{52}{section.A.1}
+\contentsline {section}{\numberline {A.2}Doporu\IeC {\v c}en\IeC {\'a} adres\IeC {\'a}\IeC {\v r}ov\IeC {\'a} struktura pro data}{52}{section.A.2}
+\contentsline {section}{\numberline {A.3}V\IeC {\'y}stupy programu}{52}{section.A.3}
+\contentsline {chapter}{\numberline {B}U\IeC {\v z}ivatelsk\IeC {\'a} dokumentace ART???}{54}{appendix.B}
+\contentsline {section}{\numberline {B.1}Nastaven\IeC {\'\i } ART a jeho spu\IeC {\v s}t\IeC {\v e}n\IeC {\'\i }}{54}{section.B.1}
+\contentsline {subsection}{\numberline {B.1.1}pokus to nejak spustit}{54}{subsection.B.1.1}
+\contentsline {chapter}{\numberline {C}U\IeC {\v z}ivatelsk\IeC {\'a} dokumentace Bowtie ??}{55}{appendix.C}
+\contentsline {section}{\numberline {C.1}Bowtie}{55}{section.C.1}
+\contentsline {chapter}{\numberline {D}Pou\IeC {\v z}\IeC {\'\i }van\IeC {\'e} soubory}{56}{appendix.D}
+\contentsline {subsection}{\numberline {D.0.1}FASTQ}{56}{subsection.D.0.1}
+\contentsline {subsection}{\numberline {D.0.2}FASTQ}{56}{subsection.D.0.2}
+\contentsline {subsection}{\numberline {D.0.3}SAM a BAM}{57}{subsection.D.0.3}

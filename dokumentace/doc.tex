@@ -567,7 +567,20 @@ Díky vztahu mezi F a L sloupcem je možné vyhledávat daný řětezec (zobraze
 \end{figure}
 
 
+\section{Další pomocné metody}
+\subsection{Levenshteinova vzdálenost}
+Levensteinova vzdálenost zjišťuje rozdílnost dvou textů na základě počtu změn, které je třeba udělat, aby bylo z jednoho řetězce získán druhý řetezec. Za úpravy se považuje vložení, smazání a nahrazení. Algortimus funguje tak, že se snaží ze slova, které bylo jako první v argumentu vytvořit. Příkladem může být vzdálenost mezi řetězci \textit{SPAM} a \textit{PARK}.  slovo druhé. Vzdálenost těchto slov je 3. Výstup v případě python knihovny je možné vidět následovně. Výstup \ref{leve_1} je v případě SPAM, PARK. Výstup \ref{leve_2} je v případě PARK, SPAM. Změny jsou definovány: o jakou změnu jde, index znaku v prvním řetězci a index znaku v druhém řetězci. Je možné si všimnout závislosti mezi těmito dvěma postupy.
 
+
+\begin{align}
+   \label{leve_1} ('delete', 0, 0), ('insert', 3, 2), ('replace', 3, 3) \\
+    SPAM -> \_PAM -> \_PARM -> PARK \nonumber
+\end{align}
+
+\begin{align}
+   \label{leve_2} ('insert', 0, 0), ('delete', 2, 3), ('replace', 3, 3) \\
+    PARK -> SPARK -> SPAR\_ -> SPAM \nonumber
+\end{align}
 
 
 
@@ -638,8 +651,7 @@ Referenční geny byly převzaty z IPD-KIR \cite{imgt_hla_database} konkrétně 
 Kromě souborů \textit{*\_gen.fasta} obsahuje složka \textit{fasta} také soubory \textit{*\_prot.fast} a \textit{*\_nuc.fasta}. Soubor \textit{\_gen.fasta} obsahuje informace o celých genech. Oproti tomu \textit{\_nuc.fasta} obsahuje nucleotidy, tedy pouze exony bez intronů. Soubor \textit{*\_prot.fast} obsahuje sekvence proteinů, které vznikly z RNA. Data získaná z nemocnice budou odpovídat alelam uvedených v \textit{\_gen.fasta}. 
 \\
 \\
-Při analýze porovnávání souboru \textit{nuc} a \textit{gen} bylo zjištěno, že v souboru \textit{nuc} je více alel než v souboru \textit{gen}. Konkrétně v souboru \textit{gen} je 461 alel a v souboru \textit{nuc} je 1109 alel. Nejmenší vzdálenost je 1
-max:  15943 , min:  1 , average_distance:  4768.984212015467
+Při analýze porovnávání souboru \textit{nuc} a \textit{gen} bylo zjištěno, že v souboru \textit{nuc} je více alel než v souboru \textit{gen}. Konkrétně v souboru \textit{gen} je 461 alel a v souboru \textit{nuc} je 1109 alel. Nejmenší Levenshteinova vzdálenost mezi alelami je 1, největší 15 943 a průměrná 4768.98.
 \\
 \\
 TODO co je sakra:  KIR3DS1*049N ???? - Kde jsem to našla v nuc nebo gen?
@@ -767,17 +779,7 @@ About 80 procent of the exons on each chromosome are < 200 bp in length.
 Když bych chtěla dělat podobnost textů tak se dá dělat hamingova vzdálenost. Vpodstatě vezmu dva řětězce a spočítám kolik mezi sebou mají rozdílů
 - ale to je takový divný protože tam může být podobnost třeba posunutá ..
 
-Levenshteinova metoda je o něco složitější. Jde o jeden z nejpoužívanějších algoritmů
-pro zjištění vzdálenosti textových řetězců. Vyjadřuje podobnost/rozdílnost dvou textů na
-základně počtu změn, které je potřeba udělat, abychom z jednoho řetězce dostali druhý.
-Existují dvě hlaví varianty této metody - první, jednodušší a starší metoda je založená
-na počtu úprav, které je nutno v řetězci provézt, abychom získali dva stejné řetězce.
-Závisí tedy na počtu vložení, smazání nebo substituci. Ve své nejjednodušší podobě tento
-algoritmus známý již přes čtyřicet let spočítá počet vložení, nahrazení a smazání nutných
-k této transformaci
-Druhá metoda je poněkud chytřejší a počítá i se složitostí daných operací, což ji dělá
-realističtější, ale za to náročnější na výpočty.
-- tady se dají řešit i ty posuny a tohle
+
 
 Možná se dá ještě počítat frekvence výskytu jednotlivých znaků - ale máš 4 tak nevím jak hodně to je prokazatelný
 \\

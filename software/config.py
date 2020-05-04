@@ -72,9 +72,11 @@ RESULT_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/result"
 
 ALELS_STATISTICS_FILE_PYC = "/home/kate/Dokumenty/FAV/Diplomka/software/data/alels_statistics.pyc"
 
-# %
+# Because not enought memory, use a trick and save just changes witch are lower then (average 4769)
+LEVENSHTEIN_DISTANCE_CUT = 2500 #4769 
 CUT_COVERAGE_ALELS = 60
 CLOSE_DISTANCE = 1000
-# k hovnu
+
+# k hovnu ne tak uplne
 ALELS_DISTANCE_FILE_PYC = "/home/kate/Dokumenty/FAV/Diplomka/software/data/alels_distance.pyc"
 ALELS_DISTANCE_FILE_TXT = "/home/kate/Dokumenty/FAV/Diplomka/software/data/alels_distance.txt"
