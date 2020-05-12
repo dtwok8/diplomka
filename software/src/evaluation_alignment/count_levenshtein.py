@@ -68,7 +68,7 @@ def run():
 	with open(config.ALELS_DISTANCE_FILE_PYC, 'wb') as handle:
    		pickle.dump(alels_distance, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-run()
+#run()
 # podobnost alel danyho genu
 # udelat na to pak nejakej graf jak jsou 
 # pro jednu alelu mozna udělat graf kde budou puntiky s tim že tam bude počet chyb a bude tam jestli to je stejnej gen nebo jinej gen

@@ -3,7 +3,7 @@ import config
 import src.create_syntetic_reads as create_syntetic_reads 
 import src.alignment_reads_to_reference as alignment_reads_to_reference
 
-import src.evaluation_alignment.count_levenshtein as count_levenshtein
+#import src.evaluation_alignment.count_levenshtein as count_levenshtein
 import src.evaluation_alignment.experiment1 as experiment1
 import src.evaluation_alignment.experiment2 as experiment2
 import src.evaluation_alignment.experiment3 as experiment3

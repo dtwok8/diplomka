@@ -1,10 +1,10 @@
-import pysam
+#import pysam
 import sys
 import os
 import pickle
 import copy
 
-import Levenshtein
+#import Levenshtein
 
 import config
 
@@ -36,6 +36,7 @@ def create_alels_dictionary():
 
 
 def run():
+	print("nahdow")
 	KIR_alels_dictionary = create_alels_dictionary()
 
 	with open(config.ALELS_STATISTICS_FILE_PYC, 'rb') as handle:
@@ -45,6 +46,7 @@ def run():
 		alels_distance = pickle.load(handle)
 
 	print(len(alels_statistics))
+	exit(1)
 
 	cut_alel_statistics = dict()
 	for key, statistics in alels_statistics.items():
@@ -61,10 +63,10 @@ def run():
 				continue
 				
 			#get distance
-			distance = Levenshtein.distance(KIR_alels_dictionary[key1], KIR_alels_dictionary[key2])
+			#distance = Levenshtein.distance(KIR_alels_dictionary[key1], KIR_alels_dictionary[key2])
 
 			if(distance < config.CLOSE_DISTANCE):	
-				changes = Levenshtein.editops(KIR_alels_dictionary[key1], KIR_alels_dictionary[key2])
+				#changes = Levenshtein.editops(KIR_alels_dictionary[key1], KIR_alels_dictionary[key2])
 				key1_coverage_changes = 0
 				key2_coverage_changes = 0
 
