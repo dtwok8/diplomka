@@ -4,7 +4,7 @@ import os
 import pickle
 import copy
 
-#import Levenshtein
+import Levenshtein
 
 import config
 
@@ -30,13 +30,11 @@ def create_alels_dictionary():
 			alel_head, alel_body = alel.split('\n', 1)
 			alel_marker = alel_head.split()[0] # KIR:KIR00037
 
-			KIR_alels_dictionary[alel_marker] = alel_body
-
+			KIR_alels_dictionary[alel_marker] = alel_marker = alel_head.split()[1] 
 	return KIR_alels_dictionary
 
 
 def run():
-	print("nahdow")
 	KIR_alels_dictionary = create_alels_dictionary()
 
 	with open(config.ALELS_STATISTICS_FILE_PYC, 'rb') as handle:
@@ -46,7 +44,6 @@ def run():
 		alels_distance = pickle.load(handle)
 
 	print(len(alels_statistics))
-	exit(1)
 
 	cut_alel_statistics = dict()
 	for key, statistics in alels_statistics.items():
@@ -55,33 +52,77 @@ def run():
 
 	print(len(cut_alel_statistics))
 
-	cut_alel_statistics_deep_copy = copy.deepcopy(cut_alel_statistics)
+	
+
+	# translate - because have to delete similar allel in one gen
+
+	cut_alel_statistics_translated =  dict()
+	for key, statistics in cut_alel_statistics.items():
+		cut_alel_statistics_translated[KIR_alels_dictionary[key]] = statistics	
+
+	cut_alel_statistics_deep_copy = copy.deepcopy(cut_alel_statistics_translated)
+	cut_alel_statistics = cut_alel_statistics_translated
+
+	alels_distance_translate = dict()
+	for key1, value in alels_distance.items():
+		if(KIR_alels_dictionary[key1] not in alels_distance_translate):
+			alels_distance_translate[KIR_alels_dictionary[key1]] = dict()
+
+		for key2, value2 in value.items():
+			alels_distance_translate[KIR_alels_dictionary[key1]][KIR_alels_dictionary[key2]] = value2	
+
+	alels_distance = alels_distance_translate
+
+
+	alels_statistics_translate = dict()
+	for key1, value in alels_statistics.items():
+		alels_statistics_translate[KIR_alels_dictionary[key1]] = value
+			
+	alels_statistics = alels_statistics_translate
+
+	print(alels_distance['KIR2DL4*042'])
+	print(alels_distance['KIR3DL2*0070102'])
+	#print(alels_distance['KIR2DL4*042']['KIR3DL2*0070102'])
 
 	for key1, statistics1 in cut_alel_statistics.items():
 		for key2, statistics2 in cut_alel_statistics.items():
 			if(key1==key2):
 				continue
-				
-			#get distance
-			#distance = Levenshtein.distance(KIR_alels_dictionary[key1], KIR_alels_dictionary[key2])
+			
+			#just same gen 
+			gen1 = key1.split('*')[0]
+			gen2 = key2.split('*')[0]
 
-			if(distance < config.CLOSE_DISTANCE):	
-				#changes = Levenshtein.editops(KIR_alels_dictionary[key1], KIR_alels_dictionary[key2])
-				key1_coverage_changes = 0
-				key2_coverage_changes = 0
+			if(gen1 == gen2):
 
-				for one_change in changes:
-					# it sometimes touch behind string
-					if(len(alels_statistics[key1]['cov_nucleotids']) > one_change[1]):
-						key1_coverage_changes+=alels_statistics[key1]['cov_nucleotids'][one_change[1]]
+				#get distance - because it same across diagonal, so it was save a count just one times
+				if(key2 in alels_distance[key1]):
+					distance = alels_distance[key1][key2]['distance']
+					changes = alels_distance[key1][key2]['changes']
+				elif(key1 in alels_distance[key2]):
+					distance = alels_distance[key2][key1]['distance']
+					changes = alels_distance[key2][key1]['changes']
+				else:
+					print("Not found distance", key1, key2)
 
-					if(len(alels_statistics[key2]['cov_nucleotids']) > one_change[2]):
-						key2_coverage_changes+=alels_statistics[key2]['cov_nucleotids'][one_change[2]]
+
+
+				if(distance < config.CLOSE_DISTANCE):	
+					#changes = Levenshtein.editops(KIR_alels_dictionary[key1], KIR_alels_dictionary[key2])
+					key1_coverage_changes = 0
+					key2_coverage_changes = 0
+
+					for one_change in changes:
+						# it sometimes touch behind string
+						if(len(alels_statistics[key1]['cov_nucleotids']) > one_change[1]):
+							key1_coverage_changes+=alels_statistics[key1]['cov_nucleotids'][one_change[1]]
+
+						if(len(alels_statistics[key2]['cov_nucleotids']) > one_change[2]):
+							key2_coverage_changes+=alels_statistics[key2]['cov_nucleotids'][one_change[2]]
+						
+
+					print("key1 ", key1_coverage_changes, "key2", key2_coverage_changes)
 					
-
-				print("key1 ", key1_coverage_changes, "key2", key2_coverage_changes)
-				
-				if(abs(key1_coverage_changes - key2_coverage_changes) > 100):
 					if(2*key1_coverage_changes < key2_coverage_changes):
 						# delete key1
 						if(key1 in cut_alel_statistics_deep_copy):
@@ -91,13 +132,14 @@ def run():
 						if(key2 in cut_alel_statistics_deep_copy):
 							del cut_alel_statistics_deep_copy[key2]
 							print("delete", key2)
-						# delete key2
-					#print(type(changes))
+							# delete key2
+						#print(type(changes))
 
 	print(len(cut_alel_statistics_deep_copy))
 
 	for key1, statistics1 in cut_alel_statistics_deep_copy.items():
-		print(key1)
+		print(key1, ", coverage: " ,statistics1['normalize_coverage'])
+
 
 
 	# musim vzit kazde dvě alelely a zase si urcit vzdalenost mezi nimi 

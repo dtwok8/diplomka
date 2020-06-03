@@ -464,12 +464,20 @@ Data získána z FN Plzeň byla sekvenována nástrojem Illuminas proto i syntet
 Bowtie je rychlý a paměťové efektivní nástroj pro zarovnávání krátkých sekvencí DNA na velké genomy. Bowtie2 je schopný zarovnat více než 25 milionů readů dlouhých 35 bp za hodinu (při běhu na jednom CPU) pro lidský genom s malým využím paměti. Bowtie využívá FM indexaci s Burrows-Wheeler transformací (BWT) a přidává k ní backtracking pro sledování nekonzistence. Novější verze Bowtie2 by měla by oproti Bowtie1 citlivější a rychlejší na delší ready než je 50 nukleotidů a navíc je oproti první verzi schopná se vypořádat z chybami vložení čí smazání báze způsobené sekvenováním. Na lidský genom potřebuje Bowtie2 3.2 gigabajtů RAM. Nástroj bowtie je implementovaný v jazyce C++ s použitím knihovny SeqAn a je open source. Podporuje standardní vstupní formáty FASTQ a FASTA.  Výstupní zárovnání z Bowtie je ve formátu SAM, což umožňuje návaznost s dalšími nástroji jako je třeba SAMtools. \cite{bowtie} \cite{bowtie2}   
 \\
 \\
-Zarovnávání bývá prvním krokem v mnoho genomických pipelinách. Často je to jejich nejpomalejší část, protože pro každý read musí zarovnávač vyřešit obtížný výpočetní problém. Určit pravděpodobné umístění v referenčním genomu. Mnoho zarovnávačů používá indexy k rychlému snižování kandidátů pro umístění zarovnáváného readu. Bowtie vytváří indexy referenčních genů permanentní a lze je tak použít napříč běhy. Algoritmus FM indexu obyvykle funguje na vyhledává přesně shody. V případě hledání umístění readů na referenční gen není toto řešení použitelné, protože ready mohou obsahovat chyby vzniklé sekvenováním případně genové mutace. Proto bowtie každé zarovnání zakládá na kvalitě znaku báze v daném readu. Bowtie postupně vytváří dlouhý sufix. Pokud se sufix nevyskytuje v textu pak se může algoritmus vrátit a v již vytvořeném sufixu nahradit bázi za jinou. Dále pokračuje obdobným způsobem. Pokud by měl algoritmus na výběr substituovat za více bází vybere tu s nejnižší kvalitou znaku v readu. Protože bowtie algoritmus v základu bere první přijetelné řešení je možné, že jeho nalezené řešení není to nejlepší. Pro nalezení toho nejlepšího řešení je třeba použít přepínač $--best$, jeho funkčnost je ale na úkor rychlosti, která může být 2x čí 3x pomalejší. Zároveň je možné nastavit maximální počet nahrazených bází v readu. \cite{bowtie}
+Zarovnávání bývá prvním krokem v mnoho genomických pipelinách. Často je to jejich nejpomalejší část, protože pro každý read musí zarovnávač vyřešit obtížný výpočetní problém. Určit pravděpodobné umístění v referenčním genomu. Mnoho zarovnávačů používá indexy k rychlému snižování kandidátů pro umístění zarovnáváného readu. Bowtie vytváří indexy referenčních genů permanentní a lze je tak použít napříč běhy. Algoritmus FM indexu obyvykle funguje na vyhledává přesně shody. V případě hledání umístění readů na referenční gen není toto řešení použitelné, protože ready mohou obsahovat chyby vzniklé sekvenováním případně genové mutace. Proto bowtie každé zarovnání zakládá na kvalitě znaku báze v daném readu. Bowtie postupně vytváří dlouhý sufix. Pokud se sufix nevyskytuje v textu pak se může algoritmus vrátit a v již vytvořeném sufixu nahradit bázi za jinou. Dále pokračuje obdobným způsobem. Pokud by měl algoritmus na výběr substituovat za více bází vybere tu s nejnižší kvalitou znaku v readu. Protože bowtie algoritmus v základu bere první přijetelné řešení je možné, že jeho nalezené řešení není to nejlepší. Pro nalezení toho nejlepšího řešení je třeba použít přepínač $--best$, jeho funkčnost je ale na úkor rychlosti, která může být 2x čí 3x pomalejší. Bohužel nemůže být tento přepínač použit u paired-end readů. Zároveň je možné nastavit maximální počet nahrazených bází v readu. \cite{bowtie}
 \\
 \\
 V případě že backtracking mechanismus není uspěšný může docházet k jeho nadměrnému vyskytu. Bowtie se tento jev snaží zmírnit dvojím indexováním. První index obsahuje BWT genomu a je označován jako dopředný index. Druhý obsahuje opět BWT genomu, ale se znaky v sekvenci v opačném pořadí, označovaný jako zrcadlový index. Read je pak v půlce rozdělen na dvě části a jejich zarovnávání probíhá odděleně tak, že je vždy backtracking povolen jen v dané části, která je zrovna zarovnávána. Pravá část je zarovnáváná podle dopředného indexu a levá část je zarovnávána podle zrcadlového indexu. 
-\\
-\\
+
+
+\begin{figure}[H]		
+		\centering
+		\includegraphics[width=1\textwidth]{./img/bowtie2_postup.png}
+		\caption{Burrows-Wheeler transformace řetězce T. \cite{bw_transform}}
+		\label{fig:bw_transform_1}
+\end{figure}
+
+
 TODO já nevím mě občas přijde že opisuju ten článek, a nevím jestli je to dobrý ...
 \\
 \\
@@ -500,8 +508,8 @@ a rozděluje algoritmus zarovnání na dvě části
 \\
 Pro každý read
 \begin{enumerate}
-	\item extrahování seed z readů a jeho zpětné doplňky - ne to je to dvojí indexování
-	\item extrahované podřetězce jsou zarovnány na referenci v bezmezerové modelu za pomocí full-text minute index
+	\item 1. Extrahování seedu z readů a jeho převrácených doplňku (seed je označení podřetězce readu) 
+	\item 2. Seedy a jejich převrácené doplňky jsou zarovnány na referenci v bezmezerové modelu za pomocí full-text minute indexu.
 	\item seed aligmenty jsou priorizovány a jejich pozice na referenčním genom jsou spočítány z Full text minute indexu
 	\item seedy jsou rozšířeny do úplného zarování pro zvýšení výkonu je použito SIMD -accelerated dynamic programming.
 \end{enumerate}

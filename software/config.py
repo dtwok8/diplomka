@@ -29,13 +29,10 @@ REFERENCE_KIR_GENS_PSEUDOGENS_FILE = "/home/kate/Dokumenty/FAV/Diplomka/existuji
 """
 
 HAPLOTYPES = {
-			"haplotype_jedna" : [
-				'3DL3: 00402', '3DL3:00802', '2DS2: 00101', '2DL2: 00301', '2DL3: 001', '2DP1: 00201', '2DL1: 00302', '3DP1: 007', '3DP1: 00901',
-				'2DL4: 00102', '2DL4: 00501', '3DL1: 01502', '3DS1: 01301', '2DL5A: 001', '2DS5: 00201', '2DS1: 00201', '2DS4: 001', '3DL2: 0020105', '3DL2:0070102' 
-							],
-			"haplotype_dva" : [
-				'3DL3: 00402', '3DL3:00802', '2DS2: 00101', '2DL2: 00301', '2DL3: 001', '2DP1: 00201', '2DL1: 00302', '3DP1: 007', '3DP1: 00901', '2DL4: 00102', '2DL4: 00501',
-				'3DL1: 01502', '3DS1: 01301', '2DL5A: 001', '2DS5: 00201', '2DS1: 00201', '2DS4: 001', '3DL2: 0020105', '3DL2:0070102' ]
+			"amala" : [
+				'3DL3: 0040201', '3DL3:00802', '2DS2: 0010101', '2DL2: 0030102', '2DL3: 0010109', '2DP1: 0020108', '2DL1: 0030201', '3DP1: 007', '3DP1: 0090101',
+				'2DL4: 0010201', '2DL4: 00501', '3DL1: 0150201', '3DS1: 0130101', '2DL5A: 00102', '2DS5: 0020101', '2DS1: 0020106', '2DS4: 0010101', '3DL2: 0020105', '3DL2:0070102' 
+							]
 }
 
 """ Folder for save new haplotype file """
@@ -74,7 +71,7 @@ ALELS_STATISTICS_FILE_PYC = "/home/kate/Dokumenty/FAV/Diplomka/software/data/ale
 
 # Because not enought memory, use a trick and save just changes witch are lower then (average 4769)
 LEVENSHTEIN_DISTANCE_CUT = 2500 #4769 
-CUT_COVERAGE_ALELS = 60
+CUT_COVERAGE_ALELS = 75
 CLOSE_DISTANCE = 1000
 
 # k hovnu ne tak uplne
