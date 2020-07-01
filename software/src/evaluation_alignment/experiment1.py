@@ -4,9 +4,6 @@ import os
 import pickle
 
 import config
-"""
-	Take just KIR_gen file, where is all alels.
-"""
 
 
 """

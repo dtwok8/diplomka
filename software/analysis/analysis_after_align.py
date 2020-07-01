@@ -15,7 +15,12 @@ ALELS_DISTANCE_FILE_PYC = "/home/kate/Dokumenty/FAV/Diplomka/software/analysis/a
 PLOT_OUTPUT_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/analysis/analysis_after_align_result"
 
 # ANALYSIS IN ALIGMENT
-ALELS_IN_ALIGMENT = ['3DL3: 0040201', '3DL3:00802', '2DS2: 0010101', '2DL2: 0030102', '2DL3: 0010109', '2DP1: 0020108', '2DL1: 0030201', '3DP1: 007', '3DP1: 0090101', '2DL4: 0010201', '2DL4: 00501', '3DL1: 0150201', '3DS1: 0130101', '2DL5A: 00102', '2DS5: 0020101', '2DS1: 0020106', '2DS4: 0010101', '3DL2: 0020105', '3DL2:0070102']
+#AMALA 
+#ALELS_IN_ALIGMENT = ['3DL3: 0040201', '3DL3:00802', '2DS2: 0010101', '2DL2: 0030102', '2DL3: 0010109', '2DP1: 0020108', '2DL1: 0030201', '3DP1: 007', '3DP1: 0090101', '2DL4: 0010201', '2DL4: 00501', '3DL1: 0150201', '3DS1: 0130101', '2DL5A: 00102', '2DS5: 0020101', '2DS1: 0020106', '2DS4: 0010101', '3DL2: 0020105', '3DL2:0070102']
+
+#BOB 
+ALELS_IN_ALIGMENT = ['3DL3: 00101', '3DL3: 019', '2DS2: 0010104', '2DL2: 0030101', '2DL3: 0020102', '2DP1: 0030101', '2DL1: 0030210', '3DP1: 002', '3DP1: 0030203', '2DL4: 0010202', '2DL4: 00501', '3DL1: 002','3DS1: 0130105', '2DL5A: 0010101', '2DS5: 0020104', '2DS1: 0020101', '2DS4: 0010105', '3DL2: 0020101' , '3DL2:0070102']
+
 
 """
 	make dictionary KIR:KIR00978 => KIR2DL1*0010102
@@ -109,6 +114,8 @@ def run():
 				axs[alel_number].plot(xf, statistics['cov_nucleotids'], '-b')
 				axs[alel_number].fill_between(xf, 0, statistics['cov_nucleotids'], facecolor='blue')
 			
+			# marker empty place of graph
+			axs[alel_number].axvspan(len(statistics['cov_nucleotids']), max_lenght, facecolor='grey')
 			axs[alel_number].set_aspect('auto', 'box')
 			axs[alel_number].text(max_lenght+10, max_height*0.5, alel.split('*')[1]+", cov: "+str(round(statistics['normalize_coverage'], 2))+"%, len: "+str(len(statistics['cov_nucleotids'])) , fontsize=9)
 
