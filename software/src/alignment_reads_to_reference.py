@@ -45,7 +45,7 @@ def alignment_read(read1: str, read2: str, basic_read_name: str):
 	for i in range(0,len(unique_b_index_list)):
 		index_name = os.path.basename(unique_b_index_list[i]).split('.')[0]
 		print("align: ", basic_read_name," ", index_name)
-		process = subprocess.run([config.BOWTIE_HOME_DIRECTORY+"/bowtie2", "--threads", str(config.BOWTIE_THREADS), "-x", index_name, "-1", read1,"-2", read2, "-S", os.path.join(config.ALIGNMENT_FOLDER, basic_read_name+"_"+index_name+"_align.sam")], cwd=config.BOWTIE_INDEX_FOLDER) 	
+		process = subprocess.run([config.BOWTIE_HOME_DIRECTORY+"/bowtie2", "--threads", str(config.BOWTIE_THREADS), "-x", index_name, "-1", read1,"-2", read2, "-S", os.path.join(config.ALIGNMENT_FOLDER, basic_read_name+"_"+index_name+".sam")], cwd=config.BOWTIE_INDEX_FOLDER) 	
 
 
 
@@ -66,7 +66,6 @@ def run():
 	read_basic_list = list()
 	for read in all_reads:
 		read_basic_name = read[:-4]
-
 		read_basic_list.append(read_basic_name)	
 
 	unique_set = set(read_basic_list)

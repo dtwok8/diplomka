@@ -7,7 +7,7 @@ import src.alignment_reads_to_reference as alignment_reads_to_reference
 import src.evaluation_alignment.experiment1 as experiment1
 import src.evaluation_alignment.experiment2 as experiment2
 import src.evaluation_alignment.experiment3 as experiment3
-
+import src.evaluation_alignment.exp2_more_alignment as exp2_more_alignment
 
 import src.renaming_alels_result as renaming_alels_result
 
@@ -27,7 +27,8 @@ def main():
 	if(config.EVALUATE):
 		print("eval")
 		#count_levenshtein.run()
-		experiment1.run()
+		#experiment1.run()
+		exp2_more_alignment.run()
 		#experiment3.run()
 		#analysis.run()
 		#renaming_alels_result.run()

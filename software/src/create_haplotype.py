@@ -61,6 +61,9 @@ def run():
 
 	for haplotype_name, haplotype in config.HAPLOTYPES.items():
 		print("Creating haplotype: ", haplotype_name, " ...")
+		result_haplotype_legend = ""
+		result_haplotype = ""
+		
 		for item in haplotype:	
 			found = False
 			# can be 3DL3:00402 or 2DS2*00101
