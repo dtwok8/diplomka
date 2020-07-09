@@ -271,11 +271,11 @@ def cut_avg(alels_statistics):
 							del alels_statistics_copy[key2]		
 
 				elif(statistics2['max_histogram'] > 2*statistics1['max_histogram']):
-					if(key1 in alels_statistics_copy):
-						print("del avg ",  statistics1['translation'])
-						del alels_statistics_copy[key1]	
-						# neco jineho
-
+					if(statistics2['max_histogram'] > 2 * average_deep_cov[gen2]['avg']):
+						if(key1 in alels_statistics_copy):
+							print("del avg ",  statistics1['translation'])
+							del alels_statistics_copy[key1]	
+						
 
 
 				#del cut_alel_statistics_deep_copy[key1]

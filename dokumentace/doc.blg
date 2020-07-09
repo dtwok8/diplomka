@@ -1,14 +1,14 @@
-This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: doc.aux
 The style file: csplainnatkiv.bst
 Database file #1: literatura.bib
 Warning--entry type for "Frycova_bakalarka" isn't style-file defined
---line 86 of file literatura.bib
+--line 87 of file literatura.bib
 Warning--to sort, need author or key in human_cell
 Warning--to sort, need author or key in chromosome_structure
-Warning--to sort, need author or key in kir_genotypes_10
 Warning--to sort, need author or key in haploidenticka_transplantace
+Warning--to sort, need author or key in kir_genotypes_10
 Warning--to sort, need author or key in genome_gov
 Warning--to sort, need author or key in illumina
 Warning--empty journal in NK_receptors
@@ -27,34 +27,34 @@ Warning--empty journal in KIR_img_princip
 Warning--empty publisher in en_smith
 You've used 27 entries,
             2898 wiz_defined-function locations,
-            747 strings with 9281 characters,
-and the built_in function-call counts, 9479 in all, are:
-= -- 941
-> -- 464
+            747 strings with 9495 characters,
+and the built_in function-call counts, 9812 in all, are:
+= -- 968
+> -- 518
 < -- 11
-+ -- 161
-- -- 134
-* -- 760
-:= -- 1510
++ -- 179
+- -- 152
+* -- 796
+:= -- 1564
 add.period$ -- 99
 call.type$ -- 27
-change.case$ -- 81
+change.case$ -- 90
 chr.to.int$ -- 27
 cite$ -- 80
 duplicate$ -- 476
 empty$ -- 711
-format.name$ -- 199
-if$ -- 1983
+format.name$ -- 217
+if$ -- 2046
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 45
 newline$ -- 150
 num.names$ -- 99
-pop$ -- 258
+pop$ -- 276
 preamble$ -- 1
-purify$ -- 81
+purify$ -- 90
 quote$ -- 0
-skip$ -- 354
+skip$ -- 363
 stack$ -- 0
 substring$ -- 78
 swap$ -- 47

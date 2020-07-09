@@ -11,13 +11,13 @@ import matplotlib.pyplot as plt
 
 GEN_FILE = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/referencni/IPDKIR-Latest/fasta/KIR_gen.fasta"
 END_REFERENCE_GEN_FILE = "_gen.fasta"
-ALELS_STATISTICS_FILE_PYC = "/home/kate/Dokumenty/FAV/Diplomka/software/data/statistics/amala_KIR_gen_exp2_step2.pyc"
+ALELS_STATISTICS_FILE_PYC = "/home/kate/Dokumenty/FAV/Diplomka/software/data/statistics/test11_KIR_gen_exp2_step4.pyc"
 PLOT_OUTPUT_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/analysis/analysis_after_align_result"
 
 
 # ANALYSIS IN ALIGMENT
 #AMALA 
-ALELS_IN_ALIGMENT = ['3DL3: 0040201', '3DL3:00802', '2DS2: 0010101', '2DL2: 0030102', '2DL3: 0010109', '2DP1: 0020108', '2DL1: 0030201', '3DP1: 007', '3DP1: 0090101', '2DL4: 0010201', '2DL4: 00501', '3DL1: 0150201', '3DS1: 0130101', '2DL5A: 00102', '2DS5: 0020101', '2DS1: 0020106', '2DS4: 0010101', '3DL2: 0020105', '3DL2:0070102']
+#ALELS_IN_ALIGMENT = ['3DL3: 0040201', '3DL3:00802', '2DS2: 0010101', '2DL2: 0030102', '2DL3: 0010109', '2DP1: 0020108', '2DL1: 0030201', '3DP1: 007', '3DP1: 0090101', '2DL4: 0010201', '2DL4: 00501', '3DL1: 0150201', '3DS1: 0130101', '2DL5A: 00102', '2DS5: 0020101', '2DS1: 0020106', '2DS4: 0010101', '3DL2: 0020105', '3DL2:0070102']
 
 #BOB 
 #ALELS_IN_ALIGMENT = ['3DL3: 00101', '3DL3: 019', '2DS2: 0010104', '2DL2: 0030101', '2DL3: 0020102', '2DP1: 0030101', '2DL1: 0030210', '3DP1: 002', '3DP1: 0030203', '2DL4: 0010202', '2DL4: 00501', '3DL1: 002','3DS1: 0130105', '2DL5A: 0010101', '2DS5: 0020104', '2DS1: 0020101', '2DS4: 0010105', '3DL2: 0020101' , '3DL2:0070102']
@@ -71,7 +71,8 @@ ALELS_IN_ALIGMENT = ['3DL3: 0040201', '3DL3:00802', '2DS2: 0010101', '2DL2: 0030
 #ALELS_IN_ALIGMENT = ['3DL3: 0030101', '3DL3: 0140201', '2DS2: 0010104', '2DL2: 0030105', '2DL3: 0020101', '2DL5B: 01301', '2DS3: 0020102', '2DS3: 0020102', '2DP1: 0010203', '2DP1: 0030101', '2DL1: 0030203', '2DL1: 007', '3DP1: 004','3DP1: 004', '2DL4: 0080104', '2DL4: 010', '3DL1: 0150101', '3DS1: 014', '2DS1: 0020104', '3DL2: 00501', '3DL2: 00501']
 
 #test11
-#ALELS_IN_ALIGMENT = ['3DL3: 0030103', '3DL3: 00601', '2DS2: 0010103', '2DS2: 0010112', '2DL2: 0010102', '2DL2: 0030101', '2DP1: 0030102', '2DP1: 008', '2DL1: 00402', '2DL1: 00402', '3DP1: 0030101', '3DP1: 005', '2DL4: 00104', '2DL4: 0080104','3DS1: 0130104', '3DS1: 055', '2DL5A: 0050102', '2DL5A: 0050102', '2DS5: 0020102', '2DS5: 0020103', '2DS1: 0020102', '2DS1: 0020105', '3DL2: 0010102', '3DL2: 0070102']
+ALELS_IN_ALIGMENT = ['3DL3: 0030103', '3DL3: 00601', '2DS2: 0010103', '2DS2: 0010112', '2DL2: 0010102', '2DL2: 0030101', '2DP1: 0030102', '2DP1: 008', '2DL1: 00402', '2DL1: 00402', '3DP1: 0030101', '3DP1: 005', '2DL4: 00104', '2DL4: 0080104','3DS1: 0130104', '3DS1: 055', '2DL5A: 0050102', '2DL5A: 0050102', '2DS5: 0020102', '2DS5: 0020103', '2DS1: 0020102', '2DS1: 0020105', '3DL2: 0010102', '3DL2: 0070102']
+
 
 """
 	make dictionary KIR:KIR00978 => KIR2DL1*0010102
@@ -94,6 +95,8 @@ def create_alels_translate_dictionary():
 def run():
 	KIR_alels_dictionary = create_alels_translate_dictionary()
 
+	print(ALELS_STATISTICS_FILE_PYC)
+	
 	with open(ALELS_STATISTICS_FILE_PYC, 'rb') as handle:
 		alels_statistics = pickle.load(handle)
 
@@ -119,7 +122,7 @@ def run():
 			
 		alels_statistics_sort_by_gens[gen][trasnlate_alel] = statistics
 
-
+	count_alels = 0
 	for gen, gen_alel_statistic in alels_statistics_sort_by_gens.items():
 		print(gen)
 		fig, axs = plt.subplots(len(gen_alel_statistic))
@@ -142,6 +145,7 @@ def run():
 					#statistics['cov_nucleotids'][i]=0
 
 		for alel, statistics in gen_alel_statistic.items():	
+			count_alels += 1
 			xf = np.linspace(0, len(statistics['cov_nucleotids']), len(statistics['cov_nucleotids']))
 
 			if(len(gen_alel_statistic) == 1):
@@ -222,6 +226,7 @@ def run():
 		plt.clf() # clear plot
 
 	print("Lost: ", lost)
+	print("Count alels: ", count_alels)
 
 	# musim vzit kazde dvě alelely a zase si urcit vzdalenost mezi nimi 
 	# a od nejake vzdalenosti se mrknout jak jsou zarovanany tam kde je ten rozdil mezi nimi

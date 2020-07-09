@@ -56,7 +56,7 @@
   leukemia.
 \newblock 2010.
 \newblock Dostupn{\'{e}}~z:
-  \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2953880/#}.
+  \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2953880/}.
 
 \bibitem[Fryčová(2016)]{Frycova_bakalarka}
 {\sc Fryčová}, M.
@@ -68,13 +68,6 @@
 {\sc Hernychová}, L.
 \newblock Receptory NK buněk.
 \newblock 2012.
-
-\bibitem[Hsu et~al.(2002)Hsu, Chida, Geraghty,, Dupont]{KIR_haplotypy_ct}
-{\sc Hsu}, K.~C. et~al.
-\newblock \emph{The killer cell immunoglobulin‐like receptor (KIR) genomic
-  region: gene‐order, haplotypes and allelic polymorphism} [online]. 2002.
-\newblock Dostupn{\'{e}}~z:
-  \url{https://onlinelibrary.wiley.com/doi/full/10.1034/j.1600-065X.2002.19004.x}.
 
 \bibitem[Huang et~al.(2012)Huang, Li, Myers,, Marth]{art}
 {\sc Huang}, W. et~al.
@@ -133,6 +126,16 @@
 \newblock Elektroforéza nukleových kyselin.
 \newblock 2017.
 \newblock Dostupn{\'{e}}~z: \url{https://fvhe.vfu.cz/files/mbhp_2018_02.pdf}.
+
+\bibitem[Pende et~al.(2019)Pende, Falco, Vitale, Cantoni, Vitale, Munari,
+  Bertaina, Moretta, Del~Zotto, Pietra, Mingari, Locatelli,,
+  Moretta]{KIR_haplotypy_ct}
+{\sc Pende}, D. et~al.
+\newblock \emph{Killer Ig-Like Receptors (KIRs): Their Role in NK Cell
+  Modulation and Developments Leading to Their Clinical Exploitation} [online].
+  2019.
+\newblock Dostupn{\'{e}}~z:
+  \url{https://www.frontiersin.org/articles/10.3389/fimmu.2019.01179/full}.
 
 \bibitem[Penka -- a~kolektiv(2012)Penka, a~kolektiv]{transfuzni_lekarstvi}
 {\sc Penka}, M. -- {\sc kolektiv}, E.~T.
