@@ -15,11 +15,11 @@ END_REFERENCE_GEN_FILE = "_gen.fasta"
 """
 def get_all_references_alels():
 	# make dictionary KIR:KIR00978 => KIR2DL1*0010102
-	print("Preparing alels from files ", config.REFERENCE_KIR_GENS)
+	print("Preparing alels from files ", config.REFERENCE_KIR_GENS_FILE)
 	KIR_alels_dictionary = dict()
 	file_content = ""
 
-	with open(config.REFERENCE_KIR_GENS) as fileHandle:
+	with open(config.REFERENCE_KIR_GENS_FILE) as fileHandle:
 		file_content = fileHandle.read()
 
 	alels = file_content.split('>')
@@ -43,11 +43,11 @@ def get_all_references_alels():
 	Then find KIR gen in dictionary
 	try to find which alels start with wanted alels number
 """
-def create_new_reference(haplotype: list, haplotype_name: str, all_references_alels: dict, file_sufix: str):
-	result_haplotype = ""
-	result_haplotype_legend = ""
+def create_new_reference(genotype: list, genotype_name: str, all_references_alels: dict, file_sufix: str):
+	result_genotype = ""
+	result_genotype_legend = ""
 
-	for item in haplotype:	
+	for item in genotype:	
 		found = False
 		# KIR:KIR00432
 		wanted_alel = item.split(":")[1]
@@ -56,17 +56,17 @@ def create_new_reference(haplotype: list, haplotype_name: str, all_references_al
 		wanted_alel = wanted_alel.strip()
 
 		if(wanted_alel in all_references_alels):
-			result_haplotype += all_references_alels[wanted_alel]
+			result_genotype += all_references_alels[wanted_alel]
 		else:
 			print("Can not find item ", wanted_gen+"*"+wanted_alel)
 							
 
-	output_file = os.path.join("/home/kate/Dokumenty/FAV/Diplomka/software/data/reference/", haplotype_name+"_"+file_sufix+".fasta")
-	haplotype_result_file_rename = open(output_file, "w+")
-	haplotype_result_file_rename.write(result_haplotype)
-	haplotype_result_file_rename.close()
+	output_file = os.path.join("/home/kate/Dokumenty/FAV/Diplomka/software/data/reference/", genotype_name+"_"+file_sufix+".fasta")
+	genotype_result_file_rename = open(output_file, "w+")
+	genotype_result_file_rename.write(result_genotype)
+	genotype_result_file_rename.close()
 
-	#print("Haplotype legend ", haplotype_name, ":", result_haplotype_legend)
+	#print("genotype legend ", genotype_name, ":", result_genotype_legend)
 	print("Create reference file: ", output_file)
 	return output_file
 
@@ -87,12 +87,12 @@ def align(executable_path: str, new_reference, basic_name: str, file_sufix: str)
 	print("Find reads: ", reads_files)
 
 	find = False
-	haplotype=""
+	genotype=""
 	for read_file in reads_files:
-		haplotype = read_file.split('.')[0]
-		haplotype = haplotype[:-1]
+		genotype = read_file.split('.')[0]
+		genotype = genotype[:-1]
 
-		if basic_name.startswith(haplotype):
+		if basic_name.startswith(genotype):
 			find = True
 			break
 
@@ -100,8 +100,8 @@ def align(executable_path: str, new_reference, basic_name: str, file_sufix: str)
 		print("Reads for", basic_name, "not found.")
 		return
 
-	read1= os.path.join(config.READS_FOLDER, haplotype+"1.fq")
-	read2= os.path.join(config.READS_FOLDER, haplotype+"2.fq")
+	read1= os.path.join(config.READS_FOLDER, genotype+"1.fq")
+	read2= os.path.join(config.READS_FOLDER, genotype+"2.fq")
 	
 	print("read1: ", read1)
 	print("read2: ", read2)

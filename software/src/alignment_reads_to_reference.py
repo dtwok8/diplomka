@@ -14,13 +14,10 @@ END_READS_FILE = ".fq"
 
 """
 def bowtie_build_index():
-	ref_kir_gen_files = [f for f in os.listdir(config.REFERENCE_KIR_GENS_FOLDER) if os.path.isfile(os.path.join(config.REFERENCE_KIR_GENS_FOLDER, f)) and (f.endswith(END_REFERENCE_GEN_FILE))]
-	
-	for i in range(0,len(ref_kir_gen_files)):
-		name = os.path.splitext(os.path.basename(ref_kir_gen_files[i]))[0]
-		# cw= index_foler - change folder where command will be execute, because there wasnt any parameter for output folder
-		process = subprocess.run([config.BOWTIE_HOME_DIRECTORY+"/bowtie2-build", "--threads", str(config.BOWTIE_THREADS), config.REFERENCE_KIR_GENS_FOLDER+"/"+ref_kir_gen_files[i], name], cwd=config.BOWTIE_INDEX_FOLDER)
-		print("aligment build index", name)
+	name = os.path.splitext(os.path.basename(config.REFERENCE_KIR_GENS_FILE))[0]
+	# cw= index_foler - change folder where command will be execute, because there wasnt any parameter for output folder
+	process = subprocess.run([config.BOWTIE_HOME_DIRECTORY+"/bowtie2-build", "--threads", str(config.BOWTIE_THREADS), config.REFERENCE_KIR_GENS_FILE, name], cwd=config.BOWTIE_INDEX_FOLDER)
+	print("aligment build index", name)
 
 
 """

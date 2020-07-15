@@ -18,7 +18,6 @@ END_REFERENCE_GEN_FILE = "_gen.fasta"
 def count_statistic(sort_bam_file: str):
 	coverage_string = pysam.depth("-aa", sort_bam_file)
 	coverage_list= coverage_string.splitlines()
-
 	curent_alel =""
 	# number of positions covered 
 	width_coverage = 0
@@ -30,7 +29,7 @@ def count_statistic(sort_bam_file: str):
 
 	for item_nuc in coverage_list:
 		item_nuc_list = item_nuc.split()
-
+		
 		if(item_nuc_list[0] != curent_alel):
 			#skip the first change
 			if(curent_alel != ""):
@@ -59,6 +58,15 @@ def count_statistic(sort_bam_file: str):
 			if(max_histogram < int(item_nuc_list[2])):
 				max_histogram = int(item_nuc_list[2])
 
+	# last item
+	alels_statistics[curent_alel] = {}
+	alels_statistics[curent_alel]['width_coverage'] = width_coverage
+	alels_statistics[curent_alel]['deep_coverage'] = deep_coverage
+	alels_statistics[curent_alel]['alel_size'] = alel_size
+	alels_statistics[curent_alel]['max_histogram'] = max_histogram
+	alels_statistics[curent_alel]['cov_nucleotids'] = cov_nucleotids
+
+	print("Found alels in aligments: ", len(alels_statistics))
 	return alels_statistics
 
 
@@ -66,17 +74,17 @@ def count_statistic(sort_bam_file: str):
 	Evaluate statistics, find max coverage of each gene
 	and write it into result file.
 """
-def evaluate_statistics(haplotype_gen_statistics: dict, output_file_name: str):
+def evaluate_statistics(genotype_gen_statistics: dict, output_file_name: str):
 
-	for alel, values in haplotype_gen_statistics.items():
+	for alel, values in genotype_gen_statistics.items():
 		values["normalize_coverage"] = values['width_coverage'] / (values['alel_size'] / 100)
 			
 	# asi muzeme predpokladat za budou serazeny
 	# takze by to asi jen chtelo seradit
 	# {'KIR:KIR00001': {'number_nuc_coverage': 7407, 'sum_nuc_coverage': 19500, 'alel_size': 14738, 'max_histogram': 6, 'normalize_coverage': 50.25783688424481}, 'KIR:KIR00978': 
-	#sorted_x = sorted(haplotype_gen_statistics.items(), key=operator.itemgetter(1["normalize_coverage"]))
+	#sorted_x = sorted(genotype_gen_statistics.items(), key=operator.itemgetter(1["normalize_coverage"]))
 	
-	sorted_x = {k: v for k, v in sorted(haplotype_gen_statistics.items(), key=lambda item: item[1]["normalize_coverage"], reverse= True)}
+	sorted_x = {k: v for k, v in sorted(genotype_gen_statistics.items(), key=lambda item: item[1]["normalize_coverage"], reverse= True)}
 	# takze nejdriv je seradit podle coverage
 	output_file = open(output_file_name, "w")
 
@@ -106,13 +114,13 @@ def prepare_sam_bam_file(sam_file: str, file_sufix: str):
 	return sort_bam_file
 
 
-def create_statistics(haplotype_aligment_file, basic_name: str, file_sufix: str):
-	sort_bam_file = prepare_sam_bam_file(haplotype_aligment_file, file_sufix)
-	haplotype_gen_statistics = count_statistic(sort_bam_file)
+def create_statistics(genotype_aligment_file, basic_name: str, file_sufix: str):
+	sort_bam_file = prepare_sam_bam_file(genotype_aligment_file, file_sufix)
+	genotype_gen_statistics = count_statistic(sort_bam_file)
 
 	result_file = os.path.join(config.ALELS_STATISTICS_FOLDER, basic_name+file_sufix+".txt")
 
-	alels_statistics = evaluate_statistics(haplotype_gen_statistics, result_file)
+	alels_statistics = evaluate_statistics(genotype_gen_statistics, result_file)
 
 	pyc_file = os.path.join(config.ALELS_STATISTICS_FOLDER, basic_name+file_sufix+".pyc")
 	
@@ -126,23 +134,21 @@ def create_statistics(haplotype_aligment_file, basic_name: str, file_sufix: str)
 def create_alels_dictionary():
 	print("Creating dictionary...")
 	# make dictionary KIR:KIR00978 => KIR2DL1*0010102
-	ref_gen_files = [f for f in os.listdir(config.REFERENCE_KIR_GENS_FOLDER) if os.path.isfile(os.path.join(config.REFERENCE_KIR_GENS_FOLDER, f)) and f.endswith(END_REFERENCE_GEN_FILE) ]
-	print("Preparing alels from files ", ref_gen_files)
+	print("Preparing alels from files ", config.REFERENCE_KIR_GENS_FILE)
 	KIR_alels_dictionary = dict()
 	file_content = ""
 
-	for ref_file in ref_gen_files:
-		with open(os.path.join(config.REFERENCE_KIR_GENS_FOLDER, ref_file)) as fileHandle:
-			file_content = fileHandle.read()
+	with open(config.REFERENCE_KIR_GENS_FILE) as fileHandle:
+		file_content = fileHandle.read()
 
-		alels = file_content.split('>')
+	alels = file_content.split('>')
 
-		for alel in alels[1:]: # alels[0] is empty
-			# KIR:KIR00037 KIR2DS2*0010101 14577 bp
-			alel_head, alel_body = alel.split('\n', 1)
-			alel_marker = alel_head.split()[0] # KIR:KIR00037
+	for alel in alels[1:]: # alels[0] is empty
+		# KIR:KIR00037 KIR2DS2*0010101 14577 bp
+		alel_head, alel_body = alel.split('\n', 1)
+		alel_marker = alel_head.split()[0] # KIR:KIR00037
 
-			KIR_alels_dictionary[alel_marker] = alel_marker = alel_head.split()[1] 
+		KIR_alels_dictionary[alel_marker] = alel_marker = alel_head.split()[1] 
 	return KIR_alels_dictionary
 
 
@@ -292,18 +298,18 @@ def run():
 
 	print("Aligment files: ", aligments_sam_files)
 
-	for haplotype_aligment_file in aligments_sam_files:
+	for genotype_aligment_file in aligments_sam_files:
 		# step 1 
-		basic_name = haplotype_aligment_file.split('.')[0] 
-		alels_statistics = create_statistics(haplotype_aligment_file, basic_name, "_exp2_step1")
+		basic_name = genotype_aligment_file.split('.')[0] 
+		alels_statistics = create_statistics(genotype_aligment_file, basic_name, "_exp2_step1")
 
 		# step 2
-		haplotype_gens = list()
+		genotype_gens = list()
 		for key, statistic in alels_statistics.items():
 			if statistic['normalize_coverage'] > config.CUT_COVERAGE_ALELS:
-				haplotype_gens.append(key)
+				genotype_gens.append(key)
 
-		new_reference = make_new_reference_and_align.create_new_reference(haplotype_gens, basic_name, all_references_alels, "_exp2_step2")
+		new_reference = make_new_reference_and_align.create_new_reference(genotype_gens, basic_name, all_references_alels, "_exp2_step2")
 		new_align_file = make_new_reference_and_align.align("/home/kate/Dokumenty/FAV/Diplomka/software/data/temp", new_reference, basic_name, "_exp2_step2")
 
 		#new_align_file = os.path.join("/home/kate/Dokumenty/FAV/Diplomka/software/data/temp", basic_name+"_exp2_step2.sam")

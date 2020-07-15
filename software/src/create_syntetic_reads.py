@@ -1,14 +1,14 @@
 import subprocess
 import os
 
-import src.create_haplotype as create_haplotype
+import src.create_genotype as create_genotype
 import config
 
 
-HAPLOTYPE_END_FILE = '.fa'
+GENOTYPE_END_FILE = '.fa'
 """
-	Create haplotypes.
-	Run ART for all files in haplotype folder.
+	Create genotypes.
+	Run ART for all files in genotype folder.
 
 	SET ART:
 		-p paired-end read
@@ -19,14 +19,14 @@ HAPLOTYPE_END_FILE = '.fa'
 	
 """
 def run():
-	print("creating new haplotypes ...")
-	create_haplotype.run()
+	print("creating new genotypes ...")
+	create_genotype.run()
 
-	haplotype_files = [f for f in os.listdir(config.HAPLOTYPE_FOLDER) if os.path.isfile(os.path.join(config.HAPLOTYPE_FOLDER, f)) and (f.endswith(HAPLOTYPE_END_FILE))]
-	print("run ART for: ", haplotype_files)
+	genotype_files = [f for f in os.listdir(config.GENOTYPE_FOLDER) if os.path.isfile(os.path.join(config.GENOTYPE_FOLDER, f)) and (f.endswith(GENOTYPE_END_FILE))]
+	print("run ART for: ", genotype_files)
 
-	for ha_file in haplotype_files:
+	for ge_file in genotype_files:
 		# know that file will be .fa, ART want it withnout extension
-		output_file = os.path.join(config.READS_FOLDER, ha_file[:-3])
+		output_file = os.path.join(config.READS_FOLDER, ge_file[:-3])
 		#art_illumina -ss MSv1 -sam -i amplicon_reference.fa -p -l 250 -f 100 -m 300 -s 10 -o moje_art_data$
-		process = subprocess.run(["art_illumina" ,"-ss", "MSv1", "-sam", "-i", os.path.join(config.HAPLOTYPE_FOLDER, ha_file), "-p", "-l", "250", "-f", "100", "-m", "300", "-s", "10", "-o", output_file])	
+		process = subprocess.run(["art_illumina" ,"-ss", "MSv1", "-sam", "-i", os.path.join(config.GENOTYPE_FOLDER, ge_file), "-p", "-l", "250", "-f", "100", "-m", "300", "-s", "10", "-o", output_file])	

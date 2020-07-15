@@ -34,7 +34,7 @@
 \abstracttexten{The text of the abstract (in English). It contains the English translation of the thesis title and a short description of the thesis.
 Text abstraktu (česky). Obsahuje krátkou anotaci (cca 10 řádek) v češtině. Budete ji potřebovat i při vyplňování údajů o bakalářské práci ve STAGu. Český i anglický abstrakt by měly být na stejné stránce a měly by si obsahem co možná nejvíce odpovídat (samozřejmě není možný doslovný překlad!).}
 
-\abstracttextcz{Diplomová práce se zabývá identifikací KIR alel. Cílem práce je vytvořit nástroj pro jejich automatickou identifikaci. V práci byli analyzovány KIR geny a metody získávaní dat z DNA, konkrétně next-generation sequencing (NGS). Dále byly analyzovány bioinformatické nástoje se zaměřením na nástroje ART a Bowtie. Vytvoření syntetických readů, které byly následně použity na testování probíhalo pomocí nástroje ART. Nástroj Bowtie byl použit pro zarování readů (kusů DNA) na referenční DNA. Nástoj pro indentifikaci byl vyvíjen na syntetických readech a nakonec testován na datech komerčních linii DNA získaných z FN Plzeň případně z BC LF UK Plzeň.}
+\abstracttextcz{Diplomová práce se zabývá identifikací KIR alel. Cílem práce je vytvořit nástroj pro jejich automatickou identifikaci. V práci byli analyzovány KIR geny a metody získávaní dat z DNA, konkrétně next-generation sequencing (NGS). Dále byly analyzovány bioinformatické nástoje se zaměřením na nástroje ART a Bowtie. Vytvoření syntetických readů, které byly následně použity na testování probíhalo pomocí nástroje ART. Nástroj Bowtie byl použit pro zarování readů (kusů DNA) na referenční DNA. Nástoj pro indentifikaci byl vyvíjen na syntetických readech a nakonec testován na datech komerčních linii DNA získaných z FN Plzeň/BC LF UK Plzeň.}
 
 % Na titulní stranu a do textu prohlášení se automaticky vkládá 
 % aktuální rok, resp. datum. Můžete je změnit:
@@ -87,6 +87,8 @@ Text abstraktu (česky). Obsahuje krátkou anotaci (cca 10 řádek) v češtině
 \usepackage[numbers,sort&compress]{natbib}
 
 \usepackage{multirow}
+\usepackage{multicol}
+\usepackage{import}
 
 %tabulky
 \usepackage{makecell} 
@@ -113,10 +115,10 @@ Text abstraktu (česky). Obsahuje krátkou anotaci (cca 10 řádek) v češtině
 Transplantace krvetvorných buněk se využívá jako terapeutická procedura pro mnoho vážných hematologických poruch mezi které patří například akutní myeloidní leukemie. Transplantace je proces při kterém jsou dárci odebrány krvetvorné buňky které jsou následně vpraveny do těla pacienta trpícím hematologickou poruchou. Jednou z komplikací, která může nastat je reakce imunitního systému na nově vložené dárcovské buňky resp. štěp. V případě, že si štěp s imunitním systémem nebudou rozumět, může dojít k silné zánětlivé reakci, která může skončit až smrtí pacienta. V neposlední řadě může dojít také k relapsu onemocnění (návrat nemoci). 
 \\
 \\
-K potlačení odmítnutí dárcovského štěpu se primárně vybírají dárci podle shody v HLA znacích následovaných sekundárními znaky, které mohou být například věk či pohlaví. V poslední době se množí studie, které prokazují vliv i takzvaných non-HLA genů. Jedním z nich může být i gen Killer-cell immunoglobulin-like receptor (KIR). V případě, kdy by se rozhodovalo mezi více dárce by se mohl ten vhodnější vybrat právě na základě KIR. Pro zjištění jak HLA znaků tak KIR genů se využívají sekvenační metody. V případě kdy by bylo nalezeno více vhodných dárců, tj. se shodou 10/10 nebo 9/10, vybíralo by se následně podle KIR genů. \cite{KIR_transplantace_jindra} \cite{Frycova_bakalarka}
+K potlačení odmítnutí dárcovského štěpu se primárně vybírají dárci podle shody v HLA znacích následovaných sekundárními znaky, které mohou být například věk či pohlaví. Shoda v HLA genech se určuje podle shody v alelách genů HLA -A, -B, -C, -DRB1, -DQB1. Alela je konkrétní forma genu. Každý jedinec má tyto HLA geny dvakrát (jednu pětici od matky a druhou od otce) a proto se úplná shoda označuje jako 10/10. V poslední době se množí studie, které prokazují vliv i takzvaných non-HLA genů. Jedním z nich může být i skupina genů Killer-cell immunoglobulin-like receptor (KIR). Jednou z výhod je, že určité seskupení KIR genů snižuje riziko návratu nemoci. V případě, kdy by se rozhodovalo mezi více dárce by se mohl ten vhodnější vybrat právě na základě KIR. Pro zjištění jak HLA znaků tak KIR genů se využívají sekvenační metody. V případě kdy by bylo nalezeno více vhodných dárců v HLA znacích, tj. se shodou 10/10 nebo 9/10, vybíralo by se následně podle KIR genů. \cite{KIR_transplantace_jindra} \cite{Frycova_bakalarka}
 \\
 \\
-Cílem práce je navrhnout a implementovat nástroj pro automatickou identifikaci KIR alel. Vstupní data tzv. ready jsou neznámý kus DNA (posloupnost písmen A, C, G a T) a jsou výstupem ze sekvenačních technik. Nikdo přesně neví co znamenají. Může to být gen, část genu nebo několik různých genů. Význam readu (o jaký gen se jedná) se zjišťuje zarovnáváním, kdy se daná sekvence porovnává vůči referenčnímu genu. Ready budou pro vývoj nástroje simulována a v konečné fázi testování budou vyměněna za data z FN Plzeň. V poslední fázi bude vyhodnocena shoda readů a referenčních genů.
+Cílem práce je navrhnout a implementovat nástroj pro automatickou identifikaci KIR alel. Vstupní data tzv. ready jsou neznámý kus DNA (posloupnost písmen A, C, G a T) a jsou výstupem ze sekvenačních technik. Nikdo přesně neví co znamenají. Může to být gen, část genu nebo několik různých genů. Význam readu (o jaký gen se jedná) se zjišťuje zarovnáváním, kdy se daná sekvence porovnává vůči referenčnímu genu. Ready budou pro vývoj nástroje simulována a v konečné fázi testování budou vyměněna za data z FN Plzeň/BC LF UK Plzeň. V poslední fázi bude vyhodnocena shoda readů a referenčních genů.
 
 
 \chapter{Imunitní systém a jeho spojitost s geny}
@@ -152,7 +154,7 @@ Přesná definice mezi HLA a non-HLA geny neexistuje. Mimo jiné i jejich rozdě
 \begin{figure}[H]		
 		\centering
 		\includegraphics[width=300px]{./img/genom6_mica.jpg}
-		\caption{Šestý chromozom zobrazující HLA(-A, -B, -C, -DR, -DQ, -DP) i non-HLA(MICA, MICB) geny. Protein vzniklý expresí MICA genu je definován exony, které definují přepis do RNA. Introny při překladu nehrají roli a často jsou sekvenovány jen exony. \cite{chromozome6_mica} 
+		\caption{Šestý chromozom zobrazující HLA(-A, -B, -C, -DR, -DQ, -DP) i non-HLA(MICA, MICB) geny. Protein vzniklý expresí genu je definován exony, které definují transkripci(přepis) do RNA. Introny při translaci(překladu) nehrají roli a často jsou sekvenovány jen exony. \cite{chromozome6_mica} 
 		}
 		\label{fig:hla_genome}
 \end{figure}
@@ -161,7 +163,7 @@ Přesná definice mezi HLA a non-HLA geny neexistuje. Mimo jiné i jejich rozdě
 HLA a některé non-HLA geny se nacházejí na krátkém raménku 6 chromozomu, konkrétně 6p21.3 a zaujímá úsek přibližně jednu tisícinu genomu. Tento region je nejvíce komplexní a polymorfní na lidském genomu s více než 220 geny. Oproti tomu jedna ze skupin non-HLA genů, konkrétně KIR geny, se nachází na 19 chromozomu. Rozsáhlá diverzita genů vznikala snahou eliminovat neustále se měnící spektrum patogenů. Produkty těchto genů na povrch buňky významně ovlivňují odpověď na infekční choroby a výsledky buněčné či orgánové transplantace. \cite{imgt_hla_database}
 \\
 \\
-Při určování shody dárce a pacienta se rozhoduje na základě schody alel u genů HLA -A, -B, -C, -DRB1, -DQB1. Díky velké diverzitě HLA genů je počet možných kombinací několik miliard. Některé kombinace genů se vyskytují na základě oblasti či národnosti častěji nebo mohou být naopak vzácné. HLA geny se obvykle dědí jako blok (cely haplotyp), avšak ve výjmečných případech může dojít k rekombinaci. Z tohoto důvodu je nejsnadnější nalést shodu v pokrevním příbuzenstvu.
+Při určování shody dárce a pacienta se rozhoduje na základě shody alel u genů HLA -A, -B, -C, -DRB1, -DQB1. Díky velké diverzitě HLA genů je počet možných kombinací několik miliard. Některé kombinace genů se vyskytují na základě oblasti či národnosti častěji nebo mohou být naopak vzácné. HLA geny se obvykle dědí jako blok (cely haplotyp), avšak ve výjmečných případech může dojít k rekombinaci. Z tohoto důvodu je nejsnadnější nalést shodu v pokrevním příbuzenstvu.
 \\
 \\
 Jelikož každý jedinec má dvakrát geny na pozicích HLA -A, -B, -C, -DRB1 a -DQB1 (jednu pětici od otce, druhou pětici od matky), je maximální shoda 10/10 (shoda obou alel v lokusech) popř, DPB1 a shoda 12/12. Čím je shoda menší tím větší je riziko nepřijetí stěpu. U nepříbuzných jedinců lze tolerovat shodu 9/10 či 8/10. \cite{Frycova_bakalarka} \cite{KIR_transplantace_jindra}
@@ -238,7 +240,7 @@ Příkladem může být KIR2DL1*010101, kde 2D označuje dvě imunoglubulinové 
 Další rozdělení KIR genů je na již výše zmíněné inhibiční a aktivační. Dle obrázků~\ref{fig:NK_receptors} a  \ref{fig:img_kir_nomenklatura} je možné si povšimnout detailu, že až na KIR2DL4 jsou aktivační KIR s krátkým ocáskem, zatímco inhibiční jsou s dlouhým ocáskem. 
 
 \subsubsection{Aktivace NK buněk pomocí KIR}
-Jak již bylo výše zmíněno, KIR receptory můžeme rozdělit na inhibiční a aktivační. Zda dojde k aktivaci NK buňky rozhoduje právě jejich rovnováha na zkoumané buňce. Zatímco inhibiční receptory se váží hlavně na molekuly HLA, aktivační receptory rozpoznávají molekuly, které jsou exprimovány na membránu při buněčném stresu. Obrázek \ref{fig:img_kir_ligand} uvádí vazebné ligandy pro jednotlivé KIR receptory.  
+Jak již bylo výše zmíněno, KIR receptory můžeme rozdělit na inhibiční a aktivační. Zda dojde k aktivaci NK buňky rozhoduje právě jejich rovnováha na zkoumané buňce. Obrázek \ref{fig:img_kir_ligand} uvádí vazebné ligandy pro jednotlivé KIR receptory.  
 
 \begin{figure}[H]		
 		\centering
@@ -262,18 +264,18 @@ Některé virem napadené buňky potlačují propsání HLA ligandu na povrch bu
 
 
 \subsubsection{KIR genotyp a haplotyp}
-KIR genotyp je vyjádření, jaké konkrétní KIR geny genom obsahuje. Genotyp je možné rozdělit na dvě části, takzvané haplotypy. Jeden haplotyp je od otce, druhý je od matky. Na základě variací obsahu genů by bylo možné vytvořit nepřeberné množství KIR genotypů. Proto byl díky sesbíraným haplotypům sestaven model, který toto množství mírně redukuje. Existují vzácné varianty, které se do tohoto modelu nehodí. Haplotyp se rozděluje na dvě části na centrometickou a telometrickou v závislosti zda je blíže k centromerické či telomerické části. Kdy jednotlivé části mezi sebou mohou být kombinovány.  Centromerické i telomerické části mohou byt zařazeny do jedné ze dvou skupin A či B na základě genů které obsahují (viz. obrázek \ref{fig:kir_haplotypy_ct} část A). Celý haplotyp je následně přiřazen do jedné z dvou skupin podle kombinace centromerické a telomerické části. V případě, kdy jsou obě části A/A je haplotyp označen za A, v ostatních kombinací (A/B, B/A, B/B) je haplotyp B (viz. obrázek \ref{fig:kir_haplotypy_ct} část B). Jiná poučka pro rozdělení haplotypů uvádí, že skupina B musí obsahovat alespoň jeden z genů KIR2DL5, KIR2DS1, KIR2DS2, KIR2DS3, KIR2DS5 a KIR3DS1. Naopak skupina A neobsahuje ani jeden z těchto genů. Je třeba si zde uvědomit, že každý jedinec má 2 KIR haplotypy. Je možné si povšimnout, že u haplotypu A převládají inhibiční KIR geny a proto jsou dárci lépe přijímáni. \cite{KIR_haplotypy_ct}
+KIR genotyp je vyjádření, jaké konkrétní KIR geny genom obsahuje. Genotyp je možné rozdělit na dvě části, takzvané haplotypy. Jeden haplotyp je od otce, druhý je od matky. Na základě kombinací všech genů je možné vytvořit velký počet KIR genotypů. Proto byl díky shromážděným haplotypům sestaven model, který toto množství mírně redukuje, samozřejmě existují  vzácné varianty, které se do tohoto modelu nehodí. Haplotyp se rozděluje na dvě části, centrometickou a telometrickou v závislosti zda je blíže k centromeře či telomeře. Jednotlivé části mezi sebou mohou být kombinovány. Centromerická i telomerická část může byt zařazena do jedné ze dvou skupin A či B na základě genů které obsahuje (viz. obrázek \ref{fig:kir_haplotypy_ct} část A). Celý haplotyp je následně přiřazen do jedné z dvou skupin podle kombinace centromerické a telomerické části. V případě, kdy jsou obě části A/A je haplotyp označen za A, v ostatních kombinací (A/B, B/A, B/B) je haplotyp B (viz. obrázek \ref{fig:kir_haplotypy_ct} část B). Jiná definice pro rozdělení haplotypů uvádí, že skupina B musí obsahovat alespoň jeden z genů KIR2DL5, KIR2DS1, KIR2DS2, KIR2DS3, KIR2DS5 a KIR3DS1. Naopak skupina A neobsahuje ani jeden z těchto genů. Je třeba si zde uvědomit, že každý jedinec má 2 KIR haplotypy. \cite{KIR_haplotypy_ct}
 \\
 \\
 \begin{figure}[H]		
 		\centering
 		\includegraphics[width=\textwidth]{./img/KIR_haplotype.jpg}
-		\caption{Rozdělení KIR genů na centrometrickou a telometrickou část, pojmenování je na základě, zda je úsek blíže k centromeru nebo k telomeru (viz obrázek \ref{fig:chrmosome}). Je možné si zde povšimnout, že je možné některé geny najít jak v centromerické části tak v telomerické části. \cite{KIR_haplotypy_ct}}
+		\caption{Rozdělení KIR genů na centrometrickou a telometrickou část, pojmenování je na základě, zda je úsek blíže k centromeru nebo k telomeru (viz obrázek \ref{fig:chrmosome}). Je možné si zde povšimnout, že je možné některé geny najít jak v centromerické části tak v telomerické části. Upraveno z \cite{KIR_haplotypy_ct}}
 		\label{fig:kir_haplotypy_ct}
 \end{figure}
 
 \noindent
-Podle některých studii zabývající se vlivem KIR haplotypů na výsledky transplantace bylo zjištěno, že KIR haplotypy ovlivňují výsledky u akutní myeloidní leukémie či  lymfoblastické leukemie. Ve srovnání s haplotypem A měl haplotyp B, především jeho centrometická část, ochraný účinek před návratem nemoci a zárověň zvýšil pravděpodobnost přežití pacienta. Na základě této skutečnosti se mohou dárci řadit do tří skupin best, better a neutral. Rozřazení do třídy se vyhodnocuje jako počet B a jejich umístění, v centromerické oblasti či telomerické oblasti. Mimo jiné je možné se setkat s pojmem B-skórem. Toto číslo udává počet B, které se v daném haplotypu nachází. Best je definován s B-skórem alespoň 2, přičemž dvě B se musejí nacházet v centromerické oblasti Cen-B/B a Tel-x/x. Better je definován s B-skorém alespoň 2, aby nebyl haplotyp zařezen do Best musí být logicky alespoň jedna z Centromerických oblastí A - Cen-A/x a Tel-B/x. Neutral je v případě jedné B části nebo žádné. \cite{KIR_haplotypy}
+Podle některých studii zabývající se vlivem KIR haplotypů na výsledky transplantace bylo zjištěno, že KIR haplotypy ovlivňují výsledky u akutní myeloidní leukémie či  lymfoblastické leukemie. Ve srovnání s haplotypem A měl haplotyp B, především jeho centrometická část, ochraný účinek před návratem nemoci a zárověň zvýšil pravděpodobnost přežití pacienta. Na základě této skutečnosti se mohou dárci řadit do tří skupin best, better a neutral. Rozřazení do třídy se vyhodnocuje jako počet B a jejich umístění, v centromerické oblasti či telomerické oblasti. Mimo jiné je možné se setkat s pojmem B-skóre. Toto číslo udává počet B, které se v daném haplotypu nachází. Best je definován s B-skórem alespoň 2, přičemž dvě B se musejí nacházet v centromerické oblasti Cen-B/B a Tel-x/x. Better je definován s B-skorém alespoň 2, aby nebyl haplotyp zařezen do Best musí být logicky alespoň jedna z Centromerických oblastí A - Cen-A/x a Tel-B/x. Neutral je v případě jedné B části nebo žádné. \cite{KIR_haplotypy}
 \\
 \\
 KIR geny se stejně jako HLA dědí celý blok. Jelikož HLA se nachází na 6 chromozomu a KIR na 19, tak shodní dárci v HLA znacích se jen menšinově shodují v KIR genech. V případě příbuzného dárce shodujícího se v HLA znacích je pouze 25\% shodných také v KIR. \cite{KIR_haplotypy}
@@ -284,23 +286,7 @@ KIR geny se stejně jako HLA dědí celý blok. Jelikož HLA se nachází na 6 c
 		\caption{Deset nejčastější KIR haplotypů. Šedý obdelník značí přítomnost genu, bílí jeho nepřítomnost. \cite{kir_genotypes_10}}
 		\label{fig:kir_haplotypy_10}
 \end{figure}
-
-TODO vyhodit?
-\noindent
-Doposud nebylo zavedeno konkrétní pravidlo na pojmenovávání KIR genů. Avšak bylo navrženo, aby každý KIR haplotyp byl označen $"KH-"$ následovaným trojmístným číslem, které bude označovat konkrétní haplotyp. Bylo by tak možné pojmenovat 999 haplotypů. Dále by bylo označeno do které ze dvou skupin A či B haplotyp patří. Skupina B musí obsahovat alespoň jeden z genů KIR2DL5, KIR2DS1, KIR2DS2, KIR2DS3, KIR2DS5 a KIR3DS1. Naopak skupina A neobsahuje ani jeden z těchto genů. Z tohoto pravidla je patrné, že haplotypy B mají vždy více aktivačních KIR než haplotypy A. Za trojmístným číslem by tedy dále bylo písmeno A nebo B. Nakonec by byl připojen 17-ti místný binární kód, který by označoval přítomnost $"1"$ či absenci $"0"$ genu. Pořadí genů by odpovídalo pořadí v genomu od centrometrické části k telemetrické části. \cite{imgt_hla_database}
-\\
-\\
-Výsledné pojmenování by mohlo vypadat následovně:
-\begin{align}
-   \label{kir_haplotyp} KH-001A-11100010011011011
-\end{align}
-
-\noindent
-Analogicky by bylo pojmenování KIR genotypů. Označení by začínalo \mbox{$"KG-"$} následováným čtyřmístním unikátním číslem označující daný genotyp. V neposlední řadě by opět byl 17-ti místní binární kúod označující přítomnost či absenci KIR genu.
-\\
-\\
-TODO možná informaci o B-content score za tohle, proč u více shodných se řeší KIR, že se vybírají B haplotypový dárci a že v poslední době se řeší, zda kromě haplotypu nemají vliv konkrétní alelické varianty KIR genů (to je to, proč vy to řešíte v diplomce) - s tímhle ještě moc nevím co budu dělat.
-
+ 
 
 \chapter{Sekvenační metody získávání DNA dat}
 Po pojmem sekvence DNA se skrývá posloupnost písmen představujících primární strukturu reálné nebo hypotetické molekuly čí vlákna DNA, které nese nějakou informaci. Jednotlivá písmena jsou označována jako nukleotidy nebo nukleové báze. Nukleové báze mohou být A~-~adenin, C~-~cytosin, G~-~guanin a T - thymin. \cite{genome_gov}
@@ -313,11 +299,11 @@ Příkladem může být následující úsek sekvence na základě obrázku \ref
 \end{align}
 
 \noindent
-\textbf{Sekvenování DNA}, někdy pouze sekvenování, jsou biochemické metody, kterými se zjišťuje pořadí nukleotidů (A, C, G, T) v sekvenci DNA. Díky tomu je možné zjistit typizaci konkrétního člověka. Sekvenační metody se liší zejména délkou řetězce, kterou dokáží zpracovat, cenou a rychlostí sekvenace. Pro porovnání, sekvenování celého genomu Sangerovo metodou by stálo několik milion dolarů a trvalo zrhuba 10 let. Při použítí dnešních metod by cena byla zhruba tisíc dolarů. Většina sekvenačních metod využívá vlasnosti přitahováním báze do páru pouze jednou konkrétní bází. To znamená že se adenin vždy páruje s thyminem a cytosin se vždy páruje s guaninem. Z těchto párů vzniká již známá dvojitá šroubovice DNA. Při sekvenování je možná se často setkat, že se sekvenuje jen kónkrétní kus DNA, který je zrovna výzkumně čí prakticky potřeba. Největším problémem u sekvenování je, že úseky DNA vzniklé ze sekvenátoru(označovány jako ready) jsou jen kousky, které je třeba poskládat zpět. K tomu slouží zarovnávání. \cite{sekvenovani_ziva} 
+\textbf{Sekvenování DNA}, někdy pouze sekvenování, jsou biochemické metody, kterými se zjišťuje pořadí nukleotidů (A, C, G, T) v sekvenci DNA. Díky tomu je možné zjistit typizaci konkrétního člověka. Sekvenační metody se liší zejména délkou řetězce, kterou dokáží zpracovat, cenou a rychlostí sekvenace. Pro porovnání, sekvenování celého genomu Sangerovo metodou by stálo několik milion dolarů a trvalo zrhuba 10 let. Při použítí dnešních metod by cena byla zhruba tisíc dolarů. Většina sekvenačních metod využívá vlasnosti přitahováním báze do páru pouze jednou konkrétní bází. To znamená že se adenin vždy páruje s thyminem a cytosin se vždy páruje s guaninem. Z těchto párů vzniká již známá dvojitá šroubovice DNA. Při sekvenování je možná se často setkat, že se sekvenuje jen kónkrétní kus DNA, který je zrovna výzkumně čí prakticky potřeba. Největším problémem u sekvenování je, že úseky DNA vzniklé ze sekvenátoru (označovány jako ready) jsou jen kousky, které je třeba poskládat zpět. K tomu slouží zarovnávání. \cite{sekvenovani_ziva} 
 
 
 \section{Sanger sequencing}
-Sanger sekvenování využívá možnosti namnožení řetězce díky vzájemnému přitahování konkrétních bází. V prvním kroce replikace jsou nastříhané řetězce rozděleny na dvě vlákna. Lze si představit, že tyto dvě oddělená vlákna jsou dána do směsy, kde plavou jednotlivé nukleotydy spolu s upravenými nukletidy, které nesou specifickou fluorescenční barvu a za které neni možné nic navázat. Následně za pomoci střídaní teploty volně plující nukleotidy tvoří postupné páry s řetězcem, který chceme namnožit. Pokud se povede celý řetězec namnožit je odtržen a může se dále množit. Postupně ale bude docházet k navazováním nukleotidů s fluorescenční barvou. Tím se vytvoří nekolik různě dlouhých sekvencí zakončených označeným nukleotidem. Podle jeho barvy je možné poznat o jaký nukleotid se jedná. Následně jsou za pomoci elektorforézy seřazeny v gelu podle délky. Elektroforéza rozděluje různě dlouhé sekvence na základně odlišnosti pohybu v elektrickém poly. Kratší doputují dále než delší. Pomocí sanger metody je možné sekvenovat řetěce dlouhé až 1000 bází.   
+Sanger sekvenování využívá možnosti namnožení řetězce díky vzájemnému přitahování konkrétních bází. V prvním kroce replikace jsou nastříhané řetězce rozděleny na dvě vlákna. Lze si představit, že tyto dvě oddělená vlákna jsou dána do směsy, kde plavou jednotlivé nukleotydy spolu s upravenými nukletidy, které nesou specifickou fluorescenční barvu a za které není možné nic navázat. Následně za pomoci střídaní teploty volně plující nukleotidy tvoří postupné páry s řetězcem, který chceme namnožit. Pokud se povede celý řetězec namnožit je odtržen a může se dále množit. Postupně ale bude docházet k navazováním nukleotidů s fluorescenční barvou. Tím se vytvoří nekolik různě dlouhých sekvencí zakončených označeným nukleotidem. Podle jeho barvy je možné poznat o jaký nukleotid se jedná. Následně jsou za pomoci elektorforézy seřazeny v gelu podle délky. Elektroforéza rozděluje různě dlouhé sekvence na základně odlišnosti pohybu v elektrickém poly. Kratší doputují dále než delší. Pomocí sanger metody je možné sekvenovat řetěce dlouhé až 1000 bází.   
 
 \begin{figure}[H]		
 		\centering
@@ -333,7 +319,7 @@ Next-generation sekvenování někdy označováno jako metody druhé generace js
 Všechny tyto metody si předpřipraví řetězce nastříháním na krátké části a připevněním takzvaného adeptéru na jejich konec. Adaptér je krátká molekula DNA, která slouží k uchycení sekvenovaného úseku na pevný povrch. Řetězce DNA jsou namnoženy díky čemuž vzniknout klastry identických molekul koncentrovaných v jednom místě. Díky tomu je posílen signál, který by z pouhé jedné molekuly nebyl dostatečně silný. Tento signál je zachycen kamerou. Jeden z důvodů popularity NGS metod jsou i cenově dostupné stolní sekvenátory.
  
 \subsection{Single-end, paired-end a mate-pair}
-Single-end je sekvenování pouze jednoho konce molekuly. Nevýhoda tohoto způsobu se projeví především na krátkých readech, kde se zvýší problém jejich správného umístění. Oproti tomu v případě paired-end se sekvenuje z obou konci daného úseku. Vzniklé dva ready jsou označeny a zárověň je známá jejich vzdálenost mezi oběma ready, která se pohybuje od 200 do 400 bp (base pair). Mate-pair je v podstatě paired-end s rozdílem, že je mezi ready větší vzdálenosti od 2 do 5 kb (kilobase) - takže přibližně 2000 - 5000 bp. \cite{illumina}  
+Single-end je sekvenování pouze jednoho konce molekuly. Nevýhoda tohoto způsobu se projeví především na krátkých readech, kde se zvýší problém jejich správného umístění. Oproti tomu v případě paired-end se sekvenuje z obou konci daného úseku. Vzniklé dva ready jsou označeny a zárověň je známá jejich vzdálenost, která se pohybuje od 200 do 400 bp (base pair). Mate-pair je v podstatě paired-end s rozdílem, že je mezi ready větší vzdálenosti od 2 do 5 kb (kilobase) - takže přibližně 2000 - 5000 bp. \cite{illumina}  
 \\
 \\
 TODO obrázek je z trochu blbího zdroje nejsem si jistá jestli ho můžu použít, ale mě přišel dobrej. \url{https://www.yourgenome.org/facts/how-do-you-put-a-genome-back-together-after-sequencing}
@@ -379,105 +365,81 @@ Velkým rozdílem oproti druhé generaci je že DNA templát není před sekveno
 
 
 \chapter{Analyza dostupných bioinformatických nástrojů pro zpracování NGS dat}
+NGS metody snižují náklady a zrychlují proces sekvenování za cenu kratších readů a menší přenosti což vedlo k mnoha bioinformatickým výzvám, jako je vytvoření nástrojů pro analýzu readů. Nástroje je možné mezi sebou porovnat pomocí realných nebo simulovaných dat. Přestože je validace na realných datech nezbytná, skutečné hodnoty na kterých jsou data založena jsou obvykle neznámá, což komplikuje jejich použítí pro posouzení přesnosti (tj. jak blízko je odhadovaná hodnota ke skutečné hodnotě). Díky tomu je simulování dat čím dál více populární pro hodnocení, validací či nastavování optimálních parametrů nástroje. \cite{simulation_read}
 
 
-\section{Simluační nástroje pro generování syntetických readů}
-Podle \cite{art} je dostupných několik nástojů pro simulaci NGS dat (Wgsim, MetaSim, SimSeq, FlowSim), které fungují dobře pro sekvenátory pro které byli určeny, ale žádný z nich se nedokázal vypořádat se všemi nejvíce používanými. Jejich slabinou je především v generovaní chyb na základě jednotlivých módů konkrétního sekvenátoru. Nejčastější chyby jsou substituční a vložení čí smazání (INDEL - insert-deletion). ART obsahuje technologické profily chyb a navíc mu může použít i uživatelský profil chyb. Profily které obsahují délky readů a chyby byly získány z datasetu skutečných sekvenovaných dat. 
-
-\subsection{ART}
-single end paired end
-V případě ART to naznačuje stejný název souboru spolu s 1 čí 2 na jeho konci.
+\section{Simulační nástroje pro generování syntetických readů}
+Dále uvedené nástroje byly vybrány na základě parametrů: simulování DNA, udržovány a volně dostupné. Následující informace vychází z článku \cite{simulation_read} pokud nebude uvedeno jinak.
 \\
 \\
-ART (next-generation sequencing read simulator) je sada simulačních nástrojů, které generují syntetické ready, jako kdyby byli získány sekvenováním pomocí NGS. Nástroj ART dokáže simulovat single-end a paired-end ready ze sekvenátorů Illuminas, 454 společnosti Roch a SOLid od společnosti Applied biosystém. Ready, vytvořené nástrojem ART jsou používány pro testování a analýzů nástrojů zpracovávající právě NGS sekvence jako například zarovávání (nástroj Bowtie). Při použítí nástroje ART je vstupním souborem sekvence genů na základě kterých jsou vygenerovány ready. \cite{art}
-\\
-\\
-TODO možná napsat co znamenají konkrétní chyby
-\\
-\\
-TODO
-Proč? No protože přesně ví co tam dávají za data, protože mu podšoupnou ten referenční genom a tak pak můžou dobře sledovat co ten zarovnávač s tím dělá. 
-A proč je to o tolik výhodnější než když by měli nějakej realnej dataset? 
-Možná že si tam můžou ty chyby navolit tak jak se jim hodí?
-Jako bude v tom míň chyb, ale stejně.
-\\
-\\
-\textbf{Illumina} je sekvenování založené na vratném umístění báze označené barvou do rostoucího řetězce jehož nejčastější chybou je substituce. Pravděpodobnost chyby substituce je určená na základě kvality skoré dané báze, které je závislé na pozici v rostoucím řetězci. Průměrné kvality skore klesá v závislosti na zvyšování pozice báze. ART simuluje substituční chybu na základě tohoto skore a emprického modelu získaného z trénovacích datasetů. INDEL chyba je simulována jen na základě empirického rozdělení z trénovacích dat. Pro paired-end simulaci, ART využívá dvou rozdílných kvality skore pro každý pár readu jiný. 
-\\
-\\
-\textbf{454} je sekvenování při kterém se zachycuje vyzářené světlo na základě toho pokud se báze přidala do řetězce či nikoliv. Jeho dominantní chybou je tedy nesprávné určení počtů přidaných bází. Pravděpodobnost chyby roste s frekvencí dlouhých úseků obsahující stejnou bázi. Proto ART modeluje rozdělení chyb na základě délky úseku obsahující stejnou bázi spolu s Markovovy řetězci.
-\\
-\\
-\textbf{SOLid} je založené na označení čtyř barev pro 16 různých skupin bází. Pro paired-end read simulaci délky fragmentu je použito Gausovské rozdělení. Rozdělení chyb je založena na empirické znalosti získané z readů generovaných Applied Biosystémem. ART zároveň nabází nastavené chybovosti základě lineárního měřítka. 
-\\
-\\
-ART je implementován v jazyce C++ a je dostupný s licencí GPL verze~3 pro operační systémy Linux, MacOs a Windows. Je možné ho použít i jako C++ package. Pro jeho spuštění je nutní mít nainstalovaný compilator GNU g++ 4.0 nebo vyšší a knihovnu GNU gsl. 
-\\
-\\
-Data získána z FN Plzeň byla sekvenována nástrojem Illuminas proto i syntetické ready budou simulovat tento sekvenátor.   Výstupy se čtou ve formátu FASTQ a zarovnání ve formátu ALN. může generovat zarovánávání také ve formátu SAM nebo UCS BED. 
-
-
-\section{Bowtie}
-Bowtie je rychlý a paměťové efektivní nástroj pro zarovnávání krátkých sekvencí DNA na velké genomy. Bowtie2 je schopný zarovnat více než 25 milionů readů dlouhých 35 bp za hodinu (při běhu na jednom CPU) pro lidský genom s malým využím paměti. Bowtie využívá FM indexaci s Burrows-Wheeler transformací (BWT) a přidává k ní backtracking pro sledování nekonzistence. Novější verze Bowtie2 by měla by oproti Bowtie1 citlivější a rychlejší na delší ready než je 50 nukleotidů a navíc je oproti první verzi schopná se vypořádat z chybami vložení čí smazání báze způsobené sekvenováním. Na lidský genom potřebuje Bowtie2 3.2 gigabajtů RAM. Nástroj bowtie je implementovaný v jazyce C++ s použitím knihovny SeqAn a je open source. Podporuje standardní vstupní formáty FASTQ a FASTA.  Výstupní zárovnání z Bowtie je ve formátu SAM, což umožňuje návaznost s dalšími nástroji jako je třeba SAMtools. \cite{bowtie} \cite{bowtie2}   
-\\
-\\
-Zarovnávání bývá prvním krokem v mnoho genomických pipelinách. Často je to jejich nejpomalejší část, protože pro každý read musí zarovnávač vyřešit obtížný výpočetní problém. Určit pravděpodobné umístění v referenčním genomu. Mnoho zarovnávačů používá indexy k rychlému snižování kandidátů pro umístění zarovnáváného readu. Bowtie vytváří indexy referenčních genů permanentní a lze je tak použít napříč běhy. Algoritmus FM indexu obyvykle funguje na vyhledává přesně shody. V případě hledání umístění readů na referenční gen není toto řešení použitelné, protože ready mohou obsahovat chyby vzniklé sekvenováním případně genové mutace. Proto bowtie každé zarovnání zakládá na kvalitě znaku báze v daném readu. Bowtie postupně vytváří dlouhý sufix. Pokud se sufix nevyskytuje v textu pak se může algoritmus vrátit a v již vytvořeném sufixu nahradit bázi za jinou. Dále pokračuje obdobným způsobem. Pokud by měl algoritmus na výběr substituovat za více bází vybere tu s nejnižší kvalitou znaku v readu. Protože bowtie algoritmus v základu bere první přijetelné řešení je možné, že jeho nalezené řešení není to nejlepší. Pro nalezení toho nejlepšího řešení je třeba použít přepínač $--best$, jeho funkčnost je ale na úkor rychlosti, která může být 2x čí 3x pomalejší. Bohužel nemůže být tento přepínač použit u paired-end readů. Zároveň je možné nastavit maximální počet nahrazených bází v readu. \cite{bowtie}
-\\
-\\
-V případě že backtracking mechanismus není uspěšný může docházet k jeho nadměrnému vyskytu. Bowtie se tento jev snaží zmírnit dvojím indexováním. První index obsahuje BWT genomu a je označován jako dopředný index. Druhý obsahuje opět BWT genomu, ale se znaky v sekvenci v opačném pořadí, označovaný jako zrcadlový index. Read je pak v půlce rozdělen na dvě části a jejich zarovnávání probíhá odděleně tak, že je vždy backtracking povolen jen v dané části, která je zrovna zarovnávána. Pravá část je zarovnáváná podle dopředného indexu a levá část je zarovnávána podle zrcadlového indexu. 
+Většina simulátorů NGS vyžaduje referenční sekvenci ze které budou generovat ready. Tato referenční sekvence může být konkrétní genomická oblast, více zřetězených genomických oblastí, chromozom či celý genom. Některé simulátory vytváří zarovnání readů přímo do referenčníhou souboru (soubory SAM/BAM). Při používání simulátorů může být pro uživatele obtížné se rozhodnout kterou konkrétní hodnotu pro daný parametr určit nebo který vlastní profil vytvořit proto některé simulátory poskytují výchozí profily. Jedním z nich může být i generování chyb či model kvality. Nástroje jako jsou ART nebo SInC generují tyto profily na základě extrahovaných modelech ze skutečných dat. Nejčastější chyby jsou substituční a vložení čí smazání (INDEL - insert-deletion).
 
 
 \begin{figure}[H]		
 		\centering
+		\includegraphics[width=1\textwidth]{./img/read_simulators.jpg}
+		\caption{Strom pro usnadnění výběru generátoru syntetických readů \cite{simulation_read}}
+		\label{fig:read_simulators}
+\end{figure}
+
+\noindent
+Data získaná z FN Plzeň/BC LF UK Plzeň byla sekvenována nástrojem Illumina proto je podle \cite{simulation_read} na výběr z ART, AFG, CuReSim, Flowsim, MetaSim, simhtsd a simNGS. U simulátoru AFG je třeba chybové profily definovat ručně, CuReSim a MetaSim nejsou open source, simhtsd podporuje jen operační systém Linux, simNGS podrporuje jen operační systémi Linux a MacOS. Proto byl vybrát simulační nástroj ART který podporuje operační systémi Linux, Windows a MacOS. Dále generuje podle chybových profilů a profilů kvality které byli vytvořeny pomocí extrakce chyb získaných ze skutečných dat. 
+
+\subsection{ART}
+ART (next-generation sequencing read simulator) je sada simulačních nástrojů, které generují syntetické ready, jako kdyby byli získány sekvenováním pomocí NGS. Nástroj ART dokáže simulovat single-end a paired-end ready ze sekvenátorů Illuminas, 454 společnosti Roch a SOLid od společnosti Applied biosystém. Ready, vytvořené nástrojem ART jsou používány pro testování a analýzů nástrojů zpracovávající právě NGS sekvence jako například zarovávání (nástroj Bowtie). Při použítí nástroje ART je vstupním souborem sekvence genů na základě kterých jsou vygenerovány ready. \cite{art}
+\\
+\\
+Illumina je sekvenování založené na vratném umístění báze označené barvou do rostoucího řetězce jehož nejčastější chybou je substituce. Pravděpodobnost chyby substituce je určená na základě kvality skoré dané báze, které je závislé na pozici v rostoucím řetězci. Průměrné kvality skore klesá v závislosti na zvyšování pozice báze. ART simuluje substituční chybu na základě tohoto skore a emprického modelu získaného z trénovacích datasetů. INDEL chyba je simulována jen na základě empirického rozdělení z trénovacích dat a u Illuminy se vyskytuje jen zřídka. Pro paired-end simulaci, ART využívá dvou rozdílných kvality skore pro každý pár readu jiný. 
+\\
+\\
+ART je implementován v jazyce C++ a je dostupný s licencí GPL verze~3 pro operační systémy Linux, MacOs a Windows. Je možné ho použít i jako C++ package. Pro jeho spuštění je nutní mít nainstalovaný compilator GNU g++ 4.0 nebo vyšší a knihovnu GNU gsl. Výstupy se čtou ve formátu FASTQ a zarovnání ve formátu ALN. může generovat zarovánávání také ve formátu SAM nebo UCS BED. Paired end ready jsou označeny stejným názvem souboru s 1 či 2 na jeho konci.
+
+\section{Nástroje pro zarovnávání readů}
+Zarovnávání bývá prvním krokem v mnoho genomických pipelinách. Často je to jejich nejpomalejší část, protože pro každý read musí zarovnávač vyřešit obtížný výpočetní problém. Určit pravděpodobné umístění v referenčním genomu. 
+V současnosti je na výběr více než 90 nástrojů pro zarovnávání NGS readů.
+Nástoje jsou mezi sebou obvykle porovnávany na základě přesnosti a rychlost mapování. V článku \cite{ngs_alignment_software} bylo porovnáno 5 nástrojů pro zarovnávání DNA readů.  Nástroj STAR měl narozdíl od ostatních nástrojů menší přesnost, nástroj segemehl byl zase náročný na paměť (podle článku až 70 GB) což se na stolním počítači těžko dosahuje. Ze zbývajících nástojů byl vybrán nástroj Bowtie2 díky jeho rychlosti vzhledem k nástroji BWA, která vzhledem k množství experimentů bude přínosem.  
+
+\begin{figure}[H]		
+		\centering
+		\includegraphics[width=1\textwidth]{./img/ngs_read_mappers.jpeg}
+		\caption{Nástoje pro zarovnávání NGS readů. \cite{ngs_alignment_software}}
+		\label{fig:read_simulators}
+\end{figure}
+
+\subsection{Bowtie2}
+Bowtie2 je rychlý a paměťové efektivní nástroj pro zarovnávání krátkých sekvencí DNA na velké genomy. Bowtie2 je schopný zarovnat více než 25 milionů readů dlouhých 35 bp za hodinu (při běhu na jednom CPU) pro lidský genom s malým využím paměti. Bowtie2 využívá FM indexaci s Burrows-Wheeler transformací (BWT) a přidává k ní backtracking pro sledování nekonzistence. Novější verze Bowtie2 by měla by oproti Bowtie1 citlivější a rychlejší na delší ready než je 50 nukleotidů a navíc je oproti první verzi schopná se vypořádat z chybami vložení čí smazání báze způsobené sekvenováním. Na lidský genom potřebuje Bowtie2 3.2 gigabajtů RAM. Nástroj bowtie je implementovaný v jazyce C++ s použitím knihovny SeqAn a je open source. Podporuje standardní vstupní formáty FASTQ a FASTA.  Výstupní zárovnání z Bowtie je ve formátu SAM, což umožňuje návaznost s dalšími nástroji jako je třeba SAMtools. Následující informace vychází z článků \cite{bowtie} a \cite{bowtie2} pokud není uvedeno jinak.   
+\\
+\\
+Mnoho zarovnávačů používá indexy k rychlému snižování kandidátů pro umístění zarovnáváného readu. Bowtie vytváří indexy referenčních genů permanentní a lze je tak použít napříč běhy. Algoritmus FM indexu obyvykle funguje na vyhledává přesně shody. V případě hledání umístění readů na referenční gen není toto řešení použitelné, protože ready mohou obsahovat chyby vzniklé sekvenováním případně genové mutace. Proto Bowtie každé zarovnání zakládá na kvalitě znaku báze v daném readu. Bowtie postupně vytváří dlouhý sufix. Pokud se sufix nevyskytuje v textu pak se může algoritmus vrátit a v již vytvořeném sufixu nahradit bázi za jinou. Dále pokračuje obdobným způsobem. Tento způsob změny báze je dále označován jako backtracking. Pokud by měl algoritmus na výběr substituovat za více bází vybere tu s nejnižší kvalitou znaku v readu. Protože Bowtie algoritmus v základu bere první přijetelné řešení je možné, že jeho nalezené řešení není to nejlepší. Pro nalezení toho nejlepšího řešení je třeba použít přepínač $--best$, jeho funkčnost je ale na úkor rychlosti, která může být 2x čí 3x pomalejší. Bohužel nemůže být tento přepínač použit u paired-end readů. Zároveň je možné nastavit maximální počet nahrazených bází v readu. \cite{bowtie}
+\\
+\\
+V případě že backtracking mechanismus není uspěšný může docházet k jeho nadměrnému vyskytu. Bowtie2 se tento jev snaží zmírnit dvojím indexováním. První index obsahuje BWT genomu a je označován jako dopředný index. Druhý obsahuje opět BWT genomu, ale se znaky v sekvenci v opačném pořadí, označovaný jako zrcadlový index. Read je pak v půlce rozdělen na dvě části a jejich zarovnávání probíhá odděleně tak, že je vždy backtracking povolen jen v dané části, která je zrovna zarovnávána. Pravá část je zarovnáváná podle dopředného indexu a levá část je zarovnávána podle zrcadlového indexu. 
+
+Předchozí alogirtmus funguje dobře pouze v případě, kdy reference nebo read neobsahují mezery (báze chybí nebo naopak přebývá). Proto byl algoritmus rozšířen, jak je popsáno následovně.
+
+\begin{figure}[H]		
+		\centering
 		\includegraphics[width=1\textwidth]{./img/bowtie2_postup.png}
-		\caption{Burrows-Wheeler transformace řetězce T. \cite{bw_transform}}
-		\label{fig:bw_transform_1}
+		\caption{Algoritmus zarovnání readů s mezerami. \cite{bowtie2}}
+		\label{fig:bowtie_postup}
 \end{figure}
 
 
-TODO já nevím mě občas přijde že opisuju ten článek, a nevím jestli je to dobrý ...
-\\
-\\
-TODO tohle prostě nedává smysl..možná se mrkni ještě na stránky bowtie jestli tam o tom něco neni napsaný
-\\
-\\
-Ačkoliv je full text minute index často použávanej kvůli své rychlosti a nízké paměťové náročnosti ale neni vhodný na dlouhé zarovnávání které může obsahovat mezery. Bowtie 2 combinuje obojí sílu full text minute index s flexibilitou a 
-
-Zarovnávači používají indexy k rychlému snižování kanditádů 
-aligmenty mají maximální počet kolik změn tam může být 
-S mezerami se nám prostor pro vyhledání správné pozice ještě zvětší
-ale tento prostor může být změnšen díky dvojímu indexování bezmezerových aligmentů
-Zarovnávání pomocí indexů, ale může být neefektivní v případě pokud zarovnávaný read obsahuje mezery
- 
- mezery zvětšují prohledávaná prostor a redukují efektivitu prořezávání
- 
-  
-
-Alignment gaps can result either from sequencing errors or from true insertions and deletions. 
-TODO co je sakra true insertions and deletions - jako genová mutace? 
-
-Bowtie 2 rozšiřuje full-text minute index aby bylo možné se vypořádat s mezerami.
-a rozděluje algoritmus zarovnání na dvě části
--bezmezerový vyhledávání seed - semene? , který vyhledává na základě full text minute indexu
-- a mezerové které využívá dynamckého programování a těží z efektivity single- instruction multiple data parrall processing
- SIMD mě navádí na vektory? To má být to zrychlení? Jen že ten prostor dokáže rychlejc projít?
-\\
-\\
+\noindent
 Pro každý read
 \begin{enumerate}
-	\item 1. Extrahování seedu z readů a jeho převrácených doplňku (seed je označení podřetězce readu) 
-	\item 2. Seedy a jejich převrácené doplňky jsou zarovnány na referenci v bezmezerové modelu za pomocí full-text minute indexu.
-	\item seed aligmenty jsou priorizovány a jejich pozice na referenčním genom jsou spočítány z Full text minute indexu
-	\item seedy jsou rozšířeny do úplného zarování pro zvýšení výkonu je použito SIMD -accelerated dynamic programming.
+	\item Extrahování seedu(podřetězce readů) z readu a jeho převrácených doplňku 
+	\item Seedy jsou zarovnány na refrenci v bezmezerové modelu za pomocí full-text minute indexu. Čísla v závorkách značí rozsah řádků v Burrows Wheeler matici kam byl seed zarovnán
+	\item Zarovnání seedů je seřazeno offsetu tu na refrenčním genomu.
+	\item Ready jsou zarovnány. Díky předchozím krokům je značně omezen prostor kam mohou být zarovnány. Pro zvýšení výkonu je použito SIMD (accelerated dynamic programming).
 \end{enumerate}
-
-TODO možná dopsat že díky experimentu 1 a 2 a pak porovnání výsledků když jsem to pustila blbě na všechny ty geny a pak když jsem to pustila na jeden jsem vydedukovala jak to bowtie zarovnává nebo bych to měla dát až k tomu experimentu přímo? 
+  
 
 \subsection{Burrows-Wheeler transformace}
 Burrows-Wheelerova transformace (BWT) je reverzibilní permutace řetězců v textu. Původně byla používána pro kompresy dat. Indexace založená na BWT umožňuje efektivní vyhledávání ve velké textu s malou paměťovou náročností. 
 \\
 \\
-BW transformace řetězce T, $BWT(T)$, je zobrazena na obrázku \ref{fig:bw_transform_1}. Znak~\$ je připojen na konec řetězce a zároveň musí platit, že se tento znak se v řetězci nevyskytuje. Burrows-Wheeler matice řetězce T je konstruovaná jako všechny cyklické rotace řetězce T, které byli seřazeny podle abecedy, kde znak \$ se bere, že je na záčátku abecedy. Výstup, BWT(T) pak představuje poslední sloupec matice. Tento řetězec má stejnou délku jako původní řetězec T. \cite{bowtie} 
+BW transformace řetězce T, $BWT(T)$, je zobrazena na obrázku \ref{fig:bw_transform_1}. Znak~\$ je připojen na konec řetězce a zároveň musí platit, že se tento znak se v řetězci nevyskytuje. Burrows-Wheeler matice řetězce T je konstruovaná jako všechny cyklické rotace řetězce T, které byli seřazeny podle abecedy, kde znak \$ se bere, že je na začátku abecedy. Výstup, BWT(T) pak představuje poslední sloupec matice. Tento řetězec má stejnou délku jako původní řetězec T. \cite{bowtie} 
 
 \begin{figure}[H]		
 		\centering
@@ -503,7 +465,7 @@ Burrows-Wheeler matice má vlastnost, která se nazývá last first mapping (LF)
 \end{figure}
 
 \noindent
-Zpětné získání řetězce je znázorněno na obrázku \ref{fig:bw_transform_inverse}. L sloupec je řetězec který je výstupem BW transformace. F sloupec je snadné na základě L sloupce odvodit. Jelikož platí pravidlo, že počet jednotlivých znaků je stejný, stačí je pouze přemístit do F sloupce a seřadit podle abecedy. Dále s využítím LF je řetězec získán zpět. Jako první se vezme přidaný znak \$. Ve stejném řádku ve sloupci L se nachází $a_0$ . To znamená že řetězec začíná \$ a. Algoritmus pokračuje s $a_0$ v F sloupci. Ve stejném řádku v L sloupci je $b_0$. $b_0$ je přidáno do řetězce a pokračuje až do doby než by byl opět znak \$. 
+Zpětné získání řetězce je znázorněno na obrázku \ref{fig:bw_transform_inverse}. L sloupec je řetězec, který je výstupem BW transformace. F sloupec je snadné na základě L sloupce odvodit. Jelikož platí pravidlo, že počet jednotlivých znaků je stejný, stačí je pouze přemístit do F sloupce a seřadit podle abecedy. Dále s využítím LF je řetězec získán zpět. Jako první se vezme přidaný znak \$. Ve stejném řádku ve sloupci L se nachází $a_0$ . To znamená že řetězec začíná \$a. Algoritmus pokračuje s $a_0$ v F sloupci. Ve stejném řádku v L sloupci je $b_0$. $b_0$ je přidáno do řetězce a pokračuje až do doby než by byl opět znak \$. 
 
 
 \begin{figure}[H]		
@@ -534,7 +496,7 @@ Díky vztahu mezi F a L sloupcem je možné vyhledávat daný řětezec (zobraze
 
 \section{Další pomocné metody}
 \subsection{Levenshteinova vzdálenost}
-Levensteinova vzdálenost zjišťuje rozdílnost dvou textů na základě počtu změn, které je třeba udělat, aby bylo z jednoho řetězce získán druhý řetezec. Za úpravy se považuje vložení, smazání a nahrazení. Algortimus funguje tak, že se snaží ze slova, které bylo jako první v argumentu vytvořit. Příkladem může být vzdálenost mezi řetězci \textit{SPAM} a \textit{PARK}.  slovo druhé. Vzdálenost těchto slov je 3. Výstup v případě python knihovny je možné vidět následovně. Výstup \ref{leve_1} je v případě SPAM, PARK. Výstup \ref{leve_2} je v případě PARK, SPAM. Změny jsou definovány: o jakou změnu jde, index znaku v prvním řetězci a index znaku v druhém řetězci. Je možné si všimnout závislosti mezi těmito dvěma postupy.
+Levensteinova vzdálenost zjišťuje rozdílnost dvou textů na základě počtu změn, které je třeba udělat, aby bylo z jednoho řetězce získán druhý řetezec. Za úpravy se považuje vložení, smazání a nahrazení. Algortimus funguje tak, že se snaží ze slova, které bylo jako první v argumentu vytvořit slovo předáno jako druhé. Příkladem může být vzdálenost mezi řetězci \textit{SPAM} a \textit{PARK}.  Vzdálenost těchto slov je 3. Výstup v případě python knihovny je možné vidět následovně. Výstup \ref{leve_1} je v případě SPAM, PARK. Výstup \ref{leve_2} je v případě PARK, SPAM. Změny jsou definovány: o jakou změnu jde, index znaku v prvním řetězci a index znaku v druhém řetězci. Je možné si všimnout závislosti mezi těmito dvěma postupy. \cite{levenshrein_baku}
 
 
 \begin{align}
@@ -549,43 +511,6 @@ Levensteinova vzdálenost zjišťuje rozdílnost dvou textů na základě počtu
 
 
 
-
-\subsection{bordel}
-
-FM index (Full-text minute-space) 
-Přestože je tento vyhledávácí prostor velký , mnoho jeho částí může být přeskočeno (odřezáno) bez ztráty citlivosti
-V praxi prořezávací strategie jako je dvojí indexování a obousměrné BWT usnadňuje v In practice, pruning strategies such as double indexing and bidirectional Burrows-Wheeler transform (BWT) facilitate very efficient untapped alignment of short reads.
-
- It is particularly good at aligning reads of about 50 up to 100s or 1,000s of characters, and particularly good at aligning to relatively long (e.g. mammalian) genomes.
-  Bowtie 2 supports gapped, local, and paired-end alignment modes.
-
-Note that SOAP2 and Bowtie do not permit gapped alignment of unpaired reads.
-
- We extracted a random subset of 1 million reads from each and aligned them with BWA-SW and Bowtie 2. We did not align with Bowtie, BWA or SOAP2 because those tools are designed for shorter reads.
-Bowtie už je překonanej nejenom Bowtie2 ale i BWA.
-Bowtie2 je podle studie znatelně lepší než Bowtie, SOAP2.
-tyhle výsledky jsou na syntetických readech
-
-
-pak tam máš parametry 
-
-a jak dlouhý chceme simulovat ready? 
-
-Výstupy se čtou ve formátu FASQ a zarování ve formátu ALN. 
-ART může také generovat zarovnávání ve formátu SAM nebo UCSC BED
-ART lze použít společně se simulátory varient genomů VarSim 
-\\
-to je odtud %https://www.niehs.nih.gov/research/resources/software/biostatistics/art/index.cfm
-454 sekvenování je pyrosekvenování, které cycklicky testuje přítomnost každého ze čtyř nukleotidů DNA (T, A, C, G)
-
-
-TODO nekam dopsat? musí se brát v potaz že z toho generátoru nikdy nebudou data taková jako reálná.. realná budou horší 
-
-
-SAM Sequence Alignment Map format), respektive jeho binárně
-komprimovaná verze BAM (z angl. Binary Alignment Map format).
-
-
 \chapter{Implementace}
 \section{Popis problému}
 máme krátkou délku
@@ -593,16 +518,11 @@ máme krátkou délku
 s tím že jednotlivé ready se nám tedy mohou překrývat- tohle si nejsem jistá jestli se můžou překrývat
 můžou tam být chyby
 
-teoreticky mám maximálně dvě možné alely s jednoho souboru, ale nemusím mít ani jednu 
 
 pak by se tam dala přidat heurestika že bych brala známe haplotypy
 
 Možná pak ještě pracovat s pravděpodobností výskytu daného genu
 
-možná by se pak ještě dalo kolik readů tam bylo zarovnaných- ale to je blbost protože tam mám ready z několik genů ne jen z toho jednoho 
-
-TODO jen by mě teda zajímalo jak to bere ten bowtie jestli když mu podšoupnu celej ten gen tak jestli se to snaží zarovnat vzhledem k celýmu geno jako takovýmu nebo to bere postupně podle alel.. 
-po celym genomu by to asi bylo lepší protože pak by se dalo líp vyřešit to pokrytí 
 
 jenže bowtie může klidně někam zarovant tam kam to ve skutečnosti napatří protože tam hledá třeba backtracking a nebo vložení a smazaní chybu
 
@@ -619,6 +539,10 @@ Kromě souborů \textit{*\_gen.fasta} obsahuje složka \textit{fasta} také soub
 Při analýze porovnávání souboru \textit{nuc} a \textit{gen} bylo zjištěno, že v souboru \textit{nuc} je více alel než v souboru \textit{gen}. Konkrétně v souboru \textit{gen} je 461 alel a v souboru \textit{nuc} je 1109 alel. Nejmenší Levenshteinova vzdálenost mezi alelami je 1, největší 15 943 a průměrná 4768.98.
 \\
 \\
+\section{Testovací genotypy}
+Genotypy, na kterých byl nástroj testován byly dodány vedoucí práce. Genotypy test1 - test11 byly sestaveny podle definovaných genotypů a umýslně vybrány ty které představují nějaký problém.
+
+
 TODO co je sakra:  KIR3DS1*049N ???? - Kde jsem to našla v nuc nebo gen?
 \\
 \\
@@ -647,30 +571,16 @@ V následující části jsou získaná data, tedy ready, zarovnána na referen�
 		\label{fig:navrh_systemu}
 \end{figure}
 
-\section{Použité programové prostředky}
-\subsection{Python}
+\subsection{Použité programové prostředky}
+\subsubsection{Python}
 Program byl navržen a implementován na operačním systému Linux za použití především programovacího jazyku Python. 
- Pro spuštění programu je nutné mít nainstalovaný Python ve verzi 3.6.
-\subsubsection{Biopython}
-Biopython je sdružení vývojářů, kteří vytváří volné dostupné python nástoje vhodné pro výpočty v molekurární biologii. Biopython se snaží zjednoduší použití pythonu pro výzkum bioinformatiky. Mimo jiné umí pracovat s formáty souborů, které se využívají v bioinformatice jako je například BLAST nebo Fasta  
-\\
-\\
-TODO
-biopython jsem zatím ještě nepoužila
-Instalaci jde provést pip install biopython
-tak to vypadá že i ten biopython umí aligned a že to dělá přes to Burrows wheeler aligner 
+ Pro spuštění programu je nutné mít nainstalovaný Python ve verzi 3.8.
+ TODO dodat knihovny 
+
 
 \subsection{Bordel}
-gen - jsou informace o celých genech, resp. jejich sekvencích, kdežto v nuc informace o nukleotidech - tedy jenom o exonech bez intronů, které při přepisu nehrají roli, tudíž se stává, že v nuc jsou stejné sekvence pro různé alely (jsou různé na třetí úrovni v názvu) - tím pádem je třeba zase se zkusit nějak vypořádat s podobností jednotlivých sekvencí
-
-podobnost sekvencí je základním kamenem úrazu při identifikaci KIR a ta největší výzva při Vaší práci :)
-
-gen obsahuje transkribované části bolasti přímo kódujícící pořadí aminikyselin proteinu (exony) i oblasti nekodující (introny), 
-
 Co znamená konec 3 a konec 5? 
-\\
-\\
-TODO takže mě by ve finále mělo zajímát to nuc? Co dostanu z nemocnice za data? Poprosit o poslání. 
+
 
 
 
@@ -678,78 +588,114 @@ TODO takže mě by ve finále mělo zajímát to nuc? Co dostanu z nemocnice za 
 Vše potřebné pro samotný běh programu obstarává skript $run.py$ spolu s nastavením v souboru $config.py$. Skript $tun.py$ postupně pouští jednotlivé moduly. Díky nastavení v $config.py$ je možné si zvolit spuštění jen některých modulů. Například pouhé vytvoření testovacích dat nebo pouze jejich zarovnání a v neposlední řádě pouštět vyhodnocování zarovnávaných dat.
 
 \subsection{Config}
-S konfiguračním souborem \textit{config.py} jsou spojeny všechny skripty a obsahuje jejich veškerá nastavení. Jak již bylo zmíněno je možné pomocí tohoto nastavení spustit jednotlivé moduly. Jedná se především o položky \textit{CREATE\_READS}, která udržuje informaci o spuštění vytvoření syntetických readů. \textit{ALIGN} starající se o spuštění zarovnání a \textit{EVALUATE}, která řídí spuštění vyhodnocení zarovnání. Důležitou položkou v configu jsou cesty ke zdrojovým a výstupním složkám. Dalším nastavením je obsah haplotypu při případném vygenerování testovacích dat.
-\\
-\\
-Pro urychlení běhu celého programu je v případě zmiňovanných referenčních genů možné použít pouze soubor \textit{KIR\_gen.fasta}.
+S konfiguračním souborem \textit{config.py} jsou spojeny všechny skripty a obsahuje jejich veškerá nastavení. Jak již bylo zmíněno je možné pomocí tohoto nastavení spustit jednotlivé moduly. Jedná se především o položky \textit{CREATE\_READS}, která udržuje informaci o spuštění vytvoření syntetických readů. \textit{ALIGN} starající se o spuštění zarovnání a \textit{EVALUATE}, která řídí spuštění vyhodnocení zarovnání. Důležitou položkou v configu jsou cesty ke zdrojovým a výstupním složkám. Dalším nastavením je obsah genotypu při případném vygenerování testovacích dat.
 
 \subsection{Simulování dat}
-TODO to automatický vytváření mám možná trošku neefektivně , ale nevím jestli to úplně vadí nebo ne? 
-třeba můžu napsat, že to nebylo stěžejní cíl práce tak že to vím, ale že už jsem to pak neupravovala, nebo to mám přepsat? Jako to přepsání asi bude rychlí
-TODO hlavně mám v nastavení to kir gen folder a pak reference kir gens pseudogen file
-TODO hele zkontroluj si v kodu jestli si náhodou někam napsala ručně to tvý \_gen.fasta
-TODO možná že napsat že tahle chyba pro mě byla přínosem a tak pro někoho kdo se tím chce víc zabívat tak by to pro něj mohlo být také přínosem se podívat na to co mu to vlastně vyhazuje, je to experiment neni to program do praxe.
-
-TODO tak nevím jestli někam třeba přidat sekci jak se vypozorovalo jak se chová bowtie třeba?
+O simulování dat se stará skript \textit{create\_syntetic\_reads.py} a je rozděleno na dva kroky: vytvoření genotypů a vytvoření readů. Mezi těmito dvěma fázemi vzniká soubory s příponou \textit{.fa}. Každý tento soubor obsahuje právě jeden KIR genotyp. Tyto genotypy jsou následně použíty jako vstupní soubor pro vytvoření readů, které se provádí za pomocí nástroje ART. Pro vytvoření genotypů je volán skript \textit{create\_genotype.py}, který vytvoří genotypy na základě nastavení v configu pod položkou \textit{GENOTYPES} a za pomoci referenčních genů v souboru pod položkou v configu \textit{REFERENCE\_KIR\_GENS\_FILE}. Vytvoření probíhá obdobně jako je popsáno níže u ručního vytvoření testovacího genotypu. Výsledné genotypy jsou uloženy do adresáře z configu \textit{GENOTYPE\_FOLDER}. Výstupem modulu \textit{create\_syntetic\_reads} je soubor s příponou \textit{.fq}, který by měl odpovídát formátu reaálných dat které byly dodány. Výstupní soubory jsou uloženy do složky pod proměnnou \textit{READS\_FOLDER}.
 \\
 \\
-O simulování dat se stará skript \textit{create\_syntetic\_reads.py} a je rozděleno na dva kroky: vytvoření haplotypů a vytvoření readů. Mezi těmito dvěma fázemi vzniká soubory s příponou \textit{.fa}. Každý tento soubor obsahuje právě jeden KIR haplotyp. Tyto haplotypy jsou následně použíty jako vstupní soubor pro vytvoření readů, které se provádí za pomocí nástroje ART. Pro vytvoření haplotypů je volán skript \textit{create\_haplotype.py}, který vytvoří haplotypy na základě nastavení v configu pod položkou \textit{HAPLOTYPES} a za pomoci referenčních genů ve složce pod položkou \textit{REFERENCE\_KIR\_GENS\_FOLDER}. Vytvoření probíhá obdobně jako je popsáno níže u ručního vytvoření testovacího haplotypu. Výsledné haplotypy jsou uloženy do adresáře z configu \textit{HAPLOTYPE\_FOLDER}. Výstupem modulu \textit{create\_syntetic\_reads} je soubor s příponou \textit{.fq}, který by měl odpovídát formátu dat z nemocnice případně biomedicínského centra. Výstupní soubory jsou uloženy do složky pod promněnou \textit{READS\_FOLDER}.
-\\
-\\
-\textbf{Ruční vytvoření testovacího haplotypu} lze udělat následujícím způsobem. V prvním kroku je vybrán gen, který je žádoucí vložit. V referenčních genech je vybrán jeho soubor a v tomto souboru je nalezena konkrétní alela. Někdy je možná najít shoda kdy se alely liší jen v konečné fazí jejich označení a v haplotypu je pouze první 5 čísel. S tímto jevem je možné se setkat například v případě alely 3DL3: 00402. V tomto případě může být vložena jakákoli z těchto alel. Vkladaná alela musí být vložena včetně její hlavičky tedy: \textit{>KIR:KIR00138 \: KIR3DL3*0040201 \: 12390 \: bp}. Je možné se setkat z genem, který se mezi soubory nenachází. Může se jednat například o pseudegen. Tyto geny je možné nalést v souboru \textit{KIR\_gen.fasta}, který obsahuje všechny geny pro které je známá jejich sekvence. Dalším způsobem vytvoření haplotypu je právě využítí souboru \textit{KIR\_gen.fasta}, díky čemuž je záskán stejný výsledek za použítí jen jednoho souboru. 
-\\
-\\
-TODO když vytvářím gen tak tam dávám i tu hlavičku, bez ní mi Art totiž vytvořilo prázdný a navíc pan Fatka když mi posílal tu testovací tak to tam taky měl.. a pak mi bowtie píše magic number či co 
-Myslím že pan Fatka mi poslal \textit{\_gen}
-TODO jak je vlastně možný že mi tam vzniknou mezery s tím že nějakej gen není v haplotypu tak tam budu mít mezeru - jak je to v těch realných datech?
-Nebo já jinak fakt nevím jak se identifikuje že tady je tenhle gen a tady je jinej gen?  
+\textbf{Ruční vytvoření testovacího genotypu} lze udělat následujícím způsobem. V prvním kroku je v referenčním souboru vybrána konkrétní alela genu. Někdy je možné najít shodu kdy se alely liší jen v konečné fazí jejich označení a v genotypu je pouze první 5 čísel. S tímto jevem je možné se setkat například v případě alely 3DL3: 00402. V tomto případě může být vložena jakákoli z těchto alel. Vkladaná alela musí být vložena včetně její hlavičky tedy: \textit{>KIR:KIR00138 \: KIR3DL3*0040201 \: 12390 \: bp}.
 
 \subsection{Zarovnání vzhledem k referenčním genům}
-Zarovnávání obstarává skript \textit{alignment\_reads\_to\_reference.py} s pomocí nástroje Bowtie. V nastavení je nutné vyplnit \textit{BOWTIE\_HOME\_DIRECTORY} podle umístění nástroje Bowtie na konkrétním počítači. V prvním kroku jsou vytvořeny bowtie indexy, které je možné použít na příč běhy, proto je v nastavení položka \textit{BOWTIE\_BUIL\_INDEX}, díky které je možné toto vytvoření povolit nebo zakázat. Bez vytovřených indexů, tedy indexů z minulých běhů, ale bowtie nebude zarovnávat. Bowtie vytváří indexy na základě obsahu složky \textit{REFERENCE\_KIR\_GENS\_FOLDER}. V dalším kroku jsem načteny všechny ready ze složky uvedené v \textit{READS\_FOLDER} a nasledně je na ně puštěn nástroj Bowtie. Tady je nutné aby byli ready paired end a to tedy aby se vyskytovali dvakrát jednou z \textit{1} na konci a podruhé s \textit{2}. V základu tento předpoklad zajistí správné nastavení ARTU, který je takto nastaven. Výstupní soubory jsou ve formátu \textit{.sam} a jsou umístěny dle položky \textit{ALIGMENT\_FOLDER} v nastavení. 
+Zarovnávání obstarává skript \textit{alignment\_reads\_to\_reference.py} s pomocí nástroje Bowtie2. V nastavení je nutné vyplnit \textit{BOWTIE\_HOME\_DIRECTORY} podle umístění nástroje Bowtie na konkrétním počítači. V prvním kroku jsou vytvořeny Bowtie indexy, které je možné použít na příč běhy, proto je v nastavení položka \textit{BOWTIE\_BUIL\_INDEX}, díky které je možné toto vytvoření povolit nebo zakázat. Bez vytvořených indexů, tedy indexů z minulých běhů, ale Bowtie nebude zarovnávat. Bowtie vytváří indexy na základě obsahu souboru \textit{REFERENCE\_KIR\_GENS\_FILE}. V dalším kroku jsou načteny všechny ready ze složky uvedené v \textit{READS\_FOLDER} a nasledně je na ně puštěn nástroj Bowtie. Tady je nutné aby byli ready paired end a to tedy aby se vyskytovali dvakrát jednou z \textit{1} na konci a podruhé s \textit{2}. V základu tento předpoklad zajistí správné nastavení ARTU, který je takto nastaven. Výstupní soubory jsou ve formátu \textit{.sam} a jsou umístěny dle položky \textit{ALIGMENT\_FOLDER} v nastavení. 
 
 \subsection{Vyhodnoceni zarovnání}
+Detailní výsledky pro všechny genotypy je možné najít v příloze.
 
 \subsubsection{Experiment1}
-	Počítání jen pokrytí za použití pysam.coverage či co 
-	Klidně tam nějake graf algoritmu, hodí se to sem? 
-	nevím jestli se nějak víc šťourat v těch bowtie nastavení.. u artu to nemá smysl protože tam se hlavně musím držet toho aby byli co nejvíc podobný těm z němocnice
-	
-TODO2: tenhle přístup mi nepřijde špatný, ale je nutno se zamyslet nad podobností alel a jak této informace využít, zkusit nějakou formu seskupování či identifikaci rozdílů alel a na základě jejich pokrytí (právě třeba maxima) rozhodovat či tak nějak něco
+Jako první pokus o určení alel, které by mohli být obsaženy v genomu bylo pouhé oříznutí alel, které by měli větší procentuální šířku zarovnání (například 90\%).  V případě genotypu amala, která obsahuje 19 alel je výsledek zobrazen níže. Červeně jsou označený alely, které se v genomu skutečně nacházejí, číslo v závorce udává jejich procentuální pokrytí.
+\begin{multicols}{2}
+\begin{itemize}
+	\itemsep0em
+	\item \textcolor{red}{3DL2*0070102 (99.64\%) }
+	\item \textcolor{red}{2DS4*0010101 (99.64\%) }
+	\item 2DS4*0010102 (99.55\%)
+	\item \textcolor{red}{2DS5*0020101 (99.50\%) }
+	\item \textcolor{red}{3DL2*0020105 (99.48\%) }
+	\item \textcolor{red}{2DS2*0010101 (99.43\%) }
+	\item \textcolor{red}{3DL3*00802 (99.34\%) }
+	\item 3DL2*0070103 (99.29\%) 
+	\item \textcolor{red}{3DL3*0040201 (99.22\%) }
+	\item 3DL2*0020106 (99.15\%)
+	\item \textcolor{red}{3DP1*007 (99.04\%) }
+	\item 2DS4*0010107 (98.99\%)
+	\item 2DS5*0020103 (98.98\%)
+	\item 3DS1*055 (98.70\%)
+	\item 3DL2*0020102 (98.40\%)
+	\item 3DL2*0020104 (98.19\%)
+	\item 3DL2*018 (98.07\%)
+	\item 2DL2*0030101 (98.07\%)
+	\item 2DP1*0020105 (97.99\%)
+\end{itemize}
+\end{multicols}
 
-TODO jak je možné žé různé alely pro jeden gen mohou být různě dlouhé?
-TODO2jedná se o různé varianty genu - mutace, chcete-li, tudíž tam mohlo docházet k insertům, deletům apod. a tudíž délka je jiná
+\noindent
+Následovně jsou uvedeny alely, které do genomu patří, mají pokrytí více než 90\%, ale nejsou v prvních 19.
+\begin{multicols}{2}
+\begin{itemize}
+	\itemsep0em
+	\item 2DL2*0030102 (97.29\%)
+	\item 2DL3*0010109 (94.16\%)
+	\item 2DL5A*00102 (96.6\%)
+	\item 2DS1*0020106 (96.57\%)
+	\item 3DP1*0090101 (96.46\%)
+	\item 3DS1*130101 (95.83\%)
+\end{itemize}
+\end{multicols}
+
+
+
+TODO Speciálním případem je KIR2DL4*00501 jak začíná několik alel 5 mějí přes 90, další 3 jsou pod 90 viz obrázek? Tady možná zmínit, že tedy stačí zarovnávat na těch 5
+\\
+\\
+\noindent
+Nakonec jsou uvedené alely, které do genomu patří, ale mají pokrytí menší než 90\%.
+
+\begin{multicols}{2}
+\begin{itemize}
+	\itemsep0em
+	\item 2DL1*0030201 (81.8\%)
+	\item 3DL1*0150201 (70.71\%)
+\end{itemize}
+\end{multicols}
+
+\noindent
+Ná následujícím obrázku jsou zobrazeny všechny alely genu KIR3DS1 a jeich zarovnání. Červeně je označena alela, která do genomu amala patří. Je možné si povšimnout, že alela s největším pokrytím do genomu nepatři. Navíc pokrytí větší než 90\% mají všechny alely až na jednu. Neméně důležitá část je, že poslední alela má značně kratší délku než všechny ostatní alely stejného genu. Poslední věcí je hloubka pokrytí, která díky nastavení sekvenátoru by měla odpovídat hladině 100 u alely, která do genu patří. Jak je vidět z obrázku jhloubka pokrytí se u většiny alel pohybuje v extrémech kolem 20. 
+
+\begin{figure}[H]
+    \centering
+    \def\svgwidth{\columnwidth}
+    \import{svg/}{exp1_KIR3DS1.pdf_tex} 
+\end{figure}
+
+
+
+\noindent
+Všechny vyše uvedené analýzy navádí na bližší prozkoumání podobnosti alel. 
+
+Dát tam upravenej graf Aby byli vidět ty malý vzdálenosti
+\begin{figure}[H]
+	\centering
+    \def\svgwidth{\columnwidth}
+    \import{svg/}{exp1_KIR3DS1_distance.pdf_tex} 
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+    \def\svgwidth{\columnwidth}
+    \import{svg/}{exp1_KIR3DS1_distance_100.pdf_tex} 
+\end{figure}
+ 
+ 
 
 \subsubsection{Experiment2}
-rozdil oproti experimentu jedna je že jsem vzala jen KIR\_gen kde jsou všechny alely a tam to vypadá že to docela funguje
+Experiment2 byl navržen s iterační zarovnávání. V první fázi se provede zarovnání na celou KIR referenci. V prvním kroku je vytvořena statistika obdobně jako v prvním experimentu a odstřiženy alely, které mají menší pokrytí než $CUT_COVERAGE_ALELS$ které je uvedené v $configu$. Ze zbylích alel je vytvořená nová reference na kterou je provedeno nové zarovnání readů. Opět je vytvořena statistika. Výsledky této statistiky nalezneme pod krokem 2. Následuje krok 3 v němž soutěží podobné alely v rámci jednoho genu. Podobnost alel se bere na základě Levenshteinové vzdálenosti. Alely jsou si podobné v případě, kdy je jejich vzdálenost menši než vzdálenost uvedené v $configu$ pod parametrem $CLOSE_DISTANCE$. Následuje vytvoření nové reference a nové zarovnání. V posledním kroku 4 jsou v případě kdy gen obsahuje alelu s píkem ostatní odstraněny. Pomocí vzorce kdy porovnávám maximum jejich pokrytí pokud je u jedné dvojnásobné než u druhé tak u té kde je větší vezmu pokud je  průměrné pokrytí dané alely dvakrát větší než průměrné pokrytí všech alel v daném genu. Je druhá alela odstraněna.
 
-a tam je pak problém že mi to napíše i víc alel který tam můžou být takže kde je pak ta hranice kdy už nee
-a navíc ten konec ty alely kolikrát neni specifikovanej ..
-a podle toho co mi tam vychází tak je to po genech určitě blbost dělat protože twn bowtie se to snaží někam dát za každou cenu.
-
-Já jsem to možná všechno dělala zbytečně moc složitě i to vytváření haplotypu, ten zbytek se dá zahladit tak, že prostě se tam dá vždycky jen ten jeden soubor .. že v těch referenčních genech tam nechá jenom to jedno pro který to bude chtít zarovnat zrovna 
-
-zkoušela jsem v pythonu přes pysam.depth, zkusit nějaký odhad na alely. Tak, že jsem zkusila vzít ty, které mají největší pokrytí. Brala jsem v úvahu i že každá alela je různě dlouhá, takže jsem to brala v procentech vzhledem k velikosti alely.  Zkrátka přijde mi, že to moc nefunguje, ale všimla jsem si takové zvláštnosti, že kolikrát se celý gen pohybuje kolem 99 procent pokrytí
 
 \subsection{Překlad alel}
 Při použití Bowtie vyvstal problém kdy jsou výsledné alely pojménovány pořadovým čísel jak byli objeveny nikoli názvem vyjadřující jejich skladbu. Proto vznikl modul překlad alel z pořadových čísel do názvů vyjadřující skladbu alely obsahující skript \textit{renaming\_alels\_result.py}, který projde všechny soubory ve složce pod proměnou \textit{RESULT\_FOLDER} a nahradí pořadová čísla příslušným názvem. Nakonec nahradí původní soubor, takto upraveným souborem.
 
-\subsubsection{Mimo}
-tenhle přístup mi nepřijde špatný, ale je nutno se zamyslet nad podobností alel a jak této informace využít, zkusit nějakou formu seskupování či identifikaci rozdílů alel a na základě jejich pokrytí (právě třeba maxima) rozhodovat či tak nějak něco
 
-
-podobnost sekvencí je základním kamenem úrazu při identifikaci KIR a ta největší výzva při Vaší práci :)
-
-About 80 procent of the exons on each chromosome are < 200 bp in length.
-
-Když bych chtěla dělat podobnost textů tak se dá dělat hamingova vzdálenost. Vpodstatě vezmu dva řětězce a spočítám kolik mezi sebou mají rozdílů
-- ale to je takový divný protože tam může být podobnost třeba posunutá ..
-
-
-
-Možná se dá ještě počítat frekvence výskytu jednotlivých znaků - ale máš 4 tak nevím jak hodně to je prokazatelný
-\\
-\\
-TODO nevím jestli je úplně dobře že mám číslování stránek na obsahu a že mit o začíná od 6?
 \section{Nastavení ART a bowtie}
 
 pair end
@@ -774,33 +720,175 @@ do popisku připsat že krok 2 tak ty vypsaný alely jsou navíc k těm z kroku 
 Haplotyp  & Celkem alel & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{Geny navíc} & Celkem alel & \multicolumn{2}{c||}{Ztraceno} & Celkem alel & \multicolumn{2}{c}{Ztraceno}  \\
 \hline
 \hline
-AMALA				& 162 & 0 & - & 0 & - & 35 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DP1*0090101 \\ 2DL4*0010201}} & 23 & 3 & 3DL3*0040201 \\
-BOB					& 168 & 0 & - & 1 & 2DL5B & 39 & 0 & - & 23 & 1 & 2DL4*00501  \\
-COX					& 129 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DP1*0030102 \\ 2DL1*0020102}} & 0 & - & 23 & 4 &  \Gape[0pt][2pt]{\makecell[l]{3DL3*0090101 \\ 3DP1*006}} & 18 & 5 & 2DL4*00501 \\
-HO301				& 139 & 5 & \Gape[0pt][2pt]{\makecell[l]{3DL3*0140201 \\ 2DL5B*010 \\ 2DP1*0010202 \\ 2DL4*0010201 \\ 2DS4*0010109}} & 0 & - & 24 & 9 & \Gape[0pt][2pt]{\makecell[l]{2DL2*0010103 \\ 2DL1*00402 \\ 3DL1*002 \\ 3DL2*0020106}} & 16 & 10 & 2DS2*0010104 \\ 
-JVM					& 153 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL1*0030203 \\ 2DS4*0030103}} & 1 & 2DL1 & 34 & 2 & - & 18 & 5 & \Gape[0pt][2pt]{\makecell[l]{3DL3*00801 \\ 3DP1*0030202 \\ 2DL4*0080101}}  \\
-KAS011				& 175 & 1 & 2DL3*0020103 & 1 & 2DL5B & 38 & 1 & - & 23 & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL3*0090101 \\ 2DL4*00501}} \\
-OLGA					& 168 & 4 & \Gape[0pt][2pt]{\makecell[l]{2DL3*0010105 \\ 2DL1*0030204 \\ 3DP1*0030201 \\ 3DL1*0010102}} & 1 & 2DL5B & 32 & 5 & 2DP1*0020105 & 17 & 7 &  \Gape[0pt][2pt]{\makecell[l]{2DL4*00501 \\ 3DL1*0050101}} \\
-RSH					& 193 & 0 & - & 0 & - & 35 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DS2*0010108 \\ 2DP1*0020110 \\ 2DL1*0030205}} & 15 & 6 & \Gape[0pt][2pt]{\makecell[l]{3DL3*0040202 \\ 3DL1*0050101 \\ 3DL2*023 }} \\
-Test1				& 120 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DS3*0020102 \\ 3DP1*004 \\ 3DL2*00501}} & 0 & - & 31 & 3 & - & 24 & 3 & - \\
-Test2				& 190 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL4*0080104 \\ 3DS1*078}} & 1 & 3DS1 & 32 & 4 & \Gape[0pt][2pt]{\makecell[l]{ 2DP1*0020107 \\ 2DL1*0020102}} & 22 & 4 & - \\
-Test3				& 142 & 1 & 2DP1*0020108 & 0 & - & 29 & 1 & - & 16 & 3 & \Gape[0pt][2pt]{\makecell[l]{ 2DL1*0040101 \\ 3DL1*002}} \\
-Test4				& 146 & 1 & 3DL1*0150202 & 1 & 3DL1 & 34 & 2 & 3DL2*0020101 & 18 & 2 & 3DL2*0020101 \\
-Test5				& 160 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL4*0010202 \\ 3DL1*0200101}} & 1 & 2DL5B & 26 & 5 & \Gape[0pt][2pt]{\makecell[l]{2DL3*0010109 \\ 2DS3*0010301 \\ 2DL1*0030208}} & 17 & 6 & 2DP1*0030102 \\
-Test6				& 186 & 1 & 2DL1*0030203 & 1 & 2DL5A & 44 & 2 & 3DP1*0030202 & 23 & 3 & 2DP1*0020103 \\
-Test7				& 169 & 1 & 3DP1*0030202 & 0 & - & 22 & 8 & \Gape[0pt][2pt]{\makecell[l]{3DL3*0090103 \\ 2DL3*0010103 \\ 2DP1*0020106 \\ 2DL1*0030205 \\ 2DL4*0010201 \\ 3DL1*0150203 \\ 2DS4*0010107}} & 14 & 9 & 3DL2*0020105 \\
-Test8				& 129 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DS3*0020101 \\ 2DL5A*0050102}} & 0 & - & 33 & 2 & - & 26 & 2 & - \\
-Test9				& 130 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DS3*0020101 \\ 3DL1*0150208}} & 1 & 3DL1 & 35 & 2 & - & 26 & 2 & - \\
-Test10				& 114 & 4 & \Gape[0pt][2pt]{\makecell[l]{2DS3*0020102 \\ 3DP1*004 \\ 3DL1*0150101 \\ 3DL2*00501}} & 0 & - & 29 & 4 & - & 20 & 4 & \\
-Test11				& 140 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL1*00402 \\ 2DL5A*0050102}} & 1 & 2DL5B & 33 & 4 &   \Gape[0pt][2pt]{\makecell[l]{2DS5*0020103 \\ 3DL2*0070102}} & 27 & 4 & - \\
+AMALA				& 164 & 0 & - & 0 & - & 33 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DP1*0090101 \\ 2DL4*0010201}} & 23 & 2 & - \\
+BOB					& 170 & 0 & - & 1 & 2DL5B & 39 & 0 & - & 22 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL2*0070102 \\ 2DL4*00501}}  \\
+COX					& 131 & 0 & - & 0 & - & 24 & 2 &  \Gape[0pt][2pt]{\makecell[l]{3DL3*0090101 \\ 3DP1*006}} & 17 & 4 & \Gape[0pt][2pt]{\makecell[l]{2DL4*00501 \\ 3DL2*0070103 }} \\
+HO301				& 140 & 0 & - & 0 & - & 25 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL2*0010103 \\ 2DL1*00402 \\  3DL2*0020106}} & 16 & 4 & 2DS2*0010104 \\ 
+JVM					& 154 & 1 & 2DL1*0030203 & 1 & 2DL1 & 34 & 1 & - & 18 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DL3*00801 \\ 3DP1*0030202 \\ 2DL4*0080101}}  \\
+KAS011				& 177 & 0 & - & 1 & 2DL5B & 37 & 0 & - & 23 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL3*0090101 \\ 2DL4*00501}} \\
+OLGA					& 170 & 1 & 3DL1*0010102 & 1 & 2DL5B & 34 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DP1*0020105 \\ 3DL2*0070102}} & 17 & 5 &  \Gape[0pt][2pt]{\makecell[l]{2DL4*00501 \\ 3DL1*0050101}} \\
+RSH					& 194 & 0 & - & 0 & - & 35 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DS2*0010108 \\ 2DP1*0020110 \\ 2DL1*0030205}} & 15 & 6 & \Gape[0pt][2pt]{\makecell[l]{3DL3*0040202 \\ 3DL1*0050101 \\ 3DL2*023 }} \\
+Test1				& 121 & 0 & - & 0 & - & 31 & 0 & - & 24 & 0 & - \\
+Test2				& 192 & 0 & - & 1 & 3DS1 & 33 & 3 & \Gape[0pt][2pt]{\makecell[l]{ 2DP1*0020107 \\ 2DL1*0020102 \\ 3DL2*0020101}} & 22 & 3 & - \\
+Test3				& 143 & 0 & - & 0 & - & 29 & 0 & - & 16 & 2 & \Gape[0pt][2pt]{\makecell[l]{ 2DL1*0040101 \\ 3DL1*002}} \\
+Test4				& 148 & 1 & 3DL1*0150202 & 1 & 3DL1 & 33 & 2 & 3DL2*0020101 & 18 & 2 & - \\
+Test5				& 162 & 1 & 3DL1*0200101 & 1 & 2DL5B & 27 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL3*0010109 \\ 2DL1*0030208}} & 17 & 4 & 2DP1*0030102 \\
+Test6				& 187 & 0 & - & 1 & 2DL5A & 43 & 1 & 3DP1*0030202 & 24 & 2 & 2DP1*0020103 \\
+Test7				& 170 & 0 & - & 0 & - & 22 & 7 & \Gape[0pt][2pt]{\makecell[l]{3DL3*0090103 \\ 2DL3*0010103 \\ 2DP1*0020106 \\ 2DL1*0030205 \\ 2DL4*0010201 \\ 3DL1*0150203 \\ 2DS4*0010107}} & 14 & 8 & 3DL2*0020105 \\
+Test8				& 131 & 0 & - & 0 & - & 33 & 1 & 2DS2*0010103 & 27 & 1 & - \\
+Test9				& 132 & 1 & 3DL1*0150208 & 1 & 3DL1 & 34 & 2 & 3DL2*0070102 & 24 & 2 & - \\
+Test10				& 115 & 0 & - & 0 & - & 30 & 0 & - & 21 & 0 & \\
+Test11				& 142 & 0 & - & 1 & 2DL5B & 32 & 1 & 2DS5*0020103 & 25 & 1 & - \\
 \hline
 \hline
 Průměr				& 0 & 0 &  & 0 & \\ 
-
 \end{longtable}
 \captionof{table}{Krok 2 Z - ztraceno, snadno oddělitelných (na=příklad pomocí piku), geny navíc}
 \end{center}
 \end{landscape}
+
+
+
+
+
+
+\begin{landscape}
+\begin{center}
+\rowcolors{2}{gray!25}{white}
+\begin{longtable}{l || c | c l | c l || c | c l | c l || c | c l | c l }
+ & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c||}{Krok 3} & \multicolumn{5}{c}{Krok 4} \\ 
+\Gape[0pt][2pt]{\makecell[c]{Haplotyp \\ (alel)}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
+\hline
+\hline
+amala (19) & 165 & 1 & 3DL1*0150201 & 1 & 3DL1 & 33 & 2 & 2DL4*0010201 & 1 &  -  & 20 & 3 & 3DL2*0020105 & 1 &  -  \\ 
+bob (19) & 169 & 0 &  -  & 1 & 2DL5B & 38 & 0 &  -  & 1 &  -  & 21 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL4*00501 \\ 3DL2*0070102}} & 1 &  -  \\ 
+cox (19) & 131 & 0 &  -  & 0 &  -  & 27 & 1 & 3DL3*0090101 & 0 &  -  & 18 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL4*00501 \\ 3DL2*0070103}} & 0 &  -  \\ 
+ho301 (24) & 138 & 0 &  -  & 0 &  -  & 25 & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL2*0020106 \\ 2DL1*00402 \\ 2DL2*0010103}} & 0 &  -  & 16 & 4 & 2DS2*0010104 & 0 &  -  \\ 
+jvm (17) & 156 & 0 &  -  & 0 &  -  & 33 & 1 & 2DL4*0080101 & 0 &  -  & 16 & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL3*00801 \\ 3DP1*0030202}} & 0 &  -  \\ 
+kas011 (20) & 177 & 0 &  -  & 1 & 2DL5B & 39 & 0 &  -  & 1 &  -  & 22 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL3*0090101 \\ 2DL4*00501}} & 1 &  -  \\ 
+olga (21) & 177 & 0 &  -  & 1 & 2DL5B & 36 & 1 & 2DP1*0020105 & 1 &  -  & 19 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL4*00501 \\ 3DL1*0050101}} & 1 &  -  \\ 
+rsh (20) & 196 & 0 &  -  & 1 & 2DL5A & 40 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL1*0030205 \\ 2DP1*0020110}} & 1 &  -  & 20 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DL3*0040202 \\ 3DL1*0050101}} & 1 &  -  \\ 
+test1 (23) & 115 & 1 & 3DL1*0150101 & 0 &  -  & 30 & 1 &  -  & 0 &  -  & 21 & 2 & 2DP1*0010203 & 0 &  -  \\ 
+test2 (21) & 190 & 0 &  -  & 0 &  -  & 35 & 1 & 2DL1*0020102 & 0 &  -  & 24 & 1 &  -  & 0 &  -  \\ 
+test3 (16) & 149 & 0 &  -  & 0 &  -  & 29 & 0 &  -  & 0 &  -  & 18 & 1 & 2DL1*0040101 & 0 &  -  \\ 
+test4 (18) & 151 & 0 &  -  & 0 &  -  & 32 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DS1*0020101 \\ 3DL2*0020101}} & 1 & 2DS1 & 17 & 2 &  -  & 1 &  -  \\ 
+test5 (19) & 163 & 1 & 3DL1*0200101 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL1 \\ 2DL5B}} & 30 & 2 & 2DL1*0030208 & 2 &  -  & 18 & 2 &  -  & 2 &  -  \\ 
+test6 (21) & 198 & 0 &  -  & 1 & 2DL5A & 45 & 1 & 3DP1*0030202 & 1 &  -  & 26 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DP1*0020103 \\ 3DL3*0140203}} & 1 &  -  \\ 
+test7 (18) & 176 & 0 &  -  & 0 &  -  & 22 & 7 & \Gape[0pt][2pt]{\makecell[l]{2DP1*0020106 \\ 2DL3*0010103 \\ 3DL3*0090103 \\ 2DL1*0030204 \\ 3DL1*0150203 \\ 2DL4*0010201 \\ 2DS4*0010107}} & 0 &  -  & 14 & 8 & 3DL2*0020105 & 0 &  -  \\ 
+test8 (24) & 130 & 0 &  -  & 0 &  -  & 35 & 1 & 2DS2*0010103 & 0 &  -  & 25 & 2 & 3DL2*0070102 & 0 &  -  \\ 
+test9 (22) & 131 & 1 & 3DL1*0150208 & 1 & 3DL1 & 34 & 1 &  -  & 1 &  -  & 27 & 2 & 3DL2*0070102 & 1 &  -  \\ 
+test10 (21) & 114 & 0 &  -  & 1 & 2DL5A & 32 & 0 &  -  & 1 &  -  & 22 & 0 &  -  & 1 &  -  \\ 
+test11 (24) & 141 & 0 &  -  & 1 & 2DL5B & 32 & 1 & 3DL2*0070102 & 1 &  -  & 26 & 1 &  -  & 1 &  -  \\ 
+\hline
+\hline
+\end{longtable}
+\captionof{table}{Experiment 2 vygenerovano Krok 2 Z - ztraceno, snadno oddělitelných (na=příklad pomocí piku), geny navíc}
+\end{center}
+\end{landscape}
+
+
+
+\begin{landscape}
+\begin{center}
+\rowcolors{2}{gray!25}{white}
+\begin{longtable}{l || c | c l | c l || c | c l | c l || c | c l | c l }
+ & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c||}{Krok 3} & \multicolumn{5}{c}{Krok 4} \\ 
+\Gape[0pt][2pt]{\makecell[c]{Haplotyp \\ (alel)}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
+\hline
+\hline
+amala (19) & 220 & 1 & 3DL1*0150201 & 1 & 3DL1 & 34 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL4*0010201 \\ 3DP1*0090101}} & 1 &  -  & 22 & 3 &  -  & 1 &  -  \\ 
+bob (19) & 220 & 0 &  -  & 1 & 2DL5B & 36 & 1 & 2DS1*0020101 & 2 & 2DS1 & 19 & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL2*0070102 \\ 2DL4*00501}} & 2 &  -  \\ 
+cox (19) & 154 & 0 &  -  & 0 &  -  & 23 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL3*0090101 \\ 3DP1*006}} & 0 &  -  & 17 & 3 & 2DL4*00501 & 0 &  -  \\ 
+ho301 (24) & 170 & 0 &  -  & 1 & 2DL5A & 29 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL2*0010103 \\ 2DL1*00402}} & 1 &  -  & 18 & 3 & 2DS2*0010104 & 1 &  -  \\ 
+jvm (17) & 194 & 0 &  -  & 0 &  -  & 35 & 0 &  -  & 0 &  -  & 15 & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL3*00801 \\ 3DP1*0030202 \\ 2DL4*0080101}} & 0 &  -  \\ 
+kas011 (20) & 195 & 0 &  -  & 1 & 2DL5B & 40 & 0 &  -  & 1 &  -  & 21 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL4*00501 \\ 3DL3*0090101}} & 1 &  -  \\ 
+olga (21) & 187 & 0 &  -  & 1 & 2DL5B & 32 & 1 & 2DP1*0020105 & 1 &  -  & 18 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL4*00501 \\ 3DL1*0050101}} & 1 &  -  \\ 
+rsh (20) & 234 & 0 &  -  & 1 & 2DL5A & 38 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL1*0030205 \\ 2DP1*0020110}} & 1 &  -  & 20 & 5 & \Gape[0pt][2pt]{\makecell[l]{3DL2*023 \\ 3DL1*0050101 \\ 3DL3*0040202}} & 1 &  -  \\ 
+test1 (23) & 162 & 1 & 3DL1*0150101 & 0 &  -  & 29 & 1 &  -  & 0 &  -  & 19 & 2 & 2DP1*0010203 & 0 &  -  \\ 
+test2 (21) & 207 & 0 &  -  & 0 &  -  & 34 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DP1*0020107 \\ 2DL1*0020102}} & 0 &  -  & 22 & 3 & 3DL3*019 & 0 &  -  \\ 
+test3 (16) & 191 & 0 &  -  & 0 &  -  & 29 & 1 & 2DL4*0010306 & 0 &  -  & 16 & 2 & 2DL1*0040101 & 0 &  -  \\ 
+test4 (18) & 175 & 0 &  -  & 0 &  -  & 30 & 1 & 3DL2*0020101 & 0 &  -  & 17 & 1 &  -  & 0 &  -  \\ 
+test5 (19) & 209 & 0 &  -  & 1 & 2DL5B & 30 & 1 & 2DL1*0030208 & 1 &  -  & 18 & 1 &  -  & 1 &  -  \\ 
+test6 (21) & 258 & 0 &  -  & 1 & 2DL5A & 42 & 1 & 3DP1*0030202 & 1 &  -  & 24 & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL3*0140203 \\ 2DP1*0020103}} & 1 &  -  \\ 
+test7 (18) & 185 & 0 &  -  & 0 &  -  & 23 & 8 & \Gape[0pt][2pt]{\makecell[l]{2DL1*0030205 \\ 2DL4*0010201 \\ 2DP1*0020106 \\ 3DL2*0020105 \\ 3DL1*0150203 \\ 2DS4*0010107 \\ 2DL3*0010103 \\ 3DL3*0090103}} & 0 &  -  & 14 & 8 &  -  & 0 &  -  \\ 
+test8 (24) & 144 & 0 &  -  & 0 &  -  & 35 & 1 & 2DS2*0010103 & 0 &  -  & 26 & 2 & 3DL2*0070102 & 0 &  -  \\ 
+test9 (22) & 158 & 1 & 3DL1*0150208 & 1 & 3DL1 & 36 & 1 &  -  & 1 &  -  & 25 & 2 & 3DL2*0070102 & 1 &  -  \\ 
+test10 (21) & 178 & 0 &  -  & 1 & 2DL5A & 31 & 0 &  -  & 1 &  -  & 21 & 0 &  -  & 1 &  -  \\ 
+test11 (24) & 153 & 0 &  -  & 1 & 2DL5B & 33 & 1 & 3DL2*0070102 & 1 &  -  & 27 & 1 &  -  & 1 &  -  \\ 
+
+
+\end{longtable}
+\captionof{table}{Experiment 3 shluky s menší mezerou než 15, coverage 75 }
+\end{center}
+\end{landscape}
+
+
+\begin{landscape}
+\begin{center}
+\rowcolors{2}{gray!25}{white}
+\begin{longtable}{l || c | c l | c l || c | c l | c l || c | c l | c l }
+ & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c||}{Krok 3} & \multicolumn{5}{c}{Krok 4} \\ 
+\Gape[0pt][2pt]{\makecell[c]{Haplotyp \\ (alel)}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
+\hline
+\hline
+amala (19) & 235 & 0 &  -  & 0 &  -  & 39 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DP1*0090101 \\ 2DL4*0010201}} & 0 &  -  & 21 & 3 & 3DL2*0020105 & 0 &  -  \\ 
+bob (19) & 250 & 0 &  -  & 1 & 2DL5B & 45 & 0 &  -  & 1 &  -  & 22 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL4*00501 \\ 3DL2*0070102}} & 1 &  -  \\ 
+cox (19) & 210 & 0 &  -  & 0 &  -  & 27 & 1 & 3DL3*0090101 & 0 &  -  & 22 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL4*00501 \\ 3DL2*0070103}} & 0 &  -  \\ 
+ho301 (24) & 179 & 0 &  -  & 2 & \Gape[0pt][2pt]{\makecell[l]{2DS1 \\ 2DL5A}} & 32 & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL2*0020106 \\ 2DL2*0010103 \\ 2DL1*00402}} & 2 &  -  & 20 & 4 & 2DS2*0010104 & 2 &  -  \\ 
+jvm (17) & 228 & 0 &  -  & 0 &  -  & 37 & 0 &  -  & 0 &  -  & 15 & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL3*00801 \\ 3DP1*0030202 \\ 2DL4*0080101}} & 0 &  -  \\ 
+kas011 (20) & 222 & 0 &  -  & 1 & 2DL5B & 41 & 0 &  -  & 1 &  -  & 24 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL3*0090101 \\ 2DL4*00501}} & 1 &  -  \\ 
+olga (21) & 203 & 0 &  -  & 1 & 2DL5B & 35 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL2*0070102 \\ 2DP1*0020105}} & 1 &  -  & 18 & 4 & \Gape[0pt][2pt]{\makecell[l]{2DL4*00501 \\ 3DL1*0050101}} & 1 &  -  \\ 
+rsh (20) & 273 & 0 &  -  & 1 & 2DL5A & 46 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL1*0030205 \\ 2DP1*0020110}} & 1 &  -  & 22 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DL3*0040202 \\ 3DL1*0050101}} & 1 &  -  \\ 
+test1 (23) & 185 & 0 &  -  & 0 &  -  & 35 & 0 &  -  & 0 &  -  & 22 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL3*0030101 \\ 2DP1*0010203}} & 0 &  -  \\ 
+test2 (21) & 209 & 0 &  -  & 0 &  -  & 36 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL1*0020102 \\ 2DP1*0020107}} & 0 &  -  & 25 & 2 &  -  & 0 &  -  \\ 
+test3 (16) & 204 & 0 &  -  & 0 &  -  & 26 & 1 & 2DL4*0010306 & 0 &  -  & 14 & 2 & 2DL1*0040101 & 0 &  -  \\ 
+test4 (18) & 205 & 0 &  -  & 0 &  -  & 36 & 1 & 3DL2*0020101 & 0 &  -  & 18 & 1 &  -  & 0 &  -  \\ 
+test5 (19) & 228 & 0 &  -  & 1 & 2DL5B & 32 & 1 & 2DL1*0030208 & 1 &  -  & 20 & 1 &  -  & 1 &  -  \\ 
+test6 (21) & 275 & 0 &  -  & 1 & 2DL5A & 45 & 1 & 3DP1*0030202 & 1 &  -  & 23 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DP1*0020103 \\ 3DL3*0140203}} & 1 &  -  \\ 
+test7 (18) & 199 & 0 &  -  & 0 &  -  & 23 & 7 & \Gape[0pt][2pt]{\makecell[l]{3DL3*0090103 \\ 2DP1*0020106 \\ 2DS4*0010107 \\ 2DL4*0010201 \\ 3DL1*0150203 \\ 2DL1*0030205 \\ 2DL3*0010103}} & 0 &  -  & 13 & 8 & 3DL2*0020105 & 0 &  -  \\ 
+test8 (24) & 146 & 0 &  -  & 0 &  -  & 34 & 1 & 2DS2*0010103 & 0 &  -  & 24 & 2 & 3DL2*0070102 & 0 &  -  \\ 
+test9 (22) & 172 & 1 & 3DL1*0150208 & 1 & 3DL1 & 38 & 2 & 2DS2*0010112 & 1 &  -  & 25 & 3 & 3DL2*0070102 & 1 &  -  \\ 
+test10 (21) & 198 & 0 &  -  & 1 & 2DL5A & 34 & 0 &  -  & 1 &  -  & 24 & 0 &  -  & 1 &  -  \\ 
+test11 (24) & 156 & 0 &  -  & 1 & 2DL5B & 34 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL2*0070102 \\ 2DS5*0020103}} & 1 &  -  & 27 & 2 &  -  & 1 &  -  \\ 
+
+\end{longtable}
+\captionof{table}{Experiment 3 shluky s menší mezerou než 15, coverage 70 }
+\end{center}
+\end{landscape}
+
+\begin{landscape}
+\begin{center}
+\rowcolors{2}{gray!25}{white}
+\begin{longtable}{l || c | c l | c l || c | c l | c l || c | c l | c l }
+ & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c||}{Krok 3} & \multicolumn{5}{c}{Krok 4} \\ 
+\Gape[0pt][2pt]{\makecell[c]{Haplotyp \\ (alel)}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
+\hline
+\hline
+amala (19) & 238 & 0 &  -  & 0 &  -  & 40 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL4*0010201 \\ 3DP1*0090101}} & 0 &  -  & 22 & 3 & 3DL2*0020105 & 0 &  -  \\ 
+bob (19) & 253 & 0 &  -  & 1 & 2DL5B & 44 & 0 &  -  & 1 &  -  & 24 & 1 & 2DL4*00501 & 1 &  -  \\ 
+cox (19) & 210 & 0 &  -  & 0 &  -  & 27 & 1 & 3DL3*0090101 & 0 &  -  & 22 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL4*00501 \\ 3DL2*0070103}} & 0 &  -  \\ 
+ho301 (24) & 183 & 0 &  -  & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL5A \\ 2DS1}} & 33 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL1*00402 \\ 2DL2*0010103}} & 2 &  -  & 21 & 3 & 2DS2*0010104 & 2 &  -  \\ 
+jvm (17) & 240 & 0 &  -  & 0 &  -  & 37 & 0 &  -  & 0 &  -  & 15 & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL3*00801 \\ 3DP1*0030202 \\ 2DL4*0080101}} & 0 &  -  \\ 
+kas011 (20) & 242 & 0 &  -  & 1 & 2DL5B & 42 & 0 &  -  & 1 &  -  & 24 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL4*00501 \\ 3DL3*0090101}} & 1 &  -  \\ 
+olga (21) & 203 & 0 &  -  & 1 & 2DL5B & 35 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL2*0070102 \\ 2DP1*0020105}} & 1 &  -  & 18 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DL1*0050101 \\ 2DL4*00501}} & 1 &  -  \\ 
+rsh (20) & 276 & 0 &  -  & 1 & 2DL5A & 44 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DP1*0020110 \\ 2DL1*0030205}} & 1 &  -  & 20 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DL3*0040202 \\ 3DL1*0050101}} & 1 &  -  \\ 
+test1 (23) & 186 & 0 &  -  & 0 &  -  & 32 & 0 &  -  & 0 &  -  & 20 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DP1*0010203 \\ 3DL3*0030101}} & 0 &  -  \\ 
+test2 (21) & 209 & 0 &  -  & 0 &  -  & 35 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL1*0020102 \\ 2DP1*0020107}} & 0 &  -  & 25 & 2 &  -  & 0 &  -  \\ 
+test3 (16) & 207 & 0 &  -  & 0 &  -  & 28 & 1 & 2DL4*0010306 & 0 &  -  & 17 & 2 & 2DL1*0040101 & 0 &  -  \\ 
+test4 (18) & 207 & 0 &  -  & 0 &  -  & 35 & 1 & 3DL2*0020101 & 0 &  -  & 18 & 1 &  -  & 0 &  -  \\ 
+test5 (19) & 230 & 0 &  -  & 1 & 2DL5B & 32 & 1 & 2DL1*0030208 & 1 &  -  & 19 & 1 &  -  & 1 &  -  \\ 
+test6 (21) & 278 & 0 &  -  & 1 & 2DL5A & 47 & 1 & 3DP1*0030202 & 1 &  -  & 23 & 4 & \Gape[0pt][2pt]{\makecell[l]{2DL1*0030203 \\ 3DL3*0140203 \\ 2DP1*0020103}} & 1 &  -  \\ 
+test7 (18) & 200 & 0 &  -  & 0 &  -  & 26 & 7 & \Gape[0pt][2pt]{\makecell[l]{2DL3*0010103 \\ 2DL1*0030205 \\ 2DL4*0010201 \\ 3DL1*0150203 \\ 2DS4*0010107 \\ 3DL3*0090103 \\ 2DP1*0020106}} & 0 &  -  & 13 & 8 & 3DL2*0020105 & 0 &  -  \\ 
+test8 (24) & 146 & 0 &  -  & 0 &  -  & 34 & 1 & 2DS2*0010103 & 0 &  -  & 24 & 2 & 3DL2*0070102 & 0 &  -  \\ 
+test9 (22) & 174 & 1 & 3DL1*0150208 & 1 & 3DL1 & 39 & 1 &  -  & 1 &  -  & 28 & 2 & 3DL2*0070102 & 1 &  -  \\ 
+test10 (21) & 201 & 0 &  -  & 1 & 2DL5A & 34 & 0 &  -  & 1 &  -  & 24 & 0 &  -  & 1 &  -  \\ 
+test11 (24) & 156 & 0 &  -  & 1 & 2DL5B & 34 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL2*0070102 \\ 2DS5*0020103}} & 1 &  -  & 27 & 2 &  -  & 1 &  -  \\ 
+\end{longtable}
+\captionof{table}{Experiment 3 shluky s menší mezerou než 20, coverage 70 }
+\end{center}
+\end{landscape}
+
+
 \chapter{Vyhodnocení výsledků a jejich srovnání}
 \chapter{Závěr}
 V práci bylo řešeno 
@@ -814,7 +902,7 @@ Parametry ARTU byli nastaveny na základě dat z FN protože používají zrovna
 Testování bylo prováděno na syntetických readech a následná validace byla provedena na datech z FN
 
 Do budoucna by to chtělo co?
-
+vylepšení zhodnocení výsledků?
 \chapter{Výkladový slovník pojmů a zkratek}
 
 \begin{labeling}{alligator}
@@ -872,7 +960,7 @@ Co znamená konec 3 a konec 5?
 
 \appendix
 \chapter{Uživatelská dokumentace}
-Program byl napsán a otestován za použití ART ve verzi MountRainier, Bowtie 2 ve verzi 2.4.1, Python ve verzi 3.6. Dále byla použita pytnovská knihovny pysam ve verzi 0.14. 
+Program byl napsán a otestován za použití ART ve verzi MountRainier, Bowtie 2 ve verzi 2.4.1, Python ve verzi 3.8. Dále byla použita pytnovská knihovny pysam ve verzi 0.14. 
 \\
 \\
 Následující postupy jsou uvedeny pro operační systém Linux a pro jiné operační systémy se mohou lišit. Veškeré nastavení aplikace probíhá pomocí souboru \textit{config.py}
@@ -920,7 +1008,6 @@ V případě tvorby vlastních haplotypů s doporučenou adresářovou strukturo
 Vytvořené ready se budou nacházet ve složce reads. Protože haplotypy jsou paired-end náleží každému haplotypu dva soubory s příponou \textit{.fq}. Jeden s \textit{1} na konci a druhý s \textit{2} na konci. 
 V případě zarovnání mohou být výstupní soubory indexy ve složce \textit{bowtie\_index}. Kdy pro každý referenční gen je vytvořeno 6 souborů s příponou \textit{bt2}. Výsledné zarování se pak nachází ve složce \textit{alignments} ve formátu \textit{.sam}. Vyhodnocení zarovnání se pak nacháze ve složce \textit{result} ve formátu \textit{.txt}
 
-\chapter{Uživatelská dokumentace ART???}
 \section{Nastavení ART a jeho spuštění}
 tak jsem stáhla normálně nejnovější verzi z niehs.nih.gov a podle instrukcí co byli v souboru INSTAL dala % ./configure && make && make install
 
@@ -946,7 +1033,6 @@ $art_illumina -ss MSv3 -sam -i amplicon_reference.fa -p -l 250 -f 10 -m 300 -s 1
 Tohle používej:
 $art_illumina -ss MSv1 -sam -i amplicon_reference.fa -p -l 250 -f 100 -m 300 -s 10 -o moje_art_data$
 
-\chapter{Uživatelská dokumentace Bowtie ??}
 \section{Bowtie}
  a stáhla jsem to tady %http://bowtie-bio.sourceforge.net/tutorial.shtml
  po kliknuti na bowtie binary release.
@@ -968,7 +1054,7 @@ indexy
 bowtie-build builds a Bowtie index from a set of DNA sequences. bowtie-build outputs a set of 6 files with suffixes .1.ebwt, .2.ebwt, .3.ebwt, .4.ebwt, .rev.1.ebwt, and .rev.2.ebwt. (If the total length of all the input sequences is greater than about 4 billion, then the index files will end in ebwtl instead of ebwt.)
  These files together constitute the index: they are all that is needed to align reads to that reference. The original sequence files are no longer used by Bowtie once the index is built.
 
-\chapter{Používané soubory}
+\section{Používané soubory}
 \subsection{FASTQ}
 
 	    
@@ -1034,36 +1120,89 @@ Hlavička vždycky začíná s
 %		@SQ     seq1    7207
 %	       	@SQ     seq2    3056
 %		##Header End
-		
-v body jsou všechny zarovnání 
-%		>ref_seq_id	read_id	aln_start_pos	ref_seq_strand
-%	       	ref_seq_aligned
-%	       	read_seq_aligned 
+	
 
-\subsection{SAM a BAM}
-1. název readu který je zarovnáván
 
-2. Sum of all applicable flags. Flags relevant to Bowtie are:
-součet všechn aplikovaných (příslušných flags). Flagy relevantní k bowtie jsou: 
-1 - read je jeden z páru
-2 - zarovnání je one z paired proper (The alignment is one end of a proper paired-end alignment)
-4 - read má reported alignments
-8 - read je jeden z páru a má reportovaný zarovnání
-16 - zarování je obrácená reference vlákna
-32 - The other mate in the paired-end alignment is aligned to the reverse reference strand
-64 - read je mate 1 in a pair
-128 - read je mate 2 in a pair
+\chapter{Detailní výsledky}
 
-Thus, an unpaired read that aligns to the reverse reference strand will have flag 16. A paired-end read that aligns and is the first mate in the pair will have flag 83 (= 64 + 16 + 2 + 1).
+\begin{landscape}
+\section{Experiment1}
+\begin{center}
+\tiny
+\rowcolors{2}{gray!25}{white}
+\begin{longtable}{l c|| c | c l | c l || c | c l | c l || c | c l | c l }
+ & & \multicolumn{5}{c||}{Krok 1} & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c}{Krok 3} \\ 
+Genotyp & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
+\hline
+\hline
 
-3. jméno referecnce ze které zarování patří
-4. 1-based offset into the forward reference strand where leftmost character of the alignment occurs 1-based odszaneí v následující referenci 
-5. kvalita mapování
-6. CIGAR reprezentace zarovnání
-7. název reference kde je zarovnán kamarád 
-8. 1-based zarování ofsetu k nálsedující refenrenci 
-9. Odvozená délka fragmentu. Velikost v závoru je že se mate nachází předtím. 0 že jsem nezarovnali mate
-10. read sekvence
-11. ASCII encoded read kvalita, stejné jako u FASTQ
-12. optional pole
+amala & 19 (0) & 461 & 0 &  -  & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 2DS3}} & 113 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL1*0030201 \\ 3DL1*0150201}} & 0 &  -  & 24 & 3 & 3DP1*0090101 & 0 &  -  \\ 
+bob & 19 (0) & 461 & 0 &  -  & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 2DS3}} & 103 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL1*0030210 \\ 3DL1*002}} & 0 &  -  & 27 & 2 &  -  & 0 &  -  \\ 
+cox & 19 (2) & 461 & 0 &  -  & 5 & \Gape[0pt][2pt]{\makecell[l]{2DS3 \\ 2DL2 \\ 2DL5B \\ 2DS2 \\ 2DL5A}} & 74 & 0 &  -  & 0 &  -  & 19 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DP1*006 \\ 3DL3*0090101}} & 0 &  -  \\ 
+ho301 & 24 (6) & 461 & 0 &  -  & 5 & \Gape[0pt][2pt]{\makecell[l]{2DS1 \\ 2DL5A \\ 2DS5 \\ 2DL3 \\ 3DS1}} & 86 & 0 &  -  & 0 &  -  & 21 & 4 & \Gape[0pt][2pt]{\makecell[l]{2DL2*0010103 \\ 3DL2*0020106 \\ 2DS3*0020103 \\ 2DL1*00402}} & 0 &  -  \\ 
+jvm & 17 (1) & 461 & 0 &  -  & 6 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 2DS1 \\ 3DS1 \\ 2DL5A \\ 2DS5 \\ 2DS3}} & 66 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL1*0030203 \\ 3DL1*0010104 \\ 3DL1*008}} & 0 &  -  & 22 & 3 &  -  & 0 &  -  \\ 
+kas011 & 20 (1) & 461 & 0 &  -  & 4 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 2DS3 \\ 2DL2 \\ 2DS2}} & 97 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL1*008 \\ 2DL1*0020101}} & 0 &  -  & 30 & 3 & 3DL2*01001 & 0 &  -  \\ 
+olga & 21 (3) & 461 & 0 &  -  & 4 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 2DS3 \\ 2DL2 \\ 2DS2}} & 95 & 1 & 3DL1*0010102 & 0 &  -  & 25 & 2 & 2DP1*0020105 & 0 &  -  \\ 
+rsh & 20 (0) & 461 & 0 &  -  & 4 & \Gape[0pt][2pt]{\makecell[l]{2DL5A \\ 2DS1 \\ 2DS3 \\ 3DS1}} & 92 & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL1*01701 \\ 2DL4*0010307 \\ 2DL1*0030205}} & 0 &  -  & 24 & 4 & 2DP1*0020110 & 0 &  -  \\ 
+test1 & 23 (3) & 461 & 0 &  -  & 1 & 2DS5 & 69 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL1*0150101 \\ 2DL1*0030203}} & 0 &  -  & 27 & 2 &  -  & 0 &  -  \\ 
+test2 & 21 (1) & 461 & 0 &  -  & 2 & \Gape[0pt][2pt]{\makecell[l]{2DS3 \\ 2DS2}} & 83 & 1 & 3DL1*0070101 & 0 &  -  & 23 & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL2*0020101 \\ 2DL1*0020102}} & 0 &  -  \\ 
+test3 & 16 (1) & 461 & 0 &  -  & 9 & \Gape[0pt][2pt]{\makecell[l]{2DS1 \\ 2DL2 \\ 2DL5A \\ 3DS1 \\ 2DS2 \\ 2DL5B \\ 2DS5 \\ 2DS4 \\ 2DS3}} & 79 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL1*008 \\ 3DL1*002}} & 0 &  -  & 18 & 3 & 2DL4*0010306 & 0 &  -  \\ 
+test4 & 18 (0) & 461 & 0 &  -  & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL5A \\ 2DL5B \\ 2DS3}} & 101 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL1*0150202 \\ 2DL4*0010307}} & 0 &  -  & 23 & 3 & 3DL2*0020101 & 0 &  -  \\ 
+test5 & 19 (1) & 461 & 0 &  -  & 5 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 2DL2 \\ 2DS4 \\ 2DS2 \\ 2DS5}} & 86 & 1 & 3DL1*0200101 & 0 &  -  & 22 & 2 & 2DL1*0030208 & 0 &  -  \\ 
+test6 & 21 (0) & 461 & 0 &  -  & 4 & \Gape[0pt][2pt]{\makecell[l]{2DL5A \\ 2DS1 \\ 2DS5 \\ 3DS1}} & 99 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL1*0250102 \\ 2DL1*0030203}} & 0 &  -  & 29 & 3 & 3DP1*0030202 & 0 &  -  \\ 
+test7 & 18 (1) & 461 & 0 &  -  & 8 & \Gape[0pt][2pt]{\makecell[l]{2DS1 \\ 2DL2 \\ 3DS1 \\ 2DS2 \\ 2DL5B \\ 2DS5 \\ 2DL5A \\ 2DS3}} & 97 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL1*0150203 \\ 3DL1*008}} & 0 &  -  & 13 & 8 & \Gape[0pt][2pt]{\makecell[l]{2DL3*0010103 \\ 2DP1*0020106 \\ 2DS4*0010107 \\ 3DL3*0090103 \\ 2DL1*0030205 \\ 2DL4*0010201}} & 0 &  -  \\ 
+test8 & 24 (2) & 461 & 0 &  -  & 4 & \Gape[0pt][2pt]{\makecell[l]{3DL1 \\ 2DS5 \\ 2DS4 \\ 2DL3}} & 97 & 1 & 2DL4*00104 & 0 &  -  & 26 & 2 & 2DS3*0020101 & 0 &  -  \\ 
+test9 & 22 (1) & 461 & 0 &  -  & 2 & \Gape[0pt][2pt]{\makecell[l]{2DS5 \\ 2DL3}} & 99 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL4*00104 \\ 3DL1*0150208}} & 0 &  -  & 25 & 3 & 3DL3*0030103 & 0 &  -  \\ 
+test10 & 21 (3) & 461 & 0 &  -  & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL5A \\ 2DS5 \\ 2DS4}} & 69 & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL1*0150101 \\ 2DL1*0030203 \\ 2DL4*010}} & 0 &  -  & 25 & 3 &  -  & 0 &  -  \\ 
+test11 & 24 (2) & 461 & 0 &  -  & 5 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 3DL1 \\ 2DS3 \\ 2DS4 \\ 2DL3}} & 110 & 0 &  -  & 0 &  -  & 26 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DS5*0020103 \\ 3DL3*0030103}} & 0 &  -  \\ 
+
+\end{longtable}
+\captionof{table}{Výsledky experimentu1. Odřezány byly alely, které měli pokrytí menší než 90\%. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
+\end{center}
+\end{landscape}
+
+
+\chapter{Vyhodit}
+TODO vyhodit?
+\noindent
+Doposud nebylo zavedeno konkrétní pravidlo na pojmenovávání KIR genů. Avšak bylo navrženo, aby každý KIR haplotyp byl označen $"KH-"$ následovaným trojmístným číslem, které bude označovat konkrétní haplotyp. Bylo by tak možné pojmenovat 999 haplotypů. Dále by bylo označeno do které ze dvou skupin A či B haplotyp patří. Skupina B musí obsahovat alespoň jeden z genů KIR2DL5, KIR2DS1, KIR2DS2, KIR2DS3, KIR2DS5 a KIR3DS1. Naopak skupina A neobsahuje ani jeden z těchto genů. Z tohoto pravidla je patrné, že haplotypy B mají vždy více aktivačních KIR než haplotypy A. Za trojmístným číslem by tedy dále bylo písmeno A nebo B. Nakonec by byl připojen 17-ti místný binární kód, který by označoval přítomnost $"1"$ či absenci $"0"$ genu. Pořadí genů by odpovídalo pořadí v genomu od centrometrické části k telemetrické části. \cite{imgt_hla_database}
+\\
+\\
+Výsledné pojmenování by mohlo vypadat následovně:
+\begin{align}
+   \label{kir_haplotyp} KH-001A-11100010011011011
+\end{align}
+
+\noindent
+Analogicky by bylo pojmenování KIR genotypů. Označení by začínalo \mbox{$"KG-"$} následováným čtyřmístním unikátním číslem označující daný genotyp. V neposlední řadě by opět byl 17-ti místní binární kúod označující přítomnost či absenci KIR genu.
+\\
+\\
+TODO možná informaci o B-content score za tohle, proč u více shodných se řeší KIR, že se vybírají B haplotypový dárci a že v poslední době se řeší, zda kromě haplotypu nemají vliv konkrétní alelické varianty KIR genů (to je to, proč vy to řešíte v diplomce) - s tímhle ještě moc nevím co budu dělat.
+\\
+\\
+\textbf{454} je sekvenování při kterém se zachycuje vyzářené světlo na základě toho pokud se báze přidala do řetězce či nikoliv. Jeho dominantní chybou je tedy nesprávné určení počtů přidaných bází. Pravděpodobnost chyby roste s frekvencí dlouhých úseků obsahující stejnou bázi. Proto ART modeluje rozdělení chyb na základě délky úseku obsahující stejnou bázi spolu s Markovovy řetězci.
+\\
+\\
+\textbf{SOLid} je založené na označení čtyř barev pro 16 různých skupin bází. Pro paired-end read simulaci délky fragmentu je použito Gausovské rozdělení. Rozdělení chyb je založena na empirické znalosti získané z readů generovaných Applied Biosystémem. ART zároveň nabází nastavené chybovosti základě lineárního měřítka. 
+\\
+\\
+Podle \cite{art} je dostupných několik nástojů pro simulaci NGS dat (Wgsim, MetaSim, SimSeq, FlowSim), které fungují dobře pro sekvenátory pro které byli určeny, ale žádný z nich se nedokázal vypořádat se všemi nejvíce používanými. Jejich slabinou je především v generovaní chyb na základě jednotlivých módů konkrétního sekvenátoru. Nejčastější chyby jsou substituční a vložení čí smazání (INDEL - insert-deletion). ART obsahuje technologické profily chyb a navíc mu může použít i uživatelský profil chyb. Profily které obsahují délky readů a chyby byly získány z datasetu skutečných sekvenovaných dat. 
+\\
+\\
+TODO možná napsat co znamenají konkrétní chyby
+\\
+\\
+TODO
+Proč? No protože přesně ví co tam dávají za data, protože mu podšoupnou ten referenční genom a tak pak můžou dobře sledovat co ten zarovnávač s tím dělá. 
+A proč je to o tolik výhodnější než když by měli nějakej realnej dataset? 
+Možná že si tam můžou ty chyby navolit tak jak se jim hodí?
+Jako bude v tom míň chyb, ale stejně.
+\\
+	Počítání jen pokrytí za použití pysam.coverage či co 
+	nevím jestli se nějak víc šťourat v těch bowtie nastavení.. u artu to nemá smysl protože tam se hlavně musím držet toho aby byli co nejvíc podobný těm z němocnice
+ bowtie se to snaží někam dát za každou cenu.
+
+
+
+zkoušela jsem v pythonu přes pysam.depth, zkusit nějaký odhad na alely. 
 \end{document}

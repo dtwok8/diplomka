@@ -110,7 +110,9 @@ def run():
 		else:
 			alels_in_aligmnet_format.append("KIR"+gen.strip()+"*"+alel.strip())
 	
-	lost = alels_in_aligmnet_format.copy()
+	# lost have to be unique because there cen be some alels twice
+	lost_set = set(alels_in_aligmnet_format.copy())
+	lost = list(lost_set)
 
 	alels_statistics_sort_by_gens = dict()
 	for key, statistics in alels_statistics.items():
@@ -190,7 +192,7 @@ def run():
 					# substring in string
 					if(item in alel):
 						make_red = True
-						
+
 						if(item in lost):
 							lost.remove(item)
 						break

@@ -4,15 +4,19 @@ The top-level auxiliary file: doc.aux
 The style file: csplainnatkiv.bst
 Database file #1: literatura.bib
 Warning--entry type for "Frycova_bakalarka" isn't style-file defined
---line 87 of file literatura.bib
+--line 94 of file literatura.bib
+Warning--entry type for "levenshrein_baku" isn't style-file defined
+--line 215 of file literatura.bib
 Warning--to sort, need author or key in human_cell
 Warning--to sort, need author or key in chromosome_structure
 Warning--to sort, need author or key in haploidenticka_transplantace
 Warning--to sort, need author or key in kir_genotypes_10
 Warning--to sort, need author or key in genome_gov
 Warning--to sort, need author or key in illumina
+Warning--to sort, need author or key in ngs_alignment_software
 Warning--empty journal in NK_receptors
 Warning--empty journal in KIR_haplotypy
+Warning--empty journal in simulation_read
 Warning--empty journal in MIC
 Warning--empty journal in art
 Warning--empty journal in sekvenovani_ziva
@@ -25,45 +29,45 @@ Warning--empty journal in ipd_database
 Warning--empty journal in imgt_hla_database
 Warning--empty journal in KIR_img_princip
 Warning--empty publisher in en_smith
-You've used 27 entries,
+You've used 30 entries,
             2898 wiz_defined-function locations,
-            747 strings with 9495 characters,
-and the built_in function-call counts, 9812 in all, are:
-= -- 968
-> -- 518
-< -- 11
-+ -- 179
-- -- 152
-* -- 796
-:= -- 1564
-add.period$ -- 99
-call.type$ -- 27
-change.case$ -- 90
-chr.to.int$ -- 27
-cite$ -- 80
-duplicate$ -- 476
-empty$ -- 711
-format.name$ -- 217
-if$ -- 2046
+            759 strings with 9939 characters,
+and the built_in function-call counts, 10754 in all, are:
+= -- 1058
+> -- 560
+< -- 12
++ -- 194
+- -- 164
+* -- 868
+:= -- 1709
+add.period$ -- 107
+call.type$ -- 30
+change.case$ -- 97
+chr.to.int$ -- 30
+cite$ -- 89
+duplicate$ -- 524
+empty$ -- 791
+format.name$ -- 235
+if$ -- 2246
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 45
-newline$ -- 150
-num.names$ -- 99
-pop$ -- 276
+missing$ -- 49
+newline$ -- 164
+num.names$ -- 109
+pop$ -- 306
 preamble$ -- 1
-purify$ -- 90
+purify$ -- 97
 quote$ -- 0
-skip$ -- 363
+skip$ -- 401
 stack$ -- 0
-substring$ -- 78
-swap$ -- 47
+substring$ -- 85
+swap$ -- 53
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 287
-warning$ -- 20
-while$ -- 58
+type$ -- 320
+warning$ -- 22
+while$ -- 64
 width$ -- 0
-write$ -- 335
-(There were 21 warnings)
+write$ -- 367
+(There were 24 warnings)

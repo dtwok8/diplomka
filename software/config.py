@@ -5,12 +5,12 @@ ALIGN = False
 EVALUATE = True
 
 """ create_haplotype """
-REFERENCE_KIR_GENS_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/referencni/IPDKIR-Latest/fasta"
+#REFERENCE_KIR_GENS_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/referencni/IPDKIR-Latest/fasta"
 # have to be same folder like REFERENCE_KIR_GENS_FOLDER!
-REFERENCE_KIR_GENS_PSEUDOGENS_FILE = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/referencni/IPDKIR-Latest/fasta/KIR_gen.fasta"
+#REFERENCE_KIR_GENS_PSEUDOGENS_FILE = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/referencni/IPDKIR-Latest/fasta/KIR_gen.fasta"
 
 # predelat na tohle
-REFERENCE_KIR_GENS = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/referencni/IPDKIR-Latest/fasta/KIR_gen.fasta"
+REFERENCE_KIR_GENS_FILE = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/referencni/IPDKIR-Latest/fasta/KIR_gen.fasta"
 
 
 
@@ -38,7 +38,7 @@ REFERENCE_KIR_GENS = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/referencni/
 # 							]
 # }
 
-HAPLOTYPES = {
+GENOTYPES = {
 			"bob": [ '3DL3: 00101', '3DL3: 019', '2DS2: 0010104', '2DL2: 0030101', '2DL3: 0020102', '2DP1: 0030101', '2DL1: 0030210', '3DP1: 002', '3DP1: 0030203', '2DL4: 0010202', '2DL4: 00501', '3DL1: 002',
 				'3DS1: 0130105', '2DL5A: 0010101', '2DS5: 0020104', '2DS1: 0020101', '2DS4: 0010105', '3DL2: 0020101' , '3DL2:0070102'
 			],
@@ -117,7 +117,7 @@ HAPLOTYPES = {
 }
 
 """ Folder for save new haplotype file """
-HAPLOTYPE_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/haplotype/"
+GENOTYPE_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/genotype/"
 
 """ Folder to bowtie tools run_bowtie.py """
 BOWTIE_HOME_DIRECTORY = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/bowtie2-2.4.1-linux-x86_64"
@@ -135,7 +135,7 @@ READS_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/reads"
 """
 BOWTIE_INDEX_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/bowtie_index"
 """ If bouwtie should create index TRUE/FALSE""" 
-BOWTIE_BUILD_INDEX = False
+BOWTIE_BUILD_INDEX = True
 BOWTIE_THREADS = 4
 
 """ result from Bowtie """
@@ -153,8 +153,9 @@ ALELS_STATISTICS_FILE_PYC = "/home/kate/Dokumenty/FAV/Diplomka/software/data/ale
 
 # Because not enought memory, use a trick and save just changes witch are lower then (average 4769)
 LEVENSHTEIN_DISTANCE_CUT = 2500 #4769 
-CUT_COVERAGE_ALELS = 75
+CUT_COVERAGE_ALELS = 70
 CLOSE_DISTANCE = 100
+CLUSTER_DISTANCE = 20
 
 # k hovnu ne tak uplne
 ALELS_DISTANCE_FILE_PYC = "/home/kate/Dokumenty/FAV/Diplomka/software/data/alels_distance.pyc"

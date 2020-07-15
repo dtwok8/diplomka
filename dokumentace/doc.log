@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  9 JUL 2020 11:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  15 JUL 2020 13:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -392,21 +392,73 @@ Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 \multirow@dima=\skip59
 \bigstrutjot=\dimen134
 )
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2018/12/27 v1.8v multicolumn formatting (FMi)
+\c@tracingmulticols=\count124
+\mult@box=\box31
+\multicol@leftmargin=\dimen135
+\c@unbalance=\count125
+\c@collectmore=\count126
+\doublecol@number=\count127
+\multicoltolerance=\count128
+\multicolpretolerance=\count129
+\full@width=\dimen136
+\page@free=\dimen137
+\premulticols=\dimen138
+\postmulticols=\dimen139
+\multicolsep=\skip60
+\multicolbaselineskip=\skip61
+\partial@page=\box32
+\last@line=\box33
+\maxbalancingoverflow=\dimen140
+\mult@rightbox=\box34
+\mult@grightbox=\box35
+\mult@gfirstbox=\box36
+\mult@firstbox=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\@tempa=\box52
+\@tempa=\box53
+\@tempa=\box54
+\c@columnbadness=\count130
+\c@finalcolumnbadness=\count131
+\last@try=\dimen141
+\multicolovershoot=\dimen142
+\multicolundershoot=\dimen143
+\mult@nat@firstbox=\box55
+\colbreak@box=\box56
+\mc@col@check@num=\count132
+)
+(/usr/share/texlive/texmf-dist/tex/latex/import/import.sty
+Package: import 2009/03/23  v 5.1
+)
 (/usr/share/texlive/texmf-dist/tex/latex/makecell/makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
-\col@sep=\dimen135
-\ar@mcellbox=\box31
-\extrarowheight=\dimen136
+\col@sep=\dimen144
+\ar@mcellbox=\box57
+\extrarowheight=\dimen145
 \NC@list=\toks25
-\extratabsurround=\skip60
-\backup@length=\skip61
-\ar@cellbox=\box32
+\extratabsurround=\skip62
+\backup@length=\skip63
+\ar@cellbox=\box58
 )
-\rotheadsize=\dimen137
-\c@nlinenum=\count124
+\rotheadsize=\dimen146
+\c@nlinenum=\count133
 \TeXr@lab=\toks26
 )
 (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
@@ -420,9 +472,9 @@ Package xcolor Info: Driver file: pdftex.def on input line 225.
 (/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2018/12/12 v1.0d Color table columns (DPC)
 \everycr=\toks27
-\minrowclearance=\skip62
+\minrowclearance=\skip64
 )
-\rownum=\count125
+\rownum=\count134
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
 Package xcolor Info: Model `RGB' extended on input line 1364.
@@ -443,20 +495,20 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)+ FMi change
-\LTleft=\skip63
-\LTright=\skip64
-\LTpre=\skip65
-\LTpost=\skip66
-\LTchunksize=\count126
-\LTcapwidth=\dimen138
-\LT@head=\box33
-\LT@firsthead=\box34
-\LT@foot=\box35
-\LT@lastfoot=\box36
-\LT@cols=\count127
-\LT@rows=\count128
-\c@LT@tables=\count129
-\c@LT@chunks=\count130
+\LTleft=\skip65
+\LTright=\skip66
+\LTpre=\skip67
+\LTpost=\skip68
+\LTchunksize=\count135
+\LTcapwidth=\dimen147
+\LT@head=\box59
+\LT@firsthead=\box60
+\LT@foot=\box61
+\LT@lastfoot=\box62
+\LT@cols=\count136
+\LT@rows=\count137
+\c@LT@tables=\count138
+\c@LT@chunks=\count139
 \LT@p@ftn=\toks28
 )
 (/usr/share/texlive/texmf-dist/tex/latex/blindtext/blindtext.sty
@@ -465,24 +517,24 @@ Package: blindtext 2012/01/06 V2.0 blindtext-Package
 (/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-\c@blindtext=\count131
-\c@Blindtext=\count132
-\c@blind@countparstart=\count133
-\blind@countxx=\count134
-\blindtext@numBlindtext=\count135
-\blind@countyy=\count136
-\c@blindlist=\count137
-\c@blindlistlevel=\count138
-\c@blindlist@level=\count139
-\blind@listitem=\count140
-\c@blind@listcount=\count141
-\c@blind@levelcount=\count142
-\blind@mathformula=\count143
-\blind@Mathformula=\count144
-\c@blind@randomcount=\count145
-\c@blind@randommax=\count146
-\c@blind@pangramcount=\count147
-\c@blind@pangrammax=\count148
+\c@blindtext=\count140
+\c@Blindtext=\count141
+\c@blind@countparstart=\count142
+\blind@countxx=\count143
+\blindtext@numBlindtext=\count144
+\blind@countyy=\count145
+\c@blindlist=\count146
+\c@blindlistlevel=\count147
+\c@blindlist@level=\count148
+\blind@listitem=\count149
+\c@blind@listcount=\count150
+\c@blind@levelcount=\count151
+\blind@mathformula=\count152
+\blind@Mathformula=\count153
+\c@blind@randomcount=\count154
+\c@blind@randommax=\count155
+\c@blind@pangramcount=\count156
+\c@blind@pangrammax=\count157
 )
 (/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrextend.sty
 Package: scrextend 2019/02/01 v3.26b KOMA-Script package (extend other classes 
@@ -505,28 +557,28 @@ LaTeX Warning: Command \@footnotemark  has changed.
 
 ) (./doc.aux
 
-LaTeX Warning: Label `fig:bw_transform_1' multiply defined.
+LaTeX Warning: Label `fig:read_simulators' multiply defined.
 
 )
 \openout1 = `doc.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 107.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 109.
  (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -566,16 +618,16 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count149
-\scratchdimen=\dimen139
-\scratchbox=\box37
-\nofMPsegments=\count150
-\nofMParguments=\count151
+\scratchcounter=\count158
+\scratchdimen=\dimen148
+\scratchbox=\box63
+\nofMPsegments=\count159
+\nofMParguments=\count160
 \everyMPshowfont=\toks29
-\MPscratchCnt=\count152
-\MPscratchDim=\dimen140
-\MPnumerator=\count153
-\makeMPintoPDFobject=\count154
+\MPscratchCnt=\count161
+\MPscratchDim=\dimen149
+\MPnumerator=\count162
+\makeMPintoPDFobject=\count163
 \everyMPtoPDFconversion=\toks30
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -603,8 +655,8 @@ Package caption Info: longtable package is loaded.
 Package: ltcaption 2018/08/26 v1.4-95 longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
-\AtBeginShipoutBox=\box38
-Package hyperref Info: Link coloring ON on input line 107.
+\AtBeginShipoutBox=\box64
+Package hyperref Info: Link coloring ON on input line 109.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -612,11 +664,11 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count155
+\c@section@level=\count164
 )
-LaTeX Info: Redefining \ref on input line 107.
-LaTeX Info: Redefining \pageref on input line 107.
-LaTeX Info: Redefining \nameref on input line 107.
+LaTeX Info: Redefining \ref on input line 109.
+LaTeX Info: Redefining \pageref on input line 109.
+LaTeX Info: Redefining \nameref on input line 109.
 
 (./doc.out) (./doc.out)
 \@outlinefile=\write3
@@ -628,35 +680,35 @@ LaTeX Info: Redefining \nameref on input line 107.
 [2] [3
 
 ]
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 110.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 112.
 
  (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 110.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 112.
 
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 110
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 112
 .
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 110
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 112
 .
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 110.
+(Font)              <12> on input line 112.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 110.
+(Font)              <8> on input line 112.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 110.
+(Font)              <6> on input line 112.
  [4] [5] (./doc.toc [6
 
 ])
@@ -666,18 +718,18 @@ LaTeX Font Info:    External font `lmex10' loaded for size
  [7]
 Kapitola 1.
 
-Overfull \hbox (4.38464pt too wide) in paragraph at lines 113--120
+Overfull \hbox (4.38464pt too wide) in paragraph at lines 115--122
 \T1/lmr/m/n/12 pro mnoho váº-ných he-ma-to-lo-gic-kých po-ruch mezi které pat°í
  na-p°í-klad akutní
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--120
+Underfull \hbox (badness 10000) in paragraph at lines 115--122
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--120
+Underfull \hbox (badness 10000) in paragraph at lines 115--122
 
  []
 
@@ -686,369 +738,329 @@ Underfull \hbox (badness 10000) in paragraph at lines 113--120
 ]
 Kapitola 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--130
+Underfull \hbox (badness 10000) in paragraph at lines 125--132
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--130
+Underfull \hbox (badness 10000) in paragraph at lines 125--132
 
  []
 
-<./img/lidska_bunka.png, id=328, 1736.4875pt x 820.06375pt>
+<./img/lidska_bunka.png, id=334, 1736.4875pt x 820.06375pt>
 File: ./img/lidska_bunka.png Graphic file (type png)
 <use ./img/lidska_bunka.png>
-Package pdftex.def Info: ./img/lidska_bunka.png  used on input line 136.
+Package pdftex.def Info: ./img/lidska_bunka.png  used on input line 138.
 (pdftex.def)             Requested size: 150.56305pt x 71.0997pt.
-<./img/chromosome.jpg, id=330, 1606.0pt x 1127.21124pt>
+<./img/chromosome.jpg, id=336, 1606.0pt x 1127.21124pt>
 File: ./img/chromosome.jpg Graphic file (type jpg)
 <use ./img/chromosome.jpg>
-Package pdftex.def Info: ./img/chromosome.jpg  used on input line 137.
+Package pdftex.def Info: ./img/chromosome.jpg  used on input line 139.
 (pdftex.def)             Requested size: 200.75073pt x 140.90106pt.
 [9
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 147--151
+Underfull \hbox (badness 10000) in paragraph at lines 149--153
 
  []
 
-<./img/genom6_mica.jpg, id=344, 853.1875pt x 539.01375pt>
+<./img/genom6_mica.jpg, id=349, 853.1875pt x 539.01375pt>
 File: ./img/genom6_mica.jpg Graphic file (type jpg)
 <use ./img/genom6_mica.jpg>
-Package pdftex.def Info: ./img/genom6_mica.jpg  used on input line 154.
+Package pdftex.def Info: ./img/genom6_mica.jpg  used on input line 156.
 (pdftex.def)             Requested size: 301.1261pt x 190.245pt.
 [10 <./img/lidska_bunka.png> <./img/chromosome.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 160--171
+Underfull \hbox (badness 10000) in paragraph at lines 162--173
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--171
+Underfull \hbox (badness 10000) in paragraph at lines 162--173
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--171
+Underfull \hbox (badness 10000) in paragraph at lines 162--173
 
  []
 
 [11 <./img/genom6_mica.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 173--177
+Underfull \hbox (badness 10000) in paragraph at lines 175--179
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--192
+Underfull \hbox (badness 10000) in paragraph at lines 186--194
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--192
+Underfull \hbox (badness 10000) in paragraph at lines 186--194
 
  []
 
-<./img/nk_receptory.jpg, id=369, 385.44pt x 234.1548pt>
+<./img/nk_receptory.jpg, id=374, 385.44pt x 234.1548pt>
 File: ./img/nk_receptory.jpg Graphic file (type jpg)
 <use ./img/nk_receptory.jpg>
-Package pdftex.def Info: ./img/nk_receptory.jpg  used on input line 199.
+Package pdftex.def Info: ./img/nk_receptory.jpg  used on input line 201.
 (pdftex.def)             Requested size: 301.1261pt x 182.93298pt.
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 205--209
+Underfull \hbox (badness 10000) in paragraph at lines 207--211
 
  []
 
 [13 <./img/nk_receptory.jpg>]
-<./img/kir_pozice.png, id=393, 987.69pt x 1384.17125pt>
+<./img/kir_pozice.png, id=398, 987.69pt x 1384.17125pt>
 File: ./img/kir_pozice.png Graphic file (type png)
 <use ./img/kir_pozice.png>
-Package pdftex.def Info: ./img/kir_pozice.png  used on input line 216.
+Package pdftex.def Info: ./img/kir_pozice.png  used on input line 218.
 (pdftex.def)             Requested size: 250.93842pt x 351.66008pt.
  [14]
-Underfull \hbox (badness 10000) in paragraph at lines 222--229
+Underfull \hbox (badness 10000) in paragraph at lines 224--231
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--229
+Underfull \hbox (badness 10000) in paragraph at lines 224--231
 
  []
 
 [15 <./img/kir_pozice.png>]
-<./img/KIR_nomenklatura.png, id=412, 564.1075pt x 401.5pt>
+<./img/KIR_nomenklatura.png, id=417, 564.1075pt x 401.5pt>
 File: ./img/KIR_nomenklatura.png Graphic file (type png)
 <use ./img/KIR_nomenklatura.png>
-Package pdftex.def Info: ./img/KIR_nomenklatura.png  used on input line 232.
+Package pdftex.def Info: ./img/KIR_nomenklatura.png  used on input line 234.
 (pdftex.def)             Requested size: 386.95749pt x 275.41792pt.
-<./img/KIR_nomenklatura2.png, id=418, 1360.08125pt x 649.42625pt>
+<./img/KIR_nomenklatura2.png, id=423, 1360.08125pt x 649.42625pt>
 File: ./img/KIR_nomenklatura2.png Graphic file (type png)
 <use ./img/KIR_nomenklatura2.png>
-Package pdftex.def Info: ./img/KIR_nomenklatura2.png  used on input line 245.
+Package pdftex.def Info: ./img/KIR_nomenklatura2.png  used on input line 247.
 (pdftex.def)             Requested size: 386.95749pt x 184.76138pt.
  [16 <./img/KIR_nomenklatura.png>]
-<./img/NK_princip.jpg, id=430, 399.0839pt x 306.98761pt>
+<./img/NK_princip.jpg, id=435, 399.0839pt x 306.98761pt>
 File: ./img/NK_princip.jpg Graphic file (type jpg)
 <use ./img/NK_princip.jpg>
-Package pdftex.def Info: ./img/NK_princip.jpg  used on input line 257.
+Package pdftex.def Info: ./img/NK_princip.jpg  used on input line 259.
 (pdftex.def)             Requested size: 386.95749pt x 297.67458pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 250--260
+Underfull \hbox (badness 10000) in paragraph at lines 252--262
 
  []
 
 [17 <./img/KIR_nomenklatura2.png>]
-<./img/KIR_haplotype.jpg, id=442, 758.835pt x 435.6275pt>
+<./img/KIR_haplotype.jpg, id=447, 757.83125pt x 368.37625pt>
 File: ./img/KIR_haplotype.jpg Graphic file (type jpg)
 <use ./img/KIR_haplotype.jpg>
-Package pdftex.def Info: ./img/KIR_haplotype.jpg  used on input line 270.
-(pdftex.def)             Requested size: 386.95749pt x 222.14714pt.
+Package pdftex.def Info: ./img/KIR_haplotype.jpg  used on input line 272.
+(pdftex.def)             Requested size: 386.95749pt x 188.09985pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--273
+Underfull \hbox (badness 10000) in paragraph at lines 267--275
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--273
+Underfull \hbox (badness 10000) in paragraph at lines 267--275
 
  []
 
 [18 <./img/NK_princip.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 275--280
+Underfull \hbox (badness 10000) in paragraph at lines 277--282
 
  []
 
 [19 <./img/KIR_haplotype.jpg>]
-<./img/KIR_haplotypy_priklad.png, id=462, 621.07031pt x 191.9672pt>
+<./img/KIR_haplotypy_priklad.png, id=467, 621.07031pt x 191.9672pt>
 File: ./img/KIR_haplotypy_priklad.png Graphic file (type png)
 <use ./img/KIR_haplotypy_priklad.png>
 Package pdftex.def Info: ./img/KIR_haplotypy_priklad.png  used on input line 28
-3.
+5.
 (pdftex.def)             Requested size: 386.95749pt x 119.60426pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 288--294
-
- []
-
-[20 <./img/KIR_haplotypy_priklad.png (PNG copy)>]
-Overfull \hbox (10.9178pt too wide) in paragraph at lines 298--303
-\T1/lmr/m/n/12 Analogicky by bylo po-jme-no-vání KIR ge-no-typ·. Ozna-£ení by z
-a-£í-nalo []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 298--303
-
- []
-
-[21]
+ [20 <./img/KIR_haplotypy_priklad.png (PNG copy)>]
 Kapitola 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 306--311
+Underfull \hbox (badness 10000) in paragraph at lines 292--297
 
  []
 
-[22
+[21
 
 ]
-<./img/elektroforeza.png, id=489, 988.44281pt x 484.05844pt>
+<./img/elektroforeza.png, id=488, 988.44281pt x 484.05844pt>
 File: ./img/elektroforeza.png Graphic file (type png)
 <use ./img/elektroforeza.png>
-Package pdftex.def Info: ./img/elektroforeza.png  used on input line 324.
+Package pdftex.def Info: ./img/elektroforeza.png  used on input line 310.
 (pdftex.def)             Requested size: 386.95749pt x 189.49847pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--334
+Underfull \hbox (badness 10000) in paragraph at lines 316--320
 
  []
 
-[23 <./img/elektroforeza.png (PNG copy)>]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 339.
+[22 <./img/elektroforeza.png (PNG copy)>]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 325.
 
 
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Underfull \hbox (badness 10000) in paragraph at lines 336--341
+Underfull \hbox (badness 10000) in paragraph at lines 322--327
 
  []
 
 
-Overfull \hbox (257.65327pt too wide) in paragraph at lines 336--341
+Overfull \hbox (257.65327pt too wide) in paragraph at lines 322--327
 \T1/lmr/m/n/12 ale m¥ p°i-²el dob-rej. [][]$\T1/lmtt/m/n/12 https : / / www . y
 ourgenome . org / facts / how-[]do-[]you-[]put-[]a-[]genome-[]back-[]together-[
 ]after-[]sequencing$[][]
  []
 
-<./img/single_end_pair_end_reads_yourgenome.png, id=500, 1076.02pt x 1204.5pt>
+<./img/single_end_pair_end_reads_yourgenome.png, id=499, 1076.02pt x 1204.5pt>
 File: ./img/single_end_pair_end_reads_yourgenome.png Graphic file (type png)
 <use ./img/single_end_pair_end_reads_yourgenome.png>
 Package pdftex.def Info: ./img/single_end_pair_end_reads_yourgenome.png  used o
-n input line 344.
+n input line 330.
 (pdftex.def)             Requested size: 200.75073pt x 224.70369pt.
-[24 <./img/single_end_pair_end_reads_yourgenome.png>]
-<./img/sekvenace_454_1.png, id=510, 508.14844pt x 153.57375pt>
+[23 <./img/single_end_pair_end_reads_yourgenome.png>]
+<./img/sekvenace_454_1.png, id=509, 508.14844pt x 153.57375pt>
 File: ./img/sekvenace_454_1.png Graphic file (type png)
 <use ./img/sekvenace_454_1.png>
-Package pdftex.def Info: ./img/sekvenace_454_1.png  used on input line 356.
+Package pdftex.def Info: ./img/sekvenace_454_1.png  used on input line 342.
 (pdftex.def)             Requested size: 301.1261pt x 91.01077pt.
-<./img/sekvenace_454_2.png, id=511, 217.5628pt x 118.19156pt>
+<./img/sekvenace_454_2.png, id=510, 217.5628pt x 118.19156pt>
 File: ./img/sekvenace_454_2.png Graphic file (type png)
 <use ./img/sekvenace_454_2.png>
-Package pdftex.def Info: ./img/sekvenace_454_2.png  used on input line 357.
+Package pdftex.def Info: ./img/sekvenace_454_2.png  used on input line 343.
 (pdftex.def)             Requested size: 150.56305pt x 81.79933pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--367
+Underfull \hbox (badness 10000) in paragraph at lines 348--353
 
  []
 
-[25 <./img/sekvenace_454_1.png (PNG copy)> <./img/sekvenace_454_2.png (PNG copy
-)>] [26]
+[24 <./img/sekvenace_454_1.png (PNG copy)> <./img/sekvenace_454_2.png (PNG copy
+)>] [25]
 Kapitola 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 388--418
+Underfull \hbox (badness 10000) in paragraph at lines 372--376
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 388--418
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 388--418
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 388--418
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 388--418
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 388--418
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 388--418
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 388--418
-
- []
-
-[27
+<./img/read_simulators.jpg, id=528, 602.25pt x 443.40656pt>
+File: ./img/read_simulators.jpg Graphic file (type jpg)
+<use ./img/read_simulators.jpg>
+Package pdftex.def Info: ./img/read_simulators.jpg  used on input line 380.
+(pdftex.def)             Requested size: 386.95749pt x 284.90912pt.
+[26
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 421--428
+Underfull \hbox (badness 10000) in paragraph at lines 389--396
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--428
+Underfull \hbox (badness 10000) in paragraph at lines 389--396
 
  []
 
-[28] [29]
-<./img/bowtie2_postup.png, id=548, 593.21625pt x 625.33624pt>
+[27 <./img/read_simulators.jpg>]
+<./img/ngs_read_mappers.jpeg, id=544, 231.65009pt x 195.3341pt>
+File: ./img/ngs_read_mappers.jpeg Graphic file (type jpg)
+<use ./img/ngs_read_mappers.jpeg>
+Package pdftex.def Info: ./img/ngs_read_mappers.jpeg  used on input line 404.
+(pdftex.def)             Requested size: 386.95749pt x 326.326pt.
+ [28]
+Underfull \hbox (badness 10000) in paragraph at lines 410--417
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 410--417
+
+ []
+
+[29 <./img/ngs_read_mappers.jpeg>]
+<./img/bowtie2_postup.png, id=563, 593.21625pt x 625.33624pt>
 File: ./img/bowtie2_postup.png Graphic file (type png)
 <use ./img/bowtie2_postup.png>
-Package pdftex.def Info: ./img/bowtie2_postup.png  used on input line 432.
+Package pdftex.def Info: ./img/bowtie2_postup.png  used on input line 422.
 (pdftex.def)             Requested size: 386.95749pt x 407.92365pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 438--445
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 438--445
+ [30]
+Underfull \hbox (badness 10000) in paragraph at lines 439--443
 
  []
 
-[30 <./img/bowtie2_postup.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 459--467
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 477--481
-
- []
-
-[31]
-<./img/BWT_1.png, id=569, 645.16031pt x 235.63031pt>
+[31 <./img/bowtie2_postup.png>]
+<./img/BWT_1.png, id=583, 645.16031pt x 235.63031pt>
 File: ./img/BWT_1.png Graphic file (type png)
 <use ./img/BWT_1.png>
-Package pdftex.def Info: ./img/BWT_1.png  used on input line 484.
+Package pdftex.def Info: ./img/BWT_1.png  used on input line 446.
 (pdftex.def)             Requested size: 309.56717pt x 113.0617pt.
-<./img/BWT_2.png, id=573, 287.57437pt x 296.60812pt>
+<./img/BWT_2.png, id=587, 287.57437pt x 296.60812pt>
 File: ./img/BWT_2.png Graphic file (type png)
 <use ./img/BWT_2.png>
-Package pdftex.def Info: ./img/BWT_2.png  used on input line 500.
+Package pdftex.def Info: ./img/BWT_2.png  used on input line 462.
 (pdftex.def)             Requested size: 100.37537pt x 103.52927pt.
  [32 <./img/BWT_1.png (PNG copy)>]
-<./img/BWT_3.png, id=585, 240.9pt x 415.5525pt>
+<./img/BWT_3.png, id=600, 240.9pt x 415.5525pt>
 File: ./img/BWT_3.png Graphic file (type png)
 <use ./img/BWT_3.png>
-Package pdftex.def Info: ./img/BWT_3.png  used on input line 511.
+Package pdftex.def Info: ./img/BWT_3.png  used on input line 473.
 (pdftex.def)             Requested size: 80.3003pt x 138.51505pt.
-<./img/FM_index_1.png, id=589, 267.24844pt x 375.65344pt>
+<./img/FM_index_1.png, id=604, 267.24844pt x 375.65344pt>
 File: ./img/FM_index_1.png Graphic file (type png)
 <use ./img/FM_index_1.png>
-Package pdftex.def Info: ./img/FM_index_1.png  used on input line 523.
+Package pdftex.def Info: ./img/FM_index_1.png  used on input line 485.
 (pdftex.def)             Requested size: 100.37537pt x 141.09323pt.
-<./img/FM_index_2.png, id=590, 261.97874pt x 381.67593pt>
+<./img/FM_index_2.png, id=605, 261.97874pt x 381.67593pt>
 File: ./img/FM_index_2.png Graphic file (type png)
 <use ./img/FM_index_2.png>
-Package pdftex.def Info: ./img/FM_index_2.png  used on input line 528.
+Package pdftex.def Info: ./img/FM_index_2.png  used on input line 490.
 (pdftex.def)             Requested size: 100.37537pt x 146.23225pt.
  [33 <./img/BWT_2.png (PNG copy)> <./img/BWT_3.png (PNG copy)>] [34 <./img/FM_i
-ndex_1.png (PNG copy)> <./img/FM_index_2.png (PNG copy)>] [35]
+ndex_1.png (PNG copy)> <./img/FM_index_2.png (PNG copy)>]
 Kapitola 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 613--633
+Underfull \hbox (badness 10000) in paragraph at lines 533--542
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 613--633
+Underfull \hbox (badness 10000) in paragraph at lines 533--542
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 613--633
+Underfull \hbox (badness 10000) in paragraph at lines 533--542
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 613--633
+Underfull \hbox (badness 10000) in paragraph at lines 533--542
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 613--633
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 613--633
-
- []
-
-[36
+[35
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 635--642
+Underfull \hbox (badness 10000) in paragraph at lines 546--557
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 635--642
+Underfull \hbox (badness 10000) in paragraph at lines 546--557
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 546--557
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--566
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--566
 
  []
 
@@ -1056,56 +1068,70 @@ Underfull \hbox (badness 10000) in paragraph at lines 635--642
 
 pdfTeX warning: /usr/bin/pdflatex (file ./img/navrh_systemu.pdf): PDF inclusion
 : found PDF version <1.7>, but at most version <1.5> allowed
-<./img/navrh_systemu.pdf, id=619, 459.7175pt x 498.86375pt>
+<./img/navrh_systemu.pdf, id=632, 459.7175pt x 498.86375pt>
 File: ./img/navrh_systemu.pdf Graphic file (type pdf)
 <use ./img/navrh_systemu.pdf>
-Package pdftex.def Info: ./img/navrh_systemu.pdf  used on input line 645.
+Package pdftex.def Info: ./img/navrh_systemu.pdf  used on input line 569.
 (pdftex.def)             Requested size: 386.95749pt x 419.9333pt.
-[37]
-Underfull \hbox (badness 10000) in paragraph at lines 655--662
-
- []
-
-[38 <./img/navrh_systemu.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 670--674
-
+[36] [37 <./img/navrh_systemu.pdf>]
+Overfull \hbox (2.64594pt too wide) in paragraph at lines 594--598
+\T1/lmr/m/n/12 Vý-stupní sou-bory jsou ulo-ºeny do sloºky pod pro-m¥n-nou \T1/l
+mr/m/it/12 READS_FOLDER\T1/lmr/m/n/12 . 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 681--685
+Underfull \hbox (badness 10000) in paragraph at lines 594--598
 
  []
 
-[39]
-Underfull \hbox (badness 10000) in paragraph at lines 693--706
+[38]
+Overfull \hbox (23.6399pt too wide) in paragraph at lines 600--601
+\T1/lmr/m/n/12 ná-stroje Bow-tie2. V na-sta-vení je nutné vy-pl-nit \T1/lmr/m/i
+t/12 BOW-TIE_HOME_DIRECTORY
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 610.
+
+(/usr/share/texmf/tex/latex/lm/omslmr.fd
+File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 610.
+ [39]
+Underfull \hbox (badness 10000) in paragraph at lines 648--653
 
  []
 
+(./svg/exp1_KIR3DS1.pdf_tex
+<svg/exp1_KIR3DS1.pdf, id=659, page=1, 1028.7483pt x 911.44328pt>
+File: svg/exp1_KIR3DS1.pdf Graphic file (type pdf)
+<use svg/exp1_KIR3DS1.pdf, page 1>
+Package pdftex.def Info: svg/exp1_KIR3DS1.pdf , page1 used on input line 56.
+(pdftex.def)             Requested size: 386.95749pt x 342.83345pt.
+) [40] (./svg/exp1_KIR3DS1_distance.pdf_tex
+<svg/exp1_KIR3DS1_distance.pdf, id=664, page=1, 942.15575pt x 687.17004pt>
+File: svg/exp1_KIR3DS1_distance.pdf Graphic file (type pdf)
+<use svg/exp1_KIR3DS1_distance.pdf, page 1>
+Package pdftex.def Info: svg/exp1_KIR3DS1_distance.pdf , page1 used on input li
+ne 56.
+(pdftex.def)             Requested size: 386.95749pt x 282.23434pt.
+)
+[41 <./svg/exp1_KIR3DS1.pdf>] (./svg/exp1_KIR3DS1_distance_100.pdf_tex
+<svg/exp1_KIR3DS1_distance_100.pdf, id=983, page=1, 935.76941pt x 445.53874pt>
+File: svg/exp1_KIR3DS1_distance_100.pdf Graphic file (type pdf)
+<use svg/exp1_KIR3DS1_distance_100.pdf, page 1>
+Package pdftex.def Info: svg/exp1_KIR3DS1_distance_100.pdf , page1 used on inpu
+t line 56.
+(pdftex.def)             Requested size: 386.95749pt x 184.23569pt.
+)
+[42 <./svg/exp1_KIR3DS1_distance.pdf> <./svg/exp1_KIR3DS1_distance_100.pdf
 
-Underfull \hbox (badness 10000) in paragraph at lines 693--706
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 693--706
-
- []
-
-[40]
-Overfull \hbox (17.76491pt too wide) in paragraph at lines 708--709
-\T1/lmr/m/n/12 ná-stroje Bow-tie. V na-sta-vení je nutné vy-pl-nit \T1/lmr/m/it
-/12 BOW-TIE_HOME_DIRECTORY
- []
-
-[41]
-Overfull \hbox (8.25137pt too wide) in paragraph at lines 734--735
+pdfTeX warning: /usr/bin/pdflatex (file ./svg/exp1_KIR3DS1_distance_100.pdf): P
+DF inclusion: multiple pdfs with page group included in a single page
+>]
+Overfull \hbox (8.25137pt too wide) in paragraph at lines 696--697
 \T1/lmr/m/n/12 skladbu alely ob-sa-hu-jící skript \T1/lmr/m/it/12 re-na-ming_al
 els_result.py\T1/lmr/m/n/12 , který pro-jde v²echny
- []
-
-[42]
-Underfull \hbox (badness 10000) in paragraph at lines 749--753
-
  []
 
 [43]
@@ -1113,51 +1139,127 @@ Kapitola 6.
 [44
 
 ]
-Overfull \hbox (46.9232pt too wide) in alignment at lines 772--795
+Overfull \hbox (32.2402pt too wide) in alignment at lines 718--741
  [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (46.9232pt too wide) in alignment at lines 795--800
+Overfull \hbox (32.2402pt too wide) in alignment at lines 741--745
  [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 [45
 
-] [46]
+]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 801.
+(caption)                particular \caption on input line 746.
 See the caption package documentation for explanation.
 
-[47]
-Kapitola 7.
+[46] [47]
+Overfull \hbox (52.86787pt too wide) in alignment at lines 758--781
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (52.86787pt too wide) in alignment at lines 781--784
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
 [48
 
 
 ]
-Kapitola 8.
-[49
 
-]
-Kapitola 9.
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 820.
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 785.
+See the caption package documentation for explanation.
 
-(/usr/share/texmf/tex/latex/lm/t1lmss.fd
-File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Underfull \hbox (badness 10000) in paragraph at lines 841--845
+[49]
+Overfull \hbox (52.86787pt too wide) in alignment at lines 794--817
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
 
+
+Overfull \hbox (52.86787pt too wide) in alignment at lines 817--820
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 [50
 
+
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 850--852
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 821.
+See the caption package documentation for explanation.
+
+[51]
+Overfull \hbox (34.98503pt too wide) in alignment at lines 829--852
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (34.98503pt too wide) in alignment at lines 852--854
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[52
+
+
+]
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 855.
+See the caption package documentation for explanation.
+
+[53]
+Overfull \hbox (34.98503pt too wide) in alignment at lines 862--885
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (34.98503pt too wide) in alignment at lines 885--886
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+[54
+
+
+]
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 887.
+See the caption package documentation for explanation.
+
+[55]
+Kapitola 7.
+[56
+
+
+]
+Kapitola 8.
+[57
+
+]
+Kapitola 9.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 908.
+
+(/usr/share/texmf/tex/latex/lm/t1lmss.fd
+File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Underfull \hbox (badness 10000) in paragraph at lines 929--933
 
  []
 
-(./doc.bbl [51]
+[58
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 938--940
+
+ []
+
+(./doc.bbl [59]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 11.
 
@@ -1166,141 +1268,173 @@ Overfull \hbox (33.90623pt too wide) in paragraph at lines 19--23
 ji-[]pomahaji-[]pribuzni$[][]\T1/lmr/m/n/10.95 .  
  []
 
-[52
+[60
 
-] [53]) [54]
+] [61]) [62]
 P\v {r}\'{\i }loha A.
 
-Underfull \hbox (badness 10000) in paragraph at lines 875--883
+Underfull \hbox (badness 10000) in paragraph at lines 963--971
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 875--883
+Underfull \hbox (badness 10000) in paragraph at lines 963--971
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 884.
 
-(/usr/share/texmf/tex/latex/lm/omslmr.fd
-File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 884.
-
-Overfull \hbox (3.38179pt too wide) in paragraph at lines 888--889
+Overfull \hbox (3.38179pt too wide) in paragraph at lines 976--977
 []\T1/lmr/m/n/12 REFERENCE_KIR_GENS_PSEUDOGENS_FILE - Do-da-te£ný sou-
  []
 
-[55
+[63
 
 ]
-Overfull \hbox (17.369pt too wide) in paragraph at lines 905--905
+Overfull \hbox (17.369pt too wide) in paragraph at lines 993--993
 []\T1/lmr/bx/n/17.28 Doporu£ená ad-re-sá-°ová struk-tura pro data 
  []
 
-[56] [57]
-P\v {r}\'{\i }loha B.
-
-Overfull \hbox (47.35039pt too wide) in paragraph at lines 942--948
+[64]
+Overfull \hbox (47.35039pt too wide) in paragraph at lines 1029--1035
 \OML/lmm/m/it/12 omoje[]rt[]ata$ \T1/lmr/m/n/12 To-hle po-u-ºí-vej: $\OML/lmm/m
 /it/12 art[]llumina \OMS/lmsy/m/n/12 ^^@ \OML/lmm/m/it/12 ssMSv\OT1/lmr/m/n/12 
 1 \OMS/lmsy/m/n/12 ^^@ \OML/lmm/m/it/12 sam \OMS/lmsy/m/n/12 ^^@ \OML/lmm/m/it/
 12 iamplicon[]eference:fa \OMS/lmsy/m/n/12 ^^@
  []
 
-[58
 
-]
-P\v {r}\'{\i }loha C.
-
-Overfull \hbox (120.65253pt too wide) in paragraph at lines 957--962
+Overfull \hbox (120.65253pt too wide) in paragraph at lines 1043--1048
 \T1/lmr/m/n/12 pro-st°edí ex-port BT2_HOME=$\OML/lmm/m/it/12 =home=kate=Dokumen
 ty=FAV=Diplomka=existujicisw=bowtie\OT1/lmr/m/n/12 2 \OMS/lmsy/m/n/12 ^^@
  []
 
-[59
-
-]
-P\v {r}\'{\i }loha D.
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 972.
-
-
-Overfull \hbox (10.25095pt too wide) in paragraph at lines 975--977
+[65]
+Overfull \hbox (10.25095pt too wide) in paragraph at lines 1061--1063
 \T1/lmr/m/n/12 plus (10) vlákno je od-li²ný od aln_start_pos mi-nus (-) vlákna.
 . ???? WHAT??? 
  []
 
 
-Overfull \hbox (46.67099pt too wide) in paragraph at lines 985--986
+Overfull \hbox (46.67099pt too wide) in paragraph at lines 1071--1072
 []\T1/lmr/m/n/12 aln_start_pos is the alig-n-ment start po-si-tion of re-fe-ren
 ce sequence. aln_start_pos
  []
 
 
-Overfull \hbox (1.83516pt too wide) in paragraph at lines 987--989
+Overfull \hbox (1.83516pt too wide) in paragraph at lines 1073--1075
 \T1/lmr/m/n/12 from plus strand or mi-nus strand of the re-fe-rence sequence. r
 ead_seq_aligned
  []
 
 
-Overfull \hbox (56.56073pt too wide) in paragraph at lines 994--999
+Overfull \hbox (56.56073pt too wide) in paragraph at lines 1080--1085
 []\T1/lmr/m/n/12 pak jsou tady 4 do-po-ru-£ené po-u-ºití $\OML/lmm/m/it/12 art[
 ]llumina\OT1/lmr/m/n/12 [\OML/lmm/m/it/12 options\OT1/lmr/m/n/12 ] \OMS/lmsy/m/
 n/12 ^^@ \OML/lmm/m/it/12 ss < sequencing[]ystem >
  []
 
-[60
+[66] [67]
+P\v {r}\'{\i }loha B.
+[68
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1069.
- [61] [62]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1069.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 1135.
+ [69
+
+]
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 1160.
+See the caption package documentation for explanation.
+
+[70] [71]
+P\v {r}\'{\i }loha C.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1166--1172
+
+ []
+
+
+Overfull \hbox (10.9178pt too wide) in paragraph at lines 1176--1204
+\T1/lmr/m/n/12 Analogicky by bylo po-jme-no-vání KIR ge-no-typ·. Ozna-£ení by z
+a-£í-nalo []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1176--1204
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1176--1204
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1176--1204
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1176--1204
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1176--1204
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1176--1204
+
+ []
+
+[72
+
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1208.
+ [73]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1208.
  (./doc.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1069.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1069.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1208.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1208.
 
+Package rerunfilecheck Info: File `doc.out' has not changed.
+(rerunfilecheck)             Checksum: B6D85E66E41741B859F780C01A9DE759;9298.
 
-
-Package rerunfilecheck Warning: File `doc.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `doc.out':
-(rerunfilecheck)             Before: 80028CED1D4A0F0A72A1BF4369032B02;8939
-(rerunfilecheck)             After:  560BF6BA5EA6644A20A85956E08426A8;9296.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1069.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1208.
  ) 
 Here is how much of TeX's memory you used:
- 14235 strings out of 493738
- 205077 string characters out of 6153003
- 380313 words of memory out of 5000000
- 17571 multiletter control sequences out of 15000+600000
- 79106 words of font info for 50 fonts, out of 8000000 for 9000
+ 14464 strings out of 493738
+ 209070 string characters out of 6153003
+ 411840 words of memory out of 5000000
+ 17748 multiletter control sequences out of 15000+600000
+ 82687 words of font info for 53 fonts, out of 8000000 for 9000
  428 hyphenation exceptions out of 8191
- 42i,14n,47p,1745b,567s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/en
-c/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/s
+ 42i,14n,47p,1745b,627s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
+ips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/s
 hare/texmf/fonts/enc/dvips/lm/lm-rm.enc}</usr/share/texmf/fonts/type1/public/lm
 /lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/tex
 mf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmm
 i8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/font
 s/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb><
-/usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/p
-ublic/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/sh
-are/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public
-/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/te
-xmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lm
-tt12.pfb>
-Output written on doc.pdf (62 pages, 3223649 bytes).
+/usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/p
+ublic/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/shar
+e/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/l
+m/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/tex
+mf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt
+10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb>
+Output written on doc.pdf (73 pages, 4114691 bytes).
 PDF statistics:
- 878 PDF objects out of 1000 (max. 8388607)
- 747 compressed objects within 8 object streams
- 188 named destinations out of 1000 (max. 500000)
- 546 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1372 PDF objects out of 1440 (max. 8388607)
+ 1088 compressed objects within 11 object streams
+ 216 named destinations out of 1000 (max. 500000)
+ 579 words of extra memory for PDF output out of 10000 (max. 10000000)
 
