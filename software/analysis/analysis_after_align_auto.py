@@ -15,46 +15,72 @@ END_REFERENCE_GEN_FILE = "_gen.fasta"
 ALELS_STATISTICS_PYC_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/statistics/"
 ALELS_STATISTICS_PYC_REFERENCE_NAME = "KIR_gen"
 ALELS_STATISTICS_PYC_EXPERIMENT = "exp1"
-#STEPS = ["step1", "step2", "step3", "step4"]
 STEPS = ["step1", "step2", "step3"]
-STEPS_LATECH_TABLE = ["step1", "step2", "step3"]
+#STEPS = ["step3"]
+#STEPS_LATECH_TABLE = ["step3"]
+STEPS_LATECH_TABLE = ["step2", "step3"]
 
 PLOT_OUTPUT_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/analysis/analysis_after_align_result"
 
 #GENOTYPE_LIST = ["amala", "bob"] 
-GENOTYPE_LIST = ["amala", "bob", "cox", "ho301", "jvm", "kas011", "olga", "rsh", "test1", "test2", "test3", "test4", "test5", "test6", "test7", "test8", "test9", "test10", "test11"]
+GENOMES_LIST2 = ["amala", "bob", "cox", "ho301", "jvm", "kas011", "olga", "rsh", "wt51", "test1", "test2", "test3", "test4", "test5", "test6", "test7", "test8", "test9", "test10", "test11"]
 
-GENOTYPE_ALELS = {
-			"bob": [ '3DL3: 00101', '3DL3: 019', '2DS2: 0010104', '2DL2: 0030101', '2DL3: 0020102', '2DP1: 0030101', '2DL1: 0030210', '3DP1: 002', '3DP1: 0030203', '2DL4: 0010202', '2DL4: 00501', '3DL1: 002',
+# real
+GENOMES_LIST = ["amala", "bob", "cox", "ho301", "jvm", "kas011", "olga", "rsh", "wt51"]
+
+
+# real
+GENOMES_ALLELES = {
+			"amala": [
+ 				"2DL1: 00302", "2DL2: 00301", "2DL3: 001", "2DL4: 00102", "2DL4: 00501", "2DL5A: 001", "2DP1: 00201", "2DS1: 00201", "2DS2: 00101", "2DS4: 001", "2DS5: 00201", "3DL1: 01502", "3DL2: 0020105", "3DL2: 0070102",
+ 				"3DL3: 00402", "3DL3: 00802", "3DP1: 007", "3DP1: 00901", "3DS1: 01301"
+			],
+			"bob": [
+				"2DL1: 00302", "2DL2: 00301", "2DL3: 00201", "2DL4: 001", "2DL4: 005", "2DL5A: 00101", "2DP1: 00301", "2DS1: 00201", "2DS2: 00101", "2DS4: 001", "2DS5: 00201", "3DL1: 002", "3DL2: 0020101",  "3DL2: 0070102",
+				"3DL3: 00101", "3DL3: 01303", "3DP1: 002", "3DP1: 00302", "3DS1: 01301"
+			],
+			"cox": [
+				"2DL1: 00201", "2DL3: 00201", "2DL3: 007", "2DL4: 00501", "2DL4: 011", "2DL5A: 00101", "2DP1: 00301", "2DS1: 00201", "2DS4: 010", "2DS5: 00201", "3DL1: 005010", "3DL2: 00103",  "3DL2: 007", "3DL3: 00102", "3DL3: 00103",
+				"3DP1: 005", "3DP1: 006", "3DS1: 055"
+			],
+			"ho301": [
+				"2DL1: 004", "2DL1: 010", "2DL2: 00101", "2DL2: 00301", "2DL4: 00102", "2DL5B: 010", "2DP1: 00102", "2DS2: 00101", "2DS2: 002", "2DS3: 00103", "2DS3: 00201", "2DS3: 00103", "2DS3: 00201", "2DS4: 001", "3DL1: 002", 
+				"3DL2: 00201", "3DL3: 014", "3DP1: 003010", "3DP1: 004"
+			],
+			"jvm": [
+				"2DL1: 00302", "2DL2: 00301", "2DL4: 00103", "2DL4: 00801", "2DP1: 005", "2DS2: 00101", "2DS4: 003010", "3DL1: 00101", "3DL1: 008", "3DL2: 00101", "3DL2: 009", "3DL3: 007", "3DL3: 00801", "3DP1: 001", "3DP1: 00302"
+			],
+			"kas011": [
+				"2DL1: 00201", "2DL1: 00302", "2DL4: 00103", "2DL4: 005", "2DL5A: 00101", "2DP1: 002", "2DP1: 00301", "2DS1: 00201", "2DS4: 00301", "2DS5: 00201", "3DL1: 008", "3DL2: 01001", "3DL2: 019", "3DL3: 00901", "3DL3: 01302",
+				"3DP1: 00302", "3DP1: 006", "3DS1: 01301"	
+			],
+			"olga": [
+				"2DL1: 00302", "2DL3: 00101", "2DL4: 005", "2DL4: 011", "2DL5A: 00103", "2DP1: 00201", "2DP1: 006", "2DS1: 002", "2DS4: 010", "2DS5: 002", "3DL1: 001", "3DL1: 00501", "3DL2: 00701", "3DL3: 00201", "3DL3: 00902", 
+				"3DP1: 00302", "3DS1: 01301"
+			],
+			"rsh": [
+				"2DL1: 00302", "2DL1: 01201", "2DL4: 0010307", "2DL4: 011", "2DL5B: 004", "2DP1: 00201", "2DP1: 009", "2DS2: 00101", "2DS5: 006", "3DL1: 00501", "3DL1: 017", "3DL3: 0040202", "3DL3: 00901", "3DP1: 00304", "3DP1: 008"
+			],
+			"wt51": [
+				"2DL4: 00501", "2DL5A: 00101", "2DL5A: 00501", "2DL5B: 00201", "2DP1: 001", "2DP1: 004", "2DS1: 002", "2DS2: 00101", "2DS5: 002", "3DL3: 00103", "3DL3: 036", "3DS1: 01301"
+			]
+
+}
+
+
+
+# syntetic
+GENOMES_ALLELES2 = {
+			"bob": [ '3DL3: 00101', '3DL3: 019', '2DS2: 0010104', '2DL2: 0030101', '2DL3: 0020102', '2DP1: 0030101', '2DL1: 0030210', '3DP1: 002', '3DP1: 0030203', '2DL4: 0010202', '2DL4: 0050101', '3DL1: 002',
 				'3DS1: 0130105', '2DL5A: 0010101', '2DS5: 0020104', '2DS1: 0020101', '2DS4: 0010105', '3DL2: 0020101' , '3DL2:0070102'
 			],
 			"amala": [
  				'3DL3: 0040201', '3DL3:00802', '2DS2: 0010101', '2DL2: 0030102', '2DL3: 0010109', '2DP1: 0020108', '2DL1: 0030201', '3DP1: 007', '3DP1: 0090101',
- 				'2DL4: 0010201', '2DL4: 00501', '3DL1: 0150201', '3DS1: 0130101', '2DL5A: 00102', '2DS5: 0020101', '2DS1: 0020106', '2DS4: 0010101', '3DL2: 0020105', '3DL2:0070102' 
+ 				'2DL4: 0010201', '2DL4: 0050106', '3DL1: 0150201', '3DS1: 0130101', '2DL5A: 00102', '2DS5: 0020101', '2DS1: 0020106', '2DS4: 0010101', '3DL2: 0020105', '3DL2:0070102' 
 			],
 			"cox": [
-				'3DL3: 00102', '3DL3: 0090101', '2DL3: 0020101', '2DL3: 006', '2DP1: 0030102', '2DP1: 0030102', '2DL1: 0020102', '2DL1: 0020102', '3DP1: 005', '3DP1: 006', '2DL4: 00501', '2DL4: 00901', '3DL1: 0050103', 
+				'3DL3: 00102', '3DL3: 0090101', '2DL3: 0020101', '2DL3: 006', '2DP1: 0030102', '2DP1: 0030102', '2DL1: 0020102', '2DL1: 0020102', '3DP1: 005', '3DP1: 006', '2DL4: 0050102', '2DL4: 00901', '3DL1: 0050103', 
 				'3DS1: 055', '2DS5: 0020102', '2DS1: 0020105', '2DS4: 010', '3DL2: 0010301', '3DL2: 0070103'
-			],
-			"ho301": [
-				'3DL3: 0140201', '3DL3: 0140201', '2DS2: 0010104', '2DS2: 0010106', '2DL2: 0010103', '2DL2: 0030107', '2DL5B: 010', '2DL5B: 010', '2DS3: 0010301', '2DS3: 0020103', '2DP1: 0010202', '2DP1: 0010202', '2DL1: 00402', 
-				'2DL1: 010', '3DP1: 0030101', '3DP1: 004', '2DL4: 0010201', '2DL4: 0010201', '3DL1: 002', '3DL1: 002', '2DS4: 0010109', '2DS4: 0010109', '3DL2: 0020102', '3DL2: 0020106'
-			],
-			"jvm": [
-				'3DL3: 00801', '3DL3: 0140201', '2DS2: 0010110', '2DL2: 0030102', '2DL3: 010', '2DP1: 004', '2DL1: 0030203', '3DP1: 001', '3DP1: 0030202', '2DL4: 0010304', '2DL4: 0080101', '3DL1: 0010104', '3DL1: 008', '2DS4: 0030103',
-				'2DS4: 0030103', '3DL2: 0010101', '3DL2:018'	
-			],
-			"kas011": [
-				'3DL3: 0090101', '3DL3: 0140203', '2DL3: 0020103', '2DL3: 0020103', '2DP1: 0020104', '2DP1: 0030101', '2DL1: 0020101', '2DL1: 0030209', '3DP1: 0030206', '3DP1: 009', '2DL4: 0010301', '2DL4: 00501', '3DL1: 008', 
-				'3DS1: 013011', '2DL5A: 0010102', '2DS5: 0020101', '2DS1: 0020101', '2DS4: 0030101', '3DL2: 01001', '3DL2: 018'	
-			],
-			"olga": [
-				'3DL3: 00201', '3DL3: 00202' , '2DL3: 0010105', '2DL3: 0010105', '2DP1: 0020105', '2DP1: 006', '2DL1: 0030204', '2DL1: 0030204', '3DP1: 0030201', '3DP1: 0030201', '2DL4: 00501', '2DL4: 00901', '3DL1: 0010102', 
-				'3DL1: 0050101', '3DS1: 0130107', '2DL5A: 00103', '2DS5: 0020103', '2DS1: 0020101', '2DS4: 010', '3DL2: 0070101', '3DL2: 0070102'
-			],
-			"rsh": [
-				'3DL3: 00202', '3DL3: 0040202', '2DS2: 0010108', '2DL2: 0030104', '2DL3: 0010107', '2DL5B: 004', '2DP1: 0020110', '2DP1: 009', '2DL1: 0030205', '2DL1: 01201', '3DP1: 0030401', '3DP1: 008', '2DL4: 0010307', 
-				'2DL4: 00901', '3DL1: 0050101', '3DL1: 01701', '2DS5: 006', '2DS4: 0060102', '3DL2: 023', '3DL2: 056'
 			],
 			"test1": [
 				'3DL3: 0030101', '3DL3: 0140201', '2DS2: 0010104', '2DL2: 0030105', '2DL3: 0020101', '2DL5B: 01301', '2DS3: 0020102', '2DS3: 0020102', '2DP1: 0030101' , '2DP1:0010203', '2DL1: 0030203', 
@@ -65,7 +91,7 @@ GENOTYPE_ALELS = {
 				'3DL1: 0070101', '3DS1: 078', '2DL5A: 0050101', '2DS5: 010', '2DS1: 0020102', '2DS4:0010103', '3DL2: 0020101', '3DL2: 00501'	
 			],
 			"test3": [
-				'3DL3: 005', '3DL3: 0140201', '2DL3: 0010101', '2DL3: 0020103', '2DP1: 0020108', '2DP1: 0020108', '2DL1: 0040101', '2DL1: 008', '3DP1: 0030102', '3DP1: 00902', '2DL4: 0010306', '2DL4: 00501', '3DL1: 002', 
+				'3DL3: 005', '3DL3: 0140201', '2DL3: 0010101', '2DL3: 0020103', '2DP1: 0020108', '2DP1: 0020108', '2DL1: 0040101', '2DL1: 008', '3DP1: 0030102', '3DP1: 00902', '2DL4: 0010306', '2DL4: 0050104', '3DL1: 002', 
 				'3DL1: 0040101', '3DL2: 0010301', '3DL2: 008'	
 			],
 			"test4": [
@@ -99,6 +125,30 @@ GENOTYPE_ALELS = {
 			"test11": [
 				'3DL3: 0030103', '3DL3: 00601', '2DS2: 0010103', '2DS2: 0010112', '2DL2: 0010102', '2DL2: 0030101', '2DP1: 0030102', '2DP1: 008', '2DL1: 00402', '2DL1: 00402', '3DP1: 0030101', '3DP1: 005', '2DL4: 00104', '2DL4: 0080104',
 				'3DS1: 0130104', '3DS1: 055', '2DL5A: 0050102', '2DL5A: 0050102', '2DS5: 0020102', '2DS5: 0020103', '2DS1: 0020102', '2DS1: 0020105', '3DL2: 0010102', '3DL2: 0070102'	
+			],
+			"ho301": [
+				'3DL3: 0140201', '3DL3: 0140201', '2DS2: 0010104', '2DS2: 0010106', '2DL2: 0010103', '2DL2: 0030107', '2DL5B: 010', '2DL5B: 010', '2DS3: 0010301', '2DS3: 0020103', '2DP1: 0010202', '2DP1: 0010202', '2DL1: 00402', 
+				'2DL1: 010', '3DP1: 0030101', '3DP1: 004', '2DL4: 0010201', '2DL4: 0010201', '3DL1: 002', '3DL1: 002', '2DS4: 0010109', '2DS4: 0010109', '3DL2: 0020102', '3DL2: 0020106'
+			],
+			"jvm": [
+				'3DL3: 00801', '3DL3: 0140201', '2DS2: 0010110', '2DL2: 0030102', '2DL3: 010', '2DP1: 004', '2DL1: 0030203', '3DP1: 001', '3DP1: 0030202', '2DL4: 0010304', '2DL4: 0080101', '3DL1: 0010104', '3DL1: 008', '2DS4: 0030103',
+				'2DS4: 0030103', '3DL2: 0010101', '3DL2:018'	
+			],
+			"kas011": [
+				'3DL3: 0090101', '3DL3: 0140203', '2DL3: 0020103', '2DL3: 0020103', '2DP1: 0020104', '2DP1: 0030101', '2DL1: 0020101', '2DL1: 0030209', '3DP1: 0030206', '3DP1: 009', '2DL4: 0010301', '2DL4: 0050107', '3DL1: 008', 
+				'3DS1: 013011', '2DL5A: 0010102', '2DS5: 0020101', '2DS1: 0020101', '2DS4: 0030101', '3DL2: 01001', '3DL2: 018'	
+			],
+			"olga": [
+				'3DL3: 00201', '3DL3: 00202' , '2DL3: 0010105', '2DL3: 0010105', '2DP1: 0020105', '2DP1: 006', '2DL1: 0030204', '2DL1: 0030204', '3DP1: 0030201', '3DP1: 0030201', '2DL4: 0050103', '2DL4: 00901', '3DL1: 0010102', 
+				'3DL1: 0050101', '3DS1: 0130107', '2DL5A: 00103', '2DS5: 0020103', '2DS1: 0020101', '2DS4: 010', '3DL2: 0070101', '3DL2: 0070102'
+			],
+			"rsh": [
+				'3DL3: 00202', '3DL3: 0040202', '2DS2: 0010108', '2DL2: 0030104', '2DL3: 0010107', '2DL5B: 004', '2DP1: 0020110', '2DP1: 009', '2DL1: 0030205', '2DL1: 01201', '3DP1: 0030401', '3DP1: 008', '2DL4: 0010307', 
+				'2DL4: 00901', '3DL1: 0050101', '3DL1: 01701', '2DS5: 006', '2DS4: 0060102', '3DL2: 023', '3DL2: 056'
+			],
+			"wt51": [
+				'3DL3: 0090101', '3DL3: 036', '2DS2: 0010103', '2DL2: 0010107', '2DL3: 006', '2DL5B: 0020103', '2DS3: 0020103', '2DS3: 0010302', '2DP1: 0010202', '2DP1: 004', '2DL1: 01201', '2DL1: 01201', '3DP1: 00303', '3DP1: 007', 
+				'2DL4: 0050105', '2DL4: 0050103', '3DS1: 0130102', '3DS1: 0130102', '2DL5A: 0010103', '2DL5A: 0050104', '2DS5: 0020101', '2DS1: 0020103', '3DL2: 00202',  '3DL2: 00903'	
 			]
 }
 
@@ -272,9 +322,9 @@ def analysis_step(input_file_pyc: str, output_folder: str, alels_in_aligment: li
 	# musim vzit kazde dvě alelely a zase si urcit vzdalenost mezi nimi 
 	# a od nejake vzdalenosti se mrknout jak jsou zarovanany tam kde je ten rozdil mezi nimi
 
-def make_latech_table(genotype: str, alels_in_aligment: list, result: dict):
+def make_latech_table(genome: str, alels_in_aligment: list, result: dict):
 	alels_unique = list(set(alels_in_aligment))
-	output = genotype+" & "+str(len(alels_in_aligment))+" ("+str(len(alels_in_aligment) - len(alels_unique))+")"
+	output = genome+" & "+str(len(alels_in_aligment))+" ("+str(len(alels_in_aligment) - len(alels_unique))+")"
 
 	more_over_step_before = []
 	lost_step_before = []
@@ -327,6 +377,7 @@ def make_latech_table(genotype: str, alels_in_aligment: list, result: dict):
 						output+= item.replace('KIR','')+" \\\\ "
 				output += "}}"
 
+
 	output+= " \\\\ \n"
 	return output
 
@@ -335,28 +386,30 @@ def make_latech_table(genotype: str, alels_in_aligment: list, result: dict):
 def run():
 	result = dict()
 	output = ""
+	true_positive = 0
+	false_positive = 0
+	false_negative = 0
 
-	for genotype in GENOTYPE_LIST:
-		print("analysis for genotype: ", genotype)
-		alels_in_aligment = GENOTYPE_ALELS[genotype]
+	for genome in GENOMES_LIST:
+		print("analysis for genome: ", genome)
+		alels_in_aligment = GENOMES_ALLELES[genome]
 		
 		for step in STEPS:
-			file = os.path.join(ALELS_STATISTICS_PYC_FOLDER, genotype+"_"+ALELS_STATISTICS_PYC_REFERENCE_NAME+"_"+ALELS_STATISTICS_PYC_EXPERIMENT+"_"+step+".pyc")
-			output_folder = os.path.join(PLOT_OUTPUT_FOLDER,genotype+"_"+step)
+			file = os.path.join(ALELS_STATISTICS_PYC_FOLDER, genome+"_"+ALELS_STATISTICS_PYC_REFERENCE_NAME+"_"+ALELS_STATISTICS_PYC_EXPERIMENT+"_"+step+".pyc")
+			output_folder = os.path.join(PLOT_OUTPUT_FOLDER,genome+"_"+step)
 			os.mkdir(output_folder)
 			result[step] = analysis_step(file, output_folder, alels_in_aligment)
 		
-		output += make_latech_table(genotype, alels_in_aligment, result)
+		output += make_latech_table(genome, alels_in_aligment, result)
 
-		
-
-
-
-		#print(file)
-
-		#print(alels_in_aligment)	
+		# eval classifier
+		alels_unique = list(set(alels_in_aligment))		
+		true_positive_temp = len(alels_in_aligment) - (len(alels_in_aligment) - len(alels_unique)) - len(result[STEPS[-1]]['lost'])
+		true_positive += true_positive_temp
+		false_positive += result[STEPS[-1]]['count_alels'] - true_positive_temp
+		false_negative += len(result[STEPS[-1]]['lost'])
 
 	print(output)
-
+	print("Eval classifier: ", "precision = ", true_positive/(true_positive+false_positive), "recall = ", true_positive/(true_positive+false_negative) )
 
 run()

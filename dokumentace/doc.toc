@@ -7,15 +7,15 @@
 \babel@toc {czech}{}
 \babel@toc {czech}{}
 \contentsline {chapter}{\numberline {1}\IeC {\'U}vod}{8}{chapter.1}% 
-\contentsline {chapter}{\numberline {2}Imunitn\IeC {\'\i } syst\IeC {\'e}m a jeho spojitost s geny}{9}{chapter.2}% 
-\contentsline {section}{\numberline {2.1}Geny}{9}{section.2.1}% 
-\contentsline {section}{\numberline {2.2}HLA a non-HLA geny}{10}{section.2.2}% 
-\contentsline {subsection}{\numberline {2.2.1}Alela a gen}{12}{subsection.2.2.1}% 
+\contentsline {chapter}{\numberline {2}Imunitn\IeC {\'\i } syst\IeC {\'e}m a jeho spojitost s geny}{10}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Geny}{10}{section.2.1}% 
+\contentsline {section}{\numberline {2.2}HLA a non-HLA geny}{11}{section.2.2}% 
+\contentsline {subsection}{\numberline {2.2.1}Alela a gen}{13}{subsection.2.2.1}% 
 \contentsline {section}{\numberline {2.3}Natural killer a jeho receptory}{13}{section.2.3}% 
-\contentsline {subsection}{\numberline {2.3.1}NKG2D receptor}{13}{subsection.2.3.1}% 
-\contentsline {subsection}{\numberline {2.3.2}KIR receptor}{14}{subsection.2.3.2}% 
+\contentsline {subsection}{\numberline {2.3.1}NKG2D receptor}{14}{subsection.2.3.1}% 
+\contentsline {subsection}{\numberline {2.3.2}KIR receptor}{15}{subsection.2.3.2}% 
 \contentsline {subsubsection}{Nomenklatura KIR gen\IeC {\r u}}{15}{section*.10}% 
-\contentsline {subsubsection}{Aktivace NK bun\IeC {\v e}k pomoc\IeC {\'\i } KIR}{16}{section*.12}% 
+\contentsline {subsubsection}{Aktivace NK bun\IeC {\v e}k pomoc\IeC {\'\i } KIR}{17}{section*.12}% 
 \contentsline {subsubsection}{KIR genotyp a haplotyp}{18}{section*.15}% 
 \contentsline {chapter}{\numberline {3}Sekvena\IeC {\v c}n\IeC {\'\i } metody z\IeC {\'\i }sk\IeC {\'a}v\IeC {\'a}n\IeC {\'\i } DNA dat}{21}{chapter.3}% 
 \contentsline {section}{\numberline {3.1}Sanger sequencing}{21}{section.3.1}% 
@@ -37,34 +37,41 @@
 \contentsline {section}{\numberline {5.1}Popis probl\IeC {\'e}mu}{35}{section.5.1}% 
 \contentsline {section}{\numberline {5.2}Referen\IeC {\v c}n\IeC {\'\i } geny}{35}{section.5.2}% 
 \contentsline {section}{\numberline {5.3}Testovac\IeC {\'\i } genotypy}{36}{section.5.3}% 
-\contentsline {section}{\numberline {5.4}N\IeC {\'a}vrh syst\IeC {\'e}mu}{36}{section.5.4}% 
-\contentsline {subsection}{\numberline {5.4.1}Pou\IeC {\v z}it\IeC {\'e} programov\IeC {\'e} prost\IeC {\v r}edky}{37}{subsection.5.4.1}% 
-\contentsline {subsubsection}{Python}{37}{section*.29}% 
-\contentsline {subsection}{\numberline {5.4.2}Bordel}{37}{subsection.5.4.2}% 
-\contentsline {section}{\numberline {5.5}Modulov\IeC {\'e} jednotky programu}{38}{section.5.5}% 
-\contentsline {subsection}{\numberline {5.5.1}Config}{38}{subsection.5.5.1}% 
-\contentsline {subsection}{\numberline {5.5.2}Simulov\IeC {\'a}n\IeC {\'\i } dat}{38}{subsection.5.5.2}% 
-\contentsline {subsection}{\numberline {5.5.3}Zarovn\IeC {\'a}n\IeC {\'\i } vzhledem k referen\IeC {\v c}n\IeC {\'\i }m gen\IeC {\r u}m}{39}{subsection.5.5.3}% 
-\contentsline {subsection}{\numberline {5.5.4}Vyhodnoceni zarovn\IeC {\'a}n\IeC {\'\i }}{39}{subsection.5.5.4}% 
-\contentsline {subsubsection}{Experiment1}{39}{section*.30}% 
-\contentsline {subsubsection}{Experiment2}{42}{section*.34}% 
-\contentsline {subsection}{\numberline {5.5.5}P\IeC {\v r}eklad alel}{43}{subsection.5.5.5}% 
-\contentsline {section}{\numberline {5.6}Nastaven\IeC {\'\i } ART a bowtie}{43}{section.5.6}% 
-\contentsline {chapter}{\numberline {6}vyhodnoceni mezi vysledku a nastaveni parametru}{44}{chapter.6}% 
-\contentsline {chapter}{\numberline {7}Vyhodnocen\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u} a jejich srovn\IeC {\'a}n\IeC {\'\i }}{56}{chapter.7}% 
-\contentsline {chapter}{\numberline {8}Z\IeC {\'a}v\IeC {\v e}r}{57}{chapter.8}% 
-\contentsline {chapter}{\numberline {9}V\IeC {\'y}kladov\IeC {\'y} slovn\IeC {\'\i }k pojm\IeC {\r u} a zkratek}{58}{chapter.9}% 
-\contentsline {chapter}{Literatura}{60}{chapter*.35}% 
-\contentsline {chapter}{\numberline {A}U\IeC {\v z}ivatelsk\IeC {\'a} dokumentace}{63}{appendix.A}% 
-\contentsline {section}{\numberline {A.1}Spu\IeC {\v s}t\IeC {\v e}n\IeC {\'\i } programu}{64}{section.A.1}% 
-\contentsline {section}{\numberline {A.2}Doporu\IeC {\v c}en\IeC {\'a} adres\IeC {\'a}\IeC {\v r}ov\IeC {\'a} struktura pro data}{64}{section.A.2}% 
-\contentsline {section}{\numberline {A.3}V\IeC {\'y}stupy programu}{64}{section.A.3}% 
-\contentsline {section}{\numberline {A.4}Nastaven\IeC {\'\i } ART a jeho spu\IeC {\v s}t\IeC {\v e}n\IeC {\'\i }}{65}{section.A.4}% 
-\contentsline {subsection}{\numberline {A.4.1}pokus to nejak spustit}{65}{subsection.A.4.1}% 
-\contentsline {section}{\numberline {A.5}Bowtie}{65}{section.A.5}% 
-\contentsline {section}{\numberline {A.6}Pou\IeC {\v z}\IeC {\'\i }van\IeC {\'e} soubory}{66}{section.A.6}% 
-\contentsline {subsection}{\numberline {A.6.1}FASTQ}{66}{subsection.A.6.1}% 
-\contentsline {subsection}{\numberline {A.6.2}FASTQ}{67}{subsection.A.6.2}% 
-\contentsline {chapter}{\numberline {B}Detailn\IeC {\'\i } v\IeC {\'y}sledky}{68}{appendix.B}% 
-\contentsline {section}{\numberline {B.1}Experiment1}{69}{section.B.1}% 
-\contentsline {chapter}{\numberline {C}Vyhodit}{72}{appendix.C}% 
+\contentsline {section}{\numberline {5.4}Re\IeC {\'a}ln\IeC {\'a} data}{36}{section.5.4}% 
+\contentsline {section}{\numberline {5.5}N\IeC {\'a}vrh syst\IeC {\'e}mu}{37}{section.5.5}% 
+\contentsline {subsection}{\numberline {5.5.1}Pou\IeC {\v z}it\IeC {\'e} programov\IeC {\'e} prost\IeC {\v r}edky}{38}{subsection.5.5.1}% 
+\contentsline {subsubsection}{Python}{38}{section*.30}% 
+\contentsline {subsection}{\numberline {5.5.2}Bordel}{38}{subsection.5.5.2}% 
+\contentsline {section}{\numberline {5.6}Modulov\IeC {\'e} jednotky programu}{39}{section.5.6}% 
+\contentsline {subsection}{\numberline {5.6.1}Config}{39}{subsection.5.6.1}% 
+\contentsline {subsection}{\numberline {5.6.2}Simulov\IeC {\'a}n\IeC {\'\i } dat}{39}{subsection.5.6.2}% 
+\contentsline {subsection}{\numberline {5.6.3}Zarovn\IeC {\'a}n\IeC {\'\i } vzhledem k referen\IeC {\v c}n\IeC {\'\i }m gen\IeC {\r u}m}{40}{subsection.5.6.3}% 
+\contentsline {subsection}{\numberline {5.6.4}P\IeC {\v r}\IeC {\'\i }stupy k identifikaci alel}{40}{subsection.5.6.4}% 
+\contentsline {subsubsection}{Experiment1}{40}{section*.31}% 
+\contentsline {subsubsection}{Experiment2}{44}{section*.35}% 
+\contentsline {subsubsection}{Experiment3}{46}{section*.42}% 
+\contentsline {subsubsection}{n\IeC {\'a}vrh na experiment 4}{46}{section*.43}% 
+\contentsline {subsection}{\numberline {5.6.5}P\IeC {\v r}eklad alel}{46}{subsection.5.6.5}% 
+\contentsline {chapter}{\numberline {6}vyhodnoceni mezi vysledku a nastaveni parametru}{47}{chapter.6}% 
+\contentsline {chapter}{\numberline {7}Porovn\IeC {\'a}n\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }stup\IeC {\r u} k identifikaci a parametr\IeC {\r u}}{48}{chapter.7}% 
+\contentsline {chapter}{\numberline {8}Z\IeC {\'a}v\IeC {\v e}r}{49}{chapter.8}% 
+\contentsline {chapter}{\numberline {9}V\IeC {\'y}kladov\IeC {\'y} slovn\IeC {\'\i }k pojm\IeC {\r u} a zkratek}{50}{chapter.9}% 
+\contentsline {chapter}{Literatura}{52}{chapter*.44}% 
+\contentsline {chapter}{\numberline {A}U\IeC {\v z}ivatelsk\IeC {\'a} dokumentace}{55}{appendix.A}% 
+\contentsline {section}{\numberline {A.1}Spu\IeC {\v s}t\IeC {\v e}n\IeC {\'\i } programu}{56}{section.A.1}% 
+\contentsline {section}{\numberline {A.2}Doporu\IeC {\v c}en\IeC {\'a} adres\IeC {\'a}\IeC {\v r}ov\IeC {\'a} struktura pro data}{56}{section.A.2}% 
+\contentsline {section}{\numberline {A.3}V\IeC {\'y}stupy programu}{56}{section.A.3}% 
+\contentsline {section}{\numberline {A.4}Nastaven\IeC {\'\i } ART a jeho spu\IeC {\v s}t\IeC {\v e}n\IeC {\'\i }}{57}{section.A.4}% 
+\contentsline {section}{\numberline {A.5}Nastaven\IeC {\'\i } ART a bowtie}{57}{section.A.5}% 
+\contentsline {subsection}{\numberline {A.5.1}pokus to nejak spustit}{57}{subsection.A.5.1}% 
+\contentsline {section}{\numberline {A.6}Bowtie}{57}{section.A.6}% 
+\contentsline {section}{\numberline {A.7}Pou\IeC {\v z}\IeC {\'\i }van\IeC {\'e} soubory}{58}{section.A.7}% 
+\contentsline {subsection}{\numberline {A.7.1}FASTQ}{58}{subsection.A.7.1}% 
+\contentsline {subsection}{\numberline {A.7.2}FASTQ}{59}{subsection.A.7.2}% 
+\contentsline {chapter}{\numberline {B}Testovac\IeC {\'\i } genomy}{60}{appendix.B}% 
+\contentsline {chapter}{\numberline {C}Detailn\IeC {\'\i } v\IeC {\'y}sledky}{62}{appendix.C}% 
+\contentsline {section}{\numberline {C.1}Experiment1}{63}{section.C.1}% 
+\contentsline {section}{\numberline {C.2}Experiment2}{69}{section.C.2}% 
+\contentsline {section}{\numberline {C.3}Experiment3}{70}{section.C.3}% 
+\contentsline {subsubsection}{Uk\IeC {\'a}zky vznikl\IeC {\'y}ch cluster\IeC {\r u}}{77}{section*.45}% 
+\contentsline {chapter}{\numberline {D}Vyhodit}{79}{appendix.D}% 

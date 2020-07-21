@@ -18,6 +18,7 @@ Warning--empty journal in NK_receptors
 Warning--empty journal in KIR_haplotypy
 Warning--empty journal in simulation_read
 Warning--empty journal in MIC
+Warning--empty journal in DPB1_houdova
 Warning--empty journal in art
 Warning--empty journal in sekvenovani_ziva
 Warning--empty journal in bowtie2
@@ -29,45 +30,45 @@ Warning--empty journal in ipd_database
 Warning--empty journal in imgt_hla_database
 Warning--empty journal in KIR_img_princip
 Warning--empty publisher in en_smith
-You've used 30 entries,
+You've used 32 entries,
             2898 wiz_defined-function locations,
-            759 strings with 9939 characters,
-and the built_in function-call counts, 10754 in all, are:
-= -- 1058
-> -- 560
+            772 strings with 10553 characters,
+and the built_in function-call counts, 11907 in all, are:
+= -- 1168
+> -- 650
 < -- 12
-+ -- 194
-- -- 164
-* -- 868
-:= -- 1709
-add.period$ -- 107
-call.type$ -- 30
-change.case$ -- 97
-chr.to.int$ -- 30
-cite$ -- 89
-duplicate$ -- 524
-empty$ -- 791
-format.name$ -- 235
-if$ -- 2246
++ -- 224
+- -- 192
+* -- 975
+:= -- 1891
+add.period$ -- 118
+call.type$ -- 32
+change.case$ -- 113
+chr.to.int$ -- 32
+cite$ -- 94
+duplicate$ -- 567
+empty$ -- 858
+format.name$ -- 269
+if$ -- 2483
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 49
-newline$ -- 164
-num.names$ -- 109
-pop$ -- 306
+missing$ -- 51
+newline$ -- 178
+num.names$ -- 117
+pop$ -- 342
 preamble$ -- 1
-purify$ -- 97
+purify$ -- 113
 quote$ -- 0
-skip$ -- 401
+skip$ -- 438
 stack$ -- 0
-substring$ -- 85
-swap$ -- 53
+substring$ -- 98
+swap$ -- 56
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 320
-warning$ -- 22
-while$ -- 64
+type$ -- 342
+warning$ -- 23
+while$ -- 69
 width$ -- 0
-write$ -- 367
-(There were 24 warnings)
+write$ -- 399
+(There were 25 warnings)

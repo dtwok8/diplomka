@@ -1,4 +1,4 @@
-\begin{thebibliography}{30}
+\begin{thebibliography}{32}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -82,6 +82,14 @@
 \newblock Receptory NK buněk.
 \newblock 2012.
 
+\bibitem[Houdová et~al.(2018)Houdová, Fetter, Jindra,,
+  Georgiev]{DPB1_houdova}
+{\sc Houdová}, L. et~al.
+\newblock Optimal Donor Selection During Verification Process: Which Factors
+  Are Worth Knowing?
+\newblock 2018.
+\newblock \doi{10.1016/j.transproceed.2018.08.043}.
+
 \bibitem[Huang et~al.(2012)Huang, Li, Myers,, Marth]{art}
 {\sc Huang}, W. et~al.
 \newblock ART: a next-generation sequencing read simulator.
@@ -121,6 +129,17 @@
 \newblock 2009.
 \newblock Dostupn{\'{e}}~z:
   \url{https://genomebiology.biomedcentral.com/articles/10.1186/gb-2009-10-3-r25}.
+
+\bibitem[Maniangou et~al.(2017)Maniangou, Legrand, Alizadeh, Guyet, Willem,
+  David, Charpentier, Walencik, Retière,, Gagne]{real_data}
+{\sc Maniangou}, B. et~al.
+\newblock Killer Immunoglobulin-Like Receptor Allele Determination Using
+  Next-Generation Sequencing Technology.
+\newblock \emph{Frontiers in Immunology}. 2017, 8, s.~547.
+\newblock ISSN 1664-3224.
+\newblock \doi{10.3389/fimmu.2017.00547}.
+\newblock Dostupn{\'{e}}~z:
+  \url{https://www.frontiersin.org/article/10.3389/fimmu.2017.00547}.
 
 \bibitem[Merzker(2013)]{ngs_merzker}
 {\sc Merzker}, M.~L.

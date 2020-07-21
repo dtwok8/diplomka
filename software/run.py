@@ -4,10 +4,9 @@ import src.create_syntetic_reads as create_syntetic_reads
 import src.alignment_reads_to_reference as alignment_reads_to_reference
 
 #import src.evaluation_alignment.count_levenshtein as count_levenshtein
-import src.evaluation_alignment.experiment1 as experiment1
-import src.evaluation_alignment.experiment2 as experiment2
-import src.evaluation_alignment.experiment3 as experiment3
-import src.evaluation_alignment.exp2_more_alignment as exp2_more_alignment
+import src.alleles_identification.exp1 as exp1
+import src.alleles_identification.exp2_more_alignment as exp2_more_alignment
+import src.alleles_identification.exp3_clusters as exp3_clusters
 
 import src.renaming_alels_result as renaming_alels_result
 
@@ -15,23 +14,25 @@ import src.renaming_alels_result as renaming_alels_result
 	RUN all scripts
 	1. create syntetics_reads - create haplotype + ART
 	2. align - bowtie
-	3. evaluate - make result from evaluation of align file
+	3. indetify - identify alels by align and another by steps
 """
 def main():  
 	if(config.CREATE_READS):
 		create_syntetic_reads.run()
 
+	print(config.ALIGN)
 	if(config.ALIGN):
 		alignment_reads_to_reference.run()
 
-	if(config.EVALUATE):
-		print("eval")
+	if(config.IDENTIFY):
+		print("identify")
 		#count_levenshtein.run()
-		#experiment1.run()
-		exp2_more_alignment.run()
-		#experiment3.run()
-		#analysis.run()
-		#renaming_alels_result.run()
+		if(config.EXP1):
+			exp1.run()
+		if(config.EXP2):
+			exp2_more_alignment.run()
+		if(config.EXP3):
+			exp3_clusters.run()
 
 
 if __name__ == "__main__":

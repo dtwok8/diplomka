@@ -5,8 +5,8 @@ import config
 
 """ Because there can be more files, like nuc and another"""
 END_REFERENCE_GEN_FILE = "_gen.fasta"
-ALIGMENTS_END_FILES = ".bt2"
-END_READS_FILE = ".fq"
+INDEX_END_FILES = ".bt2"
+
 """
 	Get all references gens and make index.
 	Prepare for aligmnets.
@@ -25,7 +25,7 @@ def bowtie_build_index():
 	Because Bowtie create 6 files for one reference gens, then we have to find unique files and the correct name for index.
 """
 def alignment_read(read1: str, read2: str, basic_read_name: str):
-	b_index = [f for f in os.listdir(config.BOWTIE_INDEX_FOLDER) if os.path.isfile(os.path.join(config.BOWTIE_INDEX_FOLDER, f)) and (f.endswith(ALIGMENTS_END_FILES))]
+	b_index = [f for f in os.listdir(config.BOWTIE_INDEX_FOLDER) if os.path.isfile(os.path.join(config.BOWTIE_INDEX_FOLDER, f)) and (f.endswith(INDEX_END_FILES))]
 
 	if(len(b_index)==0):
 		print("Error no index")
@@ -55,14 +55,14 @@ def run():
 	if(config.BOWTIE_BUILD_INDEX):
 		bowtie_build_index()
 	
-	all_reads = [f for f in os.listdir(config.READS_FOLDER) if os.path.isfile(os.path.join(config.READS_FOLDER, f)) and f.endswith(END_READS_FILE)]
+	all_reads = [f for f in os.listdir(config.READS_FOLDER) if os.path.isfile(os.path.join(config.READS_FOLDER, f)) and (f.endswith(".fq") or f.endswith(".fastq"))]
 
 	print(all_reads)
-	# we know that it fill end 1.fq a 2.fq
+	# we know that it fill end 1.fq a 2.fq or .fastq
 	# get basic name, unique withnout 1.fq and 2.fq
 	read_basic_list = list()
 	for read in all_reads:
-		read_basic_name = read[:-4]
+		read_basic_name = os.path.splitext(read)[0][:-1]
 		read_basic_list.append(read_basic_name)	
 
 	unique_set = set(read_basic_list)
@@ -70,11 +70,14 @@ def run():
 	print("reads list: ", unique_read_list)
 
 	for basic_read_name2 in unique_read_list:
-		read1 = os.path.join(config.READS_FOLDER, basic_read_name2+"1"+END_READS_FILE)
-		read2 = os.path.join(config.READS_FOLDER, basic_read_name2+"2"+END_READS_FILE)
-
-		if(os.path.isfile(read1) and os.path.isfile(read2)):
-			print("Aligment read: ", read1, " ", read2)
-			alignment_read(read1, read2, basic_read_name2)
+		if(os.path.exists(os.path.join(config.READS_FOLDER, basic_read_name2+"1.fq"))):
+			read1= os.path.join(config.READS_FOLDER, basic_read_name2+"1.fq")
+			read2= os.path.join(config.READS_FOLDER, basic_read_name2+"2.fq")
+		elif(os.path.exists(os.path.join(config.READS_FOLDER, basic_read_name2+"1.fastq"))):
+			read1= os.path.join(config.READS_FOLDER, basic_read_name2+"1.fastq")
+			read2= os.path.join(config.READS_FOLDER, basic_read_name2+"2.fastq")
 		else:
-			print("Error not a files: ", read1, read2)			
+			print("Read not exist, ", basic_read_name2)
+			break
+
+		alignment_read(read1, read2, basic_read_name2)
