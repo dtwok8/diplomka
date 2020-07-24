@@ -5,9 +5,11 @@ ALIGN = True
 IDENTIFY = True
 
 #methods of identification
+PRECOMPUTATION_DISTANCE = False # precomputation distance need in first time, then alwas when you change reference kirs
+
 EXP1 = True
-EXP2 = True
-EXP3 = True
+EXP2 = False
+EXP3 = False
 
 
 """ genome in python dictionary
@@ -17,15 +19,16 @@ EXP3 = True
 	example dictionary: 
 
 	GENOMES = {
-				"haplotype1" : [
+				"genome1" : [
 					'3DL3: 00402', '3DL3:00802', '2DS2: 00101', '2DL2: 00301', '2DL3: 001', '2DP1: 00201', '2DL1: 00302', '3DP1: 007', '3DP1: 00901',
 					'2DL4: 00102', '2DL4: 00501', '3DL1: 01502', '3DS1: 01301', '2DL5A: 001', '2DS5: 00201', '2DS1: 00201', '2DS4: 001', '3DL2: 0020105', '3DL2:0070102' 
 								],
-				"haplotype2" : [
+				"genome2" : [
 					'3DL3: 00402', '3DL3:00802', '2DS2: 00101', '2DL2: 00301', '2DL3: 001', '2DP1: 00201', '2DL1: 00302', '3DP1: 007', '3DP1: 00901', '2DL4: 00102', '2DL4: 00501',
 					'3DL1: 01502', '3DS1: 01301', '2DL5A: 001', '2DS5: 00201', '2DS1: 00201', '2DS4: 001', '3DL2: 0020105', '3DL2:0070102' ]
 	}
 """
+
 
 
 GENOMES = {
@@ -120,24 +123,18 @@ GENOME_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/genome/"
 """ Folder to bowtie tools run_bowtie.py """
 BOWTIE_HOME_DIRECTORY = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/bowtie2-2.4.1-linux-x86_64"
 
-
-""" 
-	reads create FROM ART, or from hospital
-"""
+"""  reads create FROM ART, or from hospital """
 READS_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/reads"
 
 
-""" 
-	index create by bowtie for reference kir gen 
-"""
+""" index create by bowtie for reference kir gen  """
 BOWTIE_INDEX_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/bowtie_index"
-""" If bouwtie should create index TRUE/FALSE""" 
+""" If bouwtie should create index TRUE/FALSE - need True first run""" 
 BOWTIE_BUILD_INDEX = False
 BOWTIE_THREADS = 4
 
 """ result from Bowtie """
 ALIGNMENT_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/alignments"
-
 
 """ bam folder for experiments """
 BAM_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/bam"
@@ -145,17 +142,20 @@ BAM_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/bam"
 """ Folder for result from evaluation alignment """
 RESULT_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/result"
 
+""" Statistic for each step, files need for analysis after aligments """
 ALELS_STATISTICS_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/statistics"
-ALELS_STATISTICS_FILE_PYC = "/home/kate/Dokumenty/FAV/Diplomka/software/data/alels_statistics.pyc"
 
-# Because not enought memory, use a trick and save just changes witch are lower then (average 4769)
+""" temp folder like bowtie indexis from experiments """
 TEMP_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/temp"
-# k hovnu ne tak uplne
-ALELS_DISTANCE_FILE_PYC = "/home/kate/Dokumenty/FAV/Diplomka/software/data/alels_distance.pyc"
-ALELS_DISTANCE_FILE_TXT = "/home/kate/Dokumenty/FAV/Diplomka/software/data/alels_distance.txt"
 
-# AVG distance between alels 4769
-LEVENSHTEIN_DISTANCE_CUT = 2500 # 
+""" folder for references, also for created reference from experiments """
+REFERENCE_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/reference/"
+
+# Levenshtein distance
+ALELS_DISTANCE_FILE_PYC = "/home/kate/Dokumenty/FAV/Diplomka/software/data/alels_distance.pyc"
+# AVG distance between alels 4769 - Because not enought memory, use a trick and save just changes witch are lower then (average 4769)
+LEVENSHTEIN_DISTANCE_CUT = 2500 # it is from precomputation distance 
+
 CUT_COVERAGE_ALLELES = 70
 CLOSE_DISTANCE = 100
 

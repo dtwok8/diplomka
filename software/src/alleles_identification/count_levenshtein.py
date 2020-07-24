@@ -21,7 +21,7 @@ END_REFERENCE_FILE = ".fa"
 
 def run():
 	# get reference file
-	ref_gen_file = open(config.REFERENCE_KIR_GENS_PSEUDOGENS_FILE, 'r')
+	ref_gen_file = open(config.REFERENCE_KIR_GENS_FILE, 'r')
 	ref_gens = ref_gen_file.read()
 	ref_gen_file.close()
 	
@@ -38,8 +38,6 @@ def run():
 		body_alel=re.sub(r"\s+", "", body_alel, flags=re.UNICODE)
 		alels_dict[key] = body_alel
 
-
-	#distance_txt_file = open(config.ALELS_DISTANCE_FILE_TXT, "a+")
 
 	alels_distance = dict()
 	current_key = ""

@@ -3,7 +3,7 @@ import config
 import src.create_syntetic_reads as create_syntetic_reads 
 import src.alignment_reads_to_reference as alignment_reads_to_reference
 
-#import src.evaluation_alignment.count_levenshtein as count_levenshtein
+import src.alleles_identification.count_levenshtein as count_levenshtein
 import src.alleles_identification.exp1 as exp1
 import src.alleles_identification.exp2_more_alignment as exp2_more_alignment
 import src.alleles_identification.exp3_clusters as exp3_clusters
@@ -20,13 +20,14 @@ def main():
 	if(config.CREATE_READS):
 		create_syntetic_reads.run()
 
-	print(config.ALIGN)
 	if(config.ALIGN):
 		alignment_reads_to_reference.run()
 
 	if(config.IDENTIFY):
 		print("identify")
-		#count_levenshtein.run()
+
+		if(config.PRECOMPUTATION_DISTANCE):
+			count_levenshtein.run()
 		if(config.EXP1):
 			exp1.run()
 		if(config.EXP2):

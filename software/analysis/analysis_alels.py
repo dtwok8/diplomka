@@ -10,11 +10,10 @@ import Levenshtein
 
 NUC_FILE = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/referencni/IPDKIR-Latest/fasta/KIR_nuc.fasta"
 GEN_FILE = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/referencni/IPDKIR-Latest/fasta/KIR_gen.fasta"
-""" Because there can be more files, like nuc and another"""
-END_REFERENCE_GEN_FILE = "_gen.fasta"
 
-DISTANCE_FILE_PYC = "/home/kate/Dokumenty/FAV/Diplomka/software/analysis/alels_distance.pyc"
+DISTANCE_FILE_PYC = "/home/kate/Dokumenty/FAV/Diplomka/software/analysis/alels_distance_new.pyc"
 PLOT_OUTPUT_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/analysis/analysis_alels_result"
+
 
 
 def compare_gen_and_nuc_first():
@@ -136,6 +135,7 @@ def levenhstein_analyze():
 
 
 def count_levenhstein_distance():
+	print("counting distance ... ")
 	# get reference file
 	ref_gen_file = open(GEN_FILE, 'r')
 	ref_gens = ref_gen_file.read()
@@ -345,19 +345,21 @@ def analyze_distance_gene(alels_translate_dictionary):
 		plt.autoscale()
 		print("ploting ", ploting_alel)
 		plt.title(ploting_alel)
-		#plt.gcf().set_size_inches(13, 9)
-		plt.gcf().set_size_inches(13, 5)
-		plt.ylim(0, 100)
+		plt.gcf().set_size_inches(13, 9)
+		#plt.gcf().set_size_inches(13, 5)
+		#plt.ylim(0, 100)
 		plt.savefig(os.path.join(PLOT_OUTPUT_FOLDER, ploting_alel+"gen.svg"), format='svg', bbox_inches='tight', aspect='auto', dpi=3000)
 		plt.clf() # clear plot
 
 
 def main():
 	compare_gen_and_nuc_first()
+	count_levenhstein_distance()
+
 	#compare_gen_and_nuc_second()
 	#exit(1)
 	# run just if you realy need, it takes long time more then 12 hours
-	#count_levenhstein_distance()
+	#
 	#levenhstein_analyze()
 
 	get_min_max_distance()

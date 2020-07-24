@@ -162,7 +162,6 @@ def cut_similar_alels(alels_statistics):
 			gen2 = statistics2['translation'].split('*')[0]
 
 			if(gen1 == gen2):
-
 				#get distance - because it same across diagonal, so it was save a count just one times
 				if(key2 in alels_distance[key1]):
 					distance = alels_distance[key1][key2]['distance']
@@ -191,11 +190,11 @@ def cut_similar_alels(alels_statistics):
 						# delete key1
 						if(key1 in cut_alel_statistics_deep_copy):
 							del cut_alel_statistics_deep_copy[key1]
-							print("delete", statistics1['translation'], "because ", statistics2['translation'])
+							print("delete", statistics1['translation'] +"("+str(key1_coverage_changes)+")", "because ", statistics2['translation'] +"("+str(key2_coverage_changes)+")", "distance: ", distance)
 					elif(2*key2_coverage_changes < key1_coverage_changes):
 						if(key2 in cut_alel_statistics_deep_copy):
 							del cut_alel_statistics_deep_copy[key2]
-							print("delete", statistics2['translation'], "because ", statistics1['translation'])
+							print("delete", statistics2['translation']+"("+str(key2_coverage_changes)+")", "because ", statistics1['translation'] +"("+str(key1_coverage_changes)+")", "distance:", distance)
 							# delete key2
 						#print(type(changes))
 

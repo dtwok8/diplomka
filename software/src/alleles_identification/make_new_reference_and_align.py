@@ -61,7 +61,7 @@ def create_new_reference(genotype: list, genotype_name: str, all_references_alel
 			print("Can not find item ", wanted_gen+"*"+wanted_alel)
 							
 
-	output_file = os.path.join("/home/kate/Dokumenty/FAV/Diplomka/software/data/reference/", genotype_name+"_"+file_sufix+".fasta")
+	output_file = os.path.join(config.REFERENCE_FOLDER, genotype_name+"_"+file_sufix+".fasta")
 	genotype_result_file_rename = open(output_file, "w+")
 	genotype_result_file_rename.write(result_genotype)
 	genotype_result_file_rename.close()
@@ -113,7 +113,7 @@ def align(executable_path: str, new_reference, basic_name: str, file_sufix: str)
 	print("read1: ", read1)
 	print("read2: ", read2)
 	# run bowtie
-	namefile_align = os.path.join("/home/kate/Dokumenty/FAV/Diplomka/software/data/temp", basic_name+file_sufix+".sam")
+	namefile_align = os.path.join(config.TEMP_FOLDER, basic_name+file_sufix+".sam")
 	process = subprocess.run([config.BOWTIE_HOME_DIRECTORY+"/bowtie2", "--threads", str(config.BOWTIE_THREADS), "-x", namefile_index, "-1", read1,"-2", read2, "-S", namefile_align], cwd=executable_path) 	
 	print("create file", namefile_align)
 
