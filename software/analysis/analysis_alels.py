@@ -111,6 +111,7 @@ def get_min_max_distance():
 	list_distance = list()
 	for alel1, dic_distance in alels_distance.items():
 		for alel2, distance in dic_distance.items():
+			print(alel1, alel2, distance)
 			if(alel1 != alel2):
 				if(max_distance < distance):
 					max_distance = distance
@@ -165,8 +166,7 @@ def count_levenhstein_distance():
 				current_key = key1
 
 
-			alels_distance[key1][key2] = dict()
-			alels_distance[key1][key2]['distance'] = Levenshtein.distance(alel1, alel2)
+			alels_distance[key1][key2] = Levenshtein.distance(alel1, alel2)
 		
 
 	with open(DISTANCE_FILE_PYC, 'wb') as handle:

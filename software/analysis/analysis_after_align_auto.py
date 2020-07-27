@@ -21,7 +21,6 @@ STEPS_LATECH_TABLE = ["step2", "step3"]
 
 PLOT_OUTPUT_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/analysis/analysis_after_align_result"
 
-#GENOTYPE_LIST = ["amala", "bob"] 
 GENOMES_LIST = ["bob"]
 GENOMES_LIST3 = ["amala", "bob", "cox", "ho301", "jvm", "kas011", "olga", "rsh", "wt51", "test1", "test2", "test3", "test4", "test5", "test6", "test7", "test8", "test9", "test10", "test11"]
 

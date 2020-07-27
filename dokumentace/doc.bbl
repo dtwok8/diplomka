@@ -1,9 +1,18 @@
-\begin{thebibliography}{32}
+\begin{thebibliography}{35}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[art()]{art_download}
+\emph{National Institute of Environmental Health Sciences} [online].
+\newblock Dostupn{\'{e}}~z: \url{https://www.niehs.nih.gov/index.cfm}.
+
+\bibitem[bow()]{bowtie2_download}
+\emph{Bowtie2} [online].
+\newblock Dostupn{\'{e}}~z:
+  \url{http://bowtie-bio.sourceforge.net/bowtie2/index.shtml}.
 
 \bibitem[chr()]{chromosome_structure}
 \emph{Chromosome} [online]. [cit.~2020/12/3].
@@ -38,6 +47,11 @@
 \emph{What is the best NGS alignment software?} [online].
 \newblock Dostupn{\'{e}}~z:
   \url{https://www.ecseq.com/support/ngs/what-is-the-best-ngs-alignment-software}.
+
+\bibitem[you()]{your_genome}
+\emph{How do you put a genome back together after sequencing?} [online].
+\newblock Dostupn{\'{e}}~z:
+  \url{https://www.yourgenome.org/facts/how-do-you-put-a-genome-back-together-after-sequencing}.
 
 \bibitem[Baranwal -- Mehra(2017)Baranwal, Mehra]{chromozome6_mica}
 {\sc Baranwal}, A. -- {\sc Mehra}, N.
