@@ -2,9 +2,10 @@ Abstrakt
 Diplomová práce se zabývá identifikací KIR alel. Cílem práce je návrh a implementace nástroje pro jejich automatickou identifikaci. V práci jsou představeny KIR geny a metody získávaní genomických dat s využitím DNA sekvenace, konkrétně next-generation sequencing (NGS). Dále byly analyzovány možné/využitelné bioinformatické nástroje. Samotný identifikační nástroj byl vyvíjen na syntetických readech a nakonec testován a verifikován na datech komerčních linii DNA získaných z FN Plzeň/BC LF UK Plzeň. Vytváření syntetických readů probíhalo pomocí nástroje ART, pro zarovnávání readů na referenční DNA sekvence byl využit nástroj Bowtie2. V rámci vývoje bylo navrženo několik možných přístupů, které byly poté vyhodnoceny s ohledem na jejich možné využití.
 
 Úvod
+Transplantace krvetvorných buněk se využívá jako terapeutická procedura pro mnoho vážných hematologických poruch mezi které patří například akutní myeloidní leukemie. Transplantace je proces při kterém jsou dárci odebrány krvetvorné buňky které jsou následně vpraveny do těla pacienta trpícím hematologickou poruchou. Mezi komplikace které mohou nastat patří reakce imunitního systému a vložené štěpu, případně návrat nemoci. K potlačení odmítnutí se vybírají dárci podle HLA znaků. V případě více shodných dárců je možné vybírat podle přítomných KIR (Killer-cell immunoglobulin-like receptor) genů u dárce. V poslední době se objevují studie, které dokazují, že určitá skupina KIR genů dokáže snížit riziko návratu nemoci. K určení HLA znaků a KIR znaků se využívají sekvenační metody.
 
-Transplantace krvetvorných buněk se využívá jako terapeutická procedura pro mnoho vážných hematologických poruch mezi které patří například akutní myeloidní leukemie. Transplantace je proces při kterém jsou dárci odebrány krvetvorné buňky které jsou následně vpraveny do těla pacienta trpícím hematologickou poruchou. Mezi komplikace které mohou nastat patří reakce imunitního systému a vložené štěpu, případně návrat nemoci. K potlačení odmítnutí se vybírají dárci podle HLA znaků. V případě více shodných dárců je možné vybírat podle přítomných KIR genů u dárce. Bylo zjištěno, že určitá skupina KIR genů dokáže snížit riziko návratu nemoci. K určení HLA znaků a KIR znaků se využívají sekvenační metody.
 
+TODO co je alela a co je gen někam? 
  
 
 Shrnutí zadání a cílů práce
@@ -12,15 +13,23 @@ Shrnutí zadání a cílů práce
 
 Vychodiska analytická část
 --------------------------------
-Výstupem ze sekvenátorů jsou ready. V případě dat získaných z FN Plzeň/BC LF UK Plzeň se jednalo o ready dlouhé 250 bp. Které je třeba zarovnat vůči referenční sekvenci. Jedna alela může být dlouhá téměř 16 000 bp. Problémy jsou v podobnosti alel.
+Natural killer je buňka imunitního systému a pomáhá imunitnímu systému identifikovat a odstraňovat poškozené buňky. Ať už se jedná o buňky infikované virem či buňky transformované v nádorové. Produkty vzniklé z KIR genů se nacházejí právě na této buňce.
+
+
+Výstupem ze sekvenátorů jsou ready, které je možné si představit jako posloupnost písmen A, C, G, T. V případě dat získaných z FN Plzeň/BC LF UK Plzeň se jednalo o ready dlouhé 250 bp. Které je třeba zarovnat vůči referenční sekvenci. Jedna alela může být dlouhá téměř 16 000 bp (tedy 16 000 znaků). O délce readů rozhoduje zvolená sekvenanční metoda. 
 
 
 shrnutí nastudovaných informací a poznatku se kterých práce vycházela
 
 jak vypadá relizované dílo
 ----------------------------
+
+Rozdíl mezi realnými ready a syntetickými ready je poznat hned při jejich zarovnání na referenční genom. Syntetické ready byli zarovnány všechny, zatímco v případě realných readů jen necelích 70%.
+
+
 dosažené výsledky
 
 závěr
 
-
+prokázán vliv genů
+vliv alel se v současné době zkoumá

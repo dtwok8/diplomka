@@ -31,10 +31,10 @@
 % 
 % Texty abstraktů (anglicky, česky)
 %
-\abstracttexten{This masters thesis is focused on the identification of KIR alleles. The aim is to design and implement a tool for their automatic identification. First, the the KIR genes and methods of obtaining genomic data with use of DNA sequencing - next-generation sequencing (NGS) were introduced. Next, the possible bioinformatics tools were analyzed.
-The identification tool itself was developed on synthetics reads and then tested and verified by comercial DNA data  acquired from FN Plzeň / BC LF UK Plzeň. The creation of synthetics reads was done with a help of ART tool and referencial DNA sequence alligning was done by Bowtie2. During the development several approaches were proposed and evaluated based on their possible application.}
+\abstracttexten{This masters thesis is focused on the identification of KIR alleles. The aim is to design and implement a tool for their automatic identification. First, the KIR genes and methods used to obtain the genomic data using DNA sequencing - next-generation sequencing (NGS) - were introduced. Secondly, the possible bioinformatic tools were analyzed.
+The identification tool was developed on synthetics reads and then tested and verified by commercial DNA data acquired from FN Plzeň / BC LF UK Plzeň. The creation of synthetic reads was done with a help of ART tool and referencial DNA sequence alligning was done by Bowtie2. During the development, several approaches were proposed and evaluated based on their possible application.}
 
-\abstracttextcz{Diplomová práce se zabývá identifikací KIR alel. Cílem práce je návrh a implementace nástroje pro jejich automatickou identifikaci. V práci jsou představeny KIR geny a metody získávaní genomických dat s využitím DNA sekvenace, konkrétně next-generation sequencing (NGS). Dále byly analyzovány možné/využitelné bioinformatické nástroje. Samotný identifikační nástroj byl vyvíjen na syntetických readech a nakonec testován a verifikován na datech komerčních linii DNA získaných z FN Plzeň/BC LF UK Plzeň. Vytváření syntetických readů probíhalo pomocí nástroje ART, pro zarovnávání readů na referenční DNA sekvence byl využit nástroj Bowtie2. V rámci vývoje bylo navrženo několik možných přístupů, které byly poté vyhodnoceny s ohledem na jejich možné využití.
+\abstracttextcz{Diplomová práce se zabývá identifikací KIR alel. Cílem práce je návrh a implementace nástroje pro jejich automatickou identifikaci. V práci jsou představeny KIR geny a metody získávaní genomických dat s využitím DNA sekvenace, konkrétně next-generation sequencing (NGS). Dále byly analyzovány využitelné bioinformatické nástroje. Samotný identifikační nástroj byl vyvíjen na syntetických readech a nakonec testován a verifikován na datech komerčních linii DNA získaných z FN Plzeň/BC LF UK Plzeň. Vytváření syntetických readů probíhalo pomocí nástroje ART, pro zarovnávání readů na referenční DNA sekvence byl využit nástroj Bowtie2. V rámci vývoje bylo navrženo několik možných přístupů, které byly poté vyhodnoceny s ohledem na jejich možné využití.
 }
 
 % Na titulní stranu a do textu prohlášení se automaticky vkládá 
@@ -113,26 +113,26 @@ The identification tool itself was developed on synthetics reads and then tested
 \tableofcontents
 
 \chapter{Úvod}
-Transplantace krvetvorných buněk se využívá jako terapeutická procedura pro mnoho vážných hematologických poruch mezi které patří například akutní myeloidní leukemie. Transplantace je proces při kterém jsou dárci odebrány krvetvorné buňky které jsou následně vpraveny do těla pacienta trpícím hematologickou poruchou. Jednou z komplikací, která může nastat je reakce imunitního systému na nově vložené dárcovské buňky resp. štěp. V případě, že si štěp s imunitním systémem nebudou rozumět, může dojít k silné zánětlivé reakci, která může skončit až smrtí pacienta. V neposlední řadě může dojít také k relapsu (návratu) onemocnění. 
+Transplantace krvetvorných buněk se využívá jako terapeutická procedura pro mnoho vážných hematologických poruch mezi, které patří například akutní myeloidní leukemie. Transplantace je proces, při kterém jsou dárci odebrány krvetvorné buňky, které jsou následně vpraveny do těla pacienta trpícího hematologickou poruchou. Jednou z komplikací, která může nastat, je reakce imunitního systému na nově vložené dárcovské buňky resp. štěp. V případě, že si štěp s imunitním systémem nebudou rozumět, může dojít k silné zánětlivé reakci, která může skončit až smrtí pacienta. V neposlední řadě může dojít také k relapsu (návratu) onemocnění. 
 \\
 \\
-K potlačení odmítnutí dárcovského štěpu se primárně vybírají dárci podle shody v HLA znacích následovaných sekundárními znaky, které mohou být například věk či pohlaví. Shoda v HLA znacích se určuje podle shody v alelách genů HLA -A, -B, -C, -DRB1, -DQB1. Alela je konkrétní forma genu. Každý jedinec má tyto HLA geny dvakrát (jednu pětici od matky a druhou od otce) a proto se úplná shoda označuje jako 10/10. Nověji je možné se setkat s označením 12/12. Znamená to 10/10 navýšené o gen HLA -DPB1. Tento gen ale nevyžaduje narozdíl od standarníchch HLA znaků přesnou shodu. Klíčové je zde zda patří do skupiny permisivních (tolerančních) alel, které by měli snížit možnost relapsu (návrat nemoci) a rizika transplantace. Oproti tomu některé skupiny alel naopak mohou rizika zvýšit. V poslední době se objevují studie, které prokazují vliv i takzvaných non-HLA genů. Jedním z nich může být i skupina genů Killer-cell immunoglobulin-like receptor (KIR). Jednou z výhod je, že určité seskupení KIR genů snižuje riziko návratu nemoci. V případě, kdy by se rozhodovalo mezi více dárci shodných v HLA znacích, by se mohl ten vhodnější vybrat právě na základě KIR. Pro zjištění jak HLA znaků tak KIR genů se využívají sekvenační metody. \cite{KIR_transplantace_jindra} \cite{Frycova_bakalarka} \cite{DPB1_houdova}
+K potlačení odmítnutí dárcovského štěpu se primárně vybírají dárci podle shody v HLA znacích následovaných sekundárními znaky, kterými mohou být například věk či pohlaví. Shoda v HLA znacích se určuje podle shody v alelách genů HLA -A, -B, -C, -DRB1, -DQB1. Alela je konkrétní forma genu. Každý jedinec má tyto HLA geny dvakrát (jednu pětici od matky a druhou od otce), a proto se úplná shoda označuje jako 10/10. Nověji je možné se setkat s označením 12/12. Znamená to 10/10 navýšené o gen HLA -DPB1. Tento gen ale na rozdíl od standarních HLA znaků nevyžaduje přesnou shodu. Klíčové je zde zda patří do skupiny permisivních (tolerančních) alel, které by měly snížit možnost relapsu (návrat nemoci) a rizika transplantace. Oproti tomu některé skupiny alel naopak mohou rizika zvýšit. V poslední době se objevují studie, které prokazují vliv i takzvaných non-HLA genů. Jedním z nich může být i skupina genů Killer-cell immunoglobulin-like receptor (KIR). Jednou z výhod je, že určité seskupení KIR genů snižuje riziko návratu nemoci. V případě, kdy by se rozhodovalo mezi více dárci shodných v HLA znacích, by se mohl ten vhodnější vybrat právě na základě KIR. Pro zjištění jak HLA znaků tak KIR genů se využívají sekvenační metody. \cite{KIR_transplantace_jindra} \cite{Frycova_bakalarka} \cite{DPB1_houdova}
 \\
 \\
-Cílem práce je navrhnout a implementovat nástroj pro automatickou identifikaci KIR alel. Vstupní data tzv. ready jsou krátké kusy DNA (posloupnost písmen A, C, G a T) a jsou výstupem ze sekvenačních technik. Nikdo přesně neví co znamenají. Může to být gen, část genu nebo několik různých genů. Tyto ready se zarovnávají vůči referenční alelám. Díky tomu je možné zjistit o které alely se jedná. Ready budou pro vývoj nástroje simulována a v konečné fázi testování budou vyměněna za data z FN Plzeň/BC LF UK Plzeň. V poslední fázi bude vyhodnocena shoda readů a referenčních genů.
+Cílem práce je navrhnout a implementovat nástroj pro automatickou identifikaci KIR alel. Vstupní data, tzv. ready, jsou krátké kusy DNA (posloupnost písmen A, C, G a T) a jsou výstupem ze sekvenačních technik. Nikdo přesně neví co znamenají. Může to být gen, část genu nebo několik různých genů. Tyto ready se zarovnávají vůči referenční alelám. Díky tomu je možné zjistit, o které alely se jedná. Ready budou pro vývoj nástroje simulovány a v konečné fázi testování budou vyměněna za data z FN Plzeň/BC LF UK Plzeň. V poslední fázi bude vyhodnocena shoda readů a referenčních genů.
 
 
 \chapter{Imunitní systém a jeho spojitost s geny}
-Imunitní systém chrání organismus před škodlivinami. Skládá se ze dvou hlavních částí, z vrozené imunity a získané imunity. Reakce imunitního systému je vždy komplexní reakce organismu, která je tvořena jednotlivými buňkami imunitního systému reagující na přítomnost specifických antigenů. Antigeny jsou látky, které imunitní systém rozpozná a zareaguje na ně. V podstatě to může být jakákoli bílkoviná sloučenina. Antigen se obvykle nachází na povrchu buňky jako vyjádření genu. Imunitní systém následně zjistí o jaký antigen se jedná, respektivě o jakou buňku se jedná, zda tělu vlastní (např. zdravá buňka) nebo buňku tělu cizí (např. nádorová buňka), tedy jedná-li se o expresy lidského genu nebo například viru. Jedná-li se o buňku tělu cizí, imunitní systém reaguje snahou ji zničit. 
+Imunitní systém chrání organismus před škodlivinami. Skládá se ze dvou hlavních částí, z vrozené imunity a získané imunity. Reakce imunitního systému je vždy komplexní reakcí organismu, přičemž tato reakce je tvořena jednotlivými buňkami imunitního systému reagující na přítomnost specifických antigenů. Antigeny jsou látky, které imunitní systém rozpozná a zareaguje na ně. V podstatě to může být jakákoli bílkovinná sloučenina. Antigen se obvykle nachází na povrchu buňky jako vyjádření genu. Imunitní systém následně zjistí o jaký antigen se jedná, respektive o jakou buňku se jedná, zda tělu vlastní (např. zdravá buňka) nebo buňku tělu cizí (např. nádorová buňka), tedy jedná-li se o expresi lidského genu nebo například viru. Jedná-li se o buňku tělu cizí, imunitní systém reaguje snahou ji zničit. 
 \\
 \\
-\textbf{Vrozená imunita}, též označována přirozená, neadaptivní, antigenně nespecifická je neměnně zapsána v DNA. To znamená, že při každém setkání s antigenem odpoví stejnou reakcí. Buňky nesoucí vrozenou imunitu jsou stále přítomně v krvy, takže jejich případná aktivace je takřka okamžitá (minuty až hodiny). Do této imunity patří i natural killer buňky s KIR receptory, které budou dále rozebírány v textu. 
+\textbf{Vrozená imunita}, též označována přirozená, neadaptivní, antigenně nespecifická je neměnně zapsána v DNA. To znamená, že při každém setkání s antigenem odpoví stejnou reakcí. Buňky nesoucí vrozenou imunitu jsou stále přítomny v krvi, takže jejich případná aktivace je takřka okamžitá (minuty až hodiny). Do této imunity patří i natural killer buňky s KIR receptory, kterým bude věnována pozornost dále v textu. 
 \\
 \\
-\textbf{Získaná imunita} též označována specifická či adaptivní má oproti specifické v genomu zapsány pouze své základy. V průběhu lidského života se vyvyjí a mění. Změna může nastat například očkováním nebo proděláním patřičné choroby. Tato změna ovšem nemusí být trvalá. Z těchto důvodů může být odpověď ziskáné imunity při setkání se stejnou chorobou rozdílná. Fungování získané imunity zajišťují T- a B- lymfocyty. Získaná imunita nefunguje samostatně. Při zabíjení patogenů spolupracuje s vrozenou imunitou.
+\textbf{Získaná imunita}, též označována specifická či adaptivní, má oproti specifické v genomu zapsány pouze své základy. V průběhu lidského života se vyvijí a mění. Změna může nastat například očkováním nebo proděláním patřičné choroby. Tato změna ovšem nemusí být trvalá. Z těchto důvodů může být odpověď ziskané imunity při setkání se stejnou chorobou rozdílná. Fungování získané imunity zajišťují T- a B- lymfocyty. Získaná imunita nefunguje samostatně. Při zabíjení patogenů spolupracuje s vrozenou imunitou.
 
 \section{Geny}
-V každé buňce lidského organismu, konkrétně v buněčném jádře, je možné nálest 46 chromozomů. Jeden chromozom představuje stočenou dlouhou molekulu DNA (Deoxyribonuklenovou kyselinu). Všech 46 chromozomů obsahuje okolo 100 000 genů. Drobný segment DNA, který řídí buněčnou funkci je právě gen. Konkrétní forma genu je alela. \citep{en_smith}
+V každé buňce lidského organismu, konkrétně v buněčném jádře, se nachází 46 chromozomů. Jeden chromozom představuje stočenou dlouhou molekulu DNA (Deoxyribonuklenovou kyselinu). Všech 46 chromozomů obsahuje okolo 100 000 genů. Genem se rozumí drobný segment DNA, který řídí buněčnou funkci. Konkrétní forma genu je alela. \citep{en_smith}
 
 \begin{figure}[H]		
 		\centering
@@ -147,10 +147,10 @@ Uvnitř buňky je obsažen celý genom, který se ovšem nemusí projevit na pov
 
 
 \section{HLA a non-HLA geny}
-Human leucocyte antigen (HLA) je genetický systém, který je primárně zodpovědný za rozeznávání vlastního od cizorodého. Někdy je termín HLA zaměňován s MHC. MHC (Major histocompatibility complex) je souhrný termín pro všechny komplexy, kdy podskupinou jsou práve HLA (H - Human) který je pro lidi. Stejně tak existuje DLA (D - Dog) který je pro psy. Z funkčního i biologického hlediska jde však u všech savců o stejnou skupinu genů. \cite{KIR_transplantace_jindra}
+Human leucocyte antigen (HLA) je genetický systém, který je primárně zodpovědný za rozeznávání vlastního od cizorodého. Někdy je termín HLA zaměňován s MHC. MHC (Major histocompatibility complex) je souhrný termín pro všechny komplexy, kdy podskupinou jsou právě HLA (H - Human) který se vyskytuje u lidí. Stejně tak existuje DLA (D - Dog), který je pro psy. Z funkčního i biologického hlediska jde však u všech savců o stejnou skupinu genů. \cite{KIR_transplantace_jindra}
 \\
 \\
-Přesná definice mezi HLA a non-HLA geny neexistuje. Mimo jiné i jejich rozdělení není v literaturách sjednocené. Jak je vidět z obrázku \ref{fig:hla_genome} je možné geny rozdělit do tří tříd. V některých literaturach je možné nalést označení non-HLA genů jako geny III.třídy v jiné, že jsou to všechny geny III třídy a některé geny třídy I. Tato práce bude vycházet v označení gen za non-HLA či HLA z definice uvedené v \cite{imgt_hla_database}. Zjednodušeně tedy můžeme říci, že geny které nejsou řazeny k HLA skupinám jsou non-HLA. Je-li gen označen za non-HLA neznamená to, že by neměl souvislost s funkcí imunitního systému. Naopak má, jen ne výlučně s HLA systémem. Non-HLA geny kódují produkty spojené s imunitními procesy. Mezi non-HLA geny mimo jiné patří MICA, MICB a KIR. \cite{imgt_hla_database}
+Přesná definice rozdílu mezi HLA a non-HLA geny neexistuje. Mimo jiné ani jejich rozdělení není v literatuře sjednocené. Jak je vidět na obrázku \ref{fig:hla_genome}, je možné geny rozdělit do tří tříd. V některé literatuře je možné nalézt označení non-HLA genů jako geny III.třídy, v jiné, že jsou to všechny geny III. třídy a některé geny třídy I. Tato práce bude terminologicky vycházet v označení gen za non-HLA či HLA z definice uvedené v \cite{imgt_hla_database}. Zjednodušeně tedy můžeme říci, že geny, které nejsou řazeny k HLA skupinám, jsou non-HLA. Je-li gen označen za non-HLA, neznamená to, že by neměl souvislost s funkcí imunitního systému. Naopak má, jen ne výlučně s HLA systémem. Non-HLA geny kódují produkty spojené s imunitními procesy. Mezi non-HLA geny mimo jiné patří MICA, MICB a KIR. \cite{imgt_hla_database}
 
 \begin{figure}[H]		
 		\centering
@@ -161,22 +161,22 @@ Přesná definice mezi HLA a non-HLA geny neexistuje. Mimo jiné i jejich rozdě
 \end{figure}
 
 \noindent
-HLA a některé non-HLA geny se nacházejí na krátkém raménku 6. chromozomu, konkrétně 6p21.3 a zaujímá úsek přibližně jednu tisícinu genomu. Tento region je nejvíce komplexní a polymorfní na lidském genomu s více než 220 geny. Oproti tomu jedna ze skupin non-HLA genů, konkrétně KIR geny, se nachází na 19. chromozomu. Rozsáhlá diverzita genů vznikala snahou eliminovat neustále se měnící spektrum patogenů. Produkty těchto genů na povrchu buňky významně ovlivňují odpověď na infekční choroby a výsledky buněčné či orgánové transplantace. \cite{imgt_hla_database}
+HLA a některé non-HLA geny se nacházejí na krátkém raménku 6. chromozomu, konkrétně 6p21.3, a zaujímají úsek přibližně jedné tisíciny genomu. Tento region je nejvíce komplexní a polymorfní v lidském genomu s více než 220 geny. Oproti tomu jedna ze skupin non-HLA genů, konkrétně KIR geny, se nachází na 19. chromozomu. Rozsáhlá diverzita těchto genů vznikala snahou eliminovat neustále se měnící spektrum patogenů. Produkty těchto genů na povrchu buňky významně ovlivňují odpověď na infekční choroby a výsledky buněčné či orgánové transplantace. \cite{imgt_hla_database}
 \\
 \\
-Při určování shody dárce a pacienta se rozhoduje na základě shody alel u genů HLA -A, -B, -C, -DRB1, -DQB1. Díky velké diverzitě HLA genů je počet možných kombinací několik miliard. Některé kombinace genů se vyskytují na základě oblasti či národnosti častěji nebo mohou být naopak vzácné. HLA geny se obvykle dědí jako blok (cely haplotyp), avšak ve výjmečných případech může dojít k rekombinaci. Z tohoto důvodu je nejsnadnější nalést shodu v pokrevním příbuzenstvu.
+Při určování shody dárce a pacienta se rozhoduje na základě shody alel u genů HLA -A, -B, -C, -DRB1, -DQB1. Díky velké diverzitě HLA genů je počet možných kombinací několik miliard. Některé kombinace genů se vyskytují na základě oblasti či národnosti častěji nebo mohou být naopak vzácné. HLA geny se obvykle dědí jako blok (cely haplotyp), avšak ve výjimečných případech může dojít k rekombinaci. Z tohoto důvodu je nejsnadnější nalézt shodu v pokrevním příbuzenstvu.
 \\
 \\
-Jelikož každý jedinec má dvakrát geny na pozicích HLA -A, -B, -C, -DRB1 a -DQB1 (jednu pětici od otce, druhou pětici od matky), je maximální shoda 10/10 (shoda obou alel v lokusech) popř, DPB1 a shoda 12/12. Čím je shoda menší tím větší je riziko nepřijetí stěpu. U nepříbuzných jedinců lze tolerovat shodu 9/10 či 8/10. \cite{Frycova_bakalarka} \cite{KIR_transplantace_jindra}
+Jelikož každý jedinec má dvakrát geny na pozicích HLA -A, -B, -C, -DRB1 a -DQB1 (jednu pětici od otce, druhou pětici od matky), je maximální shoda 10/10 (shoda obou alel v lokusech) popř. DPB1 a shoda 12/12. Čím je shoda menší, tím větší je riziko nepřijetí štěpu. U nepříbuzných jedinců lze tolerovat shodu 9/10 či 8/10. \cite{Frycova_bakalarka} \cite{KIR_transplantace_jindra}
 \\
 \\
-V posledních letech se objevuje Haploidentická transplantace, kdy je možné použít krvetvorné buňky příbuzného se shodou pouze jednoho haplotypu (5/10) například všichni rodiče a děti. Umožnuje to podávání chemoterapie pár dní po transplantaci, která zníčí všechny buňky, které tělo nepřijme. Využívá se toho hlavně v případech časové tísně, kdy není čas hledat dárce v registrech. \cite{haploidenticka_transplantace}
+V posledních letech se objevuje Haploidentická transplantace, kdy je možné použít krvetvorné buňky příbuzného se shodou pouze jednoho haplotypu (5/10) například jedinec může využít transplantace od vlastního rodičů nebo sourozenců. Umožnuje to podávání chemoterapie pár dní po transplantaci, která zníčí všechny buňky, které tělo nepřijme. Tímto způsobem může být celý proces transplantace výrazně urychlen, zejména v případech, kdy není čas hledat dárce v registrech \cite{haploidenticka_transplantace}
 
 \subsection{Alela a gen}
-Alelu můžeme definovat jako variantu genu s nepatrným rozdílem v sekvenci nukleotidů DNA oproti jiné alele stejného genu. Jinak řečeno alely jsou varianty genu na molekulární úrovni. Geny se zpravidla vyskytují minimálně ve dvou formách (dvou alelách). Gen určuje výskyt nějakého znaku, například oči konkrétního živočicha budou mít barvu. Alela pak určuje jaká barva to bude. Alela zajišťuje konkrétní fenotypový projev genu.
+Alelu můžeme definovat jako variantu genu s nepatrným rozdílem v sekvenci nukleotidů DNA oproti jiné alele stejného genu. Jinak řečeno, alely jsou varianty genu na molekulární úrovni. Geny se zpravidla vyskytují minimálně ve dvou formách (dvou alelách). Gen určuje výskyt nějakého znaku, například oči konkrétního živočicha budou mít barvu. Alela pak určuje, jaká barva to bude. Jinak řečeno, alela zajišťuje konkrétní fenotypový projev genu.
 \\
 \\
-V případě genu KIR2DL1 mohou být jeho alely 0010101 a 0010102. Zápis genů tak, jak s nimi budeme pracovat může vypadat způsobem zobrazeným v \ref{alela_gen_prikad}. 
+V případě genu KIR2DL1 mohou být jeho alely 0010101 a 0010102. Zápis genů tak, jak s nimi budeme pracovat, může vypadat způsobem zobrazeným v \ref{alela_gen_prikad}. 
 
 \begin{equation}\begin{split} 
    \label{alela_gen_prikad}
@@ -192,7 +192,7 @@ K zjištění konkrétních alelických variant se pro tzv. typizaci využívaj�
 
 
 \section{Natural killer a jeho receptory}
-Natural killer buňky (NK buňky) jsou velké granulární lymfocyty vrozeného imunitního systému. V krevním oběhu lidského těla je jich možné nalést $10-15\%$. Klíčovou vlastností NK buněk je nejenom schopnost rozlišit poškozené buňky od zdravích, ale i poškozené buňky rychle a efektivně likvidovat. Poškozené buňky mohou být buňky infokované virem či buňky transfomované v nádorové. Na povrchu NK buňky se nachází receptory, které jsou zobrazeny na obrázku \ref{fig:NK_receptors}, regulující odpověď imunitního systému. Natural killer buňky oproti B- a T- lymfocytům (buňkám získané imunity) nemají antigenně specifické receptory. Jedním ze způsobů jak NK buňky rozpoznávají a zabíjejí poškozené buňky je na základě interakce mezi KIR receptorem a HLA molekulou na povrchu zkoumané buňky (podrobněji viz sekce KIR). Stejně tak mohou zabíjet na základě receptoru NKG2D, který aktivuje cytoxickou reakci při setkání s ligandem MICA a MICB. Ligandem označujeme malou molekulu, která se váže na vazebné místo cílového proteinu(receptoru) a vyvolává fyziologickou odpověď, která může mít inihiční či aktivační charakter. 
+Natural killer buňky (NK buňky) jsou velké granulární lymfocyty vrozeného imunitního systému. V krevním oběhu lidského těla je jich možné nalézt $10-15 \%$. Klíčovou vlastností NK buněk je nejenom schopnost rozlišit poškozené buňky od zdravých, ale také poškozené buňky rychle a efektivně likvidovat. Poškozené buňky mohou být buňky infikované virem či buňky transfomované v nádorové. Na povrchu NK buňky se nachází receptory, které jsou zobrazeny na obrázku \ref{fig:NK_receptors}, regulující odpověď imunitního systému. Natural killer buňky oproti B- a T- lymfocytům (buňkám získané imunity) nemají antigenně specifické receptory. Jedním ze způsobů jak NK buňky rozpoznávají a zabíjejí poškozené buňky, je na základě interakce mezi KIR receptorem a HLA molekulou na povrchu zkoumané buňky (podrobněji viz sekce KIR). Stejně tak mohou zabíjet na základě receptoru NKG2D, který aktivuje cytoxickou reakci při setkání s ligandem MICA a MICB. Ligandem označujeme malou molekulu, která se váže na vazebné místo cílového proteinu(receptoru) a vyvolává fyziologickou odpověď, která může mít inhiční či aktivační charakter. 
 % https://www.khanacademy.org/science/biology/cell-signaling/mechanisms-of-cell-signaling/a/signal-perception
 \begin{figure}[H]		
 		\centering
@@ -202,30 +202,30 @@ Natural killer buňky (NK buňky) jsou velké granulární lymfocyty vrozeného 
 \end{figure}
 
 \subsection{NKG2D receptor}
-NKG2D je jeden z nejvýznamnějších aktivačních receptorů na NK buňce rozpoznávající především buněčný stres, který může spustit cytotoxicitu (shopnost níčit buňky), i když se na povrchu buňky nachází inhibiční HLA-I ligandy.  
+NKG2D je jeden z nejvýznamnějších aktivačních receptorů na NK buňce rozpoznávající především buněčný stres, který může spustit cytotoxicitu (schopnost ničit buňky), i když se na povrchu buňky nachází inhibiční HLA-I ligandy.  
 \\
 \\
-Geny skupiny MICA a MICB jsou označeny jako class I chain-related gene. To znamená, že se běžně neřadí do I. třídy MHC. Takto označované geny mají souvislost s MHC I. třídy, ale narozdíl od nich neváží peptidy. Oproti HLA genům, které mají svoje produkty na lymfocytech, se produkty MICA a MICB nachází na epitelových buňkách. Nejedná se tedy o standardní HLA geny, proto jsou nověji v literaturách označovány jako non-HLA. Jejich expresí na povrch buňky jsou ligandy, které se váží na receptor NKG2D. Buňky s ligandy MICA a MICB se množí při nádorovém onemocnění, zanětu nebo pod vlivem různých forem buněčného stresu a díky navázáním na receptor může být spuštěna imunitní reakce. \cite{transfuzni_lekarstvi} \cite{MIC} \cite{NK_receptors} \cite{imgt_hla_database}
+Geny skupiny MICA a MICB jsou označovany jako class I chain-related gene. To znamená, že se běžně neřadí do I. třídy MHC. Takto označované geny mají souvislost s MHC I. třídy, ale narozdíl od nich neváží peptidy. Oproti HLA genům, které mají svoje produkty na lymfocytech, se produkty MICA a MICB nachází na epitelových buňkách. Nejedná se tedy o standardní HLA geny, proto jsou v novějších zdrojích označovány jako non-HLA. Jejich expresí na povrch buňky jsou ligandy, které se váží na receptor NKG2D. Buňky s ligandy MICA a MICB se množí při nádorovém onemocnění, zanětu nebo pod vlivem různých forem buněčného stresu, a díky navázání na receptor může být spuštěna imunitní reakce. \cite{transfuzni_lekarstvi} \cite{MIC} \cite{NK_receptors} \cite{imgt_hla_database}
 
 
 \subsection{KIR receptor}
-Killer immunoglobulin-like receptor (KIR) je skupina genů řazených mezi non-HLA geny. Jejich zvláštností je fakt, že se nenachází na 6 chromozomu, ale na 19 a tak shodní dárci HLA znaků mohou být neshodní v KIR znacích. Expresí KIR genů jsou receptory na povrchu natural killer buněk. Dnes je známo 15 genů a 2 pseudogeny rozlišujících se na inhibiční a aktivační na základě cytoplasmatického ocásku a počtu imunoglobulínových domén. \citep{KIR_transplantace_jindra}
+Killer immunoglobulin-like receptor (KIR) je skupina genů řazených mezi non-HLA geny. Jejich zvláštností je fakt, že se nenachází na 6. chromozomu, ale na 19., a tak se dárci se schodnými HLA znaky nemusí schodovat v KIR znacích. Expresí KIR genů jsou receptory na povrchu natural killer buněk. Dnes je známo 15 genů a 2 pseudogeny rozlišující se na inhibiční a aktivační na základě cytoplasmatického ocásku a počtu imunoglobulínových domén. \citep{KIR_transplantace_jindra}
 
 \begin{figure}[H]		
 		\centering
 		\includegraphics[width=250px]{./img/kir_pozice.png}
-		\caption{KIR se nachází na 19 chromozomu v oblásni jménem leukocyte receptor complex (LRC). \cite{imgt_hla_database}}
+		\caption{KIR se nachází na 19. chromozomu v oblásti jménem leukocyte receptor complex (LRC). \cite{imgt_hla_database}}
 		\label{fig:kir_position}
 \end{figure}
 
 \subsubsection{Nomenklatura KIR genů}
-KIR geny (na obrázku \ref{fig:img_kir_nomenklatura}) se liší různou délkou cytoplasmatických ocásku (tail) a různým počtem imunoglobulin-like domén (lg-like). Na základě této rozmanitosti byla založena nomenklatura KIR genů, tedy jejich pojmenování. 
+KIR geny (na obrázku \ref{fig:img_kir_nomenklatura}) se liší různou délkou cytoplasmatického ocásku (tail) a různým počtem imunoglobulin-like domén (lg-like). Na základě této rozmanitosti byla založena nomenklatura KIR genů, tedy jejich pojmenování. 
 \\
 \\
 Jak je vidět na obrázku~\ref{fig:img_kir_nomenklatura}, cytoplasmatický ocásek může být dlouhý (long~-~L) nebo krátký (short~-~S). Je možné se setkat i s označením P, které slouží pro pseudogeny. Oproti tomu imunoglubulínové domény se mohou vyskytovat 2~(2D) nebo 3~(3D). Právě z těchto vlastností vychází základ pojmenování KIR genů. 
 \\
 \\
-Příkladem může být KIR2DL1*010101, kde 2D označuje dvě imunoglubulinové domény, L značí dlouhý ocásek, 1 značí že je to první 2DL protein. Numerická definice alely je poté oddělena hvězdičkou. První tři čísla označují alely, které se liší v sekvencích jejich kódovaných proteinů, další dvě číslice se používají k rozlišení alel, které se liší synonymnními rozdíly v kódující sekvenci. Konečné dvě cifry rozlišují alely na základě substituce v intronu, promotoru nebo jiné nekódující oblasti. \cite{imgt_hla_database}
+Příkladem může být KIR2DL1*010101, kde 2D označuje dvě imunoglubulinové domény, L značí dlouhý ocásek, 1 značí, že je to první 2DL protein. Numerická definice alely je poté oddělena hvězdičkou. První tři čísla označují alely, které se liší v sekvencích jejich kódovaných proteinů, další dvě číslice se používají k rozlišení alel, které se liší synonymními rozdíly v kódující sekvenci. Konečné dvě cifry rozlišují alely na základě substituce v intronu, promotoru nebo jiné nekódující oblasti. \cite{imgt_hla_database}
 
 \begin{figure}[H]		
 		\centering
@@ -238,56 +238,56 @@ Příkladem může být KIR2DL1*010101, kde 2D označuje dvě imunoglubulinové 
 Další rozdělení KIR genů je na již výše zmíněné inhibiční a aktivační. Dle obrázků~\ref{fig:NK_receptors} a  \ref{fig:img_kir_nomenklatura} je možné si povšimnout detailu, že až na KIR2DL4 jsou aktivační KIR s krátkým ocáskem, zatímco inhibiční jsou s dlouhým ocáskem. 
 
 \subsubsection{Aktivace NK buněk pomocí KIR}
-Jak již bylo výše zmíněno, KIR receptory můžeme rozdělit na inhibiční a aktivační. Zda dojde k aktivaci NK buňky rozhoduje právě jejich rovnováha na zkoumané buňce. Obrázek \ref{fig:img_kir_ligand} uvádí vazebné ligandy pro jednotlivé KIR receptory.  
+Jak již bylo výše zmíněno, KIR receptory můžeme rozdělit na inhibiční a aktivační. O tom, zda dojde k aktivaci NK buňky, rozhoduje právě jejich rovnováha na zkoumané buňce. Obrázek \ref{fig:img_kir_ligand} ukazuje vazebné ligandy pro jednotlivé KIR receptory.  
 
 \begin{figure}[H]		
 		\centering
 		\includegraphics[width=\textwidth]{./img/KIR_nomenklatura2.png}
-		\caption{KIR geny a jejich vazebné ligandy. Pokud je v obrázku ?, značí to, že pro daný receptor neni znám vazebný ligand. \cite{KIR_img_nomenklatura}}
+		\caption{KIR geny a jejich vazebné ligandy. Pokud je v obrázku ?, značí to, že pro daný receptor není znám vazebný ligand. \cite{KIR_img_nomenklatura}}
 		\label{fig:img_kir_ligand}
 \end{figure}
 
 \noindent
-NK buňky ustavičně prohledávají své okolí a testují přítomnost příslušných HLA ligand pro své KIR receptory. Pokud je příslušný HLA ligand přítomen, naváže se na NK buňku (\ref{fig:kir_princip} případ~1). Tímto systémem jsou ochráněny vlastní buňky. Pokud přítomen není, je spuštěna cytotoxická reakce a zkoumaná buňka je zníčena.
+NK buňky ustavičně prohledávají své okolí a testují přítomnost příslušných HLA ligand pro své KIR receptory. Pokud je příslušný HLA ligand přítomen, naváže se na NK buňku (\ref{fig:kir_princip} případ~1). Tímto systémem jsou ochráněny vlastní buňky. Pokud přítomen není, je spuštěna cytotoxická reakce a zkoumaná buňka je zničena.
 \\
 \\
-Některé virem napadené buňky potlačují propsání HLA ligandu na povrch buňky a tím se brání cytotoxicitě proti T lymfocytům, ale tím jsou naopak více citlivější na cytotoxicitu proti NK buňkám, jak je zobrazeno na obrázku \ref{fig:kir_princip} případ~3.
+Některé virem napadené buňky potlačují propsání HLA ligandu na povrch buňky a tím se brání cytotoxicitě vůči T lymfocytům. Zároveň se ale stávají citlivějšími na cytotoxicitu proti NK buňkám, jak je zobrazeno na obrázku \ref{fig:kir_princip} případ~3.
 \begin{figure}[H]		
 		\centering
 		\includegraphics[width=\textwidth]{./img/NK_princip.jpg}
-		\caption{Přirovnání fungování natural killer buňky k pasové kontrole. V pravé části jsou zobrazené případy, které mohou nastat když natural killer buňka potká jinou buňku. V 1. případě je tělu vlastní zdravá buňka, kde se KIR receptor naváže na HLA ligand a k cytotoxitické reakci nedojde. Druhým případem je červená krvinka. K reakci NK buňky opět nedojde, protože na zkoumané buňce nepřevažují aktivační receptory. V 3 případě je to nádorová buňka, která schová HLA ligand (může nastat po transplantaci kostní dřeně) a tím se "schová" proti T- lymfocytům. Avšak aktivační receptory převládají a tak k cytotoxicitě dojde. Ve 4 příkladě je nádorová buňka nebo virem nakažená buňka (stresové ligandy). Aktivační receptory převládají k cytotoxické reakci dojde.\cite{KIR_img_princip}}
+		\caption{Přirovnání fungování natural killer buňky k pasové kontrole. V pravé části jsou zobrazené případy, které mohou nastat když natural killer buňka potká jinou buňku. V 1. případě je tělu vlastní zdravá buňka, kde se KIR receptor naváže na HLA ligand a k cytotoxitické reakci nedojde. Druhým případem je červená krvinka. K reakci NK buňky opět nedojde, protože na zkoumané buňce nepřevažují aktivační receptory. V 3. případě je to nádorová buňka, která schová HLA ligand (může nastat po transplantaci kostní dřeně), a tím se "schová" proti T- lymfocytům. Avšak aktivační receptory převládají, a tak k cytotoxicitě dojde. Ve 4. příkladě je nádorová buňka nebo virem nakažená buňka (stresové ligandy). Aktivační receptory převládají, a tudíž k cytotoxické reakci dojde.\cite{KIR_img_princip}}
 		\label{fig:kir_princip}
 \end{figure}
 
 
 
 \subsubsection{KIR genotyp a haplotyp}
-KIR genotyp je vyjádření, jaké konkrétní KIR geny genom obsahuje. Genotyp je možné rozdělit na dvě části, takzvané haplotypy. Jeden haplotyp je od otce, druhý je od matky. Na základě kombinací všech genů je možné vytvořit velký počet KIR genotypů. Proto byl díky shromážděným haplotypům sestaven model, který toto množství mírně redukuje, samozřejmě existují  vzácné varianty, které se do tohoto modelu nehodí. Haplotyp se rozděluje na dvě části, centrometickou a telometrickou v závislosti zda je blíže k centromeře či telomeře (viz. obrázek \ref{fig:chrmosome} pravá část). Jednotlivé části mezi sebou mohou být kombinovány. Centromerická i telomerická část může byt zařazena do jedné ze dvou skupin A či B na základě genů které obsahuje (viz. obrázek \ref{fig:kir_haplotypy_ct} část A). Celý haplotyp je následně přiřazen do jedné z dvou skupin podle kombinace centromerické a telomerické části. V případě, kdy jsou obě části A/A je haplotyp označen za A, v ostatních kombinací (A/B, B/A, B/B) je haplotyp B (viz. obrázek \ref{fig:kir_haplotypy_ct} část B). Jiná definice pro rozdělení haplotypů uvádí, že skupina B musí obsahovat alespoň jeden z genů KIR2DL5, KIR2DS1, KIR2DS2, KIR2DS3, KIR2DS5 a KIR3DS1. Naopak skupina A neobsahuje ani jeden z těchto genů. Je třeba si zde uvědomit, že každý jedinec má 2 KIR haplotypy. \cite{KIR_haplotypy_ct}
+KIR genotyp je vyjádření, jaké konkrétní KIR geny genom obsahuje. Genotyp je možné rozdělit na dvě části, takzvané haplotypy. Jeden haplotyp je od otce, druhý je od matky. Na základě kombinací všech genů je možné vytvořit velký počet KIR genotypů. Proto byl díky shromážděným haplotypům sestaven model, který toto množství mírně redukuje, přičemž samozřejmě nepokrývá všechny možné varianty. Haplotyp se rozděluje na dvě části, centromerickou a telomerickou v závislosti na tom, zda je blíže k centromeře či telomeře (viz. obrázek \ref{fig:chrmosome} pravá část). Jednotlivé části mezi sebou mohou být kombinovány. Centromerická i telomerická část může byt zařazena do jedné ze dvou skupin A či B na základě genů, které obsahuje (viz. obrázek \ref{fig:kir_haplotypy_ct} část A). Celý haplotyp je následně přiřazen do jedné ze dvou skupin podle kombinace centromerické a telomerické části. V případě, kdy jsou obě části A/A, je haplotyp označen za A, u ostatních kombinací (A/B, B/A, B/B) je haplotyp B (viz. obrázek \ref{fig:kir_haplotypy_ct} část B). Jiná definice pro rozdělení haplotypů uvádí, že skupina B musí obsahovat alespoň jeden z genů KIR2DL5, KIR2DS1, KIR2DS2, KIR2DS3, KIR2DS5 a KIR3DS1. Naopak skupina A neobsahuje ani jeden z těchto genů. Je třeba si zde uvědomit, že každý jedinec má 2 KIR haplotypy. \cite{KIR_haplotypy_ct}
 \\
 \\
 \begin{figure}[H]		
 		\centering
 		\includegraphics[width=\textwidth]{./img/KIR_haplotype.jpg}
-		\caption{Rozdělení KIR genů na centrometrickou a telometrickou část, pojmenování je na základě, zda je úsek blíže k centromeru nebo k telomeru (viz obrázek \ref{fig:chrmosome}). Je možné si zde povšimnout, že je možné některé geny najít jak v centromerické části tak v telomerické části. Upraveno z \cite{KIR_haplotypy_ct}}
+		\caption{Rozdělení KIR genů na centromerickou a telomerickou část, pojmenování je na základě toho, zda je úsek blíže k centromeru nebo k telomeru (viz obrázek \ref{fig:chrmosome}). Je možné si zde povšimnout, že je možné některé geny najít jak v centromerické části, tak v telomerické části. Upraveno z \cite{KIR_haplotypy_ct}}
 		\label{fig:kir_haplotypy_ct}
 \end{figure}
 
 \noindent
-Podle některých studii zabývající se vlivem KIR haplotypů na výsledky transplantace bylo zjištěno, že KIR haplotypy ovlivňují výsledky u akutní myeloidní leukémie či  lymfoblastické leukemie. Ve srovnání s haplotypem A měl haplotyp B, především jeho centrometická část, ochraný účinek před návratem nemoci a zárověň zvýšil pravděpodobnost přežití pacienta. Na základě této skutečnosti se mohou dárci řadit do tří skupin best, better a neutral. Rozřazení do třídy se vyhodnocuje jako počet B a jejich umístění, v centromerické oblasti či telomerické oblasti. Mimo jiné je možné se setkat s pojmem B-skóre. Toto číslo udává počet B, které se v daném haplotypu nachází. Best je definován s B-skórem alespoň 2, přičemž dvě B se musejí nacházet v centromerické oblasti Cen-B/B a Tel-x/x. Better je definován s B-skorém alespoň 2, aby nebyl haplotyp zařezen do Best musí být logicky alespoň jedna z Centromerických oblastí A - Cen-A/x a Tel-B/x. Neutral je v případě jedné B části nebo žádné. \cite{KIR_haplotypy}
+Podle některých studií zabývajících se vlivem KIR haplotypů na výsledky transplantace bylo zjištěno, že KIR haplotypy ovlivňují výsledky u akutní myeloidní leukemie či  lymfoblastické leukemie. Ve srovnání s haplotypem A měl haplotyp B, především jeho centromerická část, ochranný účinek před návratem nemoci a zároveň zvýšil pravděpodobnost přežití pacienta. Na základě této skutečnosti se mohou dárci řadit do tří skupin: best, better a neutral. Rozřazení do třídy se vyhodnocuje jako počet B a jejich umístění v centromerické oblasti či telomerické oblasti. Mimo jiné je možné se setkat s pojmem B-skóre. Toto číslo udává počet B, které se v daném haplotypu nachází. Best je definován B-skórem alespoň 2, přičemž dvě B se musejí nacházet v centromerické oblasti Cen-B/B a Tel-x/x. Better je definován B-skorém alespoň 2, aby nebyl haplotyp zařazen do best musí být logicky alespoň jedna z centromerických oblastí A - Cen-A/x a Tel-B/x. Neutral je v případě jedné B části nebo žádné. \cite{KIR_haplotypy}
 \\
 \\
-KIR geny se stejně jako HLA dědí jako celý blok. Jelikož HLA se nachází na 6 chromozomu a KIR na 19, tak shodní dárci v HLA znacích se jen menšinově shodují v KIR genech. V případě příbuzného dárce shodujícího se v HLA znacích je pouze 25\% shodných také v KIR. \cite{KIR_haplotypy}
+KIR geny se stejně jako HLA dědí jako celý blok. Jelikož HLA se nachází na 6. chromozomu a KIR na 19., tak shodní dárci v HLA znacích se jen menšinově shodují v KIR genech. V případě příbuzného dárce shodujícího se v HLA znacích je pouze 25 \% shodných také v KIR. \cite{KIR_haplotypy}
 
 \begin{figure}[H]		
 		\centering
 		\includegraphics[width=\textwidth]{./img/KIR_haplotypy_priklad.png}
-		\caption{Deset nejčastější KIR haplotypů. Šedý obdelník značí přítomnost genu, bílí jeho nepřítomnost. \cite{kir_genotypes_10}}
+		\caption{Deset nejčastějších KIR haplotypů. Šedý obdélník značí přítomnost genu, bílý jeho nepřítomnost. \cite{kir_genotypes_10}}
 		\label{fig:kir_haplotypy_10}
 \end{figure}
  
 
 \chapter{Sekvenační metody získávání DNA dat}
-Po pojmem sekvence DNA se skrývá posloupnost písmen představujících primární strukturu reálné nebo hypotetické molekuly čí vlákna DNA, které nese nějakou informaci. Jednotlivá písmena jsou označována jako nukleotidy nebo nukleové báze. Nukleové báze mohou být A~-~adenin, C~-~cytosin, G~-~guanin a T - thymin. \cite{genome_gov}
+Po pojmem sekvence DNA se skrývá posloupnost písmen představujících primární strukturu reálné nebo hypotetické molekuly či vlákna DNA, které nese nějakou informaci. Jednotlivá písmena jsou označována jako nukleotidy nebo nukleové báze. Nukleové báze mohou být A~-~adenin, C~-~cytosin, G~-~guanin a T - thymin. \cite{genome_gov}
 \\
 \\
 \noindent
@@ -297,11 +297,11 @@ Příkladem může být následující úsek sekvence na základě obrázku \ref
 \end{align}
 
 \noindent
-\textbf{Sekvenování DNA}, někdy pouze sekvenování, jsou biochemické metody, kterými se zjišťuje pořadí nukleotidů (A, C, G, T) v sekvenci DNA. Díky tomu je možné zjistit typizaci konkrétního člověka. Sekvenační metody se liší zejména délkou řetězce, kterou dokáží zpracovat, cenou a rychlostí sekvenace. Pro porovnání, sekvenování celého genomu Sangerovo metodou by stálo několik milion dolarů a trvalo zrhuba 10 let. Při použítí dnešních metod by cena byla zhruba tisíc dolarů. Většina sekvenačních metod využívá vlasnosti přitahováním báze do páru pouze jednou konkrétní bází. To znamená že se adenin vždy páruje s thyminem a cytosin se vždy páruje s guaninem. Z těchto párů vzniká již známá dvojitá šroubovice DNA. V praxi není neobvyklé, že se sekvenuje jen kónkrétní kus DNA, který je zrovna výzkumně čí jinak potřeba. Největším problémem u sekvenování je, že úseky DNA vzniklé ze sekvenátoru (označovány jako ready) jsou jen kousky, které je třeba poskládat zpět. K tomu slouží zarovnávání. \cite{sekvenovani_ziva} 
+\textbf{Sekvenování DNA}, někdy pouze sekvenování, jsou biochemické metody, kterými se zjišťuje pořadí nukleotidů (A, C, G, T) v sekvenci DNA. Díky tomu je možné zjistit typizaci konkrétního člověka. Sekvenační metody se liší zejména délkou řetězce, kterou dokáží zpracovat, cenou a rychlostí sekvenace. Pro porovnání, sekvenování celého genomu Sangerovo metodou by stálo několik milionů dolarů a trvalo zrhuba 10 let. Při použití dnešních metod by cena byla zhruba tisíc dolarů. Většina sekvenačních metod využívá vlasnosti přitahování báze do páru pouze jednou konkrétní bází. To znamená že se adenin vždy páruje s thyminem a cytosin se vždy páruje s guaninem. Z těchto párů vzniká již známá dvojitá šroubovice DNA. V praxi není neobvyklé, že se sekvenuje jen kónkrétní kus DNA, který je zrovna výzkumně či jinak potřeba. Největším problémem u sekvenování je, že úseky DNA vzniklé ze sekvenátoru (označovány jako ready) jsou jen kousky, které je třeba poskládat zpět. K tomu slouží zarovnávání. \cite{sekvenovani_ziva} 
 
 
 \section{Sanger sequencing}
-Sanger sekvenování využívá možnosti namnožení řetězce díky vzájemnému přitahování konkrétních bází. V prvním kroce replikace jsou nastříhané řetězce rozděleny na dvě vlákna. Lze si představit, že tyto dvě oddělená vlákna jsou dána do směsy, kde plavou jednotlivé nukleotydy spolu s upravenými nukletidy, které nesou specifickou fluorescenční barvu a za které není možné nic navázat. Následně za pomoci střídaní teploty volně plující nukleotidy tvoří postupné páry s řetězcem, který chceme namnožit. Pokud se povede celý řetězec namnožit je odtržen a může se dále množit. Postupně ale bude docházet k navazováním nukleotidů s fluorescenční barvou. Tím se vytvoří nekolik různě dlouhých sekvencí zakončených označeným nukleotidem. Podle jeho barvy je možné poznat o jaký nukleotid se jedná. Následně jsou za pomoci elektorforézy seřazeny v gelu podle délky. Elektroforéza rozděluje různě dlouhé sekvence na základně odlišnosti pohybu v elektrickém poly. Kratší doputují dále než delší. Pomocí sanger metody je možné sekvenovat řetěce dlouhé až 1000 bází.   
+Sanger sekvenování využívá možnosti namnožení řetězce díky vzájemnému přitahování konkrétních bází. V prvním kroku replikace jsou nastříhané řetězce rozděleny na dvě vlákna. Lze si představit, že tato dvě oddělená vlákna jsou umístěna do směsi, kde plavou jednotlivé nukleotidy spolu s upravenými nukleotidy, které nesou specifickou fluorescenční barvu a na které není možné nic navázat. Následně za pomoci střídaní teploty volně plující nukleotidy tvoří postupně páry s řetězcem, který chceme namnožit. Pokud se povede celý řetězec namnožit, je odtržen a může se dále množit. Postupně ale bude docházet k navazování nukleotidů s fluorescenční barvou. Tím se vytvoří několik různě dlouhých sekvencí zakončených označeným nukleotidem. Podle jeho barvy je možné poznat o jaký nukleotid se jedná. Následně jsou za pomoci elektorforézy seřazeny v gelu podle délky. Elektroforéza rozděluje různě dlouhé sekvence na základně odlišnosti pohybu v elektrickém poli. Kratší doputují dále než delší. Pomocí Sanger metody je možné sekvenovat řetěce dlouhé až 1000 bází.   
 
 \begin{figure}[H]		
 		\centering
@@ -311,13 +311,13 @@ Sanger sekvenování využívá možnosti namnožení řetězce díky vzájemné
 \end{figure}
  
 \section{NGS next-generation sekvenování}
-Next-generation sekvenování, někdy označováno jako metody druhé generace, jsou v porovnání se Sangerovo sekvenováním rychlejší a levnější, na druhou stranu ale dokáží zpracovávat jen řetězce dlouhé 100 až 500 bází, mají menší přesnost a časteji chybují. Jejich rychlost spočívá především ve schopnosti detekovat přidávání bází jednu po druhé a zároveň sekvenovat tisíce až miliony rozdílných molekul DNA najednou. 
+Next-generation sekvenování, někdy označováno jako metody druhé generace, je v porovnání se Sanger sekvenováním rychlejší a levnější, na druhou stranu ale dokáže zpracovávat jen řetězce dlouhé 100 až 500 bází, má menší přesnost a častěji chybuje. Jeho rychlost spočívá především ve schopnosti detekovat přidávání bází jednu po druhé a zároveň sekvenovat tisíce až miliony rozdílných molekul DNA najednou. 
 \\
 \\
-Všechny tyto metody si předpřipraví řetězce nastříháním na krátké části a připevněním takzvaného adeptéru na jejich konec. Adaptér je krátká molekula DNA, která slouží k uchycení sekvenovaného úseku na pevný povrch. Řetězce DNA jsou namnoženy, díky čemuž vzniknout klastry identických molekul koncentrovaných v jednom místě. Díky tomu je posílen signál, který by z pouhé jedné molekuly nebyl dostatečně silný. Tento signál je zachycen kamerou. Jeden z důvodů popularity NGS metod jsou i cenově dostupné stolní sekvenátory.
+Všechny tyto metody si předpřipraví řetězce nastříháním DNA na krátké části a připevněním takzvaného adaptéru na jejich konec. Adaptér je krátká molekula DNA, která slouží k uchycení sekvenovaného úseku na pevný povrch. Řetězce DNA jsou namnoženy, díky čemuž vznikají klastry identických molekul koncentrovaných v jednom místě. Díky tomu je posílen signál, který by z pouhé jedné molekuly nebyl dostatečně silný. Tento signál je zachycen kamerou. Jeden z důvodů popularity NGS metod jsou i cenově dostupné stolní sekvenátory.
  
 \subsection{Single-end, paired-end a mate-pair}
-Single-end je sekvenování pouze jednoho konce molekuly. Nevýhoda tohoto způsobu se projeví především na krátkých readech, kde se zvýší problém jejich správného umístění. Oproti tomu v případě paired-end se sekvenuje z obou konců daného úseku. Vzniklé dva ready jsou označeny a zárověň je známá jejich vzdálenost, která se pohybuje od 200 do 400 bp (base pair). Mate-pair je v podstatě paired-end s rozdílem, že je mezi ready větší vzdálenosti od 2 do 5 kb (kilobase) - takže přibližně 2000 - 5000 bp. \cite{illumina}  
+Single-end je sekvenování pouze jednoho konce molekuly. Nevýhoda tohoto způsobu se projevuje především na krátkých readech, kde se zvyšuje problém jejich správného umístění. Oproti tomu v případě paired-end se sekvenuje z obou konců daného úseku. Vzniklé dva ready jsou označeny a zárověň je známá jejich vzdálenost, která se pohybuje od 200 do 400 bp (base pair). Mate-pair je v podstatě paired-end s tím rozdílem, že je mezi ready větší vzdálenosti od 2 do 5 kb (kilobase) - takže přibližně 2000 - 5000 bp. \cite{illumina}  
 
 \begin{figure}[H]		
 		\centering
@@ -328,7 +328,7 @@ Single-end je sekvenování pouze jednoho konce molekuly. Nevýhoda tohoto způs
  
 
 \subsection{454 sekvenování a Ion Torrent}
-Pomocí 454 sekvenování je možné analyzovat více než milion molekul DNA najednou a délka každé jednotlivé sekvence se pohybuje okolo 700 až 1000 bází. V prvním kroku sekvenování je fragment DNA přichycena na malou "kuličku" na jejimž povrchu se postupně namnoží až kuličku zcela pokryjí identické fragmenty DNA. Následuje vložení kuličky i s DNA do jedné z milionů komůrek na destičce s reakční směsí. Postup znázorněn na obrázku \ref{fig:sekvenovani_454}. V určitém momentě je do této směsy přidán vždy jen jeden typ báze. Mezi jednotlivými fázemi přidávání určité báze jsou přebytečné nukleotidy z předešlého kroku odstraněny. To znamená že v reakční směsy je vždy jen jeden typ nukleotidů. Během vložení každé nové báze do rostoucího řetězce DNA je uvolněna molekula zvaná pyrofosfát, která spustí několik chemických reakcí. V poslední fází enzym luciferáza vydá světelný záblesk, který je možné zachytit citlivou kamerou.  Tento postup se nazývá pyrosekvenování. V případě, kdy je do řetězce přidáno několik stejných bází za sebou, například gen obsahuje podřetězec AAA, je vyzářeno, v našem případě, třikrát více světla než v případě jedné přiřazené báze. Kamera snímá celou destičku a na základě, která komůrka se rozsvítí pozná, kde proběhlo přidání báze. Intenzita světla pak určuje kolik bází bylo přidáno na jednou. 
+Pomocí 454 sekvenování je možné analyzovat více než milion molekul DNA najednou a délka každé jednotlivé sekvence se pohybuje okolo 700 až 1000 bází. V prvním kroku sekvenování je fragment DNA přichycen na malou "kuličku" \space na jejímž povrchu se postupně namnoží až kuličku zcela pokryjí identické fragmenty DNA. Následuje vložení kuličky i s DNA do jedné z milionů komůrek na destičce s reakční směsí. Postup je znázorněn na obrázku \ref{fig:sekvenovani_454}. V určitém momentu je do této směsi přidán vždy jen jeden typ báze. Mezi jednotlivými fázemi přidávání určité báze jsou přebytečné nukleotidy z předešlého kroku odstraněny. To znamená, že v reakční směsi je vždy jen jeden typ nukleotidů. Během vložení každé nové báze do rostoucího řetězce DNA je uvolněna molekula zvaná pyrofosfát, která spustí několik chemických reakcí. V poslední fázi enzym luciferáza vydá světelný záblesk, který je možné zachytit citlivou kamerou. Tento postup se nazývá pyrosekvenování. V případě, kdy je do řetězce přidáno několik stejných bází za sebou, například gen obsahuje podřetězec AAA, je vyzářeno, v našem případě, třikrát více světla než v případě jedné přiřazené báze. Kamera snímá celou destičku a na základě toho, která komůrka se rozsvítí, pozná, kde proběhlo přidání báze. Intenzita světla pak určuje kolik bází bylo přidáno najednou. 
 
 
 \begin{figure}[H]		
@@ -340,58 +340,58 @@ Pomocí 454 sekvenování je možné analyzovat více než milion molekul DNA na
 \end{figure}
 
 \noindent
-Sekvenování Ion Torrent funguje na podobné princupu sekvenování s rozdílem, že místo světla se měří změna pH v reakční směsy. Podle intenzity změny pH lze pak poznat kolik nukleotidů bylo přidáno do rostoucího řetězce.
+Sekvenování Ion Torrent funguje na podobném principu sekvenování s tím rozdílem, že místo světla se měří změna pH v reakční směsi. Podle intenzity změny pH lze pak poznat kolik nukleotidů bylo přidáno do rostoucího řetězce.
 \\
 \\
-Hlavní slabinou těchto dvou metod je značná chybovost při přidání mnoha stejných nukleotidů do řetězce za sebou. Například pří přidání 10 A, nebude odpověď jednoznačná zda je to 10 A nebo 9.
+Hlavní slabinou těchto dvou metod je značná chybovost při přidání mnoha stejných nukleotidů do řetězce za sebou. Například při přidání 10 A, nebude možné jednoznačně určit, zda se jedná o 10 A nebo 9 A.
 
 
 \subsection{Illumina}
-Při sekvenování pomocí Illumina jsou páry dvoušrobovice rozděleny na dva řetězce. Jednotlivé řetezce jsou následně přichyceny na malou destičku pomocí adaptéru. Každý řetězec se následně opakovaně množí až na destičce vznikne několik shluků. Přidání jedné molekuly ke druhé probíhá obdobně jako u Sanger sekvenování. Každý shluk tvoří jednu skupinu vzájemně identických řetězců. Mezi volné nukleotidy jsou opět zahrnuty nukleotidy označeny fluorescenční barvou za které nelze nic navázat. Oproti sangerovu sekvenování je ale tato blokace vratná a po přečtení citlivou kamerou dojde k odstranění blokující části molekuly. Počítač si pak následně zpětně spočítá co to bylo za barvu (nukleotid). \cite{illumina} \cite{sekvenovani_ziva} 
+Při sekvenování pomocí Illumina jsou páry dvoušrobovice rozděleny na dva řetězce. Jednotlivé řetezce jsou následně přichyceny na malou destičku pomocí adaptéru. Každý řetězec se následně opakovaně množí až na destičce vznikne několik shluků. Přidání jedné molekuly ke druhé probíhá obdobně jako u Sanger sekvenování. Každý shluk tvoří jednu skupinu vzájemně identických řetězců. Mezi volné nukleotidy jsou opět zahrnuty nukleotidy označeny fluorescenční barvou, za které nelze nic navázat. Oproti Sangerovu sekvenování je ale tato blokace vratná a po přečtení citlivou kamerou dojde k odstranění blokující části molekuly. Počítač si pak následně zpětně spočítá, o který nukleotid se jednalo (na základě barvy). \cite{illumina} \cite{sekvenovani_ziva} 
 
 
 \subsection{SOLiD}
-SOLiD (Sequencing by Oligonucleotide Ligation and Detection) se spoléhá na enzym ligáza. Enzym je bílkovina, která určuje rychlost chemických reakcí. Enzym ligáza konkrétně umožňuje připojení jednořetězcových molekul k stávajícím řetězcům. K teplátu jsou přidávány takzvané sondy, což jsou kousky DNA. Sondy začínají všemi možnými dvojkombinacemi čtyř základních nukleotidů. V součtu je 16 sond. Na každé sondě je jedna ze čtyř flurescenčních barev. V jednotlivých krocích jsou sondy připojeny k rostoucímu řetězci. Následně je přečtena fluorescenční barva, která je odstraněna a může se tak navázat další sonda. Z výsledného signálu lze pak odvodit sekvenci DNA.
+SOLiD (Sequencing by Oligonucleotide Ligation and Detection) se spoléhá na enzym ligáza. Enzym je bílkovina, která určuje rychlost chemických reakcí. Enzym ligáza konkrétně umožňuje připojení jednořetězcových molekul k stávajícím řetězcům. K řetězcům jsou přidávány takzvané sondy, což jsou kousky DNA. Sondy začínají všemi možnými dvojkombinacemi čtyř základních nukleotidů. V součtu je 16 sond. Na každé sondě je jedna ze čtyř flurescenčních barev. V jednotlivých krocích jsou sondy připojeny k rostoucímu řetězci. Následně je přečtena fluorescenční barva, která je pak odstraněna, a může se tak navázat další sonda. Z výsledného signálu lze pak odvodit sekvenci DNA.
 
 
 \section{Metody třetí generace}
-Velkým rozdílem oproti druhé generaci je že DNA templát není před sekvenování namnožen a je čten pouze z jedné původní molekuly. Existuje například PacBio od Pacific Bioscience, který k detekci využívá fluorescenčně značené nukleotidy. Díky jeho vysoké citlovosti je možné v reálnám čase zachytit přidání i jediného nukleotidu do jediného řetězce DNA. Další zástupce je Oxford Nanapore jehož výhodou je jeho velikost. Oxford využívá odlišného tvaru bází. Obě metody jsou schopné přečíst přes 10 tisíc bází v rámci jedné analyzované molekuly DNA. 
+Velkým rozdílem oproti druhé generaci je, že DNA řetězec není před sekvenování namnožen a je čten pouze z jedné původní molekuly. Existuje například PacBio od Pacific Bioscience, který k detekci využívá fluorescenčně značené nukleotidy. Díky jeho vysoké citlovosti je možné v reálnám čase zachytit přidání i jediného nukleotidu do jediného řetězce DNA. Dalším zástupcem těchto metod je Oxford Nanapore, jehož výhodou je jeho velikost. Oxford využívá odlišného tvaru bází. Obě metody jsou schopné přečíst přes 10 tisíc bází v rámci jedné analyzované molekuly DNA. 
 
 
-\chapter{Analyza dostupných bioinformatických nástrojů pro zpracování NGS dat}
-NGS metody snižují náklady a zrychlují proces sekvenování za cenu kratších readů a menší přenosti což vedlo k mnoha bioinformatickým výzvám, jako je vytvoření nástrojů pro analýzu readů. Nástroje je možné mezi sebou porovnat pomocí realných nebo simulovaných dat. Přestože je validace na realných datech nezbytná, skutečné hodnoty na kterých jsou data založena jsou obvykle neznámá, což komplikuje jejich použítí pro posouzení přesnosti (tj. jak blízko je odhadovaná hodnota ke skutečné hodnotě). Díky tomu je simulování dat čím dál více populární pro hodnocení, validaci či nastavování optimálních parametrů nástroje. \cite{simulation_read}
+\chapter{Analýza dostupných bioinformatických nástrojů pro zpracování NGS dat}
+NGS metody snižují náklady a zrychlují proces sekvenování za cenu kratších readů a menší přesnosti, což vedlo k mnoha bioinformatickým výzvám, jako je vytvoření nástrojů pro analýzu readů. Nástroje je možné mezi sebou porovnat pomocí reálných nebo simulovaných dat. Přestože je validace na reálných datech nezbytná, skutečné hodnoty na kterých jsou data založena jsou obvykle neznámé, což komplikuje jejich použití pro posouzení přesnosti (tj. jak blízko je odhadovaná hodnota ke skutečné hodnotě). Díky tomu je simulování dat čím dál více populární pro hodnocení, validaci či nastavování optimálních parametrů nástroje. \cite{simulation_read}
 
 
 \section{Simulační nástroje pro generování syntetických readů}
-Dále uvedené nástroje byly vybrány na základě parametrů: simulování DNA, udržovány a volně dostupné. Následující informace vychází z článku \cite{simulation_read} pokud nebude uvedeno jinak.
+Dále uvedené nástroje byly vybrány na základě těchto parametrů: simulování DNA, udržitelnost a volná dostupnost. Následující informace vychází z článku \cite{simulation_read}, pokud nebude uvedeno jinak.
 \\
 \\
-Většina simulátorů NGS vyžaduje referenční sekvenci ze které budou generovat ready. Tato referenční sekvence může být konkrétní genomická oblast, více zřetězených genomických oblastí, chromozom či celý genom. Některé simulátory vytváří zarovnání readů přímo do referenčníhou souboru (soubory SAM/BAM). Při používání simulátorů může být pro uživatele obtížné se rozhodnout kterou konkrétní hodnotu pro daný parametr určit nebo který vlastní profil vytvořit proto některé simulátory poskytují výchozí profily. Jedním z nich může být i generování chyb či model kvality. Nástroje jako jsou ART nebo SInC generují tyto profily na základě extrahovaných modelech ze skutečných dat. Nejčastější chyby jsou substituční a vložení čí smazání (INDEL - insert-deletion).
+Většina simulátorů NGS vyžaduje referenční sekvenci, ze které budou generovat ready. Tato referenční sekvence může být konkrétní genomická oblast, více zřetězených genomických oblastí, chromozom či celý genom. Některé simulátory vytváří zarovnání readů přímo do referenčníhou souboru (soubory SAM/BAM). Při používání simulátorů může být pro uživatele obtížné se rozhodnout, kterou konkrétní hodnotu pro daný parametr určit nebo který vlastní profil vytvořit, proto některé simulátory poskytují výchozí profily. Jedním z nich může být i generování chyb či modelu kvality. Nástroje jako jsou ART nebo SInC generují tyto profily na základě extrahovaných modelů ze skutečných dat. Nejčastější chyby jsou způsobeny substitucí, vložením či smazáním (INDEL - insert-deletion).
 
 
 \begin{figure}[H]		
 		\centering
 		\includegraphics[width=1\textwidth]{./img/read_simulators.jpg}
-		\caption{Strom pro usnadnění výběru generátoru syntetických readů \cite{simulation_read}}
+		\caption{Strom pro usnadnění výběru generátoru syntetických readů. \cite{simulation_read}}
 		\label{fig:read_simulators}
 \end{figure}
 
 \noindent
-Data získaná z FN Plzeň/BC LF UK Plzeň byla sekvenována nástrojem Illumina proto je podle \cite{simulation_read} na výběr z ART, AFG, CuReSim, Flowsim, MetaSim, simhtsd a simNGS. U simulátoru AFG je třeba chybové profily definovat ručně, CuReSim a MetaSim nejsou open source, simhtsd podporuje jen operační systém Linux, simNGS podporuje jen operační systémi Linux a MacOS. Proto byl vybrát simulační nástroj ART který podporuje operační systémi Linux, Windows a MacOS. Dále generuje podle chybových profilů a profilů kvality které byli vytvořeny pomocí extrakce chyb získaných ze skutečných dat. 
+Data získaná z FN Plzeň/BC LF UK Plzeň jsou primárně sekvenována nástrojem Illumina, proto je podle \cite{simulation_read} na výběr z ART, AFG, CuReSim, Flowsim, MetaSim, simhtsd a simNGS. U simulátoru AFG je třeba chybové profily definovat ručně, CuReSim a MetaSim nejsou open source, simhtsd podporuje jen operační systém Linux, simNGS podporuje jen operační systémi Linux a MacOS. Proto byl vybrát simulační nástroj ART který podporuje operační systémy Linux, Windows a MacOS. Tento nástroj dále generuje podle chybových profilů a profilů kvality, které byly vytvořeny pomocí extrakce chyb získaných ze skutečných dat. 
 
 \subsection{ART}
-ART (next-generation sequencing read simulator) je sada simulačních nástrojů, které generují syntetické ready, jako kdyby byli získány sekvenováním pomocí NGS. Nástroj ART dokáže simulovat single-end a paired-end ready ze sekvenátorů Illumina, 454 společnosti Roch a SOLid od společnosti Applied biosystém. Ready, vytvořené nástrojem ART jsou používány pro testování a analýzů nástrojů zpracovávající právě NGS sekvence jako například zarovnávání (nástroj Bowtie). Při použítí nástroje ART je vstupním souborem sekvence genů na základě kterých jsou vygenerovány ready. \cite{art}
+ART (next-generation sequencing read simulator) je sada simulačních nástrojů, které generují syntetické ready, jako kdyby byly získány sekvenováním pomocí NGS. Nástroj ART dokáže simulovat single-end a paired-end ready ze sekvenátorů Illumina, 454 společnosti Roch a SOLid od společnosti Applied biosystém. Ready vytvořené nástrojem ART, jsou používány pro testování a analýzu nástrojů zpracovávajících právě NGS sekvence, jako například nástroje Bowtie (zarovnávání). Při použítí nástroje ART je vstupním souborem sekvence genů, na základě kterých jsou vygenerovány ready. \cite{art}
 \\
 \\
-Illumina je sekvenování založené na vratném umístění báze označené barvou do rostoucího řetězce jehož nejčastější chybou je substituce. Pravděpodobnost chyby substituce je určená na základě kvality skoré dané báze, které je závislé na pozici v rostoucím řetězci. Průměrné kvality skore klesá v závislosti na zvyšování pozice báze. ART simuluje substituční chybu na základě zvyšování kvality báze a modelu pravděpodobnosti chyby získaného z reaálných datasetů. INDEL chyba je simulována jen na základě modelu z reálných dat a u Illuminy se vyskytuje jen zřídka. Pro paired-end simulaci, ART využívá dvou rozdílných kvality skore pro každý pár readu jiný. 
+Illumina je sekvenování založené na vratném umístění báze označené barvou do rostoucího řetězce. Jeho nejčastější chybou je substituce. Pravděpodobnost chyby substituce je určená na základě skóre kvality dané báze, které je závislé na pozici v rostoucím řetězci. Průměrné skóre kvality klesá v závislosti na zvyšování pozice báze. ART simuluje substituční chybu na základě zvyšování kvality báze a modelu pravděpodobnosti chyby získaného z reálných datasetů. INDEL chyba je simulována jen na základě modelu z reálných dat a u Illuminy se vyskytuje jen zřídka. Pro paired-end simulaci využívá ART dvou rozdílných kvality skóre pro každý pár readů jiný. 
 \\
 \\
-ART je implementován v jazyce C++ a je dostupný s licencí GPL verze~3 pro operační systémy Linux, MacOs a Windows. Je možné ho použít i jako C++ package. Pro jeho spuštění je nutní mít nainstalovaný compilator GNU g++ 4.0 nebo vyšší a knihovnu GNU gsl. Výstupy se čtou ve formátu FASTQ a zarovnání ve formátu ALN. může generovat zarovánávání také ve formátu SAM nebo UCS BED. Paired end ready jsou označeny stejným názvem souboru s 1 či 2 na jeho konci.
+ART je implementován v jazyce C++ a je dostupný s licencí GPL verze~3 pro operační systémy Linux, MacOs a Windows. Je možné ho použít i jako C++ package. Pro jeho spuštění je nutní mít nainstalovaný compilator GNU g++ 4.0 nebo vyšší a knihovnu GNU gsl. Výstupy se čtou ve formátu FASTQ a zarovnání ve formátu ALN. ART může generovat zarovánávání také ve formátu SAM nebo UCS BED. Paired end ready jsou označeny stejným názvem souboru s 1 či 2 na jeho konci.
 
 \section{Nástroje pro zarovnávání readů}
-Zarovnávání bývá prvním krokem v mnoho genomických pipelinách. Často je to jejich nejpomalejší část, protože pro každý read musí zarovnávač vyřešit obtížný výpočetní problém. Určit pravděpodobné umístění v referenčním genomu. 
+Zarovnávání bývá prvním krokem v mnoha genomických pipelinách. Často je to jejich nejpomalejší část, protože pro každý read musí zarovnávač vyřešit obtížný výpočetní problém. Určit pravděpodobné umístění v referenčním genomu. 
 V současnosti je na výběr více než 90 nástrojů pro zarovnávání NGS readů.
-Nástoje jsou mezi sebou obvykle porovnávany na základě přesnosti a rychlost mapování. V článku \cite{ngs_alignment_software} bylo porovnáno 5 nástrojů pro zarovnávání DNA readů.  Nástroj STAR měl narozdíl od ostatních nástrojů menší přesnost, nástroj segemehl byl zase náročný na paměť (podle článku až 70 GB) což se na stolním počítači těžko dosahuje. Ze zbývajících nástojů byl vybrán nástroj Bowtie2 díky jeho rychlosti vzhledem k nástroji BWA, která vzhledem k množství požadovaných zarovnání bude přínosem.  
+Nástoje jsou mezi sebou obvykle porovnávany na základě přesnosti a rychlost mapování. V článku \cite{ngs_alignment_software} bylo porovnáno 5 nástrojů pro zarovnávání DNA readů.  Nástroj STAR měl narozdíl od ostatních nástrojů menší přesnost, nástroj segemehl byl zase náročný na paměť (podle článku až 70 GB), což se na stolním počítači těžko dosahuje. Ze zbývajících nástojů byl vybrán nástroj Bowtie2 díky jeho rychlosti v porovnání s nástojem BWA, která vzhledem k množství požadovaných zarovnání bude přínosem.  
 
 \begin{figure}[H]		
 		\centering
@@ -401,13 +401,13 @@ Nástoje jsou mezi sebou obvykle porovnávany na základě přesnosti a rychlost
 \end{figure}
 
 \subsection{Bowtie2}
-Bowtie2 je rychlý a paměťové efektivní nástroj pro zarovnávání krátkých sekvencí DNA na velké genomy. Bowtie2 je schopný zarovnat více než 25 milionů readů dlouhých 35 bp za hodinu (při běhu na jednom CPU) pro lidský genom s malým využím paměti. Bowtie2 využívá FM indexaci s Burrows-Wheeler transformací (BWT) a přidává k ní backtracking pro sledování nekonzistence. Novější verze Bowtie2 by měla by oproti Bowtie1 citlivější a rychlejší na delší ready než je 50 nukleotidů a navíc je oproti první verzi schopná se vypořádat z chybami vložení čí smazání báze způsobené sekvenováním. Na lidský genom potřebuje Bowtie2 3.2 gigabajtů RAM. Nástroj bowtie je implementovaný v jazyce C++ s použitím knihovny SeqAn a je open source. Podporuje standardní vstupní formáty FASTQ a FASTA.  Výstupní zárovnání z Bowtie je ve formátu SAM, což umožňuje návaznost s dalšími nástroji jako je třeba SAMtools. Následující informace vychází z článků \cite{bowtie} a \cite{bowtie2} pokud není uvedeno jinak.   
+Bowtie2 je rychlý a paměťově efektivní nástroj pro zarovnávání krátkých sekvencí DNA na velké genomy. Bowtie2 je schopný zarovnat více než 25 milionů readů dlouhých 35 bp za hodinu (při běhu na jednom CPU) pro lidský genom s malým využím paměti. Bowtie2 využívá FM indexaci s Burrows-Wheeler transformací (BWT) a přidává k ní backtracking pro sledování nekonzistence. Novější verze Bowtie2 by měla být oproti Bowtie1 citlivější a rychlejší na delší ready než je 50 nukleotidů, a navíc je oproti první verzi schopná se vypořádat z chybami vložení či smazání báze způsobené sekvenováním. Na lidský genom potřebuje Bowtie2 3.2 gigabajtů RAM. Nástroj bowtie je implementovaný v jazyce C++ s použitím knihovny SeqAn a je open source. Podporuje standardní vstupní formáty FASTQ a FASTA.  Výstupní zárovnání z Bowtie je ve formátu SAM, což umožňuje návaznost s dalšími nástroji jako je třeba SAMtools. Zbytek kapitoly shrnuje poznatky z článků \cite{bowtie} a \cite{bowtie2}, pokud není uvedeno jinak.   
 \\
 \\
-Mnoho zarovnávačů používá indexy k rychlému snižování kandidátů pro umístění zarovnáváného readu. Bowtie vytváří indexy referenčních genů permanentní a lze je tak použít napříč běhy. Algoritmus FM indexu obyvykle funguje na vyhledává přesně shody. V případě hledání umístění readů na referenční gen není toto řešení použitelné, protože ready mohou obsahovat chyby vzniklé sekvenováním případně genové mutace. Proto Bowtie každé zarovnání zakládá na kvalitě znaku báze v daném readu. Bowtie postupně vytváří dlouhý sufix. Pokud se sufix nevyskytuje v textu pak se může algoritmus vrátit a v již vytvořeném sufixu nahradit bázi za jinou. Dále pokračuje obdobným způsobem. Tento způsob změny báze je dále označován jako backtracking. Pokud by měl algoritmus na výběr substituovat za více bází vybere tu s nejnižší kvalitou znaku v readu. Protože Bowtie algoritmus v základu bere první přijetelné řešení je možné, že jeho nalezené řešení není to nejlepší. Pro nalezení toho nejlepšího řešení je třeba použít přepínač $--best$, jeho funkčnost je ale na úkor rychlosti, která může být 2x čí 3x pomalejší. Bohužel nemůže být tento přepínač použit u paired-end readů. Zároveň je možné nastavit maximální počet nahrazených bází v readu. \cite{bowtie}
+Mnoho zarovnávačů používá indexy k rychlému snižování kandidátů pro umístění zarovnávaného readu. Bowtie permanentní indexy referenčních genů a lze je tak použít napříč běhy. Algoritmus FM indexu obvykle funguje na vyhledáví přesně shody. V případě hledání umístění readů na referenční gen není toto řešení použitelné, protože ready mohou obsahovat chyby vzniklé sekvenováním, případně genové mutace. Proto Bowtie každé zarovnání zakládá na kvalitě znaku báze v daném readu. Bowtie postupně vytváří dlouhý sufix. Pokud se sufix nevyskytuje v textu, pak se může algoritmus vrátit a v již vytvořeném sufixu nahradit bázi za jinou. Dále pokračuje obdobným způsobem. Tento způsob změny báze je dále označován jako backtracking. Pokud by měl algoritmus na výběr substituovat za více bází, vybere tu s nejnižší kvalitou znaku v readu. Protože algoritmus Bowtie v základu bere první přijatelné řešení, je možné, že jeho nalezené řešení není to nejlepší. Pro nalezení toho nejlepšího řešení je třeba použít přepínač $--best$, jehož funkčnost je ale na úkor rychlosti, která může být 2x či 3x nižší. Bohužel nemůže být tento přepínač použit u paired-end readů. Zároveň je možné nastavit maximální počet nahrazených bází v readu. \cite{bowtie}
 \\
 \\
-V případě že backtracking mechanismus není uspěšný může docházet k jeho nadměrnému vyskytu. Bowtie2 se tento jev snaží zmírnit dvojím indexováním. První index obsahuje BWT genomu a je označován jako dopředný index. Druhý obsahuje opět BWT genomu, ale se znaky v sekvenci v opačném pořadí, označovaný jako zrcadlový index. Read je pak v půlce rozdělen na dvě části a jejich zarovnávání probíhá odděleně tak, že je vždy backtracking povolen jen v dané části, která je zrovna zarovnávána. Pravá část je zarovnáváná podle dopředného indexu a levá část je zarovnávána podle zrcadlového indexu. Předchozí algoritmus funguje dobře pouze v případě, kdy reference nebo read neobsahují mezery (báze chybí nebo naopak přebývá). Proto byl algoritmus rozšířen, jak je popsáno následovně.
+V případě že backtracking mechanismus není úspěšný, může docházet k jeho nadměrnému výskytu. Bowtie2 se tento jev snaží zmírnit dvojím indexováním. První index obsahuje BWT genomu a je označován jako dopředný index. Druhý obsahuje opět BWT genomu, ale se znaky v sekvenci v opačném pořadí, označovaný jako zrcadlový index. Read je pak v půlce rozdělen na dvě části a jejich zarovnávání probíhá odděleně tak, že je vždy backtracking povolen jen v dané části, která je zrovna zarovnávána. Pravá část je zarovnáváná podle dopředného indexu a levá část je zarovnávána podle zrcadlového indexu. Předchozí algoritmus funguje dobře pouze v případě, kdy reference nebo read neobsahují mezery (báze chybí nebo naopak přebývá). Proto byl algoritmus rozšířen, jak je popsáno dále.
 
 \begin{figure}[H]		
 		\centering
@@ -420,18 +420,18 @@ V případě že backtracking mechanismus není uspěšný může docházet k je
 \noindent
 Pro každý read
 \begin{enumerate}
-	\item Extrahování seedu(podřetězce readů) z readu a jeho převrácených doplňku 
-	\item Seedy jsou zarovnány na refrenci v bezmezerové modelu za pomocí full-text minute indexu. Čísla v závorkách značí rozsah řádků v Burrows Wheeler matici kam byl seed zarovnán
+	\item Extrahování seedu (podřetězce readů) z readu a jeho převráceného doplňku. 
+	\item Seedy jsou zarovnány na refrenci v bezmezerovém modelu za pomocí full-text minute indexu. Čísla v závorkách značí rozsah řádků v Burrows Wheeler matici, kam byl seed zarovnán.
 	\item Seedy jsou seřazeny podle offsetu na referenčním genomu. 
 	\item Ready jsou zarovnány. Díky předchozím krokům je značně omezen prostor, kam mohou být zarovnány. Pro zvýšení výkonu je použito SIMD (accelerated dynamic programming).
 \end{enumerate}
   
 
 \subsection{Burrows-Wheeler transformace}
-Burrows-Wheelerova transformace (BWT) je reverzibilní permutace řetězců v textu. Původně byla používána pro kompresy dat. Indexace založená na BWT umožňuje efektivní vyhledávání ve velké textu s malou paměťovou náročností. 
+Burrows-Wheelerova transformace (BWT) je reverzibilní permutace řetězců v textu. Původně byla používána pro kompresi dat. Indexace založená na BWT umožňuje efektivní vyhledávání ve velkém textu s malou paměťovou náročností. 
 \\
 \\
-BW transformace řetězce T, $BWT(T)$, je zobrazena na obrázku \ref{fig:bw_transform_1}. Znak~\$ je připojen na konec řetězce a zároveň musí platit, že se tento znak se v řetězci nevyskytuje. Burrows-Wheeler matice řetězce T je konstruovaná jako všechny cyklické rotace řetězce T, které byli seřazeny podle abecedy, kde znak \$ se bere, že je na začátku abecedy. Výstup, BWT(T) pak představuje poslední sloupec matice. Tento řetězec má stejnou délku jako původní řetězec T. \cite{bowtie} 
+BW transformace řetězce T, $BWT(T)$, je zobrazena na obrázku \ref{fig:bw_transform_1}. Znak~$\$$ je připojen na konec řetězce a zároveň musí platit, že se tento znak v řetězci nevyskytuje. Burrows-Wheeler matice řetězce T je konstruovaná jako všechny cyklické rotace řetězce T, které byly seřazeny podle abecedy, znak \$ je řazen na začátek abecedy. Výstup, BWT(T) pak představuje poslední sloupec matice. Tento řetězec má stejnou délku jako původní řetězec T. \cite{bowtie} 
 
 \begin{figure}[H]		
 		\centering
@@ -457,7 +457,7 @@ Burrows-Wheeler matice má vlastnost, která se nazývá last first mapping (LF)
 \end{figure}
 
 \noindent
-Zpětné získání řetězce je znázorněno na obrázku \ref{fig:bw_transform_inverse}. L sloupec je řetězec, který je výstupem BW transformace. F sloupec je snadné na základě L sloupce odvodit. Jelikož platí pravidlo, že počet jednotlivých znaků je stejný, stačí je pouze přemístit do F sloupce a seřadit podle abecedy. Dále s využítím LF je řetězec získán zpět. Jako první se vezme přidaný znak \$. Ve stejném řádku ve sloupci L se nachází $a_0$ . To znamená že řetězec začíná \$a. Algoritmus pokračuje s $a_0$ v F sloupci. Ve stejném řádku v L sloupci je $b_0$. $b_0$ je přidáno do řetězce a pokračuje až do doby než by byl opět znak \$. 
+Zpětné získání řetězce je znázorněno na obrázku \ref{fig:bw_transform_inverse}. L sloupec je řetězec, který je výstupem BW transformace. F sloupec, je na základě L sloupce, snadné odvodit. Jelikož platí pravidlo, že počet jednotlivých znaků je stejný, stačí je pouze přemístit do F sloupce a seřadit podle abecedy. Dále s využitím LF je řetězec získán zpět. Jako první se vezme přidaný znak \$. Ve stejném řádku ve sloupci L se nachází $a_0$ . To znamená, že řetězec začíná \$a. Algoritmus pokračuje s $a_0$ v F sloupci. Ve stejném řádku v L sloupci je $b_0$. $b_0$ je přidáno do řetězce a pokračuje až do doby, než je opět na řadě znak \$. 
 
 
 \begin{figure}[H]		
@@ -468,7 +468,7 @@ Zpětné získání řetězce je znázorněno na obrázku \ref{fig:bw_transform_
 \end{figure}
 
 \noindent
-Díky vztahu mezi F a L sloupcem je možné vyhledávat daný řetezec (zobrazeno na obrázku \ref{fig:fm_index}). Například vyhledávány řetězec bude $P = aba$. Při pohledu do F sloupce jsou nalezeny všechy sloupce začínající $a$, následně v L sloupci ve stejných řádcích jsou nalezeny dva výskyty $b$. Již je získán sufix $ba$, který existuje. Pokračuje se dále na řádky, které začínají právě nalezenými $b$. V sloupci L pro dané řádky je nalezena $a$. Řětezec $P = aba$ se v textu vyskytuje. 
+Díky vztahu mezi F a L sloupcem je možné vyhledávat daný řetezec (zobrazeno na obrázku \ref{fig:fm_index}). Například vyhledáváný řetězec bude $P = aba$. Při pohledu do F sloupce jsou nalezeny všechy sloupce začínající $a$, následně v L sloupci ve stejných řádcích jsou nalezeny dva výskyty $b$. Již je získán sufix $ba$, který existuje. Pokračuje se dále na řádky, které začínají právě nalezenými $b$. V sloupci L pro dané řádky je nalezena $a$. Řětezec $P = aba$ se v textu vyskytuje. 
 
 \begin{figure}[H]
 		\centering
@@ -488,7 +488,7 @@ Díky vztahu mezi F a L sloupcem je možné vyhledávat daný řetezec (zobrazen
 
 \section{Další pomocné metody}
 \subsection{Levenshteinova vzdálenost}
-Levensteinova vzdálenost zjišťuje rozdílnost dvou textů na základě počtu změn, které je třeba udělat, aby bylo z jednoho řetězce získán druhý řetezec. Za úpravy se považuje vložení, smazání a nahrazení. Algortimus funguje tak, že se snaží ze slova, které bylo jako první v argumentu vytvořit slovo předáno jako druhé. Příkladem může být vzdálenost mezi řetězci \textit{SPAM} a \textit{PARK}.  Vzdálenost těchto slov je 3. Výstup v případě python knihovny je možné vidět následovně. Výstup \ref{leve_1} je v případě SPAM, PARK. Výstup \ref{leve_2} je v případě PARK, SPAM. Změny jsou definovány: o jakou změnu jde, index znaku v prvním řetězci a index znaku v druhém řetězci. Je možné si všimnout závislosti mezi těmito dvěma postupy. \cite{levenshrein_baku}
+Levenshteinova vzdálenost zjišťuje rozdílnost dvou textů na základě počtu změn, které je třeba udělat, aby byl z jednoho řetězce získán druhý řetezec. Za úpravy se považuje vložení, smazání a nahrazení. Algortimus funguje tak, že se snaží ze slova, které bylo předáno jako první v argumentu vytvořit slovo předáné jako druhý argument. Příkladem může být vzdálenost mezi řetězci \textit{SPAM} a \textit{PARK}.  Vzdálenost těchto slov je 3. Výstup v případě python knihovny je možné vidět následovně. Výstup \ref{leve_1} je v případě SPAM, PARK. Výstup \ref{leve_2} je v případě PARK, SPAM. Změny jsou definovány: o jakou změnu jde, index znaku v prvním řetězci a index znaku v druhém řetězci. Je možné si všimnout závislosti mezi těmito dvěma postupy. \cite{levenshrein_baku}
 
 
 \begin{align}
@@ -505,7 +505,7 @@ Levensteinova vzdálenost zjišťuje rozdílnost dvou textů na základě počtu
 
 \chapter{Implementace}
 \section{Popis problému}
-Hlavním úkolem navrhnutého nástroje je určit alely, které představují ready ze sekvenátoru. Jednou z výzev je že alela může být dlouhá až téměř 15 000 bp. Získané redy jsou ale dlouhé jen 250 bp a navíc mohou obsahovat chyby (záměna bází, chybějící báze nebo báze navíc). 
+Hlavním úkolem navrhnutého nástroje je určit alely, které představují ready ze sekvenátoru. Jednou z výzev je že alela může být dlouhá až téměř 16 000 bp. Získané ready jsou ale dlouhé jen 250 bp a navíc mohou obsahovat chyby (záměna bází, chybějící báze nebo báze navíc). 
 
 \section{Referenční geny}
 Referenční geny byly převzaty z IPD-KIR \cite{imgt_hla_database} konkrétně soubory ve formátu \textit{fasta} uloženy ve stejnojmené složce. Jednotlivé soubory jsou pojmenovány genem, který obsahují např. \textit{KIR2DL1\_gen.fasta}. Každý soubor představuje všechny dostupné alely konkrétního genu. Jedinou vyjímku tvoří soubory \textit{KIR\_gen.*}, které obsahují všechny geny a navíc i pseudogeny. 
@@ -514,7 +514,7 @@ Referenční geny byly převzaty z IPD-KIR \cite{imgt_hla_database} konkrétně 
 Kromě souborů \textit{*\_gen.fasta} obsahuje složka \textit{fasta} také soubory \textit{*\_prot.fast} a \textit{*\_nuc.fasta}. Soubor \textit{\_gen.fasta} obsahuje informace o celých genech. Oproti tomu \textit{\_nuc.fasta} obsahuje nucleotidy, tedy pouze exony bez intronů. Soubor \textit{*\_prot.fast} obsahuje sekvence proteinů, které vznikly z RNA. Data získaná z nemocnice budou odpovídat alelam uvedených v \textit{\_gen.fasta}. V práci bude jako reference použit soubor $\_gen$.
 \\
 \\
-Při analýze porovnávání souboru \textit{nuc} a \textit{gen} bylo zjištěno, že v souboru \textit{nuc} je více alel než v souboru \textit{gen}. Konkrétně v souboru \textit{gen} je 461 alel a v souboru \textit{nuc} je 1109 alel. Tento údaj  mimo jiné dokazuje, že nejsou přístupné referenční alely ke všem realným alelám. Nejmenší Levenshteinova vzdálenost mezi alelami je 1, největší 15 943 a průměrná 4768.98. 
+Při analýze porovnávání souboru \textit{nuc} a \textit{gen} bylo zjištěno, že v souboru \textit{nuc} je více alel než v souboru \textit{gen}. Konkrétně v souboru \textit{gen} je 461 alel a v souboru \textit{nuc} je 1109 alel. Tento údaj  mimo jiné dokazuje, že nejsou přístupné referenční sekvence ke všem realným alelám. Nejmenší Levenshteinova vzdálenost mezi alelami je 1, největší 15 943 a průměrná 4768.98. 
 \\
 \\
 Na následujícím obrázku je možné vidět všechny vzdálenosti ostatních alel ve skupinkách podle genů vzhledem k alele 3DS1*0130101. Je možné si povšimnout, že nejblíže má k alelám ze stejného genu.
@@ -534,7 +534,7 @@ Následující obrázek zobrazuje vzdálenosti pouze v rámci genu 3DS1 opět k 
 \end{figure}
 
 \section{Testovací KIR genomy}
-Genotypy, na kterých byl nástroj testován byly dodány vedoucí práce. Genotypy test1 - test11 byly sestaveny podle definovaných genotypů a umýslně vybrány ty které představují určitým způsobem výzvu pro navrhnutý nástroj. Přesný obsah testovacích genomů je uveden v příloze.
+Genomy, na kterých byl nástroj testován byly dodány vedoucí práce a vychází ze známých genotypů KIR - Genotype Reference List uvedený v \cite{kir_genotypes_10}. Genomy test1 - test11 byly sestaveny podle definovaných genotypů a umýslně vybrány ty které představují určitým způsobem výzvu pro navrhnutý nástroj. Přesný obsah testovacích genomů je uveden v příloze.
 
 
 
@@ -542,7 +542,7 @@ Genotypy, na kterých byl nástroj testován byly dodány vedoucí práce. Genot
 Systém byl navržen jako modulární, díky tomu je možná jednoduchá náhrada jakékoliv jeho části. 
 \\
 \\ 
-Vše začíná získáním readů pro která má být vyhodnoceno, které KIR alely představují. Buď je možné dostat přímo data z FN Plzeň/BC LF UK Plzeň. To jsou data na kterých bude prováděna verifikace nástroje. Druhou možností je ready simulovat. Na těchto datech byl nástroj vyvíjen a laděn. Genom může být vyroben ručně nebo ho lze vyrobit za pomoci skriptu. V dalším kroku musí být vytvořený genom "rozbit" do podoby jako by vyšel ze sekvenátoru. Rozdělí se na ready a vytvoří s v něm chyby. To se provádí za pomoci nástroje ART.
+Vše začíná získáním readů pro která má být vyhodnoceno, které KIR alely představují. Buď je možné dostat přímo data z FN Plzeň/BC LF UK Plzeň. To jsou data na kterých bude prováděna verifikace nástroje. Druhou možností je ready simulovat. Na těchto datech byl nástroj vyvíjen a laděn. Genom může být vyroben manuálně nebo ho lze vyrobit za pomoci skriptu. V dalším kroku musí být vytvořený genom "rozbit" do podoby jako by vyšel ze sekvenátoru. Rozdělí se na ready a vytvoří s v něm chyby, aby data co nejvíce odpovídali reálným. To se provádí za pomoci nástroje ART.
 \\
 \\
 V následující části jsou získaná data, tedy ready, zarovnána na referenční genom pomocí nástroje Bowtie2. Nakonec je zarovnání vyhodnoceno a rozpoznáno o jaké alely genů se pravděpodoně jedná. Vyhodnocení je rozděleno do několika experimentů.
@@ -576,8 +576,9 @@ Zarovnávání obstarává skript \textit{alignment\_reads\_to\_reference.py} s 
 \subsection{Přístupy k identifikaci alel}
 Detailní výsledky pro všechny genotypy je možné najít v příloze. V následující teoretické části jsou uvedeny vždy simulované genomy.
 
-\subsubsection{Experiment1}
-Jako první pokus o určení alel, které by mohli být obsaženy v genomu bylo pouhé oříznutí alel, které by měli větší procentuální šířku zarovnání (například 90\%).  V případě buněčné linie AMALA, která byla simulována nástrojem ART a která obsahuje 19 alel je výsledek zobrazen níže. Červeně jsou označený alely, které se v genomu skutečně nacházejí, číslo v závorce udává jejich procentuální pokrytí.
+\subsubsection{Experiment 1}
+Jako první pokus o určení alel, které by mohli být obsaženy v genomu bylo pouhé oříznutí alel, které by měli větší procentuální šířku zarovnání (například 90\%).  V případě buněčné linie AMALA, která byla simulována nástrojem ART a která obsahuje 19 alel je výsledek zobrazen níže. Červeně jsou označený alely, které se v genomu skutečně nacházejí, číslo v závorce udává jejich procentuální pokrytí. Pravděpodobným důvodem proč jsou alely, které do genomu nepatří tak vysoké zarovnání je jejich podobnost. Například alely 2DS4*0010101 a 2DS4*0010102 jejich vzdálenost je 2. Z toho lze logicky usoudit, že na alelu 2DS4*0010102 se zarovnaly některé z readů alely 2DS4*0010101.
+
 \begin{multicols}{2}
 \begin{itemize}
 	\itemsep0em
@@ -619,7 +620,7 @@ Následovně jsou uvedeny alely, které do genomu patří, mají pokrytí více 
 
 
 \noindent
-Nakonec jsou uvedené alely, které do genomu patří, ale mají pokrytí menší než 90\%.
+Nakonec jsou uvedené alely, které do genomu patří, ale mají pokrytí menší než 90\%. Po tomto zjištění se nabízí pokusit se snížit požadované zarovnání na 70 \% a přidat další upřesnující kroky.
 
 \begin{multicols}{2}
 \begin{itemize}
@@ -630,7 +631,7 @@ Nakonec jsou uvedené alely, které do genomu patří, ale mají pokrytí menš�
 \end{multicols}
 
 \noindent
-Ná následujícím obrázku jsou zobrazeny všechny alely genu KIR3DS1 a jeich zarovnání. Červeně je označena alela, která do genomu AMALA patří. Je možné si povšimnout, že alela s největším pokrytím do genomu nepatři. Navíc pokrytí větší než 90\% mají všechny alely až na jednu. Neméně důležitá část je, že poslední alela má značně kratší délku než všechny ostatní alely stejného genu. Poslední věcí je hloubka pokrytí, která díky nastavení sekvenátoru by měla odpovídat hladině 100 u alely, která do genu patří. Jak je vidět z obrázku hloubka pokrytí se u většiny alel pohybuje v extrémech kolem 20. 
+Ná následujícím obrázku jsou zobrazeny všechny alely genu KIR3DS1 a jeich zarovnání. Červeně je označena alela, která do genomu AMALA patří. Je možné si povšimnout, že alela s největším pokrytím do genomu nepatři. Navíc pokrytí větší než 90\% mají všechny alely až na jednu. Neméně důležitá část je, že poslední alela má značně kratší délku než všechny ostatní alely stejného genu. Poslední věcí je hloubka pokrytí, která díky nastavení sekvenátoru by měla odpovídat hladině 100 u alely, která do genu patří. Jak je vidět z obrázku hloubka pokrytí se u většiny alel pohybuje v extrémech kolem 20. Z toho lze odvodit, že ready alely 3DS1*0130101 byly pravděpodobně rozděleny mezi všechny alely tohoto genu.
 
 \begin{figure}[H]
     \centering
@@ -657,25 +658,27 @@ Všechny vyše uvedené analýzy navádí na bližší prozkoumání podobnosti 
 Z předchozích obrázků je vidět, že 3 alely, jsou vzálené v rámci jednotek, 9 alel je vzdálených kolem 500 a jen jedna alela je více rozdílná, což pravděpodobně způsobuje to, že je kratší. Přichází tedy na řadu otázka jak určit, které alely jsou si až moc podobné a pak z nich rozhodnout kterou odstranit. Vzdálenost kdy jsou alely blízké je možné nastavit v configu. Dále je porovnáváno jejich pokrytí v místech kde jsou rozdílné. Pokud je hloubka pokrytí jedné alely 2krát větší než hloubka pokrytí druhé alely je druhá alela odstřižena.
 \\
 \\
-V níže uvedené tabulce jsou uvedeny výsledky prvního experimentu s parametry pokrytím větší než 90\% a považovány za blýzké v případě vzdálenosti menší než 100. Jedna se opět o genom AMALA který obsahuje celkem 19 alel a žádná z nich se neopakuje. Krok 1 je pouze statistika prvního zarovnání. Obsahuje všechny alely které jsou v referenci. Celkově je v referenci 461 alel. Pouze dva geny ze všech uvedených v referenci se nenacházejí v amale. Krok 2 je po odstřižení alel které mají pokrytí menší než 90\%. V posledním kroku 3 jsou uvedené výsledky po odstřížení podobných.
+V níže uvedené tabulce je uvedeno porovnání výsledků požadovaného pokrytí 90 \% a 70 \% u genomu AMALA. Za blízké byly alely považovány v případě vzdálenosti menší než 100. Genom AMALA obsahuje celkem 19 alel a žádná z nich se neopakuje. Krok 1 je pouze statistika prvního zarovnání. Obsahuje všechny alely které jsou v referenci. Celkově je v referenci 461 alel. Pouze dva geny se ze všech genů uvedených v referenčmí sekvenci nenacházejí tomto genomu. Krok 2 je po odstřižení alel, které mají pokrytí menší než 90 \% případně 70 \%. V posledním kroku 3 jsou uvedené výsledky po odstřížení podobných. 
 \\
 \\
 \begin{center}
 \tiny
 \rowcolors{2}{gray!25}{white}
-\begin{tabular}{ c | c l | c l || c | c l | c l || c | c l | c l }
-\multicolumn{5}{c||}{Krok 1} & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c}{Krok 3} \\ 
-\Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
+\begin{tabular}{c || c || c | c l | c l || c | c l | c l }
+& Krok 1 & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c}{Krok 3} \\ 
+& \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
 \hline
 \hline
-461 & 0 &  -  & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 2DS3}} & 113 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL1*0030201 \\ 3DL1*0150201}} & 0 &  -  & 23 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1*0090101 \\ 2DL4*0010201}} & 0 &  -  \\ 
+\Gape[0pt][2pt]{\makecell[c]{amala \\ pokrytí \\ 90 \%}} & 461 & 113 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL1*0030201 \\ 3DL1*0150201}} & 0 &  -  & 23 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1*0090101 \\ 2DL4*0010201}} & 0 &  -  \\ 
 
+\Gape[0pt][2pt]{\makecell[c]{amala \\ pokrytí \\ 70 \%}} \% & 461 & 193 & 0 &  -  & 0 &  -  & 41 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL4*0010201 \\ 3DP1*0090101}} & 0 &  -  \\ 
 \end{tabular}
-\captionof{table}{Výsledky experimentu1 u genomu amala. Odřezány byly alely, které měli pokrytí menší než 90\%. Alel u genomu značí počet v daném genomu. Číslo v závorkách udává kolik alel je dvakrát v daném genomu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genomu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
+\captionof{table}{Výsledky experimentu 1 u genomu AMALA. Odřezány byly alely, které měli pokrytí menší než 90\%. Alel u genomu značí počet v daném genomu. Číslo v závorkách udává kolik alel je v daném genomu dvakrát. V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genomu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
 \end{center}
 
 \noindent
-Ve výsledků v příloze jistě zaujme genom test7, který ztratil 7 alel v rámci třetího kroku. Tedy při odřezávání podobných alel.
+Ve výsledků v příloze jistě zaujme genom Test7, který ztratil 7 alel v rámci třetího kroku. Tedy při odřezávání podobných alel.
+
 \begin{center}
 \tiny
 \rowcolors{2}{gray!25}{white}
@@ -686,7 +689,7 @@ Ve výsledků v příloze jistě zaujme genom test7, který ztratil 7 alel v rá
 \hline
 461 & 0 &  -  & 8 & \Gape[0pt][2pt]{\makecell[l]{2DS1 \\ 3DS1 \\ 2DL2 \\ 2DL5B \\ 2DS2 \\ 2DS3 \\ 2DL5A \\ 2DS5}} & 188 & 0 &  -  & 0 &  -  & 24 & 7 & \Gape[0pt][2pt]{\makecell[l]{2DL4*0010201 \\ 3DL1*0150203 \\ 2DL3*0010103 \\ 2DP1*0020106 \\ 2DS4*0010107 \\ 3DL3*0090103 \\ 2DL1*0030205}} & 0 &  -
 \end{tabular}
-\captionof{table}{Výsledky experimentu1 u genomu test7. Odřezány byly alely, které měli pokrytí menší než 70\%. Alel u genomu značí počet v daném genomu. Číslo v závorkách udává kolik alel je dvakrát v daném genomu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genomu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu.  }
+\captionof{table}{Výsledky experimentu 1 u genomu Test7. Odřezány byly alely, které měli pokrytí menší než 70\%. Alel u genomu značí počet v daném genomu. Číslo v závorkách udává kolik alel je v daném genomu dvakrát. V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genomu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu.  }
 \end{center}
 
 \noindent
@@ -708,8 +711,11 @@ Jedna ze smazaných alel je i 2DL4*0010201, která byla smazána kvůli alele KI
 \noindent
 Po alyzování všech smazaných alel se ukázalo, že všechny byli smazany kvůli alele, která do genomu také patří.
 
-\subsubsection{Experiment2}
-Experiment2 byl navržen s iterační zarovnávání. Mělo by pak být v dalších krocích jasnější, která alela do genomu skutečně patří a která ne, díky tomu, že ready zarovnáné na odstřižené alely by se měli zarovnat na alely, které zbývají a tak podpořit alely které do genomu patří. V první fázi se provede zarovnání na celou KIR referenci. V kroku 1 je vytvořena statistika obdobně jako v prvním experimentu a odstřiženy alely, které mají menší pokrytí než $CUT\_COVERAGE\_ALELS$, které je uvedené v $configu$. Ze zbylích alel je vytvořená nová reference na kterou je provedeno nové zarovnání readů. Opět je vytvořena statistika. Výsledky této statistiky nalezneme pod krokem 2. Následuje krok 3 v němž soutěží podobné alely v rámci jednoho genu. Podobnost alel se bere na základě Levenshteinové vzdálenosti. Alely jsou si podobné v případě, kdy je jejich vzdálenost menši než vzdálenost uvedené v $configu$ pod parametrem $CLOSE\_DISTANCE$. Následuje vytvoření nové reference a nové zarovnání.  
+\subsubsection{Experiment 2}
+Experiment2 byl navržen s iterační zarovnávání. Mělo by pak být v dalších krocích jasnější, která alela do genomu skutečně patří a která ne, díky tomu, že ready zarovnáné na odstřižené alely by se měli zarovnat na alely, které zbývají a tak podpořit alely které do genomu patří. 
+\\
+\\
+V první fázi se provede zarovnání na celou KIR referenci. V kroku 1 je vytvořena statistika obdobně jako v prvním experimentu a odstřiženy alely, které mají menší pokrytí než $CUT\_COVERAGE\_ALELS$, které je uvedené v $configu$. Ze zbylích alel je vytvořená nová reference na kterou je provedeno nové zarovnání readů. Opět je vytvořena statistika. Výsledky této statistiky nalezneme pod krokem 2. Následuje krok 3 v němž soutěží podobné alely v rámci jednoho genu. Podobnost alel se bere na základě Levenshteinové vzdálenosti. Alely jsou si podobné v případě, kdy je jejich vzdálenost menši než vzdálenost uvedené v $configu$ pod parametrem $CLOSE\_DISTANCE$. Následuje vytvoření nové reference a nové zarovnání.  
 
 
 \noindent
@@ -742,6 +748,7 @@ Ovšem je možné se potkat i s alelami, kde pokrytí zarovnání klesne, jako v
     \import{svg/}{exp2_step2_2DL3.pdf_tex} 
 \end{figure}
 
+\noindent
 Následující tabulka zobrazuje základní porovnání mezi výsledky experimentu 1 a experimentu 2. Jak je vidět genomu AMALA více zarovnání prospělo. Bylo vyřazeno více alel, které do genomu nepatří. Naopak u genomu RSH došlo ke zhoršení výsledků.
 
 
@@ -807,15 +814,15 @@ amala & 19 (0) &  38 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL4*0010201 \\ 3DP1*009
 		\label{fig:exp2_diagram}
 \end{figure}
 
-\subsubsection{Experiment3}
-Další experiment byl založen na omezení stavového prostoru a to vytvořením clusterů. Alely jsou seřazeny od nejvíce pokryté po nejméně pokryté. První alela s největším pokrytí je vložená do prvho clusteru. Další alely projdou všechny clustery a pokud má alespoň jedna alela z clusteru vzdálenost s právě procházející alelou menší než $CLUSTER\_DISTANCE$ uvedené v $configu$ je alela přiřazena do tohoto clusteru. Pokud ne pokračuje v porovnávání dokud nezkontroluje všechny clustery. V případě, kde nezapadá ani do jednho z clusterů, vytvoří nový.
+\subsubsection{Experiment 3}
+Další experiment byl založen na omezení stavového prostoru vytvořením clusterů. Alely jsou seřazeny od nejvíce pokryté po nejméně pokryté. První alela s největším pokrytí je vložená do prvho clusteru. Další alely projdou všechny clustery a pokud má alespoň jedna alela z clusteru vzdálenost s právě procházející alelou menší než $CLUSTER\_DISTANCE$ uvedené v $configu$ je alela přiřazena do tohoto clusteru. Pokud ne pokračuje v porovnávání dokud nezkontroluje všechny clustery. V případě, kde nezapadá ani do jednoho z clusterů, vytvoří nový. Následně jsou porovnány všechny alely z clusteru. Pokud alespoň jedna alela v daném clusteru má pokrytí větší než $CUT_COVERAGE_ALLELES$ uvedeného v $configu$, není žádnáalela v daném clusteru smazána. V opačném případě jsou všechny alely z clusteru smazány. Další postup je stejný z experimentem 2.
 \\
 \\
-Při vzdálenosti 5 bylo vytvořeno kolem 224 clusterů může jich být o pár jednootek více nebo méně z důvodu, že alely nejdou za sebou ve stejném pořadí, ale v tom pořadí od nejvíce pokrytých po nejméně pokryté. Při vzdálenosti 10 vznikalo kolem 171 clusterů, při vzdálenosti 15 vznikalo 143 a nakonec při vzdálenosti 30 vznikalo kolem 122 clusterů. Clusteterování ve smyslu jako je navržené zde, nepřineslo očekávaná zlepšení. Je třeba se nad clustrováním alel zamyslet jinak. Z příkladů největší clusterů je možné si povšimnou, že většinou alely pocházely ze stejných genů.
+Při vzdálenosti 5 bylo vytvořeno kolem 224 clusterů může jich být o pár jednotek více nebo méně z důvodu, že alely nejdou za sebou ve stejném pořadí, ale v tom pořadí od nejvíce pokrytých po nejméně pokryté. Při vzdálenosti 10 vznikalo kolem 171 clusterů, při vzdálenosti 15 vznikalo 143 a nakonec při vzdálenosti 30 vznikalo kolem 122 clusterů. Clusteterování ve smyslu jako je navržené zde, nepřineslo očekávaná zlepšení. Je třeba se nad clustrováním alel zamyslet jinak. Z příkladů největší clusterů je možné si povšimnou, že většinou alely pocházely ze stejných genů.
 
 
 \subsubsection{Návrh na experiment 4}
-Udělat clustery neni špatný nápad, ale mělo by se na to jít chytřeji. Hlavní důvod proč se vytváři clustery je protože si alely mezi sebou "kradou" ready. Je tedy třeba dát dohromady ty alely které mají minimální rozdíl v 250 dlouhém useku oproti jiné (protože ready jsou dlouhé 250bp). Následně si pak mohlou vyhledat kolik takových úseků má jedna alela s jinou. Problémem tohoto návrhu bude výpočetní náročnost.
+Hlavní důvod proč se vytváři clustery je protože si alely mezi sebou "kradou" ready. Možným vylepšením clusterů by mohlo být dát dohromady ty alely, které mají minimální rozdíl v 250 dlouhém useku oproti jiné (protože ready jsou dlouhé 250bp). Následně si pak mohlou vyhledat kolik takových úseků má jedna alela s jinou. Problémem tohoto návrhu bude výpočetní náročnost.
  
 
 \chapter{Porovnání přístupů k identifikaci a parametrů}
@@ -829,7 +836,7 @@ Porovnání jednotlivých přístupů probíhalo pomocí přesnosti (precision) 
 \end{center}
 
 \noindent
-Díky přesnosti je možné odhadnout jak moc jsou výsledky relevantní. Naopak pomocí úplnosti je možné odhadnout kolik skutečně relevantních výsledků bylo přiřazeno. Při převyšující úplnosti bylo získáno mnoho alel, ale mnoho jich do genomu nepatři. Naopak při převyšující přesnosti nad úplností je většina vybraných alel v genomu ale mnoho jich bylo ztraceno. Proto je snaha balancovat přístup tak aby obě hodnoty dosahovali co nevyjvýšších procent. 
+Díky přesnosti je možné odhadnout jak moc jsou výsledky relevantní. Naopak pomocí úplnosti je možné odhadnout kolik skutečně relevantních výsledků bylo přiřazeno. Při převyšující úplnosti bylo získáno mnoho alel, ale mnoho jich do genomu nepatři. Naopak při převyšující přesnosti nad úplností je většina vybraných alel v genomu ale mnoho jich bylo ztraceno. V případěch klasických klasifikátorů je snaha balancovat přístup tak, aby obě hodnoty dosahovali co nevyjvýšších procent. V tomto případě ovšem je ovšem mnohohem horší varianta identifikovat alelu která do genomu nepatří, než neurčit alelu, která do genomu patří. Proto je přesnost důležitějším parametrem než úplnost. V každém případě je jistě nápomocné pokud je o možných výskytech alespoň nějaká informace, i kdyby to znamenalo snížit úroveň rozlišení. To by znamenalo v případě nerozhodnosti mezi 3DS1*0130101 a 3DS1*0130109, říci že tam je jedna z alel na úroveň 3DS1*01301. 
 
 
 
@@ -860,7 +867,7 @@ Díky přesnosti je možné odhadnout jak moc jsou výsledky relevantní. Naopak
 Pro validaci algoritmu na reálných datech kompletní KIR genom u 9-ti komerčních linií byl ve spolupráci FN Plzeň – LFP UK amplifikován z izolované DNA pomocí long-range PCR za použití směsi 6 primerů. Sekvenační knihovna je připravena modifikovaným protokolem NEBNext$^{\textregistered}$ Ultra TM II FS DNA Library Prep Kit for Illumina (New England Biolabs) a knihovny jsou sekvencovány v pair-end režimu na přístroji Illumina Miseq s pokrytím 100. \cite{real_data}
 \\
 \\
-Prvním krokem při verifikaci na reálných datech je zarovnání. Ná následujících obrázcích je porovnání logu Bowtie2 genomu BOB na syntetických readech \ref{fig:bob_syntetic_bowtie_align} a readech přímo ze sekvenátoru Illumina \ref{fig:bob_real_bowtie_align}. Je možné si zde povšimnout, že při sintetických readech byli zarovnány všechny ready. Naopak při zarovnávání realných dat bylo zarovnáno pouze necelých 70 \% readů. Pojem concordanly v tomto případě znamená, že oba páry readů byli zarovnány v souladu se sebou. Oproti tomu discordantly znamená, že každý jedinec z páru readů byl zarovnán samostatně.
+Prvním krokem při verifikaci na reálných datech je zarovnání. Ná následujících obrázcích je porovnání logu Bowtie2 genomu BOB na syntetických readech \ref{fig:bob_syntetic_bowtie_align} a readech přímo ze sekvenátoru Illumina \ref{fig:bob_real_bowtie_align}. Je možné si zde povšimnout, že při syntetických readech byli zarovnány všechny ready. Naopak při zarovnávání realných dat bylo zarovnáno pouze necelých 70 \% readů. Pojem concordanly v tomto případě znamená, že oba páry readů byli zarovnány v souladu se sebou. Oproti tomu discordantly znamená, že každý jedinec z páru readů byl zarovnán samostatně.
 
 \begin{figure}[H]		
 		\centering
@@ -877,7 +884,7 @@ Prvním krokem při verifikaci na reálných datech je zarovnání. Ná následu
 \end{figure}
 
 \noindent
-Jedním z důvodů proč se to děje může být mnoho chyb v realných readech. V souboru obsahující ready je možné nalést informaci o kvalitě sekvenace jednotlivých bází. Svým způsobem vyjádření jak moc si je sekvenátor jistý danou bází. Kvalita se označuje jako ASCII znak a je rovna ASCII kódu~-~33 (přeskočení netisknutelných znaků). Čím vyšší je ASCII kód tím je báze kvalitnější. Nejčastější kvalita je od 0 do 40, zřídka překročí hodnotu 60. Na následujícím obrázku je zobrazen graf kvality bází vzhledem k pozici v readu.
+Jedním z důvodů proč se to děje může být mnoho chyb v realných readech, které vznikly sekvenováním. V souboru obsahující ready je možné nalést informaci o kvalitě sekvenace jednotlivých bází. Svým způsobem vyjádření jak moc si je sekvenátor jistý danou bází. Kvalita se označuje jako ASCII znak a je rovna ASCII kódu~-~33 (přeskočení netisknutelných znaků). Čím vyšší je ASCII kód tím je báze kvalitnější. Nejčastější kvalita je od 0 do 40, zřídka překročí hodnotu 60. Na následujícím obrázku je zobrazen graf kvality bází vzhledem k pozici v readu.
 
 
 \begin{figure}[H]		
@@ -888,7 +895,7 @@ Jedním z důvodů proč se to děje může být mnoho chyb v realných readech.
 \end{figure}
 
 \noindent
-Nabízí se tedy řešení nekvalitní báze na konci readů odstranít. Na odstranění bylo použito posuvné okénko s průměrnými kvalitami 20, 15 a 5. Na obrázku \ref{fig:bob_real_bowtie_align} je zobrazení graf kvality po ořezu. 
+Nabízí se tedy řešení nekvalitní báze na konci readů odstranít. Na odstranění nekvalitních bází byl použit nástroj Trimmomatic 0.38.0 na serveru Galaxy \cite{galaxy}. Na odstranění bylo použito posuvné okénko s průměrnými kvalitami 20, 15 a 5. Na obrázku \ref{fig:bob_real_bowtie_align} je zobrazení graf kvality po ořezu. 
 
 
 \begin{figure}[H]		
@@ -910,16 +917,19 @@ Genotyp & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2
 \hline
 \hline
 bob no trim  & 19 (0) & 366 & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL3*01303 \\ 2DL3*00201 \\ 2DL2*00301}} & 1 & 2DL5B & 86 & 5 & \Gape[0pt][2pt]{\makecell[l]{3DP1*00302 \\ 3DL2*0070102}} & 1 &  -  \\ 
-bob trim 20 & 19 (0) & 358 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL3*0020102 \\ 2DL2*0030101}} & 1 & 2DL5B & 80 & 11 & \Gape[0pt][2pt]{\makecell[l]{2DL4*0010202 \\ 3DS1*0130105 \\ 2DS1*0020101 \\ 2DP1*0030101 \\ 3DL2*0070102 \\ 2DL4*0050101 \\ 2DL1*0030210 \\ 3DP1*0030203 \\ 2DS4*0010105}} & 7 & \Gape[0pt][2pt]{\makecell[l]{2DL4 \\ 2DS1 \\ 3DS1 \\ 2DP1 \\ 2DL1 \\ 2DS4}} \\
-bob trim 15& 19 (0) & 367 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL2*0030101 \\ 2DL3*0020102}} & 1 & 2DL5B & 87 & 10 & \Gape[0pt][2pt]{\makecell[l]{3DS1*0130105 \\ 2DL4*0050101 \\ 2DS4*0010105 \\ 3DP1*0030203 \\ 3DL2*0070102 \\ 2DP1*0030101 \\ 2DL1*0030210 \\ 2DL4*0010202}} & 6 & \Gape[0pt][2pt]{\makecell[l]{2DL4 \\ 3DS1 \\ 2DS4 \\ 2DP1 \\ 2DL1}} \\
-bob trim 5 & 19 (0) & 366 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL3*0020102 \\ 2DL2*0030101}} & 1 & 2DL5B & 86 & 10 & \Gape[0pt][2pt]{\makecell[l]{3DS1*0130105 \\ 2DS4*0010105 \\ 2DL4*0010202 \\ 3DP1*0030203 \\ 2DP1*0030101 \\ 3DL2*0070102 \\ 2DL1*0030210 \\ 2DL4*0050101}} & 6 & \Gape[0pt][2pt]{\makecell[l]{2DL4 \\ 3DS1 \\ 2DP1 \\ 2DL1 \\ 2DS4}} \\ 
+bob trim 5  & 19 (0) & 366 & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL3*01303 \\ 2DL2*00301 \\ 2DL3*00201}} & 1 & 2DL5B & 86 & 5 & \Gape[0pt][2pt]{\makecell[l]{3DP1*00302 \\ 3DL2*0070102}} & 1 &  - \\ 
+bob trim 10 & 19 (0) & 366 & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL3*01303 \\ 2DL3*00201 \\ 2DL2*00301}} & 1 & 2DL5B & 86 & 5 & \Gape[0pt][2pt]{\makecell[l]{3DL2*0070102 \\ 3DP1*00302}} & 1 &  - \\
+bob trim 15  & 19 (0) & 367 & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL3*01303 \\ 2DL3*00201 \\ 2DL2*00301}} & 1 & 2DL5B & 87 & 5 & \Gape[0pt][2pt]{\makecell[l]{3DL2*0070102 \\ 3DP1*00302}} & 1 &  -  \\  
+bob & 19 (0) & 369 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL3*00201 \\ 3DL3*01303 \\ 2DL2*00301}} & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 2DS3}} & 87 & 5 & \Gape[0pt][2pt]{\makecell[l]{3DL2*0070102 \\ 3DP1*00302}} & 2 &  -  \\ 
+
+
 \end{longtable}
 \label{tab:cut_quality}
 \captionof{table}{Výsledky experimentu 1 na realných datech. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
 \end{center}
 
 \noindent
-Dodané odpovědi učitele k realným datům bohužel nejsou na nejnižší možnou úroveň a tak není možné plnohodnotně posoudit přesnost a úplnost nástroje. 
+Dodaná reálná datab nejsou vždy identifikovana až na úroveň non-coding reionu a tak není možné plnohodnotně posoudit přesnost a úplnost nástroje. 
 
 
 \chapter{Zhodnocení z hlediska úrovně rozlišení}
@@ -939,7 +949,7 @@ Na následujícíh dvou grafech jsou zobrazeny všechny zbývající alely genů
 \end{figure}
 
 \noindent
-V případě realných dat není možné úroveň rozlišení jednoduše určit. Důvodem jsou mimo jiné nejednoznačné odpovědi učitele, kdy aleli nezřídka nejsou určeny na nejnižší možnou úroveň. V některých případech není alela určená vůbec, je zde jen poznačeno, že genom obsahuje daný gen, ale ani náznak o tom která alela by to mohla být. Což je způsobeno tím že z biologického hlediska není možné určit konkrétní alelu na non coding úroveň. V reálném použití postačuje rozlišení na úroveň coding úroveň. V každém případě je pořád lepší i nepatrná informace o možných alelách než vůbec nic.
+V případě realných dat není možné úroveň rozlišení jednoduše určit. Důvodem jsou mimo jiné nejednoznačné odpovědi učitele, kdy aleli nezřídka nejsou určeny na nejnižší možnou úroveň. V některých případech není alela určená vůbec, je zde jen poznačeno, že genom obsahuje daný gen, ale ani náznak o tom která alela by to mohla být. Což je způsobeno tím že z biologického hlediska není možné určit konkrétní alelu na non coding úroveň. V praktickém použití postačuje rozlišení na úroveň coding úroveň. V každém případě je pořád lepší i nepatrná informace o možných alelách než vůbec nic.
 
 TODO dodat sem odpovědi učitele které byli přidány k datum?
 biologicky není možné určit konrkténí alelu na non condign 
@@ -947,14 +957,19 @@ když je tam jen + tak tam je gen ale nevím jaká alela
 
 
 \chapter{Závěr}
-Práce se zabývá návrhem nástroje pro automatickou identifikaci KIR alel. Identifikace KIR alel je využitelná při transplantaci krvetvorných buněk, kdy se rozhoduje mezi více dárci shodných v HLA znacích. Vybrání dárce s vhodnějšími KIR geny snižuje riziko relapsu (návratu nemoci). V teoretické části byly popsány a rozbrány geny, především non-HLA gen Killer-cell immunoglobulin-like receptor(KIR) a jejich vliv na transplantaci krvetvorných buněk. Dále byly představeny natural killer buňky a jejich funkce v rámci imunitního systému. Pro zjištění typizace HLA a KIR slouží sekvenační metody, které byli shrnuty a popsany. Konkrétněji Sanger sekvenování a next-generation sequencing (NGS). V neposlední řadě byly analyzovány bioinformatické nástroje pro zpracování NGS dat se zaměřením na generátor syntetických readů ART a zarovnávač NGS readů Bowtie2.
+Práce se zabývá návrhem nástroje pro automatickou identifikaci KIR alel. Identifikace KIR alel je využitelná při transplantaci krvetvorných buněk, kdy se rozhoduje mezi více dárci shodných v HLA znacích. Zvolení dárce s vhodnějšími KIR geny snižuje riziko relapsu (návratu nemoci). V teoretické části byly popsány a rozbrány geny, především non-HLA gen Killer-cell immunoglobulin-like receptor(KIR) a jejich vliv na transplantaci krvetvorných buněk. Dále byly představeny natural killer buňky a jejich funkce v rámci imunitního systému. Pro zjištění typizace HLA a KIR slouží sekvenační metody, které byli shrnuty a popsany. Konkrétněji Sanger sekvenování a next-generation sequencing (NGS). V neposlední řadě byly analyzovány bioinformatické nástroje pro zpracování NGS dat se zaměřením na generátor syntetických readů ART a zarovnávač NGS readů Bowtie2.
 \\
 \\
-V realizační části byl navržen a implementován program v jazyce Python za pomocí knihovny pysam pro identifikaci KIR alel. Parametry nástroje ART byli určeny, tak aby výstupní ready co nejvíce odpovídali datům získaných z FN Plzeň/BC LF UK Plzeň. Během práce bylo implementováno a vyzkoušeno několik přístupů, které byli v práci zhodnoceny. Největší překážkou je podobnost alel. Alely mohou být dlouhé až 16 000 bp. Ready ze sekvenátoru jsou ovšem dlouhé 250 bp. Není tedy žádnou vyjímkou, že read je zarovnán na alelu, ke které nepatří. 
+V realizační části bylo navrženo a implementováno prototypové řešení v jazyce Python za pomocí knihovny pysam pro identifikaci KIR alel. Jazyk python byl zvolen z důvodu jednoduchého použití, díky čemuž nebyl vývoj časově náročný. Parametry nástroje ART byli určeny, tak aby výstupní ready co nejvíce odpovídali datům získaných z FN Plzeň/BC LF UK Plzeň. Během práce bylo implementováno a vyzkoušeno několik přístupů, které byli v práci zhodnoceny. Největší překážkou je podobnost alel. Alely mohou být dlouhé až 16 000 bp. Ready ze sekvenátoru jsou ovšem dlouhé 250 bp. Není tedy žádnou vyjímkou, že read je zarovnán na alelu, ke které nepatří. 
 \\
 \\
-Nástroj byl implementován a laděn na syntetických readech. Následná verifikace byla provedena na buněčných liniich z FN Plzeň/BC LF UK Plzeň. Verifikace nástroje na reálných datech nebyla příliš úspěšná. Příčinou jsou mimo jiné nejednoznačné odpovědi učitele, protože z biologického hlediska není v některých případech možné určit alelu na nejnižší známou úroveň či odpověď učitele, že se zde gen nachází, ale ani zmíňka o tom o jakou alelu by se mohlo jednat. Tyto problémy souvisejí i s zhodnocením z hlediska úrovně rozlišení, kde to u reálných dat není možné. Z praktického hlediska ovšem stačí aby nástroj byl schopný určit alelu na coding úroveň, tedy prvních pět čísel alely. Omezení nástroje se projeví v praktickém použití, kdy syntetické ready nejsou generovány přímo z reference. Je tak možné narazit na alelu, která se v referenčním souboru nenachází. Nyní je známo 1109 alel. K dispozici je ale pouze 461 alel. 
-
+Nástroj byl implementován a laděn na syntetických readech. Následná verifikace byla provedena na buněčných liniich z FN Plzeň/BC LF UK Plzeň. Verifikace nástroje na reálných datech odpovídala očekávaným předpokladům. Rozdíl reálných readů od syntetických byl už v jejich zarovnání, kdy v případě reálných dat bylo zarovnáno kolem 70 \% readů, oproti tomu v případě syntetických readů byly zarovnány všechny. Zásadním problémem ovšem bylo že reálná data nejsou vždy identifikovaná až na úroveň non-cofing region, protože z biologického hlediska není v některých případech možné určit alelu na nejnižší známou úroveň či označení, že se zde gen nachází, ale ani zmíňka o tom o jakou alelu by se mohlo jednat. Tyto problémy souvisejí i se zhodnocením z hlediska úrovně rozlišení, kde to u reálných dat není možné. Kromě toho je v reálných datech možné narazit na alelu, která se mezi referenčními sekvencemi nenachází. Nyní je známo 1109 alel, přičemž existuje referenční sekvence pouze pro 461 alel.
+\\
+\\
+Toto téma je stále aktuální a biologicky nedořešené. Zatím je prokázán vliv jen genů. V současné době se zkoumá vliv i alelických variant, prozatím s výsledkem, že některé alely se neexprimují, tzn. gen se sice v genomu nachází, ale není z něj vytvořen žádný produkt na povrchu buňky a tak nemá jak vyvolat či ovlivnit jakoukoliv reakci v organismu. Ze všech výše uvedených důvodu lze tak prohlásit, že z praktického hlediska stačí, aby nástroj byl schopný určit alelu na coding úroveň, tedy prvních pět čísel alely. 
+\\
+\\
+Do budoucna se nabízí zamyslet se více nad efektivním vytvořením clusterů, kde by se zohledňovala délka readů. V případě verifikace by nebylo na škodu více probádat kvalitu dat a odstřihávání nekvalitních bází. 
 
 
 \chapter{Výkladový slovník pojmů a zkratek}
@@ -1934,6 +1949,27 @@ wt51 & 12 (0) & 297 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1 \\ 
 \begin{center}
 \tiny
 \rowcolors{2}{gray!25}{white}
+\begin{longtable}{l c|| c | c l | c l || c | c l | c l }
+ & & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c}{Krok 3} \\ 
+Genotyp & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
+\hline
+\hline
+amala & 19 (0) & 345 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL3*001 \\ 2DL2*00301}} & 1 & 2DL5B & 79 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1*00901 \\ 3DL2*0070102}} & 1 &  - \\ 
+bob & 19 (0) & 369 & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL3*01303 \\ 2DL3*00201 \\ 2DL2*00301}} & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 2DS3}} & 87 & 5 & \Gape[0pt][2pt]{\makecell[l]{3DP1*00302 \\ 3DL2*0070102}} & 2 &  -\\ 
+cox & 18 (0) & 334 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL3*007 \\ 3DL3*00103 \\ 2DL3*00201}} & 1 & 2DL5B & 69 & 4 & 3DP1*006 & 1 &  - \\ 
+ho301 & 19 (2) & 298 & 4 & \Gape[0pt][2pt]{\makecell[l]{2DS2*002 \\ 2DL5B*010 \\ 2DL2*00101 \\ 2DL2*00301}} & 4 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 2DL5A \\ 2DS1 \\ 2DS5}} & 65 & 6 & \Gape[0pt][2pt]{\makecell[l]{2DL1*010 \\ 2DS3*00201}} & 4 &  - \\ 
+jvm & 15 (0) & 316 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DP1*005 \\ 2DL2*00301}} & 1 & 2DP1 & 49 & 3 & 3DL3*00801 & 1 &  - \\ 
+kas011 & 18 (0) & 306 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL3*01302 \\ 3DL2*019}} & 1 & 2DL5B & 64 & 5 & \Gape[0pt][2pt]{\makecell[l]{3DL3*00901 \\ 2DP1*002 \\ 3DP1*00302}} & 2 & 3DL3 \\ 
+olga & 17 (0) & 332 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL3*00101 \\ 3DL3*00902}} & 1 & 2DL5B & 77 & 7 & \Gape[0pt][2pt]{\makecell[l]{3DL2*00701 \\ 3DL1*001 \\ 2DP1*006 \\ 2DL4*011 \\ 3DP1*00302}} & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL2 \\ 3DP1}}\\ 
+rsh & 15 (0) & 361 & 0 &  -  & 4 & \Gape[0pt][2pt]{\makecell[l]{2DS4 \\ 3DL2 \\ 2DL5A \\ 2DS1}} & 73 & 1 & 2DP1*00201 & 4 &  - \\ 
+wt51 & 12 (0) & 300 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1 \\ 2DS3 \\ 2DL1 \\ 3DL2}} & 69 & 1 &  -  & 4 &  - \\
+\end{longtable}
+\captionof{table}{Výsledky experimentu 1 na realných datech po odstřižení nekvalitních bází. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
+\end{center}
+
+\begin{center}
+\tiny
+\rowcolors{2}{gray!25}{white}
 \begin{longtable}{l c|| c | c l | c l || c | c l | c l || c | c l | c l }
  & & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c||}{Krok 3} & \multicolumn{5}{c}{Krok 4} \\ 
 Genotyp & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
@@ -1952,6 +1988,30 @@ wt51 & 12 (0) & 297 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{2DS3 \\ 
 \end{longtable}
 \captionof{table}{Výsledky experimentu 2 na realných datech. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
 \end{center}
+
+\begin{center}
+\tiny
+\rowcolors{2}{gray!25}{white}
+\begin{longtable}{l c|| c | c l | c l || c | c l | c l || c | c l | c l }
+ & & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c||}{Krok 3} & \multicolumn{5}{c}{Krok 4} \\ 
+Genotyp & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
+\hline
+\hline
+amala & 19 (0) & 345 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL3*001 \\ 2DL2*00301}} & 1 & 2DL5B & 81 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DL2*0070102 \\ 3DP1*00901}} & 1 &  -  & 52 & 4 &  -  & 1 &  - \\ 
+bob & 19 (0) & 369 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL2*00301 \\ 2DL3*00201 \\ 3DL3*01303}} & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 2DS3}} & 88 & 5 & \Gape[0pt][2pt]{\makecell[l]{3DL2*0070102 \\ 3DP1*00302}} & 2 &  -  & 51 & 7 & \Gape[0pt][2pt]{\makecell[l]{2DL4*001 \\ 2DL1*00302}} & 3 & 2DL1 \\ 
+cox & 18 (0) & 334 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL3*007 \\ 2DL3*00201 \\ 3DL3*00103}} & 1 & 2DL5B & 71 & 4 & 3DP1*006 & 1 &  -  & 33 & 4 &  -  & 1 &  -  \\ 
+ho301 & 19 (2) & 298 & 4 & \Gape[0pt][2pt]{\makecell[l]{2DL2*00301 \\ 2DS2*002 \\ 2DL5B*010 \\ 2DL2*00101}} & 4 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 2DL5A \\ 2DS1 \\ 2DS5}} & 68 & 6 & \Gape[0pt][2pt]{\makecell[l]{2DS3*00201 \\ 2DL1*010}} & 4 &  -  & 39 & 8 & \Gape[0pt][2pt]{\makecell[l]{3DP1*004 \\ 3DL3*014}} & 5 & 3DL3 \\ 
+jvm & 15 (0) & 316 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL2*00301 \\ 2DP1*005}} & 1 & 2DP1 & 52 & 3 & 3DL3*00801 & 1 &  -  & 22 & 6 & \Gape[0pt][2pt]{\makecell[l]{2DL4*00801 \\ 3DP1*00302 \\ 3DL1*00101}} & 1 &  - \\ 
+kas011 & 18 (0) & 306 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL3*01302 \\ 3DL2*019}} & 1 & 2DL5B & 66 & 5 & \Gape[0pt][2pt]{\makecell[l]{3DL3*00901 \\ 3DP1*00302 \\ 2DP1*002}} & 2 & 3DL3 & 35 & 8 & \Gape[0pt][2pt]{\makecell[l]{2DL4*00103 \\ 2DL1*00302 \\ 3DL2*01001}} & 3 & 3DL2 \\ 
+olga & 17 (0) & 332 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL3*00902 \\ 2DL3*00101}} & 1 & 2DL5B & 76 & 7 & \Gape[0pt][2pt]{\makecell[l]{3DL1*001 \\ 2DL4*011 \\ 3DL2*00701 \\ 3DP1*00302 \\ 2DP1*006}} & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL2 \\ 3DP1}} & 47 & 8 & 3DL3*00201 & 4 & 3DL3 \\ 
+rsh & 15 (0) & 361 & 0 &  -  & 4 & \Gape[0pt][2pt]{\makecell[l]{2DL5A \\ 2DS4 \\ 3DL2 \\ 2DS1}} & 71 & 1 & 2DP1*00201 & 4 &  -  & 33 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL1*00302 \\ 2DL4*011}} & 4 &  - \\ 
+wt51 & 12 (0) & 300 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1 \\ 2DL1 \\ 2DS3 \\ 3DL2}} & 69 & 1 &  -  & 4 &  -  & 30 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL5A*00501 \\ 2DP1*001}} & 4 &  - \\
+
+
+\end{longtable}
+\captionof{table}{Výsledky experimentu 2 na realných datech po odřezání nekvalitních bází. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
+\end{center}
+
 
 
 \begin{center}
@@ -1974,6 +2034,29 @@ wt51 & 12 (0) & 311 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1 \\ 
 \end{longtable}
 \captionof{table}{Výsledky experimentu 3 na realných datech. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářeli alely, které od sebe měli vzdálenost maximálně 20. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
 \end{center}
+
+
+\begin{center}
+\tiny
+\rowcolors{2}{gray!25}{white}
+\begin{longtable}{l c|| c | c l | c l || c | c l | c l || c | c l | c l }
+ & & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c||}{Krok 3} & \multicolumn{5}{c}{Krok 4} \\ 
+Genotyp & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
+\hline
+\hline
+amala & 19 (0) & 372 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL2*00301 \\ 2DL3*001}} & 1 & 2DL5B & 83 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1*00901 \\ 3DL2*0070102}} & 1 &  -  & 57 & 5 & 2DL1*00302 & 2 & 2DL1 \\ 
+bob & 19 (0) & 390 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL2*00301 \\ 2DL3*00201 \\ 3DL3*01303}} & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 2DS3}} & 92 & 5 & \Gape[0pt][2pt]{\makecell[l]{3DL2*0070102 \\ 3DP1*00302}} & 2 &  -  & 51 & 7 & \Gape[0pt][2pt]{\makecell[l]{2DL4*001 \\ 2DL1*00302}} & 3 & 2DL1 \\ 
+cox & 18 (0) & 354 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL3*00201 \\ 2DL3*007 \\ 3DL3*00103}} & 1 & 2DL5B & 71 & 4 & 3DP1*006 & 1 &  -  & 31 & 4 &  -  & 1 &  -  \\ 
+ho301 & 19 (2) & 302 & 4 & \Gape[0pt][2pt]{\makecell[l]{2DS2*002 \\ 2DL5B*010 \\ 2DL2*00301 \\ 2DL2*00101}} & 4 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 2DL5A \\ 2DS1 \\ 2DS5}} & 66 & 6 & \Gape[0pt][2pt]{\makecell[l]{2DS3*00201 \\ 2DL1*010}} & 4 &  -  & 37 & 8 & \Gape[0pt][2pt]{\makecell[l]{3DL3*014 \\ 3DP1*004}} & 5 & 3DL3 \\ 
+jvm & 15 (0) & 327 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL2*00301 \\ 2DP1*005}} & 1 & 2DP1 & 49 & 3 & 3DL3*00801 & 1 &  -  & 20 & 6 & \Gape[0pt][2pt]{\makecell[l]{2DL4*00801 \\ 3DL1*00101 \\ 3DP1*00302}} & 1 &  -  \\ 
+kas011 & 18 (0) & 345 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL3*01302 \\ 3DL2*019}} & 1 & 2DL5B & 64 & 5 & \Gape[0pt][2pt]{\makecell[l]{3DP1*00302 \\ 2DP1*002 \\ 3DL3*00901}} & 2 & 3DL3 & 37 & 7 & \Gape[0pt][2pt]{\makecell[l]{3DL2*01001 \\ 2DL4*00103}} & 3 & 3DL2 \\ 
+olga & 17 (0) & 348 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL3*00902 \\ 2DL3*00101}} & 1 & 2DL5B & 72 & 7 & \Gape[0pt][2pt]{\makecell[l]{2DP1*006 \\ 3DL2*00701 \\ 3DL1*001 \\ 2DL4*011 \\ 3DP1*00302}} & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL2 \\ 3DP1}} & 41 & 8 & 3DL3*00201 & 4 & 3DL3 \\ 
+rsh & 15 (0) & 365 & 0 &  -  & 4 & \Gape[0pt][2pt]{\makecell[l]{2DS4 \\ 3DL2 \\ 2DL5A \\ 2DS1}} & 80 & 1 & 2DP1*00201 & 4 &  -  & 35 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL4*011 \\ 2DL1*00302}} & 4 &  -  \\ 
+wt51 & 12 (0) & 313 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{2DL1 \\ 2DS3 \\ 3DP1 \\ 3DL2}} & 77 & 1 &  -  & 4 &  -  & 32 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DP1*001 \\ 2DL5A*00501}} & 4 &  - \\
+\end{longtable}
+\captionof{table}{Výsledky experimentu 3 na realných datech po odřezání nekvality. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářeli alely, které od sebe měli vzdálenost maximálně 20. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
+\end{center}
+
 
 \end{landscape}
 

@@ -1,4 +1,4 @@
-\begin{thebibliography}{35}
+\begin{thebibliography}{36}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -18,6 +18,10 @@
 \emph{Chromosome} [online]. [cit.~2020/12/3].
 \newblock Dostupn{\'{e}}~z:
   \url{https://www.genome.gov/genetics-glossary/Chromosome}.
+
+\bibitem[gal()]{galaxy}
+\emph{Galaxy} [online].
+\newblock Dostupn{\'{e}}~z: \url{https://galaxyproject.org/}.
 
 \bibitem[gen()]{genome_gov}
 \emph{DNA sequencing Fact Sheet} [online]. [cit.~2019/03/1].

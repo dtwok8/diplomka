@@ -13,10 +13,11 @@ Warning--to sort, need author or key in haploidenticka_transplantace
 Warning--to sort, need author or key in kir_genotypes_10
 Warning--to sort, need author or key in genome_gov
 Warning--to sort, need author or key in illumina
+Warning--to sort, need author or key in your_genome
 Warning--to sort, need author or key in ngs_alignment_software
+Warning--to sort, need author or key in galaxy
 Warning--to sort, need author or key in art_download
 Warning--to sort, need author or key in bowtie2_download
-Warning--to sort, need author or key in your_genome
 Warning--empty journal in NK_receptors
 Warning--empty journal in KIR_haplotypy
 Warning--empty journal in simulation_read
@@ -33,45 +34,45 @@ Warning--empty journal in ipd_database
 Warning--empty journal in imgt_hla_database
 Warning--empty journal in KIR_img_princip
 Warning--empty publisher in en_smith
-You've used 35 entries,
+You've used 36 entries,
             2898 wiz_defined-function locations,
-            781 strings with 10880 characters,
-and the built_in function-call counts, 12495 in all, are:
-= -- 1258
+            784 strings with 10918 characters,
+and the built_in function-call counts, 12691 in all, are:
+= -- 1288
 > -- 650
 < -- 12
-+ -- 227
++ -- 228
 - -- 192
-* -- 1020
-:= -- 1957
-add.period$ -- 124
-call.type$ -- 35
-change.case$ -- 116
-chr.to.int$ -- 35
-cite$ -- 106
-duplicate$ -- 594
-empty$ -- 903
+* -- 1035
+:= -- 1979
+add.period$ -- 126
+call.type$ -- 36
+change.case$ -- 117
+chr.to.int$ -- 36
+cite$ -- 110
+duplicate$ -- 603
+empty$ -- 918
 format.name$ -- 269
-if$ -- 2627
+if$ -- 2675
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 60
-newline$ -- 190
+missing$ -- 63
+newline$ -- 194
 num.names$ -- 117
-pop$ -- 354
+pop$ -- 358
 preamble$ -- 1
-purify$ -- 116
+purify$ -- 117
 quote$ -- 0
-skip$ -- 468
+skip$ -- 478
 stack$ -- 0
-substring$ -- 107
-swap$ -- 59
+substring$ -- 110
+swap$ -- 60
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 375
-warning$ -- 26
+type$ -- 386
+warning$ -- 27
 while$ -- 69
 width$ -- 0
-write$ -- 426
-(There were 28 warnings)
+write$ -- 435
+(There were 29 warnings)
