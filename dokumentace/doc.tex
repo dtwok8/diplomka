@@ -556,7 +556,7 @@ V následující části jsou získaná data, tedy ready, zarovnána na referen�
 
 \subsection{Použité programové prostředky}
 \subsubsection{Python}
-Program byl navržen a implementován na operačním systému Linux za použití především programovacího jazyku Python. Pro spuštění programu je nutné mít nainstalovaný Python ve verzi 3.8, nástroj ART ve verzi MountRainier, Bowtie 2 ve verzi 2.4.1. Dále byli použity python knihovny pysam ve verzi 0.14, python-Levenshtein a matplotlib. Pysam je modul do pythonu, který pomáhá číst a manipulovat s výstupními soubory ze zarovnávačů.
+Program byl navržen a implementován na operačním systému Linux za použití především programovacího jazyku Python. Tento jazyk byl zvolen z důvodu jednoduchého použití, díky čemuž nebyl vývoj prototypů časově náročný. Pro spuštění programu je nutné mít nainstalovaný Python ve verzi 3.8, nástroj ART ve verzi MountRainier, Bowtie 2 ve verzi 2.4.1. Dále byli použity python knihovny pysam ve verzi 0.14, python-Levenshtein a matplotlib. Pysam je modul do pythonu, který pomáhá číst a manipulovat s výstupními soubory ze zarovnávačů.
 
 \section{Modulové jednotky programu}
 Vše potřebné pro samotný běh programu obstarává skript $run.py$ spolu s nastavením v souboru $config.py$. Skript $run.py$ postupně pouští jednotlivé moduly. Díky nastavení v $config.py$ je možné si zvolit spuštění jen některých modulů. Například pouhé vytvoření testovacích dat nebo pouze jejich zarovnání a v neposlední řádě pouštět vyhodnocování zarovnávaných dat.
@@ -815,7 +815,10 @@ amala & 19 (0) &  38 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL4*0010201 \\ 3DP1*009
 \end{figure}
 
 \subsubsection{Experiment 3}
-Další experiment byl založen na omezení stavového prostoru vytvořením clusterů. Alely jsou seřazeny od nejvíce pokryté po nejméně pokryté. První alela s největším pokrytí je vložená do prvho clusteru. Další alely projdou všechny clustery a pokud má alespoň jedna alela z clusteru vzdálenost s právě procházející alelou menší než $CLUSTER\_DISTANCE$ uvedené v $configu$ je alela přiřazena do tohoto clusteru. Pokud ne pokračuje v porovnávání dokud nezkontroluje všechny clustery. V případě, kde nezapadá ani do jednoho z clusterů, vytvoří nový. Následně jsou porovnány všechny alely z clusteru. Pokud alespoň jedna alela v daném clusteru má pokrytí větší než $CUT_COVERAGE_ALLELES$ uvedeného v $configu$, není žádnáalela v daném clusteru smazána. V opačném případě jsou všechny alely z clusteru smazány. Další postup je stejný z experimentem 2.
+Další experiment byl založen na omezení stavového prostoru vytvořením clusterů. Alely jsou seřazeny od nejvíce pokryté po nejméně pokryté. První alela s největším pokrytí je vložená do prvho clusteru. Další alely projdou všechny clustery a pokud má alespoň jedna alela z clusteru vzdálenost s právě procházející alelou menší než $CLUSTER\_DISTANCE$ uvedené v $configu$ je alela přiřazena do tohoto clusteru. Pokud ne pokračuje v porovnávání dokud nezkontroluje všechny clustery. V případě, kde nezapadá ani do jednoho z clusterů, vytvoří nový. Následně jsou porovnány všechny alely z clusteru. Pokud alespoň jedna alela v daném clusteru má pokrytí větší než $CUT\_COVERAGE\_ALLELES$ uvedeného v $configu$, není žádná alela v daném clusteru smazána. V opačném případě jsou všechny alely z clusteru smazány. Další postup je stejný z experimentem 2. 
+\\
+\\
+Výhodou tohoto postupu by mělo být zamezení smazání alel, které do genomu patří ale její ready se zarovnaly na alelu jí podobnou. 
 \\
 \\
 Při vzdálenosti 5 bylo vytvořeno kolem 224 clusterů může jich být o pár jednotek více nebo méně z důvodu, že alely nejdou za sebou ve stejném pořadí, ale v tom pořadí od nejvíce pokrytých po nejméně pokryté. Při vzdálenosti 10 vznikalo kolem 171 clusterů, při vzdálenosti 15 vznikalo 143 a nakonec při vzdálenosti 30 vznikalo kolem 122 clusterů. Clusteterování ve smyslu jako je navržené zde, nepřineslo očekávaná zlepšení. Je třeba se nad clustrováním alel zamyslet jinak. Z příkladů největší clusterů je možné si povšimnou, že většinou alely pocházely ze stejných genů.
@@ -864,7 +867,7 @@ Díky přesnosti je možné odhadnout jak moc jsou výsledky relevantní. Naopak
 \end{center}
 
 \chapter{Verifikace na reálných datech}
-Pro validaci algoritmu na reálných datech kompletní KIR genom u 9-ti komerčních linií byl ve spolupráci FN Plzeň – LFP UK amplifikován z izolované DNA pomocí long-range PCR za použití směsi 6 primerů. Sekvenační knihovna je připravena modifikovaným protokolem NEBNext$^{\textregistered}$ Ultra TM II FS DNA Library Prep Kit for Illumina (New England Biolabs) a knihovny jsou sekvencovány v pair-end režimu na přístroji Illumina Miseq s pokrytím 100. \cite{real_data}
+Pro validaci algoritmu na reálných datech byl získán kompletní KIR genom u 9-ti komerčních linií ve spolupráci FN Plzeň – LFP UK spolu s definováním konkrétních alel v těchto liniich. Ready byly získány dle protokolu uvedeného v \cite{real_data}, konkrétně  amplifikovány z izolované DNA pomocí long-range PCR za použití směsi 6 primerů. Sekvenační knihovna je připravena modifikovaným protokolem NEBNext$^{\textregistered}$ Ultra TM II FS DNA Library Prep Kit for Illumina (New England Biolabs) a knihovny jsou sekvencovány v pair-end režimu na přístroji Illumina Miseq s pokrytím 100.  
 \\
 \\
 Prvním krokem při verifikaci na reálných datech je zarovnání. Ná následujících obrázcích je porovnání logu Bowtie2 genomu BOB na syntetických readech \ref{fig:bob_syntetic_bowtie_align} a readech přímo ze sekvenátoru Illumina \ref{fig:bob_real_bowtie_align}. Je možné si zde povšimnout, že při syntetických readech byli zarovnány všechny ready. Naopak při zarovnávání realných dat bylo zarovnáno pouze necelých 70 \% readů. Pojem concordanly v tomto případě znamená, že oba páry readů byli zarovnány v souladu se sebou. Oproti tomu discordantly znamená, že každý jedinec z páru readů byl zarovnán samostatně.
@@ -884,56 +887,90 @@ Prvním krokem při verifikaci na reálných datech je zarovnání. Ná následu
 \end{figure}
 
 \noindent
-Jedním z důvodů proč se to děje může být mnoho chyb v realných readech, které vznikly sekvenováním. V souboru obsahující ready je možné nalést informaci o kvalitě sekvenace jednotlivých bází. Svým způsobem vyjádření jak moc si je sekvenátor jistý danou bází. Kvalita se označuje jako ASCII znak a je rovna ASCII kódu~-~33 (přeskočení netisknutelných znaků). Čím vyšší je ASCII kód tím je báze kvalitnější. Nejčastější kvalita je od 0 do 40, zřídka překročí hodnotu 60. Na následujícím obrázku je zobrazen graf kvality bází vzhledem k pozici v readu.
-
+Jedním z důvodů, proč se to děje, mouhou být chybné báze v realných readech, které vznikly sekvenováním. V souboru obsahující ready je možné nalést informaci o kvalitě sekvenace jednotlivých bází. Svým způsobem vyjádření jak moc si je sekvenátor jistý danou bází. Kvalita se označuje jako ASCII znak a je rovna ASCII kódu~-~33 (přeskočení netisknutelných znaků). Čím vyšší je ASCII kód tím je báze kvalitnější. Nejčastějšší kvalita je od 0 do 40, zřídka překročí hodnotu 60. Na následujícím obrázku je zobrazen graf kvality bází vzhledem k pozici v readu.
 
 \begin{figure}[H]		
 		\centering
-		\includegraphics[width=300px]{./img/quality_graf_bob_no_trim.png}
-		\caption{Zobrazení kvality dat genomu BOB. Jak je vidět čím je pozice v readů vyšší tím nižší je kvalita báze.}
+		\includegraphics[width=190px]{./img/quality_graf_bob_no_trim_r1.png}
+		\includegraphics[width=190px]{./img/quality_graf_bob_no_trim_r2.png}
+		\caption{Zobrazení kvality dat genomu BOB v levé části pro ready první z páru readů a v pravé části pro druhé části readů. V grafu směrem nahoru se zvyšuje kvalita báze. Z leva do prava se pak zvyšuje pozice báze v readu. Jak je vidět čím je pozice v readu vyšší tím nižší je kvalita báze, zároveň v druhých párech readů je kvalita znatelně horší.}
 		\label{fig:graf_quality_no_trim}
 \end{figure}
 
+
 \noindent
-Nabízí se tedy řešení nekvalitní báze na konci readů odstranít. Na odstranění nekvalitních bází byl použit nástroj Trimmomatic 0.38.0 na serveru Galaxy \cite{galaxy}. Na odstranění bylo použito posuvné okénko s průměrnými kvalitami 20, 15 a 5. Na obrázku \ref{fig:bob_real_bowtie_align} je zobrazení graf kvality po ořezu. 
+Nabízí se tedy řešení nekvalitní báze na konci readů odstranít. Na odstranění nekvalitních bází byl použit nástroj Trimmomatic 0.38.0 na serveru Galaxy \cite{galaxy}. Na odstranění bylo použito posuvné okénko velikosti 8 s průměrnými kvalitami 15. 
 
 
 \begin{figure}[H]		
 		\centering
-		\includegraphics[width=300px]{./img/quality_graf_bob_trim_20.png}
-		\caption{Zobrazení kvality dat genomu BOB oříznutí podle posuvného okna a oříznutí při menší přůměrné kvality než je 20. Jak je vidět čím je pozice v readů větší tím horší je kvalita báze.}
-		\label{fig:graf_quality_trim}
+		\includegraphics[width=190px]{./img/quality_graf_bob_trim_r1_8_15.png}
+		\includegraphics[width=190px]{./img/quality_graf_bob_trim_r2_8_15.png}
+		\caption{Zobrazení kvality dat genomu BOB v levé části pro ready první z páru readů a v pravé části pro druhé části readů. V grafu směrem nahoru se zvyšuje kvalita báze. Z leva do prava se pak zvyšuje pozice báze v readu. Jak je vidět čím je pozice v readu vyšší tím nižší je kvalita báze, zároveň v druhých párech readů je kvalita znatelně horší.}
+		\label{fig:graf_quality_no_trim}
 \end{figure}
 
+
 \noindent
-Následujcí tabulka zobrazuje porovnání výsledků po ořezu nekvalitních bází.
+Následujcí tabulka zobrazuje porovnání výsledků bez ořezu nekvalitních bází a s jejich ořezem. Jak je vidět nelze jednoznačně říci že by výsledky byli zlepšeny.
 
 \begin{center}
 \tiny
 \rowcolors{2}{gray!25}{white}
-\begin{longtable}{l c|| c | c l | c l || c | c l | c l }
- & & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c}{Krok 3} \\ 
-Genotyp & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
+\begin{tabular}{l c|| c | c l | c l }
+ & & \multicolumn{5}{c}{Krok 4} \\ 
+Genom & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
 \hline
 \hline
-bob no trim  & 19 (0) & 366 & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL3*01303 \\ 2DL3*00201 \\ 2DL2*00301}} & 1 & 2DL5B & 86 & 5 & \Gape[0pt][2pt]{\makecell[l]{3DP1*00302 \\ 3DL2*0070102}} & 1 &  -  \\ 
-bob trim 5  & 19 (0) & 366 & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL3*01303 \\ 2DL2*00301 \\ 2DL3*00201}} & 1 & 2DL5B & 86 & 5 & \Gape[0pt][2pt]{\makecell[l]{3DP1*00302 \\ 3DL2*0070102}} & 1 &  - \\ 
-bob trim 10 & 19 (0) & 366 & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL3*01303 \\ 2DL3*00201 \\ 2DL2*00301}} & 1 & 2DL5B & 86 & 5 & \Gape[0pt][2pt]{\makecell[l]{3DL2*0070102 \\ 3DP1*00302}} & 1 &  - \\
-bob trim 15  & 19 (0) & 367 & 3 & \Gape[0pt][2pt]{\makecell[l]{3DL3*01303 \\ 2DL3*00201 \\ 2DL2*00301}} & 1 & 2DL5B & 87 & 5 & \Gape[0pt][2pt]{\makecell[l]{3DL2*0070102 \\ 3DP1*00302}} & 1 &  -  \\  
-bob & 19 (0) & 369 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL3*00201 \\ 3DL3*01303 \\ 2DL2*00301}} & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 2DS3}} & 87 & 5 & \Gape[0pt][2pt]{\makecell[l]{3DL2*0070102 \\ 3DP1*00302}} & 2 &  -  \\ 
+\Gape[0pt][2pt]{\makecell[l]{amala \\ bez ořezu kvality}} & 19 (0) & 60 & 5 & \Gape[0pt][2pt]{\makecell[l]{2DL2*00301 \\ 2DL3*001 \\ 3DL2*0070102 \\ 3DL2*0020105 \\ 3DP1*00901}} & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 3DL2}} \\ 
 
+\Gape[0pt][2pt]{\makecell[l]{amala \\ s ořezem kvality }} & 19 (0) & 52 & 4 &  \Gape[0pt][2pt]{\makecell[l]{2DL3*001 \\ 2DL2*00301 \\ 3DL2*0070102 \\ 3DP1*00901}}  & 1 &  2DL5B \\ 
+\hline
+\Gape[0pt][2pt]{\makecell[l]{bob \\ bez ořezu kvality}} & 19 (0) & 52 & 7 & \Gape[0pt][2pt]{\makecell[l]{3DL3*01303 \\ 2DL2*00301 \\ 2DL3*00201 \\ 3DL2*0070102 \\ 3DP1*00302 \\ 2DL4*001 \\ 2DL1*00302}} & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 2DL1}} \\ 
 
-\end{longtable}
+\Gape[0pt][2pt]{\makecell[l]{bob \\ s ořezem kvality }} & 19 (0) & 51 & 7 & \Gape[0pt][2pt]{\makecell[l]{2DL2*00301 \\ 2DL3*00201 \\ 3DL3*01303 \\ 3DL2*0070102 \\ 3DP1*00302 \\ 2DL4*001 \\ 2DL1*00302}} & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 2DS3 \\ 2DL1}} \\ 
+\end{tabular}
+
 \label{tab:cut_quality}
-\captionof{table}{Výsledky experimentu 1 na realných datech. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
+\captionof{table}{Porovnání odstřižení nekvalitních bází na experimentu 2. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu, zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny, geny navíc udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
 \end{center}
 
 \noindent
-Dodaná reálná datab nejsou vždy identifikovana až na úroveň non-coding reionu a tak není možné plnohodnotně posoudit přesnost a úplnost nástroje. 
+V následujícím textu přibyde k referenční alele a nástrojem identifikované alele pojem biologická reference. Myslí se tím identifikace alel provedena v laboratoři odkud pochází komerční linie.
+\\
+\\
+Dodaná reálná data nemají biologickou referenci až na úroveň non-coding regionu. Příkladem může být biologická reference 2DL1*00201 v níže zobrazené ukázce biologické reference genomu KAS011. K této alele je možné přířadit až 16 alel z referenčních sekvencí. Díky tomuto problému není možné plnohodnotně posoudit přesnost a úplnost nástroje. Znak $+$ značí přítomnost genu, bez bližšího určení alely, tz. že v některých případech není alela určená vůbec.
+\\
+\\
+\noindent 
+Ukázka dodaných identifikací KAS011
+\begin{multicols}{2}
+\begin{itemize}
+	\itemsep0em
+	\item 2DL1: 00201, 00302
+	\item 2DL2:
+	\item 2DL3: +
+	\item 2DL4: 00103, 005
+	\item 2DL5A: 00101
+	\item 2DL5B:
+	\item 2DP1: 002, 00301
+	\item 2DS1: 00201
+	\item 2DS2:
+	\item 2DS3:
+	\item 2DS4: 00301
+	\item 2DS5: 00201
+	\item 3DL1: 008
+	\item 3DL2: 01001, 019
+	\item 3DL3: 00901, 01302
+	\item 3DP1: 00302, 006
+	\item 3DS1: 01301
+\end{itemize}
+\end{multicols}
+
 
 
 \chapter{Zhodnocení z hlediska úrovně rozlišení}
-Na následujícíh dvou grafech jsou zobrazeny všechny zbývající alely genů 2DS1 a 2DS2 u genomu BOB. Jak je vidět z obrázku u těchto genů je možné určit coding sekvenci tzn. prvních pět čísel. 
+Na následujícíh dvou grafech jsou zobrazeny všechny zbývající alely genů 2DS1 a 2DL4 u genomu BOB. Jak je vidět z obrázku u genu 2DS1 je možné určit coding region tzn. prvních pět čísel. Oproti tomu v případě genu 2DL4 to možné není. 
 
 
 \begin{figure}[H]
@@ -945,15 +982,48 @@ Na následujícíh dvou grafech jsou zobrazeny všechny zbývající alely genů
 \begin{figure}[H]
 	\centering
     \def\svgwidth{\columnwidth}
-    \import{svg/}{uroven_rozliseni_syntetic2.pdf_tex} 
+    \import{svg/}{2DL4_uroven_rozliseni.pdf_tex} 
 \end{figure}
 
 \noindent
-V případě realných dat není možné úroveň rozlišení jednoduše určit. Důvodem jsou mimo jiné nejednoznačné odpovědi učitele, kdy aleli nezřídka nejsou určeny na nejnižší možnou úroveň. V některých případech není alela určená vůbec, je zde jen poznačeno, že genom obsahuje daný gen, ale ani náznak o tom která alela by to mohla být. Což je způsobeno tím že z biologického hlediska není možné určit konkrétní alelu na non coding úroveň. V praktickém použití postačuje rozlišení na úroveň coding úroveň. V každém případě je pořád lepší i nepatrná informace o možných alelách než vůbec nic.
+Následující tabulka zobrazuje možnost rozlišení všech alel u syntetických readů. Jak je vidět v případě genu 3DL3 lze jednoznačně prohlásit, že alely od sebe rozlišit nelze. Oproti tomu v případě genu 2DS2 a 3DL3 alely rozlišit lze. 
 
-TODO dodat sem odpovědi učitele které byli přidány k datum?
-biologicky není možné určit konrkténí alelu na non condign 
-když je tam jen + tak tam je gen ale nevím jaká alela
+
+\begin{center}
+\tiny
+\rowcolors{2}{gray!25}{white}
+\begin{tabular}{l || c | c | c | c | c | c | c | c | c | c | c  }
+ & 2DL1 & 2DL4 & 2DS1 & 2DS2 & 2DS4 & 2DS5 & 3DL1 & 3DL2 & 3DL3 & 3DP1 & 3DS1 \\ 
+\hline
+\hline
+amala &  &  &  &  &  &  &  &  & N &  & A - 5 \\ 
+bob &  & N & A - 5 & A - 5 &  &  & N &  &  &  &  \\ 
+cox &  &  &  &  &  &  & A - 5 & A - 5 & N &  &  \\ 
+ho301 &  & A - 3 &  &  &  &  & N &  &  &  &  \\
+jvm &  & A - 5 &  &  & N &  &  &  &  &  &  \\
+kas011 &  & A - 5 &  &  & A - 5  &  &  &  & N &  &  \\
+olga & A - 5 &  &  &  &  &  & N & A - 5 &  &  &  \\
+rsh &  &  &  & A - 5 &  &  &  &  &  &  &  \\
+wt51 &  &  &  &  &  & N &  &  &  &  &  \\
+test1 &  &  &  & A - 5 &  &  & N &  &  &  &  \\
+test2 &  &  &  &  &  &  & A - 5 &  &  &  &  \\
+test3 &  &  &  &  &  &  & N &  &  &  &  \\
+test4 &  &  & A - 5 &  &  &  & A - 5 &  &  &  &  \\
+test5 &  &  &  &  &  &  &  &  & N & N &  \\
+test6 & N &  &  &  &  &  &  &  & N &  &  \\
+test7 & A - 5 & A - 5 &  &  &  &  &  &  & N &  &  \\
+test8 &  &  &  & A - 5 &  &  &  &  & N &  &  \\
+test9 &  &  &  & A - 5 & A - 5 &  &  &  & N &  &  \\
+test10 &  &  &  & A - 5 &  &  & A - 5 &  &  &  &  \\
+test11 & &  &  & A - 5 &  &  &  &  &  &  &  \\  
+\end{tabular}
+\captionof{table}{Zhodnocení zbylích alel v experimentu 2 po 4. kroku z hlediska úrovně rozslišení. Tabulka obsahuje jen alely, které měli ve výsledkách nějakou informaci o úrovni rozlišení. V případě kdy se v políčku nachází znak $N$, znamená to, že zbylo více alel přičemž některá z nich nepatřila do genomu, ale nějakou část označení alely má společnou s alelou, která do genomu patří. V případě znaku "A" \space  alely rozlišit lze. Za pomlčkou se pak nachází číslo určující úroveň rozlišení. Tedy na kolik čísel mají společný základ. }
+\end{center}
+
+
+\noindent
+V případě realných dat není možné úroveň rozlišení jednoduše určit protože biologická refrence není určena až na nejnižší úroveň, jak již bylo uvedeno v předchozí kapitole.
+
 
 
 \chapter{Závěr}
@@ -1081,9 +1151,6 @@ V případě zarovnání mohou být výstupní soubory indexy ve složce \textit
 
 
 \section{Analýza referenčních genů}
-TODO kde jsou přesně uložený analýzy
-\\
-\\
 K analyzování referenčních genů slouží skript \textit{analysis\_alels.py}. V horní části skriptu je třeba nastavit příslušné cesty. Referenční soubory \textit{\_gen.fa} a \textit{\_nuc.fa} použité v práci jsou k nalezení na IPD-KIR \cite{imgt_hla_database} v záložce \textit{KIR}, dále v pravém menu \textit{GitRepos} složka \textit{fasta}.
 
 \begin{itemize}
@@ -1593,6 +1660,7 @@ Soubor s příponou \textit{.sam} obsahuje výsledky zarovnání readů.
 \end{center}
 
 \chapter{Detailní výsledky}
+V textu budou uvedeny tabulky s následujícím význami jednotlivých sloupců. Alel u genomu značí počet v daném genomu. Číslo v závorkách udává kolik alel je dvakrát v daném genomu.  V každém kroku zbývá alel je kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genomu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. 
 
 \begin{landscape}
 \section{Experiment1}
@@ -1626,7 +1694,7 @@ test10 & 21 (3) & 461 & 0 &  -  & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL5A \\ 2DS5
 test11 & 24 (2) & 461 & 0 &  -  & 5 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 3DL1 \\ 2DS3 \\ 2DS4 \\ 2DL3}} & 110 & 0 &  -  & 0 &  -  & 28 & 0 &  -  & 0 &  -  \\ 
 
 \end{longtable}
-\captionof{table}{Výsledky experimentu 1 na syntetických readech. Odřezány byly alely, které měli pokrytí menší než 90\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
+\captionof{table}{Výsledky experimentu 1 na syntetických readech. Odřezány byly alely, které měli pokrytí menší než 90\%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100. }
 \end{center}
 \newpage
 
@@ -1660,10 +1728,10 @@ test10 & 21 (3) & 461 & 0 &  -  & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL5A \\ 2DS5
 test11 & 24 (2) & 461 & 0 &  -  & 5 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 3DL1 \\ 2DS3 \\ 2DS4 \\ 2DL3}} & 148 & 0 &  -  & 1 &  -  & 35 & 0 &  -  & 1 &  - & 22 & 13 & 0 \\ 
 
 \end{longtable}
-\captionof{table}{Výsledky experimentu 1 na syntetických readech. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. TP - true positive, FP -false positive, FN false negative}
+\captionof{table}{Výsledky experimentu 1 na syntetických readech. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. }
 \end{center}
 
-
+\newpage
 
 \section{Experiment2}
 \begin{center}
@@ -1695,11 +1763,11 @@ test9 & 22 (1) & 145 & 1 & 3DL1*0150208 & 1 & 3DL1 & 37 & 1 &  -  & 1 &  -  & 24
 test10 & 21 (3) & 145 & 1 & 3DL1*0150101 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL1 \\ 2DL5A}} & 33 & 1 &  -  & 2 &  -  & 22 & 1 &  -  & 2 &  - & 17 & 5 & 1 \\ 
 test11 & 24 (2) & 148 & 0 &  -  & 1 & 2DL5B & 33 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DS5*0020103 \\ 2DS2*0010103}} & 1 &  -  & 24 & 2 &  -  & 1 &  - & 20 & 4 & 2 \\ 
 
-
 \end{longtable}
-\captionof{table}{Výsledky experimentu2. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
+\captionof{table}{Výsledky experimentu 2. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100.}
 \end{center}
 
+\newpage
 \section{Experiment3}
 \begin{center}
 \tiny
@@ -1730,10 +1798,10 @@ test9 & 22 (1) & 174 & 0 &  -  & 0 &  -  & 37 & 0 &  -  & 0 &  -  & 22 & 1 & 3DL
 test10 & 21 (3) & 162 & 1 & 3DL1*0150101 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL1 \\ 2DL5A}} & 34 & 1 &  -  & 2 &  -  & 23 & 1 &  -  & 2 &  -  \\ 
 test11 & 24 (2) & 148 & 0 &  -  & 1 & 2DL5B & 33 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DS5*0020103 \\ 2DS2*0010103}} & 1 &  -  & 24 & 2 &  -  & 1 &  -  \\ 
 \end{longtable}
-\captionof{table}{Výsledky experimentu3. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářeli alely, které od sebe měli vzdálenost maximálně 5. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
+\captionof{table}{Výsledky experimentu 3. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářeli alely, které od sebe měli vzdálenost maximálně~5.  }
 \end{center}
 
-
+\newpage
 
 \begin{center}
 \tiny
@@ -1766,8 +1834,10 @@ test10 & 21 (3) & 174 & 0 &  -  & 1 & 2DL5A & 31 & 0 &  -  & 1 &  -  & 21 & 0 & 
 test11 & 24 (2) & 156 & 0 &  -  & 1 & 2DL5B & 33 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DS5*0020103 \\ 2DS2*0010103}} & 1 &  -  & 24 & 2 &  -  & 1 &  -  \\ 
 
 \end{longtable}
-\captionof{table}{Výsledky experimentu3. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářeli alely, které od sebe měli vzdálenost maximálně 10. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
+\captionof{table}{Výsledky experimentu 3. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářeli alely, které od sebe měli vzdálenost maximálně~10. }
 \end{center}
+
+\newpage
 
 
 \begin{center}
@@ -1801,10 +1871,10 @@ test10 & 21 (3) & 184 & 0 &  -  & 1 & 2DL5A & 31 & 0 &  -  & 1 &  -  & 20 & 1 & 
 test11 & 24 (2) & 156 & 0 &  -  & 1 & 2DL5B & 33 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DS2*0010103 \\ 2DS5*0020103}} & 1 &  -  & 24 & 2 &  -  & 1 &  - & 20 & 4 & 2 \\ 
 
 \end{longtable}
-\captionof{table}{Výsledky experimentu3. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářeli alely, které od sebe měli vzdálenost maximálně 20. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
+\captionof{table}{Výsledky experimentu 3. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářeli alely, které od sebe měli vzdálenost maximálně~20. }
 \end{center}
 
-
+\newpage
 \begin{center}
 \tiny
 \rowcolors{2}{gray!25}{white}
@@ -1836,7 +1906,7 @@ test11 & 24 (2) & 159 & 0 &  -  & 1 & 2DL5B & 35 & 0 &  -  & 1 &  -  & 26 & 0 & 
 
 
 \end{longtable}
-\captionof{table}{Výsledky experimentu3. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářeli alely, které od sebe měli vzdálenost maximálně 30. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
+\captionof{table}{Výsledky experimentu 3. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářeli alely, které od sebe měli vzdálenost maximálně~30. }
 \end{center}
 
 \end{landscape}
@@ -1845,7 +1915,7 @@ test11 & 24 (2) & 159 & 0 &  -  & 1 & 2DL5B & 35 & 0 &  -  & 1 &  -  & 26 & 0 & 
 
 
 \subsubsection{Ukázky vzniklých clusterů}
-Níže jsou uvedeny největši clustery.
+Níže jsou uvedeny největší clustery.
 \\
 \\
 \noindent
@@ -1878,8 +1948,8 @@ Při vzdálenosti 5 bylo vytvořeno kolem 224 clusterů.
 \end{tabular}
 \end{center}
 
-\noindent
-Při vzdáleosti 10 bylo vytovořeno kolem 1771 clusterů.
+\newpage
+Při vzdálenosti 10 bylo vytvořeno kolem 1771 clusterů.
 \begin{center}
 \tiny
 \begin{tabular}{ |c|c|c|c|c| }
@@ -1943,8 +2013,9 @@ olga & 17 (0) & 328 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL3*00101 \\ 3DL3*00902}
 rsh & 15 (0) & 361 & 0 &  -  & 5 & \Gape[0pt][2pt]{\makecell[l]{2DS4 \\ 3DL2 \\ 2DL5A \\ 2DS1 \\ 2DS3}} & 73 & 1 & 2DP1*00201 & 5 &  -  \\ 
 wt51 & 12 (0) & 297 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1 \\ 2DS3 \\ 2DL1 \\ 3DL2}} & 66 & 2 & 2DL5A*00501 & 4 &  -  \\ 
 \end{longtable}
-\captionof{table}{Výsledky experimentu 1 na realných datech. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
+\captionof{table}{Výsledky experimentu 1 na realných datech. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100.  }
 \end{center}
+\newpage
 
 \begin{center}
 \tiny
@@ -1964,8 +2035,9 @@ olga & 17 (0) & 332 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL3*00101 \\ 3DL3*00902}
 rsh & 15 (0) & 361 & 0 &  -  & 4 & \Gape[0pt][2pt]{\makecell[l]{2DS4 \\ 3DL2 \\ 2DL5A \\ 2DS1}} & 73 & 1 & 2DP1*00201 & 4 &  - \\ 
 wt51 & 12 (0) & 300 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1 \\ 2DS3 \\ 2DL1 \\ 3DL2}} & 69 & 1 &  -  & 4 &  - \\
 \end{longtable}
-\captionof{table}{Výsledky experimentu 1 na realných datech po odstřižení nekvalitních bází. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
+\captionof{table}{Výsledky experimentu 1 na realných datech po odstřižení nekvalitních bází. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100.  }
 \end{center}
+\newpage
 
 \begin{center}
 \tiny
@@ -1986,7 +2058,7 @@ olga & 17 (0) & 328 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL3*00101 \\ 3DL3*00902}
 rsh & 15 (0) & 361 & 0 &  -  & 5 & \Gape[0pt][2pt]{\makecell[l]{2DS4 \\ 3DL2 \\ 2DL5A \\ 2DS1 \\ 2DS3}} & 74 & 1 & 2DP1*00201 & 5 &  -  & 34 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL1*00302 \\ 2DL4*011}} & 5 &  -  \\ 
 wt51 & 12 (0) & 297 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{2DS3 \\ 2DL1 \\ 3DP1 \\ 3DL2}} & 68 & 1 &  -  & 4 &  -  & 29 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL5A*00501 \\ 2DP1*001}} & 4 &  -  \\ 
 \end{longtable}
-\captionof{table}{Výsledky experimentu 2 na realných datech. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
+\captionof{table}{Výsledky experimentu 2 na realných datech. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100.  }
 \end{center}
 
 \begin{center}
@@ -2009,9 +2081,9 @@ wt51 & 12 (0) & 300 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1 \\ 
 
 
 \end{longtable}
-\captionof{table}{Výsledky experimentu 2 na realných datech po odřezání nekvalitních bází. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
+\captionof{table}{Výsledky experimentu 2 na realných datech po odřezání nekvalitních bází. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100. }
 \end{center}
-
+\newpage
 
 
 \begin{center}
@@ -2032,9 +2104,9 @@ olga & 17 (0) & 346 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL3*00101 \\ 3DL3*00902}
 rsh & 15 (0) & 365 & 0 &  -  & 5 & \Gape[0pt][2pt]{\makecell[l]{2DS4 \\ 3DL2 \\ 2DL5A \\ 2DS3 \\ 2DS1}} & 75 & 1 & 2DP1*00201 & 5 &  -  & 35 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL4*011 \\ 2DL1*00302}} & 5 &  -  \\ 
 wt51 & 12 (0) & 311 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1 \\ 2DL1 \\ 2DS3 \\ 3DL2}} & 75 & 1 &  -  & 4 &  -  & 31 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL5A*00501 \\ 2DP1*001}} & 4 &  -  \\ 
 \end{longtable}
-\captionof{table}{Výsledky experimentu 3 na realných datech. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářeli alely, které od sebe měli vzdálenost maximálně 20. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
+\captionof{table}{Výsledky experimentu 3 na realných datech. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářeli alely, které od sebe měli vzdálenost maximálně 20.}
 \end{center}
-
+\newpage
 
 \begin{center}
 \tiny
@@ -2054,38 +2126,11 @@ olga & 17 (0) & 348 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL3*00902 \\ 2DL3*00101}
 rsh & 15 (0) & 365 & 0 &  -  & 4 & \Gape[0pt][2pt]{\makecell[l]{2DS4 \\ 3DL2 \\ 2DL5A \\ 2DS1}} & 80 & 1 & 2DP1*00201 & 4 &  -  & 35 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL4*011 \\ 2DL1*00302}} & 4 &  -  \\ 
 wt51 & 12 (0) & 313 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{2DL1 \\ 2DS3 \\ 3DP1 \\ 3DL2}} & 77 & 1 &  -  & 4 &  -  & 32 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DP1*001 \\ 2DL5A*00501}} & 4 &  - \\
 \end{longtable}
-\captionof{table}{Výsledky experimentu 3 na realných datech po odřezání nekvality. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářeli alely, které od sebe měli vzdálenost maximálně 20. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
+\captionof{table}{Výsledky experimentu 3 na realných datech po odřezání nekvality. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářeli alely, které od sebe měli vzdálenost maximálně 20. }
 \end{center}
 
 
 \end{landscape}
-
-
-
-
-
-
-
-
-\chapter{Vyhodit}
-TODO vyhodit?
-možná napsat co znamenají konkrétní chyby
-\\
-\\
-Proč? No protože přesně ví co tam dávají za data, protože mu podšoupnou ten referenční genom a tak pak můžou dobře sledovat co ten zarovnávač s tím dělá. 
-A proč je to o tolik výhodnější než když by měli nějakej realnej dataset? 
-Možná že si tam můžou ty chyby navolit tak jak se jim hodí?
-Jako bude v tom míň chyb, ale stejně.
-\\
-
- bowtie se to snaží někam dát za každou cenu.
-
-
-Úkol: vyhodnocovací algoritmus NGS dat pro identifikaci alel na úrovni relevantního coding-regionu, ale porovnání i na non-coding
-
-
-\subsection{Překlad alel}
-Při použití Bowtie vyvstal problém kdy jsou výsledné alely pojménovány pořadovým čísel jak byli objeveny nikoli názvem vyjadřující jejich skladbu. Proto vznikl modul překlad alel z pořadových čísel do názvů vyjadřující skladbu alely obsahující skript \textit{renaming\_alels\_result.py}, který projde všechny soubory ve složce pod proměnou \textit{RESULT\_FOLDER} a nahradí pořadová čísla příslušným názvem. Nakonec nahradí původní soubor, takto upraveným souborem.
 
 
 \end{document}

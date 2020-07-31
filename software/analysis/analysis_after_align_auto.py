@@ -13,23 +13,23 @@ GEN_FILE = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/referencni/IPDKIR-Lat
 #ALELS_STATISTICS_FILE_PYC = "/home/kate/Dokumenty/FAV/Diplomka/software/data/statistics/test11_KIR_gen_exp2_step4.pyc"
 ALELS_STATISTICS_PYC_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/statistics/"
 ALELS_STATISTICS_PYC_REFERENCE_NAME = "KIR_gen"
-ALELS_STATISTICS_PYC_EXPERIMENT = "exp1"
-STEPS = ["step1", "step2", "step3"]
+ALELS_STATISTICS_PYC_EXPERIMENT = "exp3"
+STEPS = ["step1", "step2", "step3", "step4"]
 #STEPS = ["step3"]
 #STEPS_LATECH_TABLE = ["step3"]
-STEPS_LATECH_TABLE = ["step2", "step3"]
+STEPS_LATECH_TABLE = ["step2", "step3","step4"]
 
 PLOT_OUTPUT_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/analysis/analysis_after_align_result"
 
-GENOMES_LIST = ["bob"]
+#GENOMES_LIST = ["bob"]
 GENOMES_LIST3 = ["amala", "bob", "cox", "ho301", "jvm", "kas011", "olga", "rsh", "wt51", "test1", "test2", "test3", "test4", "test5", "test6", "test7", "test8", "test9", "test10", "test11"]
 
 # real
-GENOMES_LIST2 = ["amala", "bob", "cox", "ho301", "jvm", "kas011", "olga", "rsh", "wt51"]
+GENOMES_LIST = ["amala", "bob", "cox", "ho301", "jvm", "kas011", "olga", "rsh", "wt51"]
 
 
 # real
-GENOMES_ALLELES2 = {
+GENOMES_ALLELES = {
 			"amala": [
  				"2DL1: 00302", "2DL2: 00301", "2DL3: 001", "2DL4: 00102", "2DL4: 00501", "2DL5A: 001", "2DP1: 00201", "2DS1: 00201", "2DS2: 00101", "2DS4: 001", "2DS5: 00201", "3DL1: 01502", "3DL2: 0020105", "3DL2: 0070102",
  				"3DL3: 00402", "3DL3: 00802", "3DP1: 007", "3DP1: 00901", "3DS1: 01301"
@@ -69,7 +69,7 @@ GENOMES_ALLELES2 = {
 
 
 # syntetic
-GENOMES_ALLELES = {
+GENOMES_ALLELES2 = {
 			"bob": [ '3DL3: 00101', '3DL3: 019', '2DS2: 0010104', '2DL2: 0030101', '2DL3: 0020102', '2DP1: 0030101', '2DL1: 0030210', '3DP1: 002', '3DP1: 0030203', '2DL4: 0010202', '2DL4: 0050101', '3DL1: 002',
 				'3DS1: 0130105', '2DL5A: 0010101', '2DS5: 0020104', '2DS1: 0020101', '2DS4: 0010105', '3DL2: 0020101' , '3DL2:0070102'
 			],

@@ -52,25 +52,23 @@
 \contentsline {chapter}{\numberline {6}Porovn\IeC {\'a}n\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }stup\IeC {\r u} k identifikaci a parametr\IeC {\r u}}{50}{chapter.6}% 
 \contentsline {chapter}{\numberline {7}Verifikace na re\IeC {\'a}ln\IeC {\'y}ch datech}{51}{chapter.7}% 
 \contentsline {chapter}{\numberline {8}Zhodnocen\IeC {\'\i } z hlediska \IeC {\'u}rovn\IeC {\v e} rozli\IeC {\v s}en\IeC {\'\i }}{55}{chapter.8}% 
-\contentsline {chapter}{\numberline {9}Z\IeC {\'a}v\IeC {\v e}r}{56}{chapter.9}% 
-\contentsline {chapter}{\numberline {10}V\IeC {\'y}kladov\IeC {\'y} slovn\IeC {\'\i }k pojm\IeC {\r u} a zkratek}{58}{chapter.10}% 
-\contentsline {chapter}{Literatura}{59}{chapter*.54}% 
-\contentsline {chapter}{\numberline {A}U\IeC {\v z}ivatelsk\IeC {\'a} dokumentace}{62}{appendix.A}% 
-\contentsline {section}{\numberline {A.1}Nastaven\IeC {\'\i } ART a bowtie}{64}{section.A.1}% 
-\contentsline {subsection}{\numberline {A.1.1}ART}{64}{subsection.A.1.1}% 
-\contentsline {subsection}{\numberline {A.1.2}Bowtie2}{64}{subsection.A.1.2}% 
-\contentsline {section}{\numberline {A.2}Doporu\IeC {\v c}en\IeC {\'a} adres\IeC {\'a}\IeC {\v r}ov\IeC {\'a} struktura pro data}{64}{section.A.2}% 
-\contentsline {section}{\numberline {A.3}Spu\IeC {\v s}t\IeC {\v e}n\IeC {\'\i } programu}{64}{section.A.3}% 
-\contentsline {section}{\numberline {A.4}V\IeC {\'y}stupy programu}{65}{section.A.4}% 
-\contentsline {section}{\numberline {A.5}Anal\IeC {\'y}za referen\IeC {\v c}n\IeC {\'\i }ch gen\IeC {\r u}}{65}{section.A.5}% 
-\contentsline {section}{\numberline {A.6}Analyzov\IeC {\'a}n\IeC {\'\i } experiment\IeC {\r u}}{67}{section.A.6}% 
-\contentsline {section}{\numberline {A.7}Pou\IeC {\v z}\IeC {\'\i }van\IeC {\'e} soubory}{68}{section.A.7}% 
-\contentsline {chapter}{\numberline {B}Testovac\IeC {\'\i } genomy}{69}{appendix.B}% 
-\contentsline {chapter}{\numberline {C}Detailn\IeC {\'\i } v\IeC {\'y}sledky}{71}{appendix.C}% 
-\contentsline {section}{\numberline {C.1}Experiment1}{72}{section.C.1}% 
-\contentsline {section}{\numberline {C.2}Experiment2}{77}{section.C.2}% 
-\contentsline {section}{\numberline {C.3}Experiment3}{78}{section.C.3}% 
-\contentsline {subsubsection}{Uk\IeC {\'a}zky vznikl\IeC {\'y}ch cluster\IeC {\r u}}{85}{section*.58}% 
-\contentsline {section}{\numberline {C.4}V\IeC {\'y}sledky verifikace}{87}{section.C.4}% 
-\contentsline {chapter}{\numberline {D}Vyhodit}{94}{appendix.D}% 
-\contentsline {subsection}{\numberline {D.0.1}P\IeC {\v r}eklad alel}{94}{subsection.D.0.1}% 
+\contentsline {chapter}{\numberline {9}Z\IeC {\'a}v\IeC {\v e}r}{57}{chapter.9}% 
+\contentsline {chapter}{\numberline {10}V\IeC {\'y}kladov\IeC {\'y} slovn\IeC {\'\i }k pojm\IeC {\r u} a zkratek}{59}{chapter.10}% 
+\contentsline {chapter}{Literatura}{60}{chapter*.54}% 
+\contentsline {chapter}{\numberline {A}U\IeC {\v z}ivatelsk\IeC {\'a} dokumentace}{63}{appendix.A}% 
+\contentsline {section}{\numberline {A.1}Nastaven\IeC {\'\i } ART a bowtie}{65}{section.A.1}% 
+\contentsline {subsection}{\numberline {A.1.1}ART}{65}{subsection.A.1.1}% 
+\contentsline {subsection}{\numberline {A.1.2}Bowtie2}{65}{subsection.A.1.2}% 
+\contentsline {section}{\numberline {A.2}Doporu\IeC {\v c}en\IeC {\'a} adres\IeC {\'a}\IeC {\v r}ov\IeC {\'a} struktura pro data}{65}{section.A.2}% 
+\contentsline {section}{\numberline {A.3}Spu\IeC {\v s}t\IeC {\v e}n\IeC {\'\i } programu}{65}{section.A.3}% 
+\contentsline {section}{\numberline {A.4}V\IeC {\'y}stupy programu}{66}{section.A.4}% 
+\contentsline {section}{\numberline {A.5}Anal\IeC {\'y}za referen\IeC {\v c}n\IeC {\'\i }ch gen\IeC {\r u}}{66}{section.A.5}% 
+\contentsline {section}{\numberline {A.6}Analyzov\IeC {\'a}n\IeC {\'\i } experiment\IeC {\r u}}{68}{section.A.6}% 
+\contentsline {section}{\numberline {A.7}Pou\IeC {\v z}\IeC {\'\i }van\IeC {\'e} soubory}{69}{section.A.7}% 
+\contentsline {chapter}{\numberline {B}Testovac\IeC {\'\i } genomy}{70}{appendix.B}% 
+\contentsline {chapter}{\numberline {C}Detailn\IeC {\'\i } v\IeC {\'y}sledky}{72}{appendix.C}% 
+\contentsline {section}{\numberline {C.1}Experiment1}{73}{section.C.1}% 
+\contentsline {section}{\numberline {C.2}Experiment2}{79}{section.C.2}% 
+\contentsline {section}{\numberline {C.3}Experiment3}{81}{section.C.3}% 
+\contentsline {subsubsection}{Uk\IeC {\'a}zky vznikl\IeC {\'y}ch cluster\IeC {\r u}}{89}{section*.58}% 
+\contentsline {section}{\numberline {C.4}V\IeC {\'y}sledky verifikace}{91}{section.C.4}% 

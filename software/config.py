@@ -8,8 +8,8 @@ IDENTIFY = True
 PRECOMPUTATION_DISTANCE = False # precomputation distance need in first time, then alwas when you change reference kirs
 
 EXP1 = True
-EXP2 = False
-EXP3 = False
+EXP2 = True
+EXP3 = True
 
 
 """ genome in python dictionary

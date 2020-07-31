@@ -353,8 +353,13 @@ def analyze_distance_gene(alels_translate_dictionary):
 
 
 def main():
-	compare_gen_and_nuc_first()
-	count_levenhstein_distance()
+	#compare_gen_and_nuc_first()
+	#count_levenhstein_distance()  # musi byt odkomentovane a pridat nekam prepinac na true a false
+
+	with open(DISTANCE_FILE_PYC, 'rb') as handle:
+		alels_distance = pickle.load(handle)	
+
+	print(alels_distance['KIR:KIR00045']['KIR:KIR00092'])
 
 	#compare_gen_and_nuc_second()
 	#exit(1)
@@ -362,9 +367,11 @@ def main():
 	#
 	#levenhstein_analyze()
 
-	get_min_max_distance()
-	alels_translate_dictionary = create_alels_translate_dictionary() 
-	analyze_distance_gene(alels_translate_dictionary)
+
+
+	#get_min_max_distance()
+	#alels_translate_dictionary = create_alels_translate_dictionary() 
+	#analyze_distance_gene(alels_translate_dictionary)
 
 	
 
