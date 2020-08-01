@@ -18,6 +18,9 @@ Warning--to sort, need author or key in ngs_alignment_software
 Warning--to sort, need author or key in galaxy
 Warning--to sort, need author or key in art_download
 Warning--to sort, need author or key in bowtie2_download
+Warning--to sort, need author or key in pysam
+Warning--to sort, need author or key in python_leve
+Warning--to sort, need author or key in matplotlib
 Warning--empty journal in NK_receptors
 Warning--empty journal in KIR_haplotypy
 Warning--empty journal in simulation_read
@@ -34,45 +37,45 @@ Warning--empty journal in ipd_database
 Warning--empty journal in imgt_hla_database
 Warning--empty journal in KIR_img_princip
 Warning--empty publisher in en_smith
-You've used 36 entries,
+You've used 40 entries,
             2898 wiz_defined-function locations,
-            784 strings with 10918 characters,
-and the built_in function-call counts, 12691 in all, are:
-= -- 1288
-> -- 650
+            802 strings with 11324 characters,
+and the built_in function-call counts, 13825 in all, are:
+= -- 1428
+> -- 681
 < -- 12
-+ -- 228
-- -- 192
-* -- 1035
-:= -- 1979
-add.period$ -- 126
-call.type$ -- 36
-change.case$ -- 117
-chr.to.int$ -- 36
-cite$ -- 110
-duplicate$ -- 603
-empty$ -- 918
-format.name$ -- 269
-if$ -- 2675
++ -- 241
+- -- 201
+* -- 1135
+:= -- 2135
+add.period$ -- 137
+call.type$ -- 40
+change.case$ -- 124
+chr.to.int$ -- 40
+cite$ -- 124
+duplicate$ -- 654
+empty$ -- 1005
+format.name$ -- 282
+if$ -- 2932
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 63
-newline$ -- 194
-num.names$ -- 117
-pop$ -- 358
+missing$ -- 73
+newline$ -- 212
+num.names$ -- 122
+pop$ -- 379
 preamble$ -- 1
-purify$ -- 117
+purify$ -- 124
 quote$ -- 0
-skip$ -- 478
+skip$ -- 521
 stack$ -- 0
-substring$ -- 110
-swap$ -- 60
+substring$ -- 142
+swap$ -- 68
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 386
-warning$ -- 27
-while$ -- 69
+type$ -- 430
+warning$ -- 30
+while$ -- 73
 width$ -- 0
-write$ -- 435
-(There were 29 warnings)
+write$ -- 477
+(There were 32 warnings)

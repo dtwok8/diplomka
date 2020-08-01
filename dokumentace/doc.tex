@@ -421,7 +421,7 @@ V případě že backtracking mechanismus není úspěšný, může docházet k 
 Pro každý read
 \begin{enumerate}
 	\item Extrahování seedu (podřetězce readů) z readu a jeho převráceného doplňku. 
-	\item Seedy jsou zarovnány na refrenci v bezmezerovém modelu za pomocí full-text minute indexu. Čísla v závorkách značí rozsah řádků v Burrows Wheeler matici, kam byl seed zarovnán.
+	\item Seedy jsou zarovnány na referenci v bezmezerovém modelu za pomocí full-text minute indexu. Čísla v závorkách značí rozsah řádků v Burrows Wheeler matici, kam byl seed zarovnán.
 	\item Seedy jsou seřazeny podle offsetu na referenčním genomu. 
 	\item Ready jsou zarovnány. Díky předchozím krokům je značně omezen prostor, kam mohou být zarovnány. Pro zvýšení výkonu je použito SIMD (accelerated dynamic programming).
 \end{enumerate}
@@ -505,16 +505,16 @@ Levenshteinova vzdálenost zjišťuje rozdílnost dvou textů na základě počt
 
 \chapter{Implementace}
 \section{Popis problému}
-Hlavním úkolem navrhnutého nástroje je určit alely, které představují ready ze sekvenátoru. Jednou z výzev je že alela může být dlouhá až téměř 16 000 bp. Získané ready jsou ale dlouhé jen 250 bp a navíc mohou obsahovat chyby (záměna bází, chybějící báze nebo báze navíc). 
+Hlavním úkolem navrhnutého nástroje je určit alely, které představují ready ze sekvenátoru. Jednou z výzev je, že alela může být dlouhá až téměř 16 000 bp. Získané ready jsou ale dlouhé jen 250 bp a navíc mohou obsahovat chyby (záměna bází, chybějící báze nebo báze navíc). 
 
 \section{Referenční geny}
-Referenční geny byly převzaty z IPD-KIR \cite{imgt_hla_database} konkrétně soubory ve formátu \textit{fasta} uloženy ve stejnojmené složce. Jednotlivé soubory jsou pojmenovány genem, který obsahují např. \textit{KIR2DL1\_gen.fasta}. Každý soubor představuje všechny dostupné alely konkrétního genu. Jedinou vyjímku tvoří soubory \textit{KIR\_gen.*}, které obsahují všechny geny a navíc i pseudogeny. 
+Referenční geny byly převzaty z IPD-KIR \cite{imgt_hla_database}, konkrétně soubory ve formátu \textit{fasta} uloženy ve stejnojmené složce. Jednotlivé soubory jsou pojmenovány genem, který obsahují, např. \textit{KIR2DL1\_gen.fasta}. Každý soubor představuje všechny dostupné alely konkrétního genu. Jedinou výjimku tvoří soubory \textit{KIR\_gen.fasta} či \textit{KIR\_nuc.fasta}, které obsahují všechny geny, a navíc i pseudogeny. 
 \\
 \\
-Kromě souborů \textit{*\_gen.fasta} obsahuje složka \textit{fasta} také soubory \textit{*\_prot.fast} a \textit{*\_nuc.fasta}. Soubor \textit{\_gen.fasta} obsahuje informace o celých genech. Oproti tomu \textit{\_nuc.fasta} obsahuje nucleotidy, tedy pouze exony bez intronů. Soubor \textit{*\_prot.fast} obsahuje sekvence proteinů, které vznikly z RNA. Data získaná z nemocnice budou odpovídat alelam uvedených v \textit{\_gen.fasta}. V práci bude jako reference použit soubor $\_gen$.
+Kromě souborů \textit{*\_gen.fasta} obsahuje složka \textit{fasta} také soubory \textit{*\_prot.fast} a \textit{*\_nuc.fasta}. Soubor \textit{\_gen.fasta} obsahuje informace o celých genech. Oproti tomu \textit{\_nuc.fasta} obsahuje nukleotidy, tedy pouze exony bez intronů. Soubor \textit{*\_prot.fast} obsahuje sekvence proteinů, které vznikly z RNA. Data získaná z nemocnice budou odpovídat alelám uvedených v \textit{\_gen.fasta}. V práci bude jako reference použit soubor $\_gen$.
 \\
 \\
-Při analýze porovnávání souboru \textit{nuc} a \textit{gen} bylo zjištěno, že v souboru \textit{nuc} je více alel než v souboru \textit{gen}. Konkrétně v souboru \textit{gen} je 461 alel a v souboru \textit{nuc} je 1109 alel. Tento údaj  mimo jiné dokazuje, že nejsou přístupné referenční sekvence ke všem realným alelám. Nejmenší Levenshteinova vzdálenost mezi alelami je 1, největší 15 943 a průměrná 4768.98. 
+Při analýze porovnávání souboru \textit{nuc} a \textit{gen} bylo zjištěno, že v souboru \textit{nuc} je více alel než v souboru \textit{gen}. Konkrétně v souboru \textit{gen} je 461 alel a v souboru \textit{nuc} je 1109 alel. Tento údaj  mimo jiné dokazuje, že nejsou přístupné referenční sekvence ke všem reálným alelám. Nejmenší Levenshteinova vzdálenost mezi alelami je 1, největší 15 943 a průměrná 4768.98. 
 \\
 \\
 Na následujícím obrázku je možné vidět všechny vzdálenosti ostatních alel ve skupinkách podle genů vzhledem k alele 3DS1*0130101. Je možné si povšimnout, že nejblíže má k alelám ze stejného genu.
@@ -534,18 +534,18 @@ Následující obrázek zobrazuje vzdálenosti pouze v rámci genu 3DS1 opět k 
 \end{figure}
 
 \section{Testovací KIR genomy}
-Genomy, na kterých byl nástroj testován byly dodány vedoucí práce a vychází ze známých genotypů KIR - Genotype Reference List uvedený v \cite{kir_genotypes_10}. Genomy test1 - test11 byly sestaveny podle definovaných genotypů a umýslně vybrány ty které představují určitým způsobem výzvu pro navrhnutý nástroj. Přesný obsah testovacích genomů je uveden v příloze.
+Genomy, na kterých byl nástroj testován, byly dodány vedoucí práce a vychází ze známých genotypů KIR - Genotype Reference List uvedených v \cite{kir_genotypes_10}. Genomy test1 - test11 byly sestaveny podle definovaných genotypů a umýslně vybrány, ty které představují určitým způsobem výzvu pro navrhnutý nástroj. Přesný obsah testovacích genomů je uveden v příloze.
 
 
 
 \section{Návrh systému}
-Systém byl navržen jako modulární, díky tomu je možná jednoduchá náhrada jakékoliv jeho části. 
+Systém byl navržen jako modulární, díky čemuž je možná jednoduchá náhrada jakékoliv jeho části. 
 \\
 \\ 
-Vše začíná získáním readů pro která má být vyhodnoceno, které KIR alely představují. Buď je možné dostat přímo data z FN Plzeň/BC LF UK Plzeň. To jsou data na kterých bude prováděna verifikace nástroje. Druhou možností je ready simulovat. Na těchto datech byl nástroj vyvíjen a laděn. Genom může být vyroben manuálně nebo ho lze vyrobit za pomoci skriptu. V dalším kroku musí být vytvořený genom "rozbit" do podoby jako by vyšel ze sekvenátoru. Rozdělí se na ready a vytvoří s v něm chyby, aby data co nejvíce odpovídali reálným. To se provádí za pomoci nástroje ART.
+Vše začíná získáním readů, pro něž má být vyhodnoceno, jaké KIR alely představují. První možností je použít data přímo z FN Plzeň/BC LF UK Plzeň. Tyto data představují ready, na kterých bude prováděna verifikace nástroje. Druhou možností je ready simulovat. Na těchto datech byl nástroj vyvíjen a laděn. Genom může být vyroben manuálně nebo ho lze vyrobit za pomoci skriptu. V dalším kroku musí být vytvořený genom "rozbit" \space do podoby, jako by vyšel ze sekvenátoru. Rozdělí se na ready a vytvoří se v něm chyby, aby data co nejvíce odpovídala reálným. To se provádí za pomoci nástroje ART.
 \\
 \\
-V následující části jsou získaná data, tedy ready, zarovnána na referenční genom pomocí nástroje Bowtie2. Nakonec je zarovnání vyhodnoceno a rozpoznáno o jaké alely genů se pravděpodoně jedná. Vyhodnocení je rozděleno do několika experimentů.
+V následující části jsou získaná data, tedy ready, zarovnána na referenční genom pomocí nástroje Bowtie2. Nakonec je zarovnání vyhodnoceno a rozpoznáno, o jaké alely genů se pravděpodobně jedná. Vyhodnocení je rozděleno do několika experimentů.
 
 \begin{figure}[H]
 		\centering
@@ -555,29 +555,29 @@ V následující části jsou získaná data, tedy ready, zarovnána na referen�
 \end{figure}
 
 \subsection{Použité programové prostředky}
-\subsubsection{Python}
-Program byl navržen a implementován na operačním systému Linux za použití především programovacího jazyku Python. Tento jazyk byl zvolen z důvodu jednoduchého použití, díky čemuž nebyl vývoj prototypů časově náročný. Pro spuštění programu je nutné mít nainstalovaný Python ve verzi 3.8, nástroj ART ve verzi MountRainier, Bowtie 2 ve verzi 2.4.1. Dále byli použity python knihovny pysam ve verzi 0.14, python-Levenshtein a matplotlib. Pysam je modul do pythonu, který pomáhá číst a manipulovat s výstupními soubory ze zarovnávačů.
+Program byl navržen a implementován na operačním systému Linux za použití programovacího jazyka Python. Tento jazyk byl zvolen z důvodu jednoduchého použití, díky čemuž nebyl vývoj prototypů časově náročný. Pro spuštění programu je nutné mít nainstalovaný Python ve verzi 3.8, nástroj ART ve verzi MountRainier, Bowtie 2 ve verzi 2.4.1. Dále byly použity Python knihovny pysam ve verzi 0.14, python-Levenshtein a Matplotlib. Pysam je modul do Pythonu, který pomáhá číst a manipulovat s výstupními soubory ze zarovnávačů.
 
 \section{Modulové jednotky programu}
-Vše potřebné pro samotný běh programu obstarává skript $run.py$ spolu s nastavením v souboru $config.py$. Skript $run.py$ postupně pouští jednotlivé moduly. Díky nastavení v $config.py$ je možné si zvolit spuštění jen některých modulů. Například pouhé vytvoření testovacích dat nebo pouze jejich zarovnání a v neposlední řádě pouštět vyhodnocování zarovnávaných dat.
+Vše potřebné pro samotný běh programu obstarává skript $run.py$ spolu s nastavením v souboru $config.py$. Skript $run.py$ postupně pouští jednotlivé moduly. Díky nastavení v $config.py$ je možné si zvolit spuštění jen některých modulů. Například pouhé vytvoření testovacích dat nebo pouze jejich zarovnání, a v neposlední řádě spouštění vyhodnocování zarovnávaných dat.
 
 \subsection{Config}
-S konfiguračním souborem \textit{config.py} jsou spojeny všechny skripty a obsahuje jejich veškerá nastavení. Jak již bylo zmíněno je možné pomocí tohoto nastavení spustit jednotlivé moduly. Jedná se především o položky \textit{CREATE\_READS}, která udržuje informaci o spuštění vytvoření syntetických readů. \textit{ALIGN} starající se o spuštění zarovnání a \textit{EVALUATE}, která řídí spuštění vyhodnocení zarovnání. Důležitou položkou v configu jsou cesty ke zdrojovým a výstupním složkám. Dalším nastavením je obsah genomů při případném vygenerování testovacích dat.
+S konfiguračním souborem \textit{config.py} jsou spojeny všechny skripty a obsahuje jejich veškerá nastavení. Jak již bylo zmíněno, je možné pomocí tohoto nastavení spustit jednotlivé moduly. Jedná se především o položky \textit{CREATE\_READS}, \textit{ALIGN} a \textit{IDENTIFY}. \textit{CREATE\_READS} udržuje informaci o spuštění vytvoření syntetických readů. \textit{ALIGN} se stará o spuštění zarovnání. V neposlední řadě \textit{IDENTIFY}, která řídí spuštění vyhodnocení zarovnání. V případě nastavené hodnoty \textit{IDENTIFY} na \textit{True} je možné řídit spouštění experimentů (položky \textit{EXP1}, \textit{EXP2} a \textit{EXP3}). Důležitou položkou v configu jsou cesty ke zdrojovým a výstupním složkám. Dalším nastavením je obsah genomů při případném vygenerování testovacích dat.
+
 
 \subsection{Simulování dat}
-O simulování dat se stará skript \textit{create\_syntetic\_reads.py} a je rozděleno na dva kroky: vytvoření genomů a vytvoření readů. Mezi těmito dvěma fázemi vzniká soubory s příponou \textit{.fa}. Každý tento soubor obsahuje právě jeden KIR genom. Tyto genomy jsou následně použíty jako vstupní soubor pro vytvoření readů, které se provádí za pomocí nástroje ART. Pro vytvoření genomů je volán skript \textit{create\_genome.py}, který vytvoří genomy na základě nastavení v configu pod položkou \textit{GENOMES} a za pomoci referenčních genů v souboru pod položkou v configu \textit{REFERENCE\_KIR\_GENS\_FILE}. Vytvoření probíhá obdobně jako je popsáno níže u ručního vytvoření testovacího genomu. Výsledné genomy jsou uloženy do adresáře z configu \textit{GENOME\_FOLDER}. Výstupem modulu \textit{create\_syntetic\_reads} je soubor s příponou \textit{.fq}, který by měl odpovídát formátu reaálných dat které byly dodány. Výstupní soubory jsou uloženy do složky pod proměnnou \textit{READS\_FOLDER}.
+O simulování dat se stará skript \textit{create\_syntetic\_reads.py}, přičemž toto simulování je rozděleno na dva kroky: vytvoření genomů a vytvoření readů. Mezi těmito dvěma fázemi vznikají soubory s příponou \textit{.fa}. Každý tento soubor obsahuje právě jeden KIR genom. Tyto genomy jsou následně použity jako vstupní soubor pro vytvoření readů, které se provádí za pomocí nástroje ART. Pro vytvoření genomů je volán skript \textit{create\_genome.py}, který vytvoří genomy na základě nastavení v configu pod položkou \textit{GENOMES} a za pomoci referenčních genů v souboru pod položkou v configu \textit{REFERENCE\_KIR\_GENS\_FILE}. Vytvoření probíhá obdobně jako je popsáno níže u manuálního vytvoření testovacího genomu. Výsledné genomy jsou uloženy do adresáře z configu \textit{GENOME\_FOLDER}. Výstupem modulu \textit{create\_syntetic\_reads} je soubor s příponou \textit{.fq}, který by měl odpovídát formátu reálných dat, které byly dodány. Výstupní soubory jsou uloženy do složky pod proměnnou \textit{READS\_FOLDER}.
 \\
 \\
-\textbf{Ruční vytvoření testovacího genomu} lze udělat následujícím způsobem. V prvním kroku je v referenčním souboru vybrána konkrétní alela genu. Někdy je možné najít shodu kdy se alely liší jen v konečné fazí jejich označení a v genomu je pouze první 5 čísel. V tomto případě může být vložena jakákoli z těchto alel. Vkladaná alela musí být vložena včetně její hlavičky tedy: \textit{>KIR:KIR00138 \: KIR3DL3*0040201 \: 12390 \: bp}.
+\textbf{Manuální vytvoření testovacího genomu} lze provést následujícím způsobem. V prvním kroku je v referenčním souboru vybrána konkrétní alela genu. Někdy je možné najít takovou shodu, kdy se alely liší jen v konečné části jejich označení a v genomu je pouze prvních 5 čísel. V tomto případě může být vložena jakákoli z těchto alel. Vkládaná alela musí být vložena včetně její hlavičky tedy: \textit{>KIR:KIR00138 \: KIR3DL3*0040201 \: 12390 \: bp}.
 
 \subsection{Zarovnání vzhledem k referenčním genům}
-Zarovnávání obstarává skript \textit{alignment\_reads\_to\_reference.py} s pomocí nástroje Bowtie2. V nastavení je nutné vyplnit \textit{BOWTIE\_HOME\_DIRECTORY} podle umístění nástroje Bowtie na konkrétním počítači. V prvním kroku jsou vytvořeny Bowtie indexy, které je možné použít na příč běhy, proto je v nastavení položka \textit{BOWTIE\_BUIL\_INDEX}, díky které je možné toto vytvoření povolit nebo zakázat. Bez vytvořených indexů, tedy indexů z minulých běhů, ale Bowtie nebude zarovnávat. Bowtie vytváří indexy na základě obsahu souboru \textit{REFERENCE\_KIR\_GENS\_FILE}. V dalším kroku jsou načteny všechny ready ze složky uvedené v \textit{READS\_FOLDER} a nasledně je na ně puštěn nástroj Bowtie. Tady je nutné aby byli ready paired end a to tedy aby se vyskytovali dvakrát jednou z \textit{1} na konci a podruhé s \textit{2}. V základu tento předpoklad zajistí správné nastavení ARTU, který je takto nastaven. Výstupní soubory jsou ve formátu \textit{.sam} a jsou umístěny dle položky \textit{ALIGMENT\_FOLDER} v nastavení. 
+Zarovnávání obstarává skript \textit{alignment\_reads\_to\_reference.py} s pomocí nástroje Bowtie2. V souboru \textit{config.py} je nutné vyplnit položku \textit{BOWTIE\_} \\ \textit{HOME\_DIRECTORY} podle umístění nástroje Bowtie na konkrétním počítači. V prvním kroku jsou vytvořeny Bowtie2 indexy, které je možné použít napříč běhy, proto je v nastavení položka \textit{BOWTIE\_BUIL\_INDEX}, díky které je možné toto vytvoření povolit nebo zakázat. Bez vytvořených indexů, tedy indexů z minulých běhů, ale Bowtie2 nebude zarovnávat. Bowtie2 vytváří indexy na základě obsahu souboru \textit{REFERENCE\_KIR\_GENS\_FILE}. V dalším kroku jsou načteny všechny ready ze složky v \textit{READS\_FOLDER} a nasledně jsou zarovnány nástrojem Bowtie2. Tady je nutné, aby byly ready paired-end, tedy aby se vyskytovaly dvakrát, příčemž jednou s \textit{1} na konci a podruhé s \textit{2}. Tento předpoklad zajistí správné nastavení ARTU, který je takto nastaven. Výstupní soubory jsou ve formátu \textit{.sam} a jsou umístěny dle položky \textit{ALIGMENT\_FOLDER} v nastavení. 
 
 \subsection{Přístupy k identifikaci alel}
 Detailní výsledky pro všechny genotypy je možné najít v příloze. V následující teoretické části jsou uvedeny vždy simulované genomy.
 
 \subsubsection{Experiment 1}
-Jako první pokus o určení alel, které by mohli být obsaženy v genomu bylo pouhé oříznutí alel, které by měli větší procentuální šířku zarovnání (například 90\%).  V případě buněčné linie AMALA, která byla simulována nástrojem ART a která obsahuje 19 alel je výsledek zobrazen níže. Červeně jsou označený alely, které se v genomu skutečně nacházejí, číslo v závorce udává jejich procentuální pokrytí. Pravděpodobným důvodem proč jsou alely, které do genomu nepatří tak vysoké zarovnání je jejich podobnost. Například alely 2DS4*0010101 a 2DS4*0010102 jejich vzdálenost je 2. Z toho lze logicky usoudit, že na alelu 2DS4*0010102 se zarovnaly některé z readů alely 2DS4*0010101.
+Jako první pokus o určení alel, které by mohly být obsaženy v genomu, bylo pouhé oříznutí alel, které by měly větší procentuální šířku zarovnání (například 90 \%).  V případě buněčné linie AMALA, která byla simulována nástrojem ART a která obsahuje 19 alel, je výsledek zobrazen níže. Červeně jsou označený alely, které se v genomu skutečně nacházejí a číslo v závorce udává jejich procentuální pokrytí. Pravděpodobným důvodem proč mají alely, které do genomu nepatří tak vysoké zarovnání, je jejich podobnost. Například alely 2DS4*0010101 a 2DS4*0010102 jejiž vzdálenost je 2. Z toho lze logicky usoudit, že na alelu 2DS4*0010102 se zarovnaly některé z readů alely 2DS4*0010101.
 
 \begin{multicols}{2}
 \begin{itemize}
@@ -605,7 +605,7 @@ Jako první pokus o určení alel, které by mohli být obsaženy v genomu bylo 
 \end{multicols}
 
 \noindent
-Následovně jsou uvedeny alely, které do genomu patří, mají pokrytí více než 90\%, ale nejsou v prvních 19.
+Následně jsou uvedeny alely, které do genomu patří, mají pokrytí více než 90 \%, ale nejsou v prvních 19.
 \begin{multicols}{2}
 \begin{itemize}
 	\itemsep0em
@@ -620,7 +620,7 @@ Následovně jsou uvedeny alely, které do genomu patří, mají pokrytí více 
 
 
 \noindent
-Nakonec jsou uvedené alely, které do genomu patří, ale mají pokrytí menší než 90\%. Po tomto zjištění se nabízí pokusit se snížit požadované zarovnání na 70 \% a přidat další upřesnující kroky.
+Nakonec jsou uvedené alely, které do genomu patří, ale mají pokrytí menší než 90 \%. Po tomto zjištění se nabízí pokusit se snížit požadované zarovnání na 70 \% a přidat další upřesnující kroky.
 
 \begin{multicols}{2}
 \begin{itemize}
@@ -631,7 +631,7 @@ Nakonec jsou uvedené alely, které do genomu patří, ale mají pokrytí menš�
 \end{multicols}
 
 \noindent
-Ná následujícím obrázku jsou zobrazeny všechny alely genu KIR3DS1 a jeich zarovnání. Červeně je označena alela, která do genomu AMALA patří. Je možné si povšimnout, že alela s největším pokrytím do genomu nepatři. Navíc pokrytí větší než 90\% mají všechny alely až na jednu. Neméně důležitá část je, že poslední alela má značně kratší délku než všechny ostatní alely stejného genu. Poslední věcí je hloubka pokrytí, která díky nastavení sekvenátoru by měla odpovídat hladině 100 u alely, která do genu patří. Jak je vidět z obrázku hloubka pokrytí se u většiny alel pohybuje v extrémech kolem 20. Z toho lze odvodit, že ready alely 3DS1*0130101 byly pravděpodobně rozděleny mezi všechny alely tohoto genu.
+Ná následujícím obrázku jsou zobrazeny všechny alely genu KIR3DS1 a jeich zarovnání. Červeně je označena alela, která do genomu AMALA patří. Je možné si povšimnout, že alela s největším pokrytím do genomu nepatří. Navíc pokrytí větší než 90 \% mají všechny alely až na jednu. Neméně důležité je, že poslední alela má značně kratší délku než všechny ostatní alely stejného genu. Poslední věcí je hloubka pokrytí, která by díky nastavení sekvenátoru měla odpovídat hladině 100 u alely, která do genu patří. Jak je vidět z obrázku, hloubka pokrytí se u většiny alel pohybuje v extrémech kolem 20. Z toho lze odvodit, že ready alely 3DS1*0130101 byly pravděpodobně rozděleny mezi všechny alely tohoto genu.
 
 \begin{figure}[H]
     \centering
@@ -640,7 +640,7 @@ Ná následujícím obrázku jsou zobrazeny všechny alely genu KIR3DS1 a jeich 
 \end{figure}
 
 \noindent
-Všechny vyše uvedené analýzy navádí na bližší prozkoumání podobnosti alel. Níže jsou uvedeny grafy Levenshteinovy vzdálenosti ostatních alel stejného genu vzhledem k alele 3DS1*0130101, tedy té která je obsažena v genomu.
+Všechny výše uvedené analýzy vybízí k bližšímu prozkoumání podobnosti alel. Níže jsou uvedeny grafy Levenshteinovy vzdálenosti ostatních alel stejného genu vzhledem k alele 3DS1*0130101, tedy té, která je obsažena v genomu.
 
 \begin{figure}[H]
 	\centering
@@ -655,10 +655,10 @@ Všechny vyše uvedené analýzy navádí na bližší prozkoumání podobnosti 
 \end{figure}
  
 \noindent
-Z předchozích obrázků je vidět, že 3 alely, jsou vzálené v rámci jednotek, 9 alel je vzdálených kolem 500 a jen jedna alela je více rozdílná, což pravděpodobně způsobuje to, že je kratší. Přichází tedy na řadu otázka jak určit, které alely jsou si až moc podobné a pak z nich rozhodnout kterou odstranit. Vzdálenost kdy jsou alely blízké je možné nastavit v configu. Dále je porovnáváno jejich pokrytí v místech kde jsou rozdílné. Pokud je hloubka pokrytí jedné alely 2krát větší než hloubka pokrytí druhé alely je druhá alela odstřižena.
+Z předchozích obrázků je patrné, že 3 alely jsou vzdálené v rámci jednotek, 9 alel je vzdálených kolem 500 a jen jedna alela je vzdálená více, což pravděpodobně způsobuje to, že je kratší. Přichází tedy na řadu otázka, jak určit, které alely jsou si až moc podobné, a pak rozhodnout, kterou z nich odstranit. Vzdálenost, kdy jsou si alely blízké je možné nastavit v configu pod položkou \textit{CLOSE\_DISTANCE}. Dále je porovnáváno jejich pokrytí v místech, kde jsou rozdílné. Pokud je hloubka pokrytí jedné alely 2krát větší než hloubka pokrytí druhé alely, je druhá alela odstřižena.
 \\
 \\
-V níže uvedené tabulce je uvedeno porovnání výsledků požadovaného pokrytí 90 \% a 70 \% u genomu AMALA. Za blízké byly alely považovány v případě vzdálenosti menší než 100. Genom AMALA obsahuje celkem 19 alel a žádná z nich se neopakuje. Krok 1 je pouze statistika prvního zarovnání. Obsahuje všechny alely které jsou v referenci. Celkově je v referenci 461 alel. Pouze dva geny se ze všech genů uvedených v referenčmí sekvenci nenacházejí tomto genomu. Krok 2 je po odstřižení alel, které mají pokrytí menší než 90 \% případně 70 \%. V posledním kroku 3 jsou uvedené výsledky po odstřížení podobných. 
+V tabulce níže je uvedeno porovnání výsledků požadovaného pokrytí 90 \% a 70 \% u genomu AMALA. Za blízké byly alely považovány v případě vzdálenosti menší než 100. Genom AMALA obsahuje celkem 19 alel a žádná z nich se neopakuje. Krok 1 je pouze statistika prvního zarovnání. Obsahuje všechny alely, které jsou v referenci. Celkově je v referenci 461 alel. Pouze dva geny ze všech genů uvedených v referenčmí sekvenci se nenacházejí v tomto genomu. Krok 2 je po odstřižení alel, které mají pokrytí menší než 90 \%, případně 70 \%. V posledním kroku 3 jsou uvedené výsledky po odstřižení podobných. 
 \\
 \\
 \begin{center}
@@ -673,7 +673,7 @@ V níže uvedené tabulce je uvedeno porovnání výsledků požadovaného pokry
 
 \Gape[0pt][2pt]{\makecell[c]{amala \\ pokrytí \\ 70 \%}} \% & 461 & 193 & 0 &  -  & 0 &  -  & 41 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL4*0010201 \\ 3DP1*0090101}} & 0 &  -  \\ 
 \end{tabular}
-\captionof{table}{Výsledky experimentu 1 u genomu AMALA. Odřezány byly alely, které měli pokrytí menší než 90\%. Alel u genomu značí počet v daném genomu. Číslo v závorkách udává kolik alel je v daném genomu dvakrát. V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genomu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
+\captionof{table}{Výsledky experimentu 1 u genomu AMALA. Odřezány byly alely, které měly pokrytí menší než 90 \%. \textit{Alel} u genomu značí počet v daném genomu. Číslo v závorkách udává, kolik alel je v daném genomu dvakrát. V každém kroku \textit{zbývá alel} je kolik alel ještě zůstalo ve výběru, \textit{ztraceno} určuje kolik alel má být v genomu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely, které byly ztraceny. V dalších krocích jsou vypsány alely bez těch, které už byly ztraceny v předchozích krocích. Obdobně je to s \textit{geny navíc}, které udávají počet a druh genů již neobsahujích žádnou z alel, která náleží do daného genomu. }
 \end{center}
 
 \noindent
@@ -689,11 +689,11 @@ Ve výsledků v příloze jistě zaujme genom Test7, který ztratil 7 alel v rá
 \hline
 461 & 0 &  -  & 8 & \Gape[0pt][2pt]{\makecell[l]{2DS1 \\ 3DS1 \\ 2DL2 \\ 2DL5B \\ 2DS2 \\ 2DS3 \\ 2DL5A \\ 2DS5}} & 188 & 0 &  -  & 0 &  -  & 24 & 7 & \Gape[0pt][2pt]{\makecell[l]{2DL4*0010201 \\ 3DL1*0150203 \\ 2DL3*0010103 \\ 2DP1*0020106 \\ 2DS4*0010107 \\ 3DL3*0090103 \\ 2DL1*0030205}} & 0 &  -
 \end{tabular}
-\captionof{table}{Výsledky experimentu 1 u genomu Test7. Odřezány byly alely, které měli pokrytí menší než 70\%. Alel u genomu značí počet v daném genomu. Číslo v závorkách udává kolik alel je v daném genomu dvakrát. V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genomu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu.  }
+\captionof{table}{Výsledky experimentu 1 u genomu Test7. Odřezány byly alely, které měly pokrytí menší než 70 \%. \textit{Alel} u genomu značí počet v daném genomu. Číslo v závorkách udává kolik alel je v daném genomu dvakrát. V každém kroku \textit{zbývá alel} je kolik alel ještě zůstalo ve výběru, \textit{ztraceno} určuje kolik alel má být v genomu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely, které byly ztraceny. V dalších krocích jsou vypsány alely bez těch, které už byly ztraceny v předchozích krocích. Obdobně je to s \textit{geny navíc}, které udávají počet a druh genů již neobsahující žádnou z alel, která náleží do daného genomu.  }
 \end{center}
 
 \noindent
-Jedna ze smazaných alel je i 2DL4*0010201, která byla smazána kvůli alele KIR2DL4*0010305, která do genomu také patří. Vzdálenost mezi těmito alelami je 10. Suma hloubky pokrytí alely KIR2DL4*0010201 v místě, kde se alely neshodují je 63, U alely KIR2DL4*0010305 je to 154. 
+Jednou ze smazaných alel je i 2DL4*0010201, která byla smazána kvůli alele KIR2DL4*0010305, taktéž patřící do genomu. Vzdálenost mezi těmito alelami je 10. Suma hloubky pokrytí alely KIR2DL4*0010201 v místě kde se alely neshodují je 63. U alely KIR2DL4*0010305 je to 154. 
 
 
 \begin{figure}[H]
@@ -709,17 +709,17 @@ Jedna ze smazaných alel je i 2DL4*0010201, která byla smazána kvůli alele KI
 \end{figure}
 
 \noindent
-Po alyzování všech smazaných alel se ukázalo, že všechny byli smazany kvůli alele, která do genomu také patří.
+Po analyzování všech smazaných alel se ukázalo, že všechny byly smazány kvůli alele, která do genomu také patří.
 
 \subsubsection{Experiment 2}
-Experiment2 byl navržen s iterační zarovnávání. Mělo by pak být v dalších krocích jasnější, která alela do genomu skutečně patří a která ne, díky tomu, že ready zarovnáné na odstřižené alely by se měli zarovnat na alely, které zbývají a tak podpořit alely které do genomu patří. 
+Experiment 2 byl navržen tak, aby zarovnávání probíhalo ve více iterací. Mělo by pak být v dalších krocích jasnější, která alela do genomu skutečně patří a která ne, díky tomu, že ready zarovnané na odstřižené alely by se měly zarovnat na alely, které zbývají, a tak podpořit alely patřící do genomu. 
 \\
 \\
-V první fázi se provede zarovnání na celou KIR referenci. V kroku 1 je vytvořena statistika obdobně jako v prvním experimentu a odstřiženy alely, které mají menší pokrytí než $CUT\_COVERAGE\_ALELS$, které je uvedené v $configu$. Ze zbylích alel je vytvořená nová reference na kterou je provedeno nové zarovnání readů. Opět je vytvořena statistika. Výsledky této statistiky nalezneme pod krokem 2. Následuje krok 3 v němž soutěží podobné alely v rámci jednoho genu. Podobnost alel se bere na základě Levenshteinové vzdálenosti. Alely jsou si podobné v případě, kdy je jejich vzdálenost menši než vzdálenost uvedené v $configu$ pod parametrem $CLOSE\_DISTANCE$. Následuje vytvoření nové reference a nové zarovnání.  
+V první fázi se provede zarovnání na celou KIR referenci. V kroku 1 je vytvořena statistika obdobně jako v prvním experimentu a jsou odstřiženy alely, které mají menší pokrytí než $CUT\_COVERAGE\_ALELS$, které je uvedené v $configu$. Ze zbylých alel je vytvořená nová reference, na kterou je provedeno nové zarovnání readů. Opět je vytvořena statistika. Výsledky této statistiky nalezneme v kroku 2. Následuje krok 3, v němž soutěží podobné alely v rámci jednoho genu. Podobnost alel je určována na základě Levenshteinovy vzdálenosti. Alely jsou si podobné v případě, kdy je jejich vzdálenost menši než vzdálenost uvedená v $configu$ pod parametrem $CLOSE\_DISTANCE$. Následuje vytvoření nové reference a nové zarovnání.  
 
 
 \noindent
-Na následujících obrázcích je vidět alela 2DL1*0030201 genomu AMALA. První obrázek značí její zarovnání po prvním kroku. Druhý obrázek značí její zarovnání po druhém kroku. V tomto případě bylo zarovnání jednoznačně ku prospěchu.
+Na následujících obrázcích je vidět alela 2DL1*0030201 genomu AMALA. První obrázek značí její zarovnání po prvním kroku. Druhý obrázek ukazuje její zarovnání po druhém kroku. V tomto případě bylo zarovnání jednoznačně ku prospěchu.
 
 \begin{figure}[H]
 	\centering
@@ -749,7 +749,7 @@ Ovšem je možné se potkat i s alelami, kde pokrytí zarovnání klesne, jako v
 \end{figure}
 
 \noindent
-Následující tabulka zobrazuje základní porovnání mezi výsledky experimentu 1 a experimentu 2. Jak je vidět genomu AMALA více zarovnání prospělo. Bylo vyřazeno více alel, které do genomu nepatří. Naopak u genomu RSH došlo ke zhoršení výsledků.
+Následující tabulka zobrazuje základní porovnání mezi výsledky experimentu 1 a experimentu 2. Je patrné, že genomu AMALA více zarovnání prospělo. Bylo vyřazeno více alel, které do genomu nepatří. Naopak u genomu RSH došlo ke zhoršení výsledků.
 
 
 \begin{center}
@@ -767,12 +767,12 @@ rsh exp 1 & 20 (0) & 228 & 0 &  -  & 1 &  2DL5A & 40 & 2 & \Gape[0pt][2pt]{\make
 rsh exp 2 & 20 (0) & 228 & 0 &  -  & 1 & 2DL5A & 44 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DP1*0020110 \\ 2DL1*0030205}} & 1 &  -   \\ 
 
 \end{tabular}
-\captionof{table}{Porovnání experimentu 1 a experimentu 2 při stejných nastavení. Odřezány byly alely, které měli pokrytí menší než 70\%, za podobné byly alely považovány v případě, kdy byla jejich vzdálenost bližší než 100. Alel u genomu značí počet v daném genomu. Číslo v závorkách udává kolik alel je dvakrát v daném genomu.  V každém kroku zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genomu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu.  }
+\captionof{table}{Porovnání experimentu 1 a experimentu 2 při stejném nastavení. Odřezány byly alely, které měly pokrytí menší než 70 \%. Za podobné byly alely považovány v případě, kdy byla jejich vzdálenost nižší než 100. \textit{Alel} u genomu značí počet v daném genomu. Číslo v závorkách udává kolik alel je dvakrát v daném genomu.  V každém kroku \textit{zbývá alel} je kolik alel ještě zůstalo ve výběru, \textit{ztraceno} určuje kolik alel má být v genomu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely, které byly ztraceny. V dalších krocích jsou vypsány alely bez těch, které už byly ztraceny v předchozích krocích. Obdobně je to s \textit{geny navíc}, které udávají počet a druh genů již neobsahující žádnou z alel, která náleží do daného genomu.  }
 \end{center}
 
 
 \noindent
-Na následujícím obrázku je výsledek genomu AMALA genu 2DL2 po třetím kroku. Alela která do genomu patří má jasný vrchol. Tento vrchol označuje místo, kde bylo zarovnáno mnoho readů. 
+Na následujícím obrázku je výsledek genomu AMALA genu 2DL2 po třetím kroku. Alela, která do genomu patří, má jasný vrchol. Tento vrchol označuje místo, kde bylo zarovnáno mnoho readů. 
 
 \begin{figure}[H]
 	\centering
@@ -790,10 +790,10 @@ Oproti tomu u genu 3DS1 po kroku 3 jsou zbývající alely k nerozeznání.
 \end{figure}
 
 \noindent
-Proto byl vymyšlen způsob, krok 4, který odstraní alely v případě kdy sdílejí gen s alelami s jednoznačným vrcholem, ale u genů kde to neni jasné nic odstraňovat nebudou. Pro každý gen je spočítána hloubka pokrytí pro jednu alelu. Z jednoho genu jsou porovnávány každá alela s každou. Pokud alela1 má 2krát větší maximální hloubku pokrytí než alela2 a zároveň je maximální histogram alely1 2krát větší než průměrná hloubka hloubky pokrytí pro všechny alely daněho genu. Je alela2 odstraněna.
+Výsledkem kroku 4 je odstranění alel v případě, kdy sdílejí gen s alelami s jednoznačným vrcholem, ale u genů, kde to neni jasné, nic odstraňovat nebudou. Pro každý gen je spočítána hloubka pokrytí pro jednu alelu. Z jednoho genu jsou porovnávány každá alela s každou. Pokud alela1 má 2krát větší maximální hloubku pokrytí než alela2 a zároveň je maximální histogram alely1 2krát větší než průměrná hloubka pokrytí pro všechny alely daného genu, je alela2 odstraněna.
 \\
 \\
-V následující tabulce je porovnání genomu AMALA a kroku 3 a 4. Díky kroku 4 byl algortimus zpřesněno, odstraněno 19 alel které do genomu nepatří za cenu ztracení jedné alely, která do genomu patří. Jelikož v praxi je mnohem lepší alelu ztratit než určit, že se v genomu nachází alela, která tam skutečně není, dá se říci, že u tohoto genomu byl krok 4 prospěšný, stejně jako u ostatních genomů.
+V následující tabulce je porovnání genomu AMALA a kroku 3 a 4. Díky kroku 4 byl algortimus zpřesněn a odstraněno 19 alel, které do genomu nepatří za cenu ztracení jedné alely, která do genomu patří. Jelikož v praxi je mnohem lepší alelu ztratit než určit, že se v genomu nachází alela, která tam skutečně není, dá se říci, že u tohoto genomu byl krok 4 prospěšný, stejně jako u ostatních genomů.
 
 \begin{center}
 \tiny
@@ -815,17 +815,17 @@ amala & 19 (0) &  38 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL4*0010201 \\ 3DP1*009
 \end{figure}
 
 \subsubsection{Experiment 3}
-Další experiment byl založen na omezení stavového prostoru vytvořením clusterů. Alely jsou seřazeny od nejvíce pokryté po nejméně pokryté. První alela s největším pokrytí je vložená do prvho clusteru. Další alely projdou všechny clustery a pokud má alespoň jedna alela z clusteru vzdálenost s právě procházející alelou menší než $CLUSTER\_DISTANCE$ uvedené v $configu$ je alela přiřazena do tohoto clusteru. Pokud ne pokračuje v porovnávání dokud nezkontroluje všechny clustery. V případě, kde nezapadá ani do jednoho z clusterů, vytvoří nový. Následně jsou porovnány všechny alely z clusteru. Pokud alespoň jedna alela v daném clusteru má pokrytí větší než $CUT\_COVERAGE\_ALLELES$ uvedeného v $configu$, není žádná alela v daném clusteru smazána. V opačném případě jsou všechny alely z clusteru smazány. Další postup je stejný z experimentem 2. 
+Další experiment byl založen na omezení stavového prostoru vytvořením clusterů. Alely jsou seřazeny od nejvíce pokryté po nejméně pokrytou. První alela s největším pokrytím je vložená do prvního clusteru. Další alely projdou všechny clustery a pokud je vzdálenost alespoň jedné alely z clusteru a právě procházející alely menší než $CLUSTER\_DISTANCE$ uvedená v $configu$, je alela přiřazena do tohoto clusteru. Pokud ne, pokračuje v porovnávání dokud nezkontroluje všechny clustery. V případě, kde nezapadá ani do jednoho z clusterů, vytvoří nový. Následně jsou porovnány všechny alely z clusteru. Pokud alespoň jedna alela v daném clusteru má pokrytí větší než $CUT\_COVERAGE\_ALLELES$ uvedené v $configu$, není žádná alela v daném clusteru smazána. V opačném případě jsou všechny alely z clusteru smazány. Další postup je stejný s experimentem 2. 
 \\
 \\
-Výhodou tohoto postupu by mělo být zamezení smazání alel, které do genomu patří ale její ready se zarovnaly na alelu jí podobnou. 
+Výhodou tohoto přístupu by mělo být zamezení smazání alel, které do genomu patří, ale jejjichž ready se zarovnaly na alelu jí podobnou. 
 \\
 \\
-Při vzdálenosti 5 bylo vytvořeno kolem 224 clusterů může jich být o pár jednotek více nebo méně z důvodu, že alely nejdou za sebou ve stejném pořadí, ale v tom pořadí od nejvíce pokrytých po nejméně pokryté. Při vzdálenosti 10 vznikalo kolem 171 clusterů, při vzdálenosti 15 vznikalo 143 a nakonec při vzdálenosti 30 vznikalo kolem 122 clusterů. Clusteterování ve smyslu jako je navržené zde, nepřineslo očekávaná zlepšení. Je třeba se nad clustrováním alel zamyslet jinak. Z příkladů největší clusterů je možné si povšimnou, že většinou alely pocházely ze stejných genů.
+Při vzdálenosti 5 bylo vytvořeno kolem 224 clusterů, přičemž jich můžw být o pár jednotek více nebo méně z zoho důvodu, že alely nejdou za sebou ve stejném pořadí, ale v pořadí od nejvíce pokrytých po nejméně pokryté. Při vzdálenosti 10 vznikalo kolem 171 clusterů, při vzdálenosti 15 vznikalo 143, a nakonec při vzdálenosti 30 vznikalo kolem 122 clusterů. Takto navržené clusterování nepřineslo očekávaná zlepšení. Je třeba se nad clustrováním alel zamyslet jinak. Na příkladech clusterů uvedených v příloze je si povšimnou, že většinou alely pocházely ze stejných genů.
 
 
 \subsubsection{Návrh na experiment 4}
-Hlavní důvod proč se vytváři clustery je protože si alely mezi sebou "kradou" ready. Možným vylepšením clusterů by mohlo být dát dohromady ty alely, které mají minimální rozdíl v 250 dlouhém useku oproti jiné (protože ready jsou dlouhé 250bp). Následně si pak mohlou vyhledat kolik takových úseků má jedna alela s jinou. Problémem tohoto návrhu bude výpočetní náročnost.
+Clustery se vytváří zejména z toho důvodu, že si alely mezi sebou "kradou" ready. Možným vylepšením clusterů by mohlo být dát dohromady ty alely, které mají minimální rozdíl v 250 dlouhém useku oproti jiné (protože ready jsou dlouhé 250bp). Následně si pak mohlou vyhledat kolik takových úseků má jedna alela společných s jinou. Problémem tohoto návrhu bude výpočetní náročnost.
  
 
 \chapter{Porovnání přístupů k identifikaci a parametrů}
@@ -839,7 +839,7 @@ Porovnání jednotlivých přístupů probíhalo pomocí přesnosti (precision) 
 \end{center}
 
 \noindent
-Díky přesnosti je možné odhadnout jak moc jsou výsledky relevantní. Naopak pomocí úplnosti je možné odhadnout kolik skutečně relevantních výsledků bylo přiřazeno. Při převyšující úplnosti bylo získáno mnoho alel, ale mnoho jich do genomu nepatři. Naopak při převyšující přesnosti nad úplností je většina vybraných alel v genomu ale mnoho jich bylo ztraceno. V případěch klasických klasifikátorů je snaha balancovat přístup tak, aby obě hodnoty dosahovali co nevyjvýšších procent. V tomto případě ovšem je ovšem mnohohem horší varianta identifikovat alelu která do genomu nepatří, než neurčit alelu, která do genomu patří. Proto je přesnost důležitějším parametrem než úplnost. V každém případě je jistě nápomocné pokud je o možných výskytech alespoň nějaká informace, i kdyby to znamenalo snížit úroveň rozlišení. To by znamenalo v případě nerozhodnosti mezi 3DS1*0130101 a 3DS1*0130109, říci že tam je jedna z alel na úroveň 3DS1*01301. 
+Díky přesnosti je možné odhadnout jak moc jsou výsledky relevantní. Naopak pomocí úplnosti je možné odhadnout kolik skutečně relevantních výsledků bylo přiřazeno. Při převyšující úplnosti bylo získáno mnoho alel, ale mnoho jich do genomu nepatří. Naopak pokud přesnost převyšuje úplnost, tak většina vybraných alel do genomu patří, ale mnoho jich bylo ztraceno. V případě klasických klasifikátorů je snaha balancovat přístup tak, aby obě hodnoty dosahovaly co nejvýšších procent. V tomto případě je ovšem mnohem horší varianta identifikovat alelu, která do genomu nepatří, než neurčit alelu, která do genomu patří. Proto je přesnost důležitějším parametrem než úplnost. V každém případě je jistě nápomocné pokud je o možných výskytech alespoň nějaká informace, i kdyby to znamenalo snížit úroveň rozlišení. To by znamenalo v případě nerozhodnosti mezi 3DS1*0130101 a 3DS1*0130109 říci, že tam je jedna z alel na úroveň 3DS1*01301. 
 
 
 
@@ -986,7 +986,7 @@ Na následujícíh dvou grafech jsou zobrazeny všechny zbývající alely genů
 \end{figure}
 
 \noindent
-Následující tabulka zobrazuje možnost rozlišení všech alel u syntetických readů. Jak je vidět v případě genu 3DL3 lze jednoznačně prohlásit, že alely od sebe rozlišit nelze. Oproti tomu v případě genu 2DS2 a 3DL3 alely rozlišit lze. 
+Následující tabulka zobrazuje možnost rozlišení alel u syntetických readů. Jak je vidět v případě genu 3DL3 lze jednoznačně prohlásit, že alely od sebe rozlišit nelze. Oproti tomu v případě genu 2DS2 a 3DL3 alely rozlišit lze. 
 
 
 \begin{center}
@@ -1022,21 +1022,52 @@ test11 & &  &  & A - 5 &  &  &  &  &  &  &  \\
 
 
 \noindent
-V případě realných dat není možné úroveň rozlišení jednoduše určit protože biologická refrence není určena až na nejnižší úroveň, jak již bylo uvedeno v předchozí kapitole.
+V případě realných dat není možné úroveň rozlišení jednoduše určit protože biologická refrence není určena až na nejnižší úroveň, jak již bylo uvedeno v předchozí kapitole. Níže je zobrazená tabulka zjednodušeně popisující uroveň rozlišení u reálných dat. U genů 2DL5A, 2DS1, 2DS2 a 2DS3 bylu určení alely minimálně na 3 čísla nebo v souladu s biologickou referencí. Oproti tomu u žádného z genů není možné říci, že by alely v žádném případě nešli určit alespoň na coding region.
+
+\begin{center}
+\tiny
+\rowcolors{2}{gray!25}{white}
+\begin{tabular}{l || c | c | c | c | c | c | c | c | c}
+& amala & bob & cox & ho301 & jvm & kas011 & olga & rsh & wt51  \\
+\hline
+\hline
+2DL1 & NE & NE & 5R & 3R & 5R & 5R & NE & 5R & 0R\\
+2DL4 & 3 & 3R & NE & 3 & 5R & 3R & NE & 7R & 5R \\
+2DL5A & 3R & 3 & 5R & &  & 5R & 5R & & 5R\\ 
+2DL5B &  &  &  & NE & &  & & 4R & \\
+2DP1 & 5R & 5R & 5R & 5R & NE & 5R & 5R & 3R & 3R \\
+2DS1 & 5R & 5R & 5R & & & 5R & 3R & & 3R\\
+2DS2  & 5R & 3R & & 5R & 5R & & & 5R & 5R\\ 
+2DS3 & &  & & 5R & & & & & 0R\\
+2DS4 & NE & NE & 3R & 3R & 6R & 5R & 3R & 0R &  \\
+2DS5 & NE & NE & 5R & & & NE & NE & 6R & NE \\
+3DL1 & NE & NE & 5 & 3R & 3R & 3R & NE & 3R &  \\
+3DL2 & NE & NE & NE & 5R & 3R & NE & NE & 0R & 0R\\ 
+3DL3 & NE & NE & NE & NE & NE & NE & NE & NE & 3R\\
+3DP1 & 3R & NE & 3R & 5R & 3R & 3R & NE & 3R & 0R\\
+3DS1 & NE & 5R & 3R &  & &  NE & NE & & NE\\
+
+
+\end{tabular}
+\captionof{table}{Zhodnocení zbylích alel v experimentu 2 po 4. kroku z hlediska úrovně rozslišení. Tabulka obsahuje jen alely, které měli ve výsledkách nějakou informaci o úrovni rozlišení. V případě kdy se v políčku nachází znak $NE$ nebylo možné alelu rozpoznat ,ale v biologické referenci byla uvedena. V případě čísla značí na jak velkou přesnost byla alela určena. V případě R za tímto číslem značí, že tato úroveň rozlišení byla uvedena i v biologické referenci. V případě, že je políčko prázdné se gen v genomu nenechází, či byl ztracen.}
+\end{center}
 
 
 
 \chapter{Závěr}
-Práce se zabývá návrhem nástroje pro automatickou identifikaci KIR alel. Identifikace KIR alel je využitelná při transplantaci krvetvorných buněk, kdy se rozhoduje mezi více dárci shodných v HLA znacích. Zvolení dárce s vhodnějšími KIR geny snižuje riziko relapsu (návratu nemoci). V teoretické části byly popsány a rozbrány geny, především non-HLA gen Killer-cell immunoglobulin-like receptor(KIR) a jejich vliv na transplantaci krvetvorných buněk. Dále byly představeny natural killer buňky a jejich funkce v rámci imunitního systému. Pro zjištění typizace HLA a KIR slouží sekvenační metody, které byli shrnuty a popsany. Konkrétněji Sanger sekvenování a next-generation sequencing (NGS). V neposlední řadě byly analyzovány bioinformatické nástroje pro zpracování NGS dat se zaměřením na generátor syntetických readů ART a zarovnávač NGS readů Bowtie2.
+Práce se zabývá návrhem nástroje pro automatickou identifikaci KIR alel. Identifikace KIR alel je využitelná při transplantaci krvetvorných buněk, kdy se rozhoduje mezi více dárci shodných v HLA znacích. Zvolení dárce s vhodnějšími KIR geny snižuje riziko relapsu (návratu nemoci).
 \\
 \\
-V realizační části bylo navrženo a implementováno prototypové řešení v jazyce Python za pomocí knihovny pysam pro identifikaci KIR alel. Jazyk python byl zvolen z důvodu jednoduchého použití, díky čemuž nebyl vývoj časově náročný. Parametry nástroje ART byli určeny, tak aby výstupní ready co nejvíce odpovídali datům získaných z FN Plzeň/BC LF UK Plzeň. Během práce bylo implementováno a vyzkoušeno několik přístupů, které byli v práci zhodnoceny. Největší překážkou je podobnost alel. Alely mohou být dlouhé až 16 000 bp. Ready ze sekvenátoru jsou ovšem dlouhé 250 bp. Není tedy žádnou vyjímkou, že read je zarovnán na alelu, ke které nepatří. 
+Toto téma je stále aktuální. Zatím je prokázán vliv jen KIR genů, resp. jejich haplotypových kombinací. V současné době se zkoumá vliv i alelických variant, jelikož doposud bylo prokázáno, že některé formy genů se neexprimují, tzn. gen se sice v genomu nachází, ale není z něj vytvořen žádný produkt na povrchu buňky a tak nemá jak vyvolat či ovlivnit jakoukoliv reakci v organismu \cite{exprimace_zaver}. Z bilogického hlediska je důležitá právě exprimace a ta je závislá jen na coding-regionu a tudíž stačí, že z praktického hlediska stačí, aby nástroj byl schopný určit alelu na coding úroveň, tedy prvních pět čísel alely. 
 \\
 \\
-Nástroj byl implementován a laděn na syntetických readech. Následná verifikace byla provedena na buněčných liniich z FN Plzeň/BC LF UK Plzeň. Verifikace nástroje na reálných datech odpovídala očekávaným předpokladům. Rozdíl reálných readů od syntetických byl už v jejich zarovnání, kdy v případě reálných dat bylo zarovnáno kolem 70 \% readů, oproti tomu v případě syntetických readů byly zarovnány všechny. Zásadním problémem ovšem bylo že reálná data nejsou vždy identifikovaná až na úroveň non-cofing region, protože z biologického hlediska není v některých případech možné určit alelu na nejnižší známou úroveň či označení, že se zde gen nachází, ale ani zmíňka o tom o jakou alelu by se mohlo jednat. Tyto problémy souvisejí i se zhodnocením z hlediska úrovně rozlišení, kde to u reálných dat není možné. Kromě toho je v reálných datech možné narazit na alelu, která se mezi referenčními sekvencemi nenachází. Nyní je známo 1109 alel, přičemž existuje referenční sekvence pouze pro 461 alel.
+V teoretické části byly popsány a rozbrány geny, především non-HLA gen Killer-cell immunoglobulin-like receptor (KIR) a jejich vliv na transplantaci krvetvorných buněk. Dále byly představeny natural killer buňky a jejich funkce v rámci imunitního systému. Pro zjištění typizace HLA a KIR slouží sekvenační metody, které byli shrnuty a popsany. Konkrétněji Sanger sekvenování a next-generation sequencing (NGS). V neposlední řadě byly analyzovány bioinformatické nástroje pro zpracování NGS dat se zaměřením na generátor syntetických readů ART a zarovnávač NGS readů Bowtie2.
 \\
 \\
-Toto téma je stále aktuální a biologicky nedořešené. Zatím je prokázán vliv jen genů. V současné době se zkoumá vliv i alelických variant, prozatím s výsledkem, že některé alely se neexprimují, tzn. gen se sice v genomu nachází, ale není z něj vytvořen žádný produkt na povrchu buňky a tak nemá jak vyvolat či ovlivnit jakoukoliv reakci v organismu. Ze všech výše uvedených důvodu lze tak prohlásit, že z praktického hlediska stačí, aby nástroj byl schopný určit alelu na coding úroveň, tedy prvních pět čísel alely. 
+V realizační části bylo navrženo a implementováno prototypové řešení v jazyce Python za pomocí knihovny pysam pro identifikaci KIR alel. Jazyk python byl zvolen z důvodu jednoduchého použití, díky čemuž nebyl vývoj časově náročný. Parametry nástroje ART byli určeny, tak aby výstupní ready co nejvíce odpovídali datům získaných z FN Plzeň/BC LF UK Plzeň. Během práce bylo implementováno a vyzkoušeno několik přístupů, které byli v práci zhodnoceny. Největší překážkou je podobnost alel. Alely mohou být dlouhé až 16 000 bp (nukleových bází). Ready ze sekvenátoru jsou ovšem dlouhé 250 bp. Vzhledem k podobnosti alel (u některých dokonce jen jedna nukleová báze) není žádnou výjimkou, že read je zarovnán na alelu, ke které nepatří. 
+\\
+\\
+Nástroj byl implementován a laděn na syntetických readech. Následná verifikace byla provedena na komerčních buněčných liniich sekvenovaných ve FN Plzeň/BC LF UK Plzeň. Verifikace nástroje na reálných datech odpovídala očekávaným předpokladům. Rozdíl reálných readů od syntetických byl už v jejich zarovnání, kdy v případě reálných dat bylo zarovnáno kolem 70 \% readů, oproti tomu v případě syntetických readů byly zarovnány všechny. V rámci návrhu nástroje a provedených experimentů byly identifikovýny základní slabiny automatické identifikace KIR alel, a to že reálná data nejsou vždy identifikovaná až na úroveň non-cofing region, protože z biologického hlediska není v některých případech možné určit alelu na nejnižší známou úroveň, či označení, že se zde gen nachází, ale ani zmíňka o tom o jakou alelu by se mohlo jednat. Tyto problémy souvisejí i se zhodnocením z hlediska úrovně rozlišení, kde u reálných dat v případě biologické reference pouze na coding region vyjde více alel na non-coding region se stejným zákládem codingu regionu. Kromě toho je v reálných datech možné narazit na alelu, která se mezi referenčními sekvencemi nenachází. Nyní je známo 1109 alel, přičemž existuje referenční sekvence pouze pro 461 alel.
 \\
 \\
 Do budoucna se nabízí zamyslet se více nad efektivním vytvořením clusterů, kde by se zohledňovala délka readů. V případě verifikace by nebylo na škodu více probádat kvalitu dat a odstřihávání nekvalitních bází. 
@@ -1076,10 +1107,29 @@ Do budoucna se nabízí zamyslet se více nad efektivním vytvořením clusterů
 
 \appendix
 \chapter{Uživatelská dokumentace}
-Program byl napsán a otestován za použití ART ve verzi MountRainier, Bowtie 2 ve verzi 2.4.1, Python ve verzi 3.8. Dále byli použity python knihovny pysam ve verzi 0.14, python-Levenshtein a matplotlib.
+Ke spuštěním programu je třeba mít nainstalovaný ART ve verzi MountRainier, Bowtie2 ve verzi 2.4.1, Python ve verzi 3.8, dále python knihovny pysam ve verzi 0.14, python-Levenshtein a matplotlib.
 \\
 \\
-Následující postupy jsou uvedeny pro operační systém Linux a pro jiné operační systémy se mohou lišit. Veškeré nastavení aplikace probíhá pomocí souboru \textit{config.py}
+Doporučený operační systém je Linux, na Windows se mohou vyskytnou problémy s knihovnou htslib. 
+
+\section{Získání python knihoven}
+Knihovnu pysam je možné získat na \cite{pysam}, kde je uveden i návod na instalaci. Obdobně je to s knihovnami python-Levenshtein \cite{python_leve} a matplotlib \cite{matplotlib}.
+
+\section{Získání referenčních sekvencí}
+Referenční soubory \textit{\_gen.fa} a \textit{\_nuc.fa} použité v práci jsou k nalezení na IPD-KIR \cite{imgt_hla_database} v záložce \textit{KIR}, dále v pravém menu \textit{GitRepos} složka \textit{fasta}.
+
+
+\section{Nastavení ART a bowtie}
+\subsection{ART}
+Nástroj ART slouží ke generování syntetických readů a je dostupný na adrese \cite{art_download} po zadání textu \textit{ART} do vyhledávácího pole typicky první výsledek \textit{ART - Set of simulation tools ... }. Odkaz u oficiálním článku \cite{art} je bohužel nefunkční. Práce je odzkoušená s verzí MountRainer. Ve staženém archivu se nechází několik souborů \textit{README}. Pro tuto práci je důležitý soubor \textit{art\_illumina\_README.txt}, který obsahuje návod na instalaci nástroje a vysvětlení parametrů. Parametry shodující se s parametry dat získaných z FN Plzeň/BC LF UK Plzeň jsou paired end ready dlouhé 250 bp, profil sekvenátoru MSv1, s nakopírování sekvencí 100. Všechny tyto parametry jsou již nastavené ve skriptu.
+
+
+\subsection{Bowtie2}
+Bowtie2 slouží k zarovnání readů na refrenční sekvenci a je dostupný na \cite{bowtie2_download}. Práce je odzkoušená s verzí 2.4.1. Ve stažené verzi je manual s potřebnými instrukcemi. Stejně tak je na stránkách Bowtie2 sekce Getting started. 
+
+
+\section{Nastaveni programu}
+Veškeré nastavení aplikace probíhá pomocí souboru \textit{config.py}
 \\
 \\
 \noindent
@@ -1092,13 +1142,14 @@ Parametry configu:
 	\item EXP1 - Značí zdá má být spuštěn experiment 1 pro identifikaci.
 	\item EXP2 - Značí zdá má být spuštěn experiment 2 pro identifikaci.
 	\item EXP3 - Značí zdá má být spuštěn experiment 3 pro identifikaci.
+	\item PATH\_TO\_DATA\_FOLDER - Značí cestu ke složce s daty. Dá se využít v případě kdy adresářová struktura odpovídá struktuře navržené níže.
 	\item REFERENCE\_KIR\_GENS\_FILE - Soubor se všemi referenčními geny. 
 	\item GENOME\_FOLDER - Označuje cestu složky do které jsou ukládány vytvořené genomy. 
 	\item GENOMES - Slovník, který definuje genomy podle obsahů genů. Na základě toho budou vytvořeny genomy.
 	\item BOWTIE\_HOME\_DIRECTORY - Označuje cestu ke nástroji Bowtie.
 	\item READS\_FOLDER - Označuje složku do které budou ukládany ready. Případně z které budou načítány.
 	\item BOWTIE\_INDEX\_FOLDER - Označuje složku do které budou ukládány indexy z Bowtie. Případně z které budou načítány. 
-	\item BOWTIE\_BUILD\_INDEX - Značí zda mají být vytvořeny Bowtie indexy. Pokud bude hodnota nastavena na False, musí být přítomny indexy z minulého běhu, jinak zarovnávání nebude fungovat. Očekávaná hodnota je True nebo False.
+	\item BOWTIE\_BUILD\_INDEX - Značí zda mají být vytvořeny Bowtie indexy. Pokud bude hodnota nastavena na False, musí být přítomny indexy z minulého běhu, jinak zarovnávání nebude fungovat. Očekávaná hodnota je True nebo False. (Pro první běh je typická hodnota True)
 	\item BOWTIE\_THREADS - Počet vláken na která má být Bowtie spuštěn.	
 	\item ALIGNMENT\_FOLDER - Označuje složku do které budou ukládány zarovnané ready. Případně z které budou načítány. 
 	\item BAM\_FOLDER - Označuje složku na uložení BAM souborů.  
@@ -1113,13 +1164,6 @@ Parametry configu:
 	 \item CLUSTER\_DISTANCE - Hodnota určující maximální vzdálenost alel, které spolu budou sloučeny do clusteru.
 \end{itemize}
 
-\section{Nastavení ART a bowtie}
-\subsection{ART}
-Nástroj ART je dostupný na adrese \cite{art_download} po zadání textu \textit{ART} do vyhledávácího pole typicky první výsledek \textit{ART - Set of simulation tools ... }. Odkaz u oficiálním článku \cite{art} je bohužel nefunkční. Práce je odzkoušená s verzí MountRainer. Ve staženém archivu se nechází několik souborů \textit{README}. Pro tuto práci je důležitý soubor \textit{art\_illumina\_README.txt}, který obsahuje návod na instalaci nástroje a vysvětlení parametrů. Parametry shodující se s parametry dat získaných z FN Plzeň/BC LF UK Plzeň jsou paired end ready dlouhé 250 bp, profil sekvenátoru MSv1, s nakopírování sekvencí 100. Všechny tyto parametry jsou již nastavené ve skriptu.
-
-
-\subsection{Bowtie2}
-Bowtie2 je dostupný na \cite{bowtie2_download}. Práce je odzkoušená s verzí 2.4.1. Ve stažené verzi je manual s potřebnými instrukcemi. Stejně tak je na stránkách Bowtie2 sekce Getting started. 
 
 
 \section{Doporučená adresářová struktura pro data}
@@ -1144,9 +1188,10 @@ Program je možné spustit z příkazové řádky pomocí příkazu \textit {pyt
 \section{Výstupy programu}
 V případě tvorby vlastních genomů s doporučenou adresářovou strukturou najdeme ve složce \textit{genome} soubory s příponou \textit{.fa}. Každý soubor obsahuje jeden genom.
 Vytvořené ready se budou nacházet ve složce reads. Protože genomy jsou paired-end náleží každému genomu dva soubory s příponou \textit{.fq}. Jeden s \textit{1} na konci a druhý s \textit{2} na konci. 
-V případě zarovnání mohou být výstupní soubory indexy ve složce \textit{bowtie\_index}. Kdy pro každý referenční soubor je vytvořeno 6 souborů s příponou \textit{bt2}. Výsledné zarování se pak nachází ve složce \textit{alignments} ve formátu \textit{.sam}. Výsledky samotné identifikace je možné nalést ve složece \textit{result} ve formátu \textit{.txt}. Mezivýsledky jednotlivých kroků experimentů jsou uloženy ve složce statistics a je možné si je prohlídnout pomocí přiloženého skriptu \textit{analysis\_after\_align.py}, který bude popsán níže. Soubor mezivýsledků může vypadata následovně $amala\_KIR\_GEN\_exp2\_step1.pyc$.  Označení začíná názvem genomu - amala, KIR\_GEN značí refrenční genom, exp2 udává o který experiment se jedná, step1 řiká ke kterému kroku mezi výsledky patří. 
-
-
+V případě zarovnání mohou být výstupní soubory indexy ve složce \textit{bowtie\_index}. Kdy pro každý referenční soubor je vytvořeno 6 souborů s příponou \textit{bt2}. Výsledné zarování se pak nachází ve složce \textit{alignments} ve formátu \textit{.sam}. 
+\\
+\\
+Výsledky samotné identifikace je možné nalést ve složece \textit{result} ve formátu \textit{.txt}. Mezivýsledky jednotlivých kroků experimentů jsou uloženy ve složce statistics a je možné si je prohlédnout pomocí přiloženého skriptu \textit{analysis\_after\_align.py}, který bude popsán níže. Soubor mezivýsledků může vypadata následovně $amala\_KIR\_GEN\_exp2\_step1.pyc$.  Označení začíná názvem genomu - amala, KIR\_GEN značí refrenční genom, exp2 udává o který experiment se jedná, step1 řiká ke kterému kroku mezi výsledky patří. 
 
 
 
@@ -1154,10 +1199,11 @@ V případě zarovnání mohou být výstupní soubory indexy ve složce \textit
 K analyzování referenčních genů slouží skript \textit{analysis\_alels.py}. V horní části skriptu je třeba nastavit příslušné cesty. Referenční soubory \textit{\_gen.fa} a \textit{\_nuc.fa} použité v práci jsou k nalezení na IPD-KIR \cite{imgt_hla_database} v záložce \textit{KIR}, dále v pravém menu \textit{GitRepos} složka \textit{fasta}.
 
 \begin{itemize}
-	\item NUC\_FILE - Soubor z refrencí \textit{\_nuc.fa}. Slouží pro porovnání se souborem \textit{\_gen.fa}
-	\item GEN\_FILE - Soubor hlavní refrence.
+	\item NUC\_FILE - Soubor z referencí \textit{\_nuc.fa}. Slouží pro porovnání se souborem \textit{\_gen.fa}
+	\item GEN\_FILE - Soubor hlavní reference.
 	\item DISTANCE\_FILE\_PYC - Soubor obsahující všechny vzdálenosti a který bude vytvořen na začátku skriptu.
 	\item PLOT\_OUTPUT\_FOLDER - Složka udávající kam se budou ukládat výsledné grafy.
+	\item COUNT\_LEVENHSTEIN - Předpočítá vzdálenosti mezi alelami. Využitelné především při opakovaných bězích se stejnou referenci. Pří nastavení hodnoty na True je výpočet velmi pomalý.
 \end{itemize}
 
 \noindent
@@ -1190,7 +1236,7 @@ Výstupem analýzy je grafické zobrazení vzdáleností mezi jednotlivými alel
 
 
 \section{Analyzování experimentů}
-Pro analyzování kroků jednotlivých experimentů slouží skript \textit{analysis\_after\_align\_auto.py}. V horní části skriptu je třeba nastavit příslušné cesty. 
+Pro analyzování kroků jednotlivých experimentů je možné využít skript \textit{analysis\_after\_align\_auto.py}. V horní části skriptu je třeba nastavit příslušné cesty. 
 
 \begin{itemize}
 	\item GEN\_FILE - Soubor s referenčními alelami.

@@ -8,26 +8,31 @@ import numpy as np
 import Levenshtein
 import matplotlib.pyplot as plt
 
-
+""" Reference file """
 GEN_FILE = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/referencni/IPDKIR-Latest/fasta/KIR_gen.fasta"
-#ALELS_STATISTICS_FILE_PYC = "/home/kate/Dokumenty/FAV/Diplomka/software/data/statistics/test11_KIR_gen_exp2_step4.pyc"
+
+""" Make a file name from this and GENOMES_LIST """
+# example ALELS_STATISTICS_PYC_FOLDER/GENOMES_LIST[1]_ALELS_STATISTICS_PYC_REFERENCE_NAME_ALELS_STATISTICS_PYC_EXPERIMENT
 ALELS_STATISTICS_PYC_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/statistics/"
 ALELS_STATISTICS_PYC_REFERENCE_NAME = "KIR_gen"
 ALELS_STATISTICS_PYC_EXPERIMENT = "exp3"
+
+""" Steps whitch you want to analyse """
 STEPS = ["step1", "step2", "step3", "step4"]
-#STEPS = ["step3"]
-#STEPS_LATECH_TABLE = ["step3"]
+""" Steps from which will be create a latex table """
 STEPS_LATECH_TABLE = ["step2", "step3","step4"]
 
 PLOT_OUTPUT_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/analysis/analysis_after_align_result"
 
-#GENOMES_LIST = ["bob"]
+
+""" which genome want to analyse """ 
+# syntetic
 GENOMES_LIST3 = ["amala", "bob", "cox", "ho301", "jvm", "kas011", "olga", "rsh", "wt51", "test1", "test2", "test3", "test4", "test5", "test6", "test7", "test8", "test9", "test10", "test11"]
 
-# real
+# real 
 GENOMES_LIST = ["amala", "bob", "cox", "ho301", "jvm", "kas011", "olga", "rsh", "wt51"]
 
-
+""" reference """
 # real
 GENOMES_ALLELES = {
 			"amala": [
@@ -170,6 +175,9 @@ def create_alels_translate_dictionary():
 	return KIR_dictionary
 
 
+"""
+	Analysis step, make plot for each gen.
+"""
 def analysis_step(input_file_pyc: str, output_folder: str, alels_in_aligment: list):
 	KIR_alels_dictionary = create_alels_translate_dictionary()
 
@@ -318,9 +326,11 @@ def analysis_step(input_file_pyc: str, output_folder: str, alels_in_aligment: li
 
 	return {"count_alels": count_alels, "lost": lost, "moreover_gens": moreover_gens}
 
-	# musim vzit kazde dvě alelely a zase si urcit vzdalenost mezi nimi 
-	# a od nejake vzdalenosti se mrknout jak jsou zarovanany tam kde je ten rozdil mezi nimi
 
+
+"""
+	Make result table to put into latex.
+"""
 def make_latech_table(genome: str, alels_in_aligment: list, result: dict):
 	alels_unique = list(set(alels_in_aligment))
 	output = genome+" & "+str(len(alels_in_aligment))+" ("+str(len(alels_in_aligment) - len(alels_unique))+")"

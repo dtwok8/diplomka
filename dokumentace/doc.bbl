@@ -1,4 +1,4 @@
-\begin{thebibliography}{36}
+\begin{thebibliography}{40}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -47,10 +47,22 @@
 \newblock Dostupn{\'{e}}~z:
   \url{http://www.allelefrequencies.net/kir6001a.asp}.
 
+\bibitem[mat()]{matplotlib}
+\emph{Matplotlib} [online].
+\newblock Dostupn{\'{e}}~z: \url{https://matplotlib.org/}.
+
 \bibitem[ngs()]{ngs_alignment_software}
 \emph{What is the best NGS alignment software?} [online].
 \newblock Dostupn{\'{e}}~z:
   \url{https://www.ecseq.com/support/ngs/what-is-the-best-ngs-alignment-software}.
+
+\bibitem[pys()]{pysam}
+\emph{Pysam} [online].
+\newblock Dostupn{\'{e}}~z: \url{https://pypi.org/project/pysam/}.
+
+\bibitem[pyt()]{python_leve}
+\emph{Python-Levenshtein} [online].
+\newblock Dostupn{\'{e}}~z: \url{https://pypi.org/project/python-Levenshtein/}.
 
 \bibitem[you()]{your_genome}
 \emph{How do you put a genome back together after sequencing?} [online].
@@ -228,6 +240,14 @@
 \newblock NK cell MHC class I specific receptors (KIR): from biology to
   clinical intervention.
 \newblock \emph{Current opinion in immunology}. 2012, 24 2, s.~239--45.
+
+\bibitem[Vilches et~al.(2001)Vilches, Gardiner,, Parham]{exprimace_zaver}
+{\sc Vilches}, C. -- {\sc Gardiner}, C. -- {\sc Parham}, P.
+\newblock Gene Structure and Promoter Variation of Expressed and Nonexpressed
+  Variants of the KIR2DL5 Gene.
+\newblock \emph{Journal of immunology (Baltimore, Md. : 1950)}. 01 2001, 165,
+  s.~6416--21.
+\newblock \doi{10.4049/jimmunol.165.11.6416}.
 
 \bibitem[Vodsloň(2007)]{levenshrein_baku}
 {\sc Vodsloň}, F.

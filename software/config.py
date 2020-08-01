@@ -1,15 +1,25 @@
 """ Steps of program """
 # values True/False
-CREATE_READS = 	False
+CREATE_READS = 	True
 ALIGN = True
 IDENTIFY = True
 
 #methods of identification
-PRECOMPUTATION_DISTANCE = False # precomputation distance need in first time, then alwas when you change reference kirs
+PRECOMPUTATION_DISTANCE = False # precomputation distance need in first time, then always when you change reference kirs
 
 EXP1 = True
 EXP2 = True
 EXP3 = True
+
+# path to data folder with \ on the end
+PATH_TO_DATA_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/"
+
+""" Folder to bowtie tools run_bowtie.py """
+BOWTIE_HOME_DIRECTORY = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/bowtie2-2.4.1-linux-x86_64"
+
+""" Reference KIR gens """
+REFERENCE_KIR_GENS_FILE = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/referencni/IPDKIR-Latest/fasta/KIR_gen.fasta"
+
 
 
 """ genome in python dictionary
@@ -29,9 +39,18 @@ EXP3 = True
 	}
 """
 
-
-
 GENOMES = {
+			"bob": [ '3DL3: 00101', '3DL3: 019', '2DS2: 0010104', '2DL2: 0030101', '2DL3: 0020102', '2DP1: 0030101', '2DL1: 0030210', '3DP1: 002', '3DP1: 0030203', '2DL4: 0010202', '2DL4: 0050101', '3DL1: 002',
+				'3DS1: 0130105', '2DL5A: 0010101', '2DS5: 0020104', '2DS1: 0020101', '2DS4: 0010105', '3DL2: 0020101' , '3DL2:0070102'
+			],
+			"amala": [
+ 				'3DL3: 0040201', '3DL3:00802', '2DS2: 0010101', '2DL2: 0030102', '2DL3: 0010109', '2DP1: 0020108', '2DL1: 0030201', '3DP1: 007', '3DP1: 0090101',
+ 				'2DL4: 0010201', '2DL4: 0050106', '3DL1: 0150201', '3DS1: 0130101', '2DL5A: 00102', '2DS5: 0020101', '2DS1: 0020106', '2DS4: 0010101', '3DL2: 0020105', '3DL2:0070102' 
+			]
+}
+
+
+GENOMES2= {
 			"bob": [ '3DL3: 00101', '3DL3: 019', '2DS2: 0010104', '2DL2: 0030101', '2DL3: 0020102', '2DP1: 0030101', '2DL1: 0030210', '3DP1: 002', '3DP1: 0030203', '2DL4: 0010202', '2DL4: 0050101', '3DL1: 002',
 				'3DS1: 0130105', '2DL5A: 0010101', '2DS5: 0020104', '2DS1: 0020101', '2DS4: 0010105', '3DL2: 0020101' , '3DL2:0070102'
 			],
@@ -114,45 +133,42 @@ GENOMES = {
 }
 
 
-""" Reference KIR gens """
-REFERENCE_KIR_GENS_FILE = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/referencni/IPDKIR-Latest/fasta/KIR_gen.fasta"
 
 """ Folder for save new genome file """
-GENOME_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/genome/"
+GENOME_FOLDER = PATH_TO_DATA_FOLDER+"genome/"
 
-""" Folder to bowtie tools run_bowtie.py """
-BOWTIE_HOME_DIRECTORY = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/bowtie2-2.4.1-linux-x86_64"
 
 """  reads create FROM ART, or from hospital """
-READS_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/reads"
+READS_FOLDER = PATH_TO_DATA_FOLDER+"reads"
 
 
 """ index create by bowtie for reference kir gen  """
-BOWTIE_INDEX_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/bowtie_index"
+BOWTIE_INDEX_FOLDER = PATH_TO_DATA_FOLDER+"bowtie_index"
 """ If bouwtie should create index TRUE/FALSE - need True first run""" 
 BOWTIE_BUILD_INDEX = False
 BOWTIE_THREADS = 4
 
 """ result from Bowtie """
-ALIGNMENT_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/alignments"
+ALIGNMENT_FOLDER = PATH_TO_DATA_FOLDER+"alignments"
 
 """ bam folder for experiments """
-BAM_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/bam"
+BAM_FOLDER = PATH_TO_DATA_FOLDER+"bam"
 
 """ Folder for result from evaluation alignment """
-RESULT_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/result"
+RESULT_FOLDER = PATH_TO_DATA_FOLDER+"result"
 
 """ Statistic for each step, files need for analysis after aligments """
-ALELS_STATISTICS_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/statistics"
+ALELS_STATISTICS_FOLDER = PATH_TO_DATA_FOLDER+"statistics"
 
 """ temp folder like bowtie indexis from experiments """
-TEMP_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/temp"
+TEMP_FOLDER = PATH_TO_DATA_FOLDER+"temp"
 
 """ folder for references, also for created reference from experiments """
-REFERENCE_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/reference/"
+REFERENCE_FOLDER = PATH_TO_DATA_FOLDER+"reference/"
 
 # Levenshtein distance
-ALELS_DISTANCE_FILE_PYC = "/home/kate/Dokumenty/FAV/Diplomka/software/data/alels_distance.pyc"
+ALELS_DISTANCE_FILE_PYC = PATH_TO_DATA_FOLDER+"alels_distance.pyc"
+
 # AVG distance between alels 4769 - Because not enought memory, use a trick and save just changes witch are lower then (average 4769)
 LEVENSHTEIN_DISTANCE_CUT = 2500 # it is from precomputation distance 
 

@@ -8,14 +8,20 @@ import matplotlib.pyplot as plt
 import numpy as np
 import Levenshtein
 
+
 NUC_FILE = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/referencni/IPDKIR-Latest/fasta/KIR_nuc.fasta"
 GEN_FILE = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/referencni/IPDKIR-Latest/fasta/KIR_gen.fasta"
 
+""" You can have it, or just fill path to new file and set COUNT_LEVENHSTEIN = True """
 DISTANCE_FILE_PYC = "/home/kate/Dokumenty/FAV/Diplomka/software/analysis/alels_distance_new.pyc"
 PLOT_OUTPUT_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/analysis/analysis_alels_result"
 
+#run just if you realy need (you dont have file DISTANCE_FILE_PYC), it takes long time more then 12 hours
+COUNT_LEVENHSTEIN = False
 
-
+"""
+	Compare gen and nuc.
+"""
 def compare_gen_and_nuc_first():
 	not_found = 0
 	something_wrong = 0
@@ -58,6 +64,10 @@ def compare_gen_and_nuc_first():
 	print("count_gen: ", count_gen, ", count_nuc: ", count_nuc, ", match: ", match, ", key not found: ", not_found, ", something wrong: ", something_wrong)
 
 
+
+"""
+	Compare gen and nuc.
+"""
 def compare_gen_and_nuc_second():
 	not_found = 0
 	something_wrong = 0
@@ -100,6 +110,10 @@ def compare_gen_and_nuc_second():
 	print("count_alel: ", count_gen, ", count_nuc: ", count_nuc, ", match: ", match, ", key not found: ", not_found, ", something wrong: ", something_wrong)
 
 
+
+"""
+	Count min and max distance beetwen all alels.
+"""
 def get_min_max_distance():
 	with open(DISTANCE_FILE_PYC, 'rb') as handle:
 		alels_distance = pickle.load(handle)
@@ -111,7 +125,6 @@ def get_min_max_distance():
 	list_distance = list()
 	for alel1, dic_distance in alels_distance.items():
 		for alel2, distance in dic_distance.items():
-			print(alel1, alel2, distance)
 			if(alel1 != alel2):
 				if(max_distance < distance):
 					max_distance = distance
@@ -125,6 +138,9 @@ def get_min_max_distance():
 	print("max: ", max_distance, ", min: ", min_distance, ", average_distance: ", sum_distance/count_distance, ", median: ", statistics.median(list_distance)) 
 
 
+"""
+	Count levenshtein distance for realize how it exactly work.
+"""
 def levenhstein_analyze():
 	print("Levenhstein analyze")
 	print(Levenshtein.distance('SPAM', 'PARK'))
@@ -135,6 +151,9 @@ def levenhstein_analyze():
 	print("----------------------------------")
 
 
+"""
+	Count levenshtein distance for all alels.
+"""
 def count_levenhstein_distance():
 	print("counting distance ... ")
 	# get reference file
@@ -353,29 +372,23 @@ def analyze_distance_gene(alels_translate_dictionary):
 
 
 def main():
-	#compare_gen_and_nuc_first()
-	#count_levenhstein_distance()  # musi byt odkomentovane a pridat nekam prepinac na true a false
+	
+	if(COUNT_LEVENHSTEIN):
+		count_levenhstein_distance()  
+
+	compare_gen_and_nuc_first()
 
 	with open(DISTANCE_FILE_PYC, 'rb') as handle:
 		alels_distance = pickle.load(handle)	
 
-	print(alels_distance['KIR:KIR00045']['KIR:KIR00092'])
-
 	#compare_gen_and_nuc_second()
-	#exit(1)
-	# run just if you realy need, it takes long time more then 12 hours
-	#
+
 	#levenhstein_analyze()
 
+	get_min_max_distance()
+	alels_translate_dictionary = create_alels_translate_dictionary() 
+	analyze_distance_gene(alels_translate_dictionary)
 
-
-	#get_min_max_distance()
-	#alels_translate_dictionary = create_alels_translate_dictionary() 
-	#analyze_distance_gene(alels_translate_dictionary)
-
-	
-
-	
 
 
 if __name__ == "__main__":
