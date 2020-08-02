@@ -574,7 +574,7 @@ O simulování dat se stará skript \textit{create\_syntetic\_reads.py}, přiče
 Zarovnávání obstarává skript \textit{alignment\_reads\_to\_reference.py} s pomocí nástroje Bowtie2. V souboru \textit{config.py} je nutné vyplnit položku \textit{BOWTIE\_} \\ \textit{HOME\_DIRECTORY} podle umístění nástroje Bowtie na konkrétním počítači. V prvním kroku jsou vytvořeny Bowtie2 indexy, které je možné použít napříč běhy, proto je v nastavení položka \textit{BOWTIE\_BUIL\_INDEX}, díky které je možné toto vytvoření povolit nebo zakázat. Bez vytvořených indexů, tedy indexů z minulých běhů, ale Bowtie2 nebude zarovnávat. Bowtie2 vytváří indexy na základě obsahu souboru \textit{REFERENCE\_KIR\_GENS\_FILE}. V dalším kroku jsou načteny všechny ready ze složky v \textit{READS\_FOLDER} a nasledně jsou zarovnány nástrojem Bowtie2. Tady je nutné, aby byly ready paired-end, tedy aby se vyskytovaly dvakrát, příčemž jednou s \textit{1} na konci a podruhé s \textit{2}. Tento předpoklad zajistí správné nastavení ARTU, který je takto nastaven. Výstupní soubory jsou ve formátu \textit{.sam} a jsou umístěny dle položky \textit{ALIGMENT\_FOLDER} v nastavení. 
 
 \subsection{Přístupy k identifikaci alel}
-Detailní výsledky pro všechny genotypy je možné najít v příloze. V následující teoretické části jsou uvedeny vždy simulované genomy.
+Detailní výsledky pro všechny genomy je možné najít v příloze. V následující teoretické části jsou uvedeny vždy simulované genomy.
 
 \subsubsection{Experiment 1}
 Jako první pokus o určení alel, které by mohly být obsaženy v genomu, bylo pouhé oříznutí alel, které by měly větší procentuální šířku zarovnání (například 90 \%).  V případě buněčné linie AMALA, která byla simulována nástrojem ART a která obsahuje 19 alel, je výsledek zobrazen níže. Červeně jsou označený alely, které se v genomu skutečně nacházejí a číslo v závorce udává jejich procentuální pokrytí. Pravděpodobným důvodem proč mají alely, které do genomu nepatří tak vysoké zarovnání, je jejich podobnost. Například alely 2DS4*0010101 a 2DS4*0010102 jejiž vzdálenost je 2. Z toho lze logicky usoudit, že na alelu 2DS4*0010102 se zarovnaly některé z readů alely 2DS4*0010101.
@@ -767,7 +767,7 @@ rsh exp 1 & 20 (0) & 228 & 0 &  -  & 1 &  2DL5A & 40 & 2 & \Gape[0pt][2pt]{\make
 rsh exp 2 & 20 (0) & 228 & 0 &  -  & 1 & 2DL5A & 44 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DP1*0020110 \\ 2DL1*0030205}} & 1 &  -   \\ 
 
 \end{tabular}
-\captionof{table}{Porovnání experimentu 1 a experimentu 2 při stejném nastavení. Odřezány byly alely, které měly pokrytí menší než 70 \%. Za podobné byly alely považovány v případě, kdy byla jejich vzdálenost nižší než 100. \textit{Alel} u genomu značí počet v daném genomu. Číslo v závorkách udává kolik alel je dvakrát v daném genomu.  V každém kroku \textit{zbývá alel} je kolik alel ještě zůstalo ve výběru, \textit{ztraceno} určuje kolik alel má být v genomu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely, které byly ztraceny. V dalších krocích jsou vypsány alely bez těch, které už byly ztraceny v předchozích krocích. Obdobně je to s \textit{geny navíc}, které udávají počet a druh genů již neobsahující žádnou z alel, která náleží do daného genomu.  }
+\captionof{table}{Porovnání experimentu 1 a experimentu 2 při stejném nastavení. Odřezány byly alely, které měly pokrytí menší než 70 \%. Za podobné byly alely považovány v případě, kdy byla jejich vzdálenost nižší než 100. \textit{Alel} u genomu značí počet v daném genomu. Číslo v závorkách udává kolik alel se v daném genomu vyskytuje dvakrát.  V každém kroku \textit{zbývá alel} je kolik alel ještě zůstalo ve výběru, \textit{ztraceno} určuje kolik alel má být v genomu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely, které byly ztraceny. V dalších krocích jsou vypsány alely bez těch, které už byly ztraceny v předchozích krocích. Obdobně je to s \textit{geny navíc}, které udávají počet a druh genů již neobsahující žádnou z alel, která náleží do daného genomu.  }
 \end{center}
 
 
@@ -800,7 +800,7 @@ V následující tabulce je porovnání genomu AMALA a kroku 3 a 4. Díky kroku 
 \rowcolors{2}{gray!25}{white}
 \begin{longtable}{l c|| c | c l | c l || c | c l | c l }
  & & \multicolumn{5}{c||}{Krok 3} & \multicolumn{5}{c}{Krok 4}  \\ 
-Genotyp & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} \\
+Genom & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} \\
 \hline
 \hline
 amala & 19 (0) &  38 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL4*0010201 \\ 3DP1*0090101}} & 0 &  -  & 18 & 3 & 3DL2*0020105 & 0 &  - \\ 
@@ -818,7 +818,7 @@ amala & 19 (0) &  38 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL4*0010201 \\ 3DP1*009
 Další experiment byl založen na omezení stavového prostoru vytvořením clusterů. Alely jsou seřazeny od nejvíce pokryté po nejméně pokrytou. První alela s největším pokrytím je vložená do prvního clusteru. Další alely projdou všechny clustery a pokud je vzdálenost alespoň jedné alely z clusteru a právě procházející alely menší než $CLUSTER\_DISTANCE$ uvedená v $configu$, je alela přiřazena do tohoto clusteru. Pokud ne, pokračuje v porovnávání dokud nezkontroluje všechny clustery. V případě, kde nezapadá ani do jednoho z clusterů, vytvoří nový. Následně jsou porovnány všechny alely z clusteru. Pokud alespoň jedna alela v daném clusteru má pokrytí větší než $CUT\_COVERAGE\_ALLELES$ uvedené v $configu$, není žádná alela v daném clusteru smazána. V opačném případě jsou všechny alely z clusteru smazány. Další postup je stejný s experimentem 2. 
 \\
 \\
-Výhodou tohoto přístupu by mělo být zamezení smazání alel, které do genomu patří, ale jejjichž ready se zarovnaly na alelu jí podobnou. 
+Výhodou tohoto přístupu by mělo být zamezení smazání alel, které do genomu patří, ale jejichž ready se zarovnaly na alelu jí podobnou. 
 \\
 \\
 Při vzdálenosti 5 bylo vytvořeno kolem 224 clusterů, přičemž jich můžw být o pár jednotek více nebo méně z zoho důvodu, že alely nejdou za sebou ve stejném pořadí, ale v pořadí od nejvíce pokrytých po nejméně pokryté. Při vzdálenosti 10 vznikalo kolem 171 clusterů, při vzdálenosti 15 vznikalo 143, a nakonec při vzdálenosti 30 vznikalo kolem 122 clusterů. Takto navržené clusterování nepřineslo očekávaná zlepšení. Je třeba se nad clustrováním alel zamyslet jinak. Na příkladech clusterů uvedených v příloze je si povšimnou, že většinou alely pocházely ze stejných genů.
@@ -827,6 +827,9 @@ Při vzdálenosti 5 bylo vytvořeno kolem 224 clusterů, přičemž jich můžw 
 \subsubsection{Návrh na experiment 4}
 Clustery se vytváří zejména z toho důvodu, že si alely mezi sebou "kradou" ready. Možným vylepšením clusterů by mohlo být dát dohromady ty alely, které mají minimální rozdíl v 250 dlouhém useku oproti jiné (protože ready jsou dlouhé 250bp). Následně si pak mohlou vyhledat kolik takových úseků má jedna alela společných s jinou. Problémem tohoto návrhu bude výpočetní náročnost.
  
+\subsubsection{Zhodnocení experimentů}
+Mezi problematické geny lze řadit 2DL5B a 2DL5A, které často měli vysoké pokrytí bez toho aby jakákoliv z jejich alel byla v genomu. Častou ztratovost vykazoval gen 3DL1. Pro zajímavost v případě genomu Test1 bylo po prvním kroku experimentu 2 maximální pokrytí jeho alel 72 \%. V kroku následujcím toto číslo poskočilo na 93 \%. 
+
 
 \chapter{Porovnání přístupů k identifikaci a parametrů}
 Porovnání jednotlivých přístupů probíhalo pomocí přesnosti (precision) \ref{precision2} a úplnosti (recall) \ref{recall2}. 
@@ -867,10 +870,10 @@ Díky přesnosti je možné odhadnout jak moc jsou výsledky relevantní. Naopak
 \end{center}
 
 \chapter{Verifikace na reálných datech}
-Pro validaci algoritmu na reálných datech byl získán kompletní KIR genom u 9-ti komerčních linií ve spolupráci FN Plzeň – LFP UK spolu s definováním konkrétních alel v těchto liniich. Ready byly získány dle protokolu uvedeného v \cite{real_data}, konkrétně  amplifikovány z izolované DNA pomocí long-range PCR za použití směsi 6 primerů. Sekvenační knihovna je připravena modifikovaným protokolem NEBNext$^{\textregistered}$ Ultra TM II FS DNA Library Prep Kit for Illumina (New England Biolabs) a knihovny jsou sekvencovány v pair-end režimu na přístroji Illumina Miseq s pokrytím 100.  
+Pro validaci algoritmu na reálných datech byl získán kompletní KIR genom u 9-ti komerčních linií ve spolupráci FN Plzeň – LFP UK spolu s definováním konkrétních alel v těchto liniích. Ready byly získány dle protokolu uvedeného v \cite{real_data}, konkrétně  byly amplifikovány z izolované DNA pomocí long-range PCR za použití směsi 6 primerů. Sekvenační knihovna je připravena modifikovaným protokolem NEBNext$^{\textregistered}$ Ultra TM II FS DNA Library Prep Kit for Illumina (New England Biolabs) a knihovny jsou sekvenovány v pair-end režimu na přístroji Illumina Miseq s pokrytím 100.  
 \\
 \\
-Prvním krokem při verifikaci na reálných datech je zarovnání. Ná následujících obrázcích je porovnání logu Bowtie2 genomu BOB na syntetických readech \ref{fig:bob_syntetic_bowtie_align} a readech přímo ze sekvenátoru Illumina \ref{fig:bob_real_bowtie_align}. Je možné si zde povšimnout, že při syntetických readech byli zarovnány všechny ready. Naopak při zarovnávání realných dat bylo zarovnáno pouze necelých 70 \% readů. Pojem concordanly v tomto případě znamená, že oba páry readů byli zarovnány v souladu se sebou. Oproti tomu discordantly znamená, že každý jedinec z páru readů byl zarovnán samostatně.
+Prvním krokem při verifikaci na reálných datech je zarovnání. Na následujících obrázcích je porovnání logu Bowtie2 genomu BOB na syntetických readech \ref{fig:bob_syntetic_bowtie_align} a readech přímo ze sekvenátoru Illumina \ref{fig:bob_real_bowtie_align}. Je možné si zde povšimnout, že v případě syntetických readů byly zarovnány všechny ready. Naopak při zarovnávání reálných dat bylo zarovnáno pouze necelých 70 \% readů. Pojem concordanly v tomto případě znamená, že oba páry readů byly zarovnány ve vzájemném souladu. Oproti tomu discordantly znamená, že každý jeden z páru readů byl zarovnán samostatně.
 
 \begin{figure}[H]		
 		\centering
@@ -887,32 +890,32 @@ Prvním krokem při verifikaci na reálných datech je zarovnání. Ná následu
 \end{figure}
 
 \noindent
-Jedním z důvodů, proč se to děje, mouhou být chybné báze v realných readech, které vznikly sekvenováním. V souboru obsahující ready je možné nalést informaci o kvalitě sekvenace jednotlivých bází. Svým způsobem vyjádření jak moc si je sekvenátor jistý danou bází. Kvalita se označuje jako ASCII znak a je rovna ASCII kódu~-~33 (přeskočení netisknutelných znaků). Čím vyšší je ASCII kód tím je báze kvalitnější. Nejčastějšší kvalita je od 0 do 40, zřídka překročí hodnotu 60. Na následujícím obrázku je zobrazen graf kvality bází vzhledem k pozici v readu.
+Jedním z důvodů, proč se to děje, mohou být chybné báze v reálných readech, které vznikly sekvenováním. V souboru obsahujícím ready je možné nalézt informaci o kvalitě sekvenace jednotlivých bází. V podstatě se jedná o vyjádření toho, jak moc si je sekvenátor jistý danou bází. Kvalita se označuje jako ASCII znak a je rovna ASCII kódu~-~33 (přeskočení netisknutelných znaků). Čím vyšší je ASCII kód, tím je báze kvalitnější. Nječastěji se hodnota kvality pohybuje mezi 0 a 40, zřídka překročí hodnotu 60. Na následujícím obrázku je zobrazen graf kvality bází vzhledem k pozici v readu.
 
 \begin{figure}[H]		
 		\centering
 		\includegraphics[width=190px]{./img/quality_graf_bob_no_trim_r1.png}
 		\includegraphics[width=190px]{./img/quality_graf_bob_no_trim_r2.png}
-		\caption{Zobrazení kvality dat genomu BOB v levé části pro ready první z páru readů a v pravé části pro druhé části readů. V grafu směrem nahoru se zvyšuje kvalita báze. Z leva do prava se pak zvyšuje pozice báze v readu. Jak je vidět čím je pozice v readu vyšší tím nižší je kvalita báze, zároveň v druhých párech readů je kvalita znatelně horší.}
+		\caption{Zobrazení kvality dat genomu BOB, v levé části pro první z páru readů a v pravé části pro druhé části readů. V grafu se směrem nahoru zvyšuje kvalita báze. Z leva do prava se pak zvyšuje pozice báze v readu. Je patrné, že čím je pozice v readu vyšší, tím nižší je kvalita báze, a zároveň v druhých párech readů je kvalita znatelně horší.}
 		\label{fig:graf_quality_no_trim}
 \end{figure}
 
 
 \noindent
-Nabízí se tedy řešení nekvalitní báze na konci readů odstranít. Na odstranění nekvalitních bází byl použit nástroj Trimmomatic 0.38.0 na serveru Galaxy \cite{galaxy}. Na odstranění bylo použito posuvné okénko velikosti 8 s průměrnými kvalitami 15. 
+Nabízí se tedy řešení nekvalitní báze na konci readů odstranit. Na odstranění nekvalitních bází byl použit nástroj Trimmomatic 0.38.0 na serveru Galaxy \cite{galaxy}. Na odstranění bylo použito posuvné okénko velikosti 8 s průměrnými kvalitami 15. 
 
 
 \begin{figure}[H]		
 		\centering
 		\includegraphics[width=190px]{./img/quality_graf_bob_trim_r1_8_15.png}
 		\includegraphics[width=190px]{./img/quality_graf_bob_trim_r2_8_15.png}
-		\caption{Zobrazení kvality dat genomu BOB v levé části pro ready první z páru readů a v pravé části pro druhé části readů. V grafu směrem nahoru se zvyšuje kvalita báze. Z leva do prava se pak zvyšuje pozice báze v readu. Jak je vidět čím je pozice v readu vyšší tím nižší je kvalita báze, zároveň v druhých párech readů je kvalita znatelně horší.}
-		\label{fig:graf_quality_no_trim}
+		\caption{Zobrazení kvality dat genomu BOB po ořezu nekvalitních bází, v levé části pro první z páru readů a v pravé části pro druhé části readů. V grafu se směrem nahoru zvyšuje kvalita báze. Z leva do prava se pak zvyšuje pozice báze v readu. Je patrné, že čím je pozice v readu vyšší, tím nižší je kvalita báze, a zároveň v druhých párech readů je kvalita znatelně horší.}
+		\label{fig:graf_quality_trim}
 \end{figure}
 
 
 \noindent
-Následujcí tabulka zobrazuje porovnání výsledků bez ořezu nekvalitních bází a s jejich ořezem. Jak je vidět nelze jednoznačně říci že by výsledky byli zlepšeny.
+Následujcí tabulka zobrazuje porovnání výsledků bez ořezu nekvalitních bází a s jejich ořezem. Jak je vidět, nelze jednoznačně říci, že by se výsledky zlepšily.
 
 \begin{center}
 \tiny
@@ -932,14 +935,14 @@ Genom & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{
 \end{tabular}
 
 \label{tab:cut_quality}
-\captionof{table}{Porovnání odstřižení nekvalitních bází na experimentu 2. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Alel u genotypu značí počet v daném genotypu. Číslo v závorkách udává kolik alel je dvakrát v daném genotypu, zbývá alel je z kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genotypu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny, geny navíc udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
+\captionof{table}{Porovnání výsledků při odstřižení nekvalitních bází na experimentu 2. Odřezány byly alely, které měly pokrytí menší než 70 \%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100. \textit{Alel} u genomu značí počet alel v daném genomu. Číslo v závorkách udává, kolik alel se v daném genomu vyskytuje dvakrát. \textit{Zbývá alel} určuje, kolik alel ještě zůstalo ve výběru, \textit{ztraceno} značí kolik alel má být v genomu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely, které byly ztraceny, \textit{geny navíc} udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. }
 \end{center}
 
 \noindent
-V následujícím textu přibyde k referenční alele a nástrojem identifikované alele pojem biologická reference. Myslí se tím identifikace alel provedena v laboratoři odkud pochází komerční linie.
+V následujícím textu přibyde k referenční alele a nástrojem identifikované alele pojem biologická reference. Myslí se tím identifikace alel provedená v laboratoři, odkud pochází komerční linie.
 \\
 \\
-Dodaná reálná data nemají biologickou referenci až na úroveň non-coding regionu. Příkladem může být biologická reference 2DL1*00201 v níže zobrazené ukázce biologické reference genomu KAS011. K této alele je možné přířadit až 16 alel z referenčních sekvencí. Díky tomuto problému není možné plnohodnotně posoudit přesnost a úplnost nástroje. Znak $+$ značí přítomnost genu, bez bližšího určení alely, tz. že v některých případech není alela určená vůbec.
+Dodaná reálná data nemají biologickou referenci až na úroveň non-coding regionu. Příkladem může být biologická reference 2DL1*00201 v níže uvedené ukázce biologické reference genomu KAS011. K této alele je možné přířadit až 16 alel z referenčních sekvencí. Díky tomuto problému není možné plnohodnotně posoudit přesnost a úplnost nástroje. Znak $+$ značí přítomnost genu bez bližšího určení alely, tzn. že v některých případech není alela určená vůbec.
 \\
 \\
 \noindent 
@@ -970,7 +973,7 @@ Ukázka dodaných identifikací KAS011
 
 
 \chapter{Zhodnocení z hlediska úrovně rozlišení}
-Na následujícíh dvou grafech jsou zobrazeny všechny zbývající alely genů 2DS1 a 2DL4 u genomu BOB. Jak je vidět z obrázku u genu 2DS1 je možné určit coding region tzn. prvních pět čísel. Oproti tomu v případě genu 2DL4 to možné není. 
+Na následujících dvou grafech jsou zobrazeny všechny zbývající alely genů 2DS1 a 2DL4 u genomu BOB. Jak je vidět z obrázku, u genu 2DS1 je možné určit coding region tzn. prvních pět čísel. Oproti tomu v případě genu 2DL4 to možné není. 
 
 
 \begin{figure}[H]
@@ -986,7 +989,7 @@ Na následujícíh dvou grafech jsou zobrazeny všechny zbývající alely genů
 \end{figure}
 
 \noindent
-Následující tabulka zobrazuje možnost rozlišení alel u syntetických readů. Jak je vidět v případě genu 3DL3 lze jednoznačně prohlásit, že alely od sebe rozlišit nelze. Oproti tomu v případě genu 2DS2 a 3DL3 alely rozlišit lze. 
+Následující tabulka zobrazuje možnost rozlišení alel u syntetických readů. V případě genu 3DL3 lze jednoznačně prohlásit, že alely od sebe rozlišit nelze. Oproti tomu v případě genu 2DS2 a 3DL3 alely rozlišit lze. 
 
 
 \begin{center}
@@ -1017,12 +1020,12 @@ test9 &  &  &  & A - 5 & A - 5 &  &  &  & N &  &  \\
 test10 &  &  &  & A - 5 &  &  & A - 5 &  &  &  &  \\
 test11 & &  &  & A - 5 &  &  &  &  &  &  &  \\  
 \end{tabular}
-\captionof{table}{Zhodnocení zbylích alel v experimentu 2 po 4. kroku z hlediska úrovně rozslišení. Tabulka obsahuje jen alely, které měli ve výsledkách nějakou informaci o úrovni rozlišení. V případě kdy se v políčku nachází znak $N$, znamená to, že zbylo více alel přičemž některá z nich nepatřila do genomu, ale nějakou část označení alely má společnou s alelou, která do genomu patří. V případě znaku "A" \space  alely rozlišit lze. Za pomlčkou se pak nachází číslo určující úroveň rozlišení. Tedy na kolik čísel mají společný základ. }
+\captionof{table}{Zhodnocení zbylích alel v experimentu 2 po 4. kroku z hlediska úrovně rozslišení. Tabulka obsahuje jen alely, které měli ve výsledkách nějakou informaci o úrovni rozlišení. V případě kdy se v políčku nachází znak $N$, znamená to, že zbylo více alel přičemž některá z nich nepatřila do genomu. V případě znaku "A" \space  alely rozlišit lze. Za pomlčkou se pak nachází číslo určující úroveň rozlišení. Tedy na kolik čísel mají společný základ. }
 \end{center}
 
 
 \noindent
-V případě realných dat není možné úroveň rozlišení jednoduše určit protože biologická refrence není určena až na nejnižší úroveň, jak již bylo uvedeno v předchozí kapitole. Níže je zobrazená tabulka zjednodušeně popisující uroveň rozlišení u reálných dat. U genů 2DL5A, 2DS1, 2DS2 a 2DS3 bylu určení alely minimálně na 3 čísla nebo v souladu s biologickou referencí. Oproti tomu u žádného z genů není možné říci, že by alely v žádném případě nešli určit alespoň na coding region.
+V případě realných dat není možné úroveň rozlišení jednoduše určit protože biologická refrence není určena až na nejnižší úroveň, jak již bylo uvedeno v předchozí kapitole. Níže je zobrazená tabulka zjednodušeně popisující uroveň rozlišení u reálných dat. U genů 2DL5A, 2DS1, 2DS2 a 2DS3 bylo určení alely minimálně na 3 místa v coding regionu nebo v souladu s biologickou referencí. Oproti tomu u žádného z genů není možné říci, že by alely v žádném případě nešli určit alespoň na coding region.
 
 \begin{center}
 \tiny
@@ -1055,22 +1058,22 @@ V případě realných dat není možné úroveň rozlišení jednoduše určit 
 
 
 \chapter{Závěr}
-Práce se zabývá návrhem nástroje pro automatickou identifikaci KIR alel. Identifikace KIR alel je využitelná při transplantaci krvetvorných buněk, kdy se rozhoduje mezi více dárci shodných v HLA znacích. Zvolení dárce s vhodnějšími KIR geny snižuje riziko relapsu (návratu nemoci).
+Práce se zabývá návrhem nástroje pro automatickou identifikaci KIR alel. Identifikace KIR alel je využitelná při transplantaci krvetvorných buněk, kdy se rozhoduje mezi více dárci shodnými v HLA znacích. Zvolení dárce s vhodnějšími KIR geny snižuje riziko relapsu (návratu nemoci).
 \\
 \\
-Toto téma je stále aktuální. Zatím je prokázán vliv jen KIR genů, resp. jejich haplotypových kombinací. V současné době se zkoumá vliv i alelických variant, jelikož doposud bylo prokázáno, že některé formy genů se neexprimují, tzn. gen se sice v genomu nachází, ale není z něj vytvořen žádný produkt na povrchu buňky a tak nemá jak vyvolat či ovlivnit jakoukoliv reakci v organismu \cite{exprimace_zaver}. Z bilogického hlediska je důležitá právě exprimace a ta je závislá jen na coding-regionu a tudíž stačí, že z praktického hlediska stačí, aby nástroj byl schopný určit alelu na coding úroveň, tedy prvních pět čísel alely. 
+Toto téma je stále aktuální. Zatím je prokázán vliv jen KIR genů, resp. jejich haplotypových kombinací. V současné době se zkoumá také vliv alelických variant, jelikož doposud bylo prokázáno, že některé formy genů se neexprimují, tzn. gen se sice v genomu nachází, ale není z něj vytvořen žádný produkt na povrchu buňky, a tak nemá jak vyvolat či ovlivnit jakoukoliv reakci v organismu \cite{exprimace_zaver}. Z biologického hlediska je důležitá právě exprimace, která je závislá jen na coding-regionu. Tudíž z praktického hlediska stačí, aby nástroj byl schopný určit alelu na coding úroveň, tedy prvních pět čísel alely. 
 \\
 \\
-V teoretické části byly popsány a rozbrány geny, především non-HLA gen Killer-cell immunoglobulin-like receptor (KIR) a jejich vliv na transplantaci krvetvorných buněk. Dále byly představeny natural killer buňky a jejich funkce v rámci imunitního systému. Pro zjištění typizace HLA a KIR slouží sekvenační metody, které byli shrnuty a popsany. Konkrétněji Sanger sekvenování a next-generation sequencing (NGS). V neposlední řadě byly analyzovány bioinformatické nástroje pro zpracování NGS dat se zaměřením na generátor syntetických readů ART a zarovnávač NGS readů Bowtie2.
+V teoretické části byly popsány a rozbrány geny, především non-HLA gen Killer-cell immunoglobulin-like receptor (KIR), a jejich vliv na transplantaci krvetvorných buněk. Dále byly představeny natural killer buňky a jejich funkce v rámci imunitního systému. Pro zjištění typizace HLA a KIR slouží sekvenační metody, které byly shrnuty a popsány. Konkrétněji Sanger sekvenování a next-generation sequencing (NGS). V neposlední řadě byly analyzovány bioinformatické nástroje pro zpracování NGS dat se zaměřením na generátor syntetických readů ART a zarovnávač NGS readů Bowtie2.
 \\
 \\
-V realizační části bylo navrženo a implementováno prototypové řešení v jazyce Python za pomocí knihovny pysam pro identifikaci KIR alel. Jazyk python byl zvolen z důvodu jednoduchého použití, díky čemuž nebyl vývoj časově náročný. Parametry nástroje ART byli určeny, tak aby výstupní ready co nejvíce odpovídali datům získaných z FN Plzeň/BC LF UK Plzeň. Během práce bylo implementováno a vyzkoušeno několik přístupů, které byli v práci zhodnoceny. Největší překážkou je podobnost alel. Alely mohou být dlouhé až 16 000 bp (nukleových bází). Ready ze sekvenátoru jsou ovšem dlouhé 250 bp. Vzhledem k podobnosti alel (u některých dokonce jen jedna nukleová báze) není žádnou výjimkou, že read je zarovnán na alelu, ke které nepatří. 
+V realizační části bylo navrženo a implementováno prototypové řešení v jazyce Python za pomocí knihovny pysam pro identifikaci KIR alel. Jazyk Python byl zvolen z důvodu jednoduchého použití, díky čemuž nebyl vývoj časově náročný. Parametry nástroje ART byly určeny tak, aby výstupní ready co nejvíce odpovídaly datům získaným z FN Plzeň/BC LF UK Plzeň. Během práce bylo implementováno a vyzkoušeno několik přístupů, které byly v práci zhodnoceny. Největší překážkou je podobnost alel. Alely mohou být dlouhé až 16 000 bp (nukleových bází). Ready ze sekvenátoru jsou ovšem dlouhé 250 bp. Vzhledem k podobnosti alel (u některých dokonce jen jedna nukleová báze) není žádnou výjimkou, že read je zarovnán na alelu, ke které nepatří. 
 \\
 \\
-Nástroj byl implementován a laděn na syntetických readech. Následná verifikace byla provedena na komerčních buněčných liniich sekvenovaných ve FN Plzeň/BC LF UK Plzeň. Verifikace nástroje na reálných datech odpovídala očekávaným předpokladům. Rozdíl reálných readů od syntetických byl už v jejich zarovnání, kdy v případě reálných dat bylo zarovnáno kolem 70 \% readů, oproti tomu v případě syntetických readů byly zarovnány všechny. V rámci návrhu nástroje a provedených experimentů byly identifikovýny základní slabiny automatické identifikace KIR alel, a to že reálná data nejsou vždy identifikovaná až na úroveň non-cofing region, protože z biologického hlediska není v některých případech možné určit alelu na nejnižší známou úroveň, či označení, že se zde gen nachází, ale ani zmíňka o tom o jakou alelu by se mohlo jednat. Tyto problémy souvisejí i se zhodnocením z hlediska úrovně rozlišení, kde u reálných dat v případě biologické reference pouze na coding region vyjde více alel na non-coding region se stejným zákládem codingu regionu. Kromě toho je v reálných datech možné narazit na alelu, která se mezi referenčními sekvencemi nenachází. Nyní je známo 1109 alel, přičemž existuje referenční sekvence pouze pro 461 alel.
+Nástroj byl implementován a laděn na syntetických readech. Následná verifikace byla provedena na komerčních buněčných liniích sekvenovaných ve FN Plzeň/BC LF UK Plzeň. Verifikace nástroje na reálných datech odpovídala očekávaným předpokladům. Rozdíl reálných readů od syntetických byl už v jejich zarovnání, kdy v případě reálných dat bylo zarovnáno kolem 70 \% readů, oproti tomu v případě syntetických readů byly zarovnány všechny. V rámci návrhu nástroje a provedených experimentů byly identifikovány základní slabiny automatické identifikace KIR alel, a sice že reálná data nejsou vždy identifikovaná až na úroveň non-cofing region, protože z biologického hlediska není v některých případech možné určit alelu na nejnižší známou úroveň, či označení, že se zde gen nachází, ale ani zmínka o tom, o jakou alelu by se mohlo jednat. Tyto problémy souvisejí i se zhodnocením z hlediska úrovně rozlišení, kde u reálných dat v případě biologické reference pouze na coding region vyjde více alel na non-coding region se stejným zákládem codingu regionu. Kromě toho je v reálných datech možné narazit na alelu, která se mezi referenčními sekvencemi nenachází. Nyní je známo 1109 alel, přičemž existuje referenční sekvence pouze pro 461 alel.
 \\
 \\
-Do budoucna se nabízí zamyslet se více nad efektivním vytvořením clusterů, kde by se zohledňovala délka readů. V případě verifikace by nebylo na škodu více probádat kvalitu dat a odstřihávání nekvalitních bází. 
+Do budoucna se nabízí zamyslet se více nad efektivním vytvořením clusterů, kde by se zohledňovala délka readů. V případě verifikace by bylo vhodné více probádat kvalitu dat a odstřihávání nekvalitních bází. 
 
 
 \chapter{Výkladový slovník pojmů a zkratek}
@@ -1107,26 +1110,51 @@ Do budoucna se nabízí zamyslet se více nad efektivním vytvořením clusterů
 
 \appendix
 \chapter{Uživatelská dokumentace}
-Ke spuštěním programu je třeba mít nainstalovaný ART ve verzi MountRainier, Bowtie2 ve verzi 2.4.1, Python ve verzi 3.8, dále python knihovny pysam ve verzi 0.14, python-Levenshtein a matplotlib.
-\\
-\\
+Ke spuštěním programu je třeba mít nainstalovaný:
+\begin{itemize}
+\item ART ve verzi MountRainier
+\item Bowtie2 ve verzi 2.4.1
+\item Python ve verzi 3.8
+\item Python knihovny 
+	\begin{itemize}
+		\item pysam 
+		\item python-Levenshtein
+		\item matplotlib
+	\end{itemize}
+\end{itemize}
+
+\noindent
 Doporučený operační systém je Linux, na Windows se mohou vyskytnou problémy s knihovnou htslib. 
 
-\section{Získání python knihoven}
-Knihovnu pysam je možné získat na \cite{pysam}, kde je uveden i návod na instalaci. Obdobně je to s knihovnami python-Levenshtein \cite{python_leve} a matplotlib \cite{matplotlib}.
+\section{Získání potřebného softwaru}
+\subsection{Python knihovny} 
+Knihovny je možné získat pomocí PyPi.
+\begin{itemize}
+	\item \colorbox{gray!15}{\textit{pip install pysam}}
+	\item \colorbox{gray!15}{\textit{pip install python-Levenshtein}}
+	\item \colorbox{gray!15}{\textit{pip install matplotlib}}
+\end{itemize}
 
-\section{Získání referenčních sekvencí}
-Referenční soubory \textit{\_gen.fa} a \textit{\_nuc.fa} použité v práci jsou k nalezení na IPD-KIR \cite{imgt_hla_database} v záložce \textit{KIR}, dále v pravém menu \textit{GitRepos} složka \textit{fasta}.
+\noindent
+Jinou možností je použít oficiální návody uvedené pro knihovnu pysam na \cite{pysam}, knihovnu python-Levenshtein \cite{python_leve} a matplotlib \cite{matplotlib}.
 
 
-\section{Nastavení ART a bowtie}
 \subsection{ART}
-Nástroj ART slouží ke generování syntetických readů a je dostupný na adrese \cite{art_download} po zadání textu \textit{ART} do vyhledávácího pole typicky první výsledek \textit{ART - Set of simulation tools ... }. Odkaz u oficiálním článku \cite{art} je bohužel nefunkční. Práce je odzkoušená s verzí MountRainer. Ve staženém archivu se nechází několik souborů \textit{README}. Pro tuto práci je důležitý soubor \textit{art\_illumina\_README.txt}, který obsahuje návod na instalaci nástroje a vysvětlení parametrů. Parametry shodující se s parametry dat získaných z FN Plzeň/BC LF UK Plzeň jsou paired end ready dlouhé 250 bp, profil sekvenátoru MSv1, s nakopírování sekvencí 100. Všechny tyto parametry jsou již nastavené ve skriptu.
+Nástroj ART slouží ke generování syntetických readů. Odkaz na stažení nástroje u oficiálního článku \cite{art} je bohužel nefunkční. Je možné využít tento zdroj \cite{art_download}. V případě, že bude i tento link nefunkční je možné nástroj vyhledat na stejné stránce po zadání textu \textit{ART} do vyhledávácího pole, typicky první výsledek \textit{ART - Set of simulation tools ... }
+\\
+\\
+Práce je odzkoušená s verzí MountRainer. Ve staženém archivu se nechází několik souborů \textit{README}. Pro tuto práci je důležitý soubor \textit{art\_illumina\_\\README.txt}, který obsahuje návod na instalaci nástroje a vysvětlení parametrů.  
+\\
+\\
+Parametry shodující se s parametry dat získaných z FN Plzeň/BC LF UK Plzeň jsou paired end ready dlouhé 250 bp, profil sekvenátoru MSv1, s nakopírování sekvencí 100. Všechny tyto parametry jsou již nastavené ve skriptu.
 
 
 \subsection{Bowtie2}
 Bowtie2 slouží k zarovnání readů na refrenční sekvenci a je dostupný na \cite{bowtie2_download}. Práce je odzkoušená s verzí 2.4.1. Ve stažené verzi je manual s potřebnými instrukcemi. Stejně tak je na stránkách Bowtie2 sekce Getting started. 
 
+\subsection{Získání referenčních sekvencí}
+\label{sec:ref_sek}
+Referenční soubory \textit{\_gen.fa} a \textit{\_nuc.fa} použité v práci jsou k nalezení na CD ve slozce \textit{prilozena data/referencni sekvence}. Případně nejnovější verzi je možné získat na IPD-KIR \cite{imgt_hla_database} v záložce \textit{KIR}, dále v pravém menu \textit{GitRepos} složka \textit{fasta}.
 
 \section{Nastaveni programu}
 Veškeré nastavení aplikace probíhá pomocí souboru \textit{config.py}
@@ -1142,7 +1170,7 @@ Parametry configu:
 	\item EXP1 - Značí zdá má být spuštěn experiment 1 pro identifikaci.
 	\item EXP2 - Značí zdá má být spuštěn experiment 2 pro identifikaci.
 	\item EXP3 - Značí zdá má být spuštěn experiment 3 pro identifikaci.
-	\item PATH\_TO\_DATA\_FOLDER - Značí cestu ke složce s daty. Dá se využít v případě kdy adresářová struktura odpovídá struktuře navržené níže.
+	\item PATH\_TO\_DATA\_FOLDER - Značí cestu ke složce s daty. Dá se využít v případě, kdy adresářová struktura odpovídá struktuře navržené níže.
 	\item REFERENCE\_KIR\_GENS\_FILE - Soubor se všemi referenčními geny. 
 	\item GENOME\_FOLDER - Označuje cestu složky do které jsou ukládány vytvořené genomy. 
 	\item GENOMES - Slovník, který definuje genomy podle obsahů genů. Na základě toho budou vytvořeny genomy.
@@ -1183,34 +1211,50 @@ Parametry configu:
 \end{itemize}
 
 \section{Spuštění programu}
-Program je možné spustit z příkazové řádky pomocí příkazu \textit {python run.py}. Podmínkou fungování tohoto postupu je, že je třeba se nacházet v umístění skriptu. 
+Program je možné spustit z příkazové řádky pomocí příkazu: 
+
+\begin{itemize}
+ \item \colorbox{gray!15}{\textit{python run.py}}
+\end{itemize}
+
+\noindent
+Podmínkou fungování tohoto postupu je, že je třeba se nacházet v umístění skriptu. 
 
 \section{Výstupy programu}
 V případě tvorby vlastních genomů s doporučenou adresářovou strukturou najdeme ve složce \textit{genome} soubory s příponou \textit{.fa}. Každý soubor obsahuje jeden genom.
 Vytvořené ready se budou nacházet ve složce reads. Protože genomy jsou paired-end náleží každému genomu dva soubory s příponou \textit{.fq}. Jeden s \textit{1} na konci a druhý s \textit{2} na konci. 
 V případě zarovnání mohou být výstupní soubory indexy ve složce \textit{bowtie\_index}. Kdy pro každý referenční soubor je vytvořeno 6 souborů s příponou \textit{bt2}. Výsledné zarování se pak nachází ve složce \textit{alignments} ve formátu \textit{.sam}. 
-\\
-\\
+
+\subsection{Výsledky}
 Výsledky samotné identifikace je možné nalést ve složece \textit{result} ve formátu \textit{.txt}. Mezivýsledky jednotlivých kroků experimentů jsou uloženy ve složce statistics a je možné si je prohlédnout pomocí přiloženého skriptu \textit{analysis\_after\_align.py}, který bude popsán níže. Soubor mezivýsledků může vypadata následovně $amala\_KIR\_GEN\_exp2\_step1.pyc$.  Označení začíná názvem genomu - amala, KIR\_GEN značí refrenční genom, exp2 udává o který experiment se jedná, step1 řiká ke kterému kroku mezi výsledky patří. 
 
 
 
 \section{Analýza referenčních genů}
-K analyzování referenčních genů slouží skript \textit{analysis\_alels.py}. V horní části skriptu je třeba nastavit příslušné cesty. Referenční soubory \textit{\_gen.fa} a \textit{\_nuc.fa} použité v práci jsou k nalezení na IPD-KIR \cite{imgt_hla_database} v záložce \textit{KIR}, dále v pravém menu \textit{GitRepos} složka \textit{fasta}.
+K analyzování referenčních genů slouží skript \textit{analysis\_alels.py} nacházející se na CD ve složce \textit{software/analysis}. V horní části skriptu je třeba nastavit příslušné cesty.
+
 
 \begin{itemize}
 	\item NUC\_FILE - Soubor z referencí \textit{\_nuc.fa}. Slouží pro porovnání se souborem \textit{\_gen.fa}
-	\item GEN\_FILE - Soubor hlavní reference.
+	\item GEN\_FILE - Soubor s referenčními sekvencemi.
 	\item DISTANCE\_FILE\_PYC - Soubor obsahující všechny vzdálenosti a který bude vytvořen na začátku skriptu.
 	\item PLOT\_OUTPUT\_FOLDER - Složka udávající kam se budou ukládat výsledné grafy.
 	\item COUNT\_LEVENHSTEIN - Předpočítá vzdálenosti mezi alelami. Využitelné především při opakovaných bězích se stejnou referenci. Pří nastavení hodnoty na True je výpočet velmi pomalý.
 \end{itemize}
 
 \noindent
-Program je možné spustit z příkazové řádky pomocí příkazu \textit {python analysis\_alels.py}. Podmínkou fungování tohoto postupu je, že je třeba se nacházet v umístění skriptu. 
-\\
-\\
+Získání referenčních souborů \textit{\_gen.fa} a \textit{\_nuc.fa}, které byly použity v práci je popsáno v sekci  \hyperref[sec:ref_sek]{Získání referenčních sekvencí.}
+
+\subsection{Spuštění}
+Analýzu referenčních genů je možné spustit z příkazové řádky pomocí příkazu:
+\begin{itemize}
+ \item \colorbox{gray!15}{\textit{python analysis\_alels.py}}
+\end{itemize}
+
 \noindent
+Podmínkou fungování tohoto postupu je, že je třeba se nacházet v umístění skriptu. 
+
+\subsection{Výstupy programu}
 Výstupem analýzy je grafické zobrazení vzdáleností mezi jednotlivými alelami a jednoduchá statistika, která je zobrazena na následujícím obrázku. \textit{count\_gen} označuje celkový počet alel v souboru \textit{GEN\_FILE}, \textit{count\_nuc} označuje počet alel v souboru \textit{NUC\_FILE}, \textit{match} značí kolik alel je shodných v soubouru \textit{GEN\_FILE} a \textit{NUC\_FILE}, \textit{key not found} značí kolik alel se vyskytuje jen v jenom ze souborů \textit{GEN\_FILE} a \textit{NUC\_FILE}, \textit{something\_wrong} značí nesoulad mezi označením alel podle obsahu a podle pořadového čísla nalezení mezi soubory \textit{NUC\_FILE} a \textit{GEN\_FILE}. Na druhém řádku \textit{max} značí největší vzdálenost mezi alelami, \textit{min} značí nejmenší vzdálenost mezi alelami, \textit{average distance} značí průměrnou vzdálenost mezi alelami, \textit{median} značí median vzdáleností mezi alelami.
 
 \begin{figure}[H]		
@@ -1236,7 +1280,7 @@ Výstupem analýzy je grafické zobrazení vzdáleností mezi jednotlivými alel
 
 
 \section{Analyzování experimentů}
-Pro analyzování kroků jednotlivých experimentů je možné využít skript \textit{analysis\_after\_align\_auto.py}. V horní části skriptu je třeba nastavit příslušné cesty. 
+Pro analyzování kroků jednotlivých experimentů je možné využít skript \textit{analysis\_after\_align\_auto.py} nacházející se na CD ve složce \textit{software/analysis}. V horní části skriptu je třeba nastavit příslušné cesty. 
 
 \begin{itemize}
 	\item GEN\_FILE - Soubor s referenčními alelami.
@@ -1244,14 +1288,22 @@ Pro analyzování kroků jednotlivých experimentů je možné využít skript \
 	\item ALELS\_STATISTICS\_PYC\_REFERENCE\_NAME - jméno refrence, toto je jeden z parametrů ze kterých se skládá název souborů ze statistics.
 	\item ALELS\_STATISTICS\_PYC\_EXPERIMENT - jmeno experimentu, typické hodnoty: exp1, exp2 a exp3
 	\item STEPS - kroky, které se mají analyzovat, typické hodnoty: step1, step2, step3 a step4
-	\item STEPS\_LATECH\_TABLE  - určuje, které kroky se mají vygenerovat do latech tabulky
+	\item STEPS\_LATECH\_TABLE  - určuje, které kroky se mají vygenerovat do latex tabulky
 	\item PLOT\_OUTPUT\_FOLDER -Složka udávající kam se budou ukládat výsledné grafy.
 	\item GENOMES\_LIST - Výpis genomů které mají být analyzovány.
-	\item GENOMES\_LIST - Slovník odpovědí učitele.
+	\item GENOMES\_ALLELES  - Slovník referenčních odpovědí.
 \end{itemize}
 
+\subsection{Spuštění}
+Analýzu je možné spustit z příkazové řádky pomocí příkazu:
+\begin{itemize}
+ \item \colorbox{gray!15}{\textit{python analysis\_after\_align\_auto.py}}
+\end{itemize}
 \noindent
-Program je možné spustit z příkazové řádky pomocí příkazu \textit{python analysis\_after\_align\_auto.py}. Podmínkou fungování tohoto postupu je, že je třeba se nacházet v umístění skriptu. Výstupem jsou grafické zobrazení pokrytí jednotlivých alel, roztříděných podle genu, kroku a genomu.
+Podmínkou fungování tohoto postupu je, že je třeba se nacházet v umístění skriptu. 
+
+\subsection{Výstupy programu}
+Výstupem jsou grafické zobrazení pokrytí jednotlivých alel, roztříděných podle genu, kroku a genomu.
 
 
 
@@ -1706,7 +1758,7 @@ Soubor s příponou \textit{.sam} obsahuje výsledky zarovnání readů.
 \end{center}
 
 \chapter{Detailní výsledky}
-V textu budou uvedeny tabulky s následujícím význami jednotlivých sloupců. Alel u genomu značí počet v daném genomu. Číslo v závorkách udává kolik alel je dvakrát v daném genomu.  V každém kroku zbývá alel je kolik alel ještě zůstalo ve výběru, ztraceno určuje kolik alel má být v genomu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely které byly ztraceny. V dalších krocích jsou vypsány alely bez těch které už byly ztraceny v předchozích krocích. Obdobně je to s geny navíc, které udávají počet a jaké geny již neobsahují žádnou z alel, která náleží do daného genomu. 
+V textu budou uvedeny tabulky s následujícím význami jednotlivých sloupců. \textit{Alel} u genomu značí počet v daném genomu. Číslo v závorkách udává kolik alel se v daném genomu vyskytuje dvakrát. V každém kroku \textit{zbývá alel} je kolik alel ještě zůstalo ve výběru, \textit{ztraceno} určuje kolik alel má být v genomu, ale algoritmus je vyřadil. Za tímto číslem jsou vypsané alely, které byly ztraceny. V dalších krocích jsou vypsány alely bez těch, které už byly ztraceny v předchozích krocích. Obdobně je to s \textit{geny navíc}, které udávají počet a druh genů již neobsahujích žádnou z alel, která náleží do daného genomu. 
 
 \begin{landscape}
 \section{Experiment1}
@@ -1715,7 +1767,7 @@ V textu budou uvedeny tabulky s následujícím význami jednotlivých sloupců.
 \rowcolors{2}{gray!25}{white}
 \begin{longtable}{l c|| c | c l | c l || c | c l | c l || c | c l | c l }
  & & \multicolumn{5}{c||}{Krok 1} & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c}{Krok 3} \\ 
-Genotyp & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
+Genom & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
 \hline
 \hline
 amala & 19 (0) & 461 & 0 &  -  & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 2DS3}} & 113 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL1*0030201 \\ 3DL1*0150201}} & 0 &  -  & 23 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1*0090101 \\ 2DL4*0010201}} & 0 &  -  \\ 
@@ -1740,7 +1792,7 @@ test10 & 21 (3) & 461 & 0 &  -  & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL5A \\ 2DS5
 test11 & 24 (2) & 461 & 0 &  -  & 5 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 3DL1 \\ 2DS3 \\ 2DS4 \\ 2DL3}} & 110 & 0 &  -  & 0 &  -  & 28 & 0 &  -  & 0 &  -  \\ 
 
 \end{longtable}
-\captionof{table}{Výsledky experimentu 1 na syntetických readech. Odřezány byly alely, které měli pokrytí menší než 90\%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100. }
+\captionof{table}{Výsledky experimentu 1 na syntetických readech. Odřezány byly alely, které měly pokrytí menší než 90 \%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100. }
 \end{center}
 \newpage
 
@@ -1749,7 +1801,7 @@ test11 & 24 (2) & 461 & 0 &  -  & 5 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 3DL1
 \rowcolors{2}{gray!25}{white}
 \begin{longtable}{l c|| c | c l | c l || c | c l | c l || c | c l | c l || c | c | c}
  & & \multicolumn{5}{c||}{Krok 1} & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c||}{Krok 3} & \multicolumn{3}{c}{}\\ 
-Genotyp & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & TP & FP & FN \\
+Genom & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & TP & FP & FN \\
 \hline
 \hline
 amala & 19 (0) & 461 & 0 &  -  & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 2DS3}} & 193 & 0 &  -  & 0 &  -  & 41 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL4*0010201 \\ 3DP1*0090101}} & 0 &  - & 17 & 24 & 2 \\ 
@@ -1774,7 +1826,7 @@ test10 & 21 (3) & 461 & 0 &  -  & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL5A \\ 2DS5
 test11 & 24 (2) & 461 & 0 &  -  & 5 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 3DL1 \\ 2DS3 \\ 2DS4 \\ 2DL3}} & 148 & 0 &  -  & 1 &  -  & 35 & 0 &  -  & 1 &  - & 22 & 13 & 0 \\ 
 
 \end{longtable}
-\captionof{table}{Výsledky experimentu 1 na syntetických readech. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. }
+\captionof{table}{Výsledky experimentu 1 na syntetických readech. Odřezány byly alely, které měly pokrytí menší než 70 \%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100. }
 \end{center}
 
 \newpage
@@ -1785,7 +1837,7 @@ test11 & 24 (2) & 461 & 0 &  -  & 5 & \Gape[0pt][2pt]{\makecell[l]{2DL5B \\ 3DL1
 \rowcolors{2}{gray!25}{white}
 \begin{longtable}{l c|| c | c l | c l || c | c l | c l || c | c l | c l || c | c | c }
  & & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c||}{Krok 3} & \multicolumn{5}{c||}{Krok 4} & \multicolumn{3}{c}{} \\ 
-Genotyp & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & TP & FP & FN  \\
+Genom & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & TP & FP & FN  \\
 \hline
 \hline
 amala & 19 (0) & 193 & 0 &  -  & 0 &  -  & 38 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL4*0010201 \\ 3DP1*0090101}} & 0 &  -  & 18 & 3 & 3DL2*0020105 & 0 &  - & 16 & 2 & 3 \\ 
@@ -1810,7 +1862,7 @@ test10 & 21 (3) & 145 & 1 & 3DL1*0150101 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL1
 test11 & 24 (2) & 148 & 0 &  -  & 1 & 2DL5B & 33 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DS5*0020103 \\ 2DS2*0010103}} & 1 &  -  & 24 & 2 &  -  & 1 &  - & 20 & 4 & 2 \\ 
 
 \end{longtable}
-\captionof{table}{Výsledky experimentu 2. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100.}
+\captionof{table}{Výsledky experimentu 2. Odřezány byly alely, které měly pokrytí menší než 70 \%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100.}
 \end{center}
 
 \newpage
@@ -1820,7 +1872,7 @@ test11 & 24 (2) & 148 & 0 &  -  & 1 & 2DL5B & 33 & 2 & \Gape[0pt][2pt]{\makecell
 \rowcolors{2}{gray!25}{white}
 \begin{longtable}{l c|| c | c l | c l || c | c l | c l || c | c l | c l }
  & & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c||}{Krok 3} & \multicolumn{5}{c}{Krok 4} \\ 
-Genotyp & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
+Genom & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
 \hline
 \hline
 amala & 19 (0) & 231 & 0 &  -  & 0 &  -  & 41 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DP1*0090101 \\ 2DL4*0010201}} & 0 &  -  & 20 & 2 &  -  & 0 &  -  \\ 
@@ -1844,7 +1896,7 @@ test9 & 22 (1) & 174 & 0 &  -  & 0 &  -  & 37 & 0 &  -  & 0 &  -  & 22 & 1 & 3DL
 test10 & 21 (3) & 162 & 1 & 3DL1*0150101 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL1 \\ 2DL5A}} & 34 & 1 &  -  & 2 &  -  & 23 & 1 &  -  & 2 &  -  \\ 
 test11 & 24 (2) & 148 & 0 &  -  & 1 & 2DL5B & 33 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DS5*0020103 \\ 2DS2*0010103}} & 1 &  -  & 24 & 2 &  -  & 1 &  -  \\ 
 \end{longtable}
-\captionof{table}{Výsledky experimentu 3. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářeli alely, které od sebe měli vzdálenost maximálně~5.  }
+\captionof{table}{Výsledky experimentu 3. Odřezány byly alely, které měly pokrytí menší než 70 \%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářely alely, které od sebe měly vzdálenost maximálně~5.  }
 \end{center}
 
 \newpage
@@ -1854,7 +1906,7 @@ test11 & 24 (2) & 148 & 0 &  -  & 1 & 2DL5B & 33 & 2 & \Gape[0pt][2pt]{\makecell
 \rowcolors{2}{gray!25}{white}
 \begin{longtable}{l c|| c | c l | c l || c | c l | c l || c | c l | c l }
  & & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c||}{Krok 3} & \multicolumn{5}{c}{Krok 4} \\ 
-Genotyp & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
+Genom & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
 \hline
 \hline
 
@@ -1880,7 +1932,7 @@ test10 & 21 (3) & 174 & 0 &  -  & 1 & 2DL5A & 31 & 0 &  -  & 1 &  -  & 21 & 0 & 
 test11 & 24 (2) & 156 & 0 &  -  & 1 & 2DL5B & 33 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DS5*0020103 \\ 2DS2*0010103}} & 1 &  -  & 24 & 2 &  -  & 1 &  -  \\ 
 
 \end{longtable}
-\captionof{table}{Výsledky experimentu 3. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářeli alely, které od sebe měli vzdálenost maximálně~10. }
+\captionof{table}{Výsledky experimentu 3. Odřezány byly alely, které měly pokrytí menší než 70 \%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářely alely, které od sebe měly vzdálenost maximálně~10. }
 \end{center}
 
 \newpage
@@ -1891,7 +1943,7 @@ test11 & 24 (2) & 156 & 0 &  -  & 1 & 2DL5B & 33 & 2 & \Gape[0pt][2pt]{\makecell
 \rowcolors{2}{gray!25}{white}
 \begin{longtable}{l c|| c | c l | c l || c | c l | c l || c | c l | c l || c | c | c }
  & & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c||}{Krok 3} & \multicolumn{5}{c||}{Krok 4} & \multicolumn{3}{c}{} \\ 
-Genotyp & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c|| }{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & TP & FP & FN  \\
+Genom & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c|| }{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & TP & FP & FN  \\
 \hline
 \hline
 
@@ -1917,7 +1969,7 @@ test10 & 21 (3) & 184 & 0 &  -  & 1 & 2DL5A & 31 & 0 &  -  & 1 &  -  & 20 & 1 & 
 test11 & 24 (2) & 156 & 0 &  -  & 1 & 2DL5B & 33 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DS2*0010103 \\ 2DS5*0020103}} & 1 &  -  & 24 & 2 &  -  & 1 &  - & 20 & 4 & 2 \\ 
 
 \end{longtable}
-\captionof{table}{Výsledky experimentu 3. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářeli alely, které od sebe měli vzdálenost maximálně~20. }
+\captionof{table}{Výsledky experimentu 3. Odřezány byly alely, které měly pokrytí menší než 70 \%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářely alely, které od sebe měly vzdálenost maximálně~20. }
 \end{center}
 
 \newpage
@@ -1926,7 +1978,7 @@ test11 & 24 (2) & 156 & 0 &  -  & 1 & 2DL5B & 33 & 2 & \Gape[0pt][2pt]{\makecell
 \rowcolors{2}{gray!25}{white}
 \begin{longtable}{l c|| c | c l | c l || c | c l | c l || c | c l | c l }
  & & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c||}{Krok 3} & \multicolumn{5}{c}{Krok 4} \\ 
-Genotyp & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
+Genom & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
 \hline
 \hline
 amala & 19 (0) & 281 & 0 &  -  & 0 &  -  & 39 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL4*0010201 \\ 3DP1*0090101}} & 0 &  -  & 19 & 3 & 3DL2*0020105 & 0 &  -  \\ 
@@ -1952,7 +2004,7 @@ test11 & 24 (2) & 159 & 0 &  -  & 1 & 2DL5B & 35 & 0 &  -  & 1 &  -  & 26 & 0 & 
 
 
 \end{longtable}
-\captionof{table}{Výsledky experimentu 3. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářeli alely, které od sebe měli vzdálenost maximálně~30. }
+\captionof{table}{Výsledky experimentu 3. Odřezány byly alely, které měly pokrytí menší než 70 \%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářely alely, které od sebe měly vzdálenost maximálně~30. }
 \end{center}
 
 \end{landscape}
@@ -2046,7 +2098,7 @@ Při vzdálenosti 30 bylo vytvořeno 122 clusterů. Zde je uveden jen jeden ze z
 \rowcolors{2}{gray!25}{white}
 \begin{longtable}{l c|| c | c l | c l || c | c l | c l }
  & & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c}{Krok 3} \\ 
-Genotyp & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
+Genom & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
 \hline
 \hline
 amala & 19 (0) & 344 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL3*001 \\ 2DL2*00301}} & 1 & 2DL5B & 78 & 5 & \Gape[0pt][2pt]{\makecell[l]{3DP1*00901 \\ 3DL2*0020105 \\ 3DL2*0070102}} & 2 & 3DL2 \\ 
@@ -2068,7 +2120,7 @@ wt51 & 12 (0) & 297 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1 \\ 
 \rowcolors{2}{gray!25}{white}
 \begin{longtable}{l c|| c | c l | c l || c | c l | c l }
  & & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c}{Krok 3} \\ 
-Genotyp & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
+Genom & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
 \hline
 \hline
 amala & 19 (0) & 345 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL3*001 \\ 2DL2*00301}} & 1 & 2DL5B & 79 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1*00901 \\ 3DL2*0070102}} & 1 &  - \\ 
@@ -2081,7 +2133,7 @@ olga & 17 (0) & 332 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL3*00101 \\ 3DL3*00902}
 rsh & 15 (0) & 361 & 0 &  -  & 4 & \Gape[0pt][2pt]{\makecell[l]{2DS4 \\ 3DL2 \\ 2DL5A \\ 2DS1}} & 73 & 1 & 2DP1*00201 & 4 &  - \\ 
 wt51 & 12 (0) & 300 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1 \\ 2DS3 \\ 2DL1 \\ 3DL2}} & 69 & 1 &  -  & 4 &  - \\
 \end{longtable}
-\captionof{table}{Výsledky experimentu 1 na realných datech po odstřižení nekvalitních bází. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100.  }
+\captionof{table}{Výsledky experimentu 1 na realných datech po odstřižení nekvalitních bází. Odřezány byly alely, které měly pokrytí menší než 70 \%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100.  }
 \end{center}
 \newpage
 
@@ -2090,7 +2142,7 @@ wt51 & 12 (0) & 300 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1 \\ 
 \rowcolors{2}{gray!25}{white}
 \begin{longtable}{l c|| c | c l | c l || c | c l | c l || c | c l | c l }
  & & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c||}{Krok 3} & \multicolumn{5}{c}{Krok 4} \\ 
-Genotyp & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
+Genom & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
 \hline
 \hline
 
@@ -2104,7 +2156,7 @@ olga & 17 (0) & 328 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL3*00101 \\ 3DL3*00902}
 rsh & 15 (0) & 361 & 0 &  -  & 5 & \Gape[0pt][2pt]{\makecell[l]{2DS4 \\ 3DL2 \\ 2DL5A \\ 2DS1 \\ 2DS3}} & 74 & 1 & 2DP1*00201 & 5 &  -  & 34 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL1*00302 \\ 2DL4*011}} & 5 &  -  \\ 
 wt51 & 12 (0) & 297 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{2DS3 \\ 2DL1 \\ 3DP1 \\ 3DL2}} & 68 & 1 &  -  & 4 &  -  & 29 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL5A*00501 \\ 2DP1*001}} & 4 &  -  \\ 
 \end{longtable}
-\captionof{table}{Výsledky experimentu 2 na realných datech. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100.  }
+\captionof{table}{Výsledky experimentu 2 na realných datech. Odřezány byly alely, které měly pokrytí menší než 70 \%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100.  }
 \end{center}
 
 \begin{center}
@@ -2112,7 +2164,7 @@ wt51 & 12 (0) & 297 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{2DS3 \\ 
 \rowcolors{2}{gray!25}{white}
 \begin{longtable}{l c|| c | c l | c l || c | c l | c l || c | c l | c l }
  & & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c||}{Krok 3} & \multicolumn{5}{c}{Krok 4} \\ 
-Genotyp & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
+Genom & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
 \hline
 \hline
 amala & 19 (0) & 345 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL3*001 \\ 2DL2*00301}} & 1 & 2DL5B & 81 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DL2*0070102 \\ 3DP1*00901}} & 1 &  -  & 52 & 4 &  -  & 1 &  - \\ 
@@ -2127,7 +2179,7 @@ wt51 & 12 (0) & 300 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1 \\ 
 
 
 \end{longtable}
-\captionof{table}{Výsledky experimentu 2 na realných datech po odřezání nekvalitních bází. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100. }
+\captionof{table}{Výsledky experimentu 2 na realných datech po odřezání nekvalitních bází. Odřezány byly alely, které měly pokrytí menší než 70 \%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100. }
 \end{center}
 \newpage
 
@@ -2137,7 +2189,7 @@ wt51 & 12 (0) & 300 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1 \\ 
 \rowcolors{2}{gray!25}{white}
 \begin{longtable}{l c|| c | c l | c l || c | c l | c l || c | c l | c l }
  & & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c||}{Krok 3} & \multicolumn{5}{c}{Krok 4} \\ 
-Genotyp & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
+Genom & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
 \hline
 \hline
 amala & 19 (0) & 374 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL3*001 \\ 2DL2*00301}} & 1 & 2DL5B & 80 & 5 & \Gape[0pt][2pt]{\makecell[l]{3DP1*00901 \\ 3DL2*0070102 \\ 3DL2*0020105}} & 2 & 3DL2 & 58 & 5 &  -  & 2 &  -  \\ 
@@ -2150,7 +2202,7 @@ olga & 17 (0) & 346 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL3*00101 \\ 3DL3*00902}
 rsh & 15 (0) & 365 & 0 &  -  & 5 & \Gape[0pt][2pt]{\makecell[l]{2DS4 \\ 3DL2 \\ 2DL5A \\ 2DS3 \\ 2DS1}} & 75 & 1 & 2DP1*00201 & 5 &  -  & 35 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL4*011 \\ 2DL1*00302}} & 5 &  -  \\ 
 wt51 & 12 (0) & 311 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1 \\ 2DL1 \\ 2DS3 \\ 3DL2}} & 75 & 1 &  -  & 4 &  -  & 31 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL5A*00501 \\ 2DP1*001}} & 4 &  -  \\ 
 \end{longtable}
-\captionof{table}{Výsledky experimentu 3 na realných datech. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářeli alely, které od sebe měli vzdálenost maximálně 20.}
+\captionof{table}{Výsledky experimentu 3 na realných datech. Odřezány byly alely, které měly pokrytí menší než 70 \%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářely alely, které od sebe měly vzdálenost maximálně 20.}
 \end{center}
 \newpage
 
@@ -2159,7 +2211,7 @@ wt51 & 12 (0) & 311 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1 \\ 
 \rowcolors{2}{gray!25}{white}
 \begin{longtable}{l c|| c | c l | c l || c | c l | c l || c | c l | c l }
  & & \multicolumn{5}{c||}{Krok 2} & \multicolumn{5}{c||}{Krok 3} & \multicolumn{5}{c}{Krok 4} \\ 
-Genotyp & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
+Genom & Alel & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c|}{Ztraceno} & \multicolumn{2}{|c||}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}} & \Gape[0pt][2pt]{\makecell[c]{Zbývá \\ alel}} & \multicolumn{2}{c}{Ztraceno} & \multicolumn{2}{|c}{\Gape[0pt][2pt]{\makecell[c]{Geny \\ navíc}}}  \\
 \hline
 \hline
 amala & 19 (0) & 372 & 2 & \Gape[0pt][2pt]{\makecell[l]{2DL2*00301 \\ 2DL3*001}} & 1 & 2DL5B & 83 & 4 & \Gape[0pt][2pt]{\makecell[l]{3DP1*00901 \\ 3DL2*0070102}} & 1 &  -  & 57 & 5 & 2DL1*00302 & 2 & 2DL1 \\ 
@@ -2172,7 +2224,7 @@ olga & 17 (0) & 348 & 2 & \Gape[0pt][2pt]{\makecell[l]{3DL3*00902 \\ 2DL3*00101}
 rsh & 15 (0) & 365 & 0 &  -  & 4 & \Gape[0pt][2pt]{\makecell[l]{2DS4 \\ 3DL2 \\ 2DL5A \\ 2DS1}} & 80 & 1 & 2DP1*00201 & 4 &  -  & 35 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DL4*011 \\ 2DL1*00302}} & 4 &  -  \\ 
 wt51 & 12 (0) & 313 & 1 & 3DL3*00103 & 4 & \Gape[0pt][2pt]{\makecell[l]{2DL1 \\ 2DS3 \\ 3DP1 \\ 3DL2}} & 77 & 1 &  -  & 4 &  -  & 32 & 3 & \Gape[0pt][2pt]{\makecell[l]{2DP1*001 \\ 2DL5A*00501}} & 4 &  - \\
 \end{longtable}
-\captionof{table}{Výsledky experimentu 3 na realných datech po odřezání nekvality. Odřezány byly alely, které měli pokrytí menší než 70\%. Za blízké byly považovány v případě kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářeli alely, které od sebe měli vzdálenost maximálně 20. }
+\captionof{table}{Výsledky experimentu 3 na realných datech po odřezání nekvality. Odřezány byly alely, které měly pokrytí menší než 70 \%. Za blízké byly považovány v případě, kdy byla jejich vzdálenost mezi sebou menší než 100. Shluky vytvářely alely, které od sebe měly vzdálenost maximálně 20. }
 \end{center}
 
 

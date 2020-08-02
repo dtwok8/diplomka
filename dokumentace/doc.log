@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  1 AUG 2020 23:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  2 AUG 2020 17:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -555,11 +555,7 @@ Package: scrlfile 2019/02/01 v3.26b KOMA-Script package (loading files)
 LaTeX Warning: Command \@footnotemark  has changed.
                Check if current package is valid.
 
-) (./doc.aux
-
-LaTeX Warning: Label `fig:graf_quality_no_trim' multiply defined.
-
-)
+) (./doc.aux)
 \openout1 = `doc.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
@@ -715,7 +711,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 \tf@toc=\write4
 \openout4 = `doc.toc'.
 
- [7]
+ [7] [8]
 Kapitola 1.
 
 Underfull \hbox (badness 10000) in paragraph at lines 116--123
@@ -727,9 +723,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 116--123
 
  []
 
-[8
+[9
 
-] [9]
+] [10]
 Kapitola 2.
 
 Underfull \hbox (badness 10000) in paragraph at lines 126--133
@@ -741,29 +737,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 126--133
 
  []
 
-<./img/lidska_bunka.png, id=360, 1736.4875pt x 820.06375pt>
+<./img/lidska_bunka.png, id=389, 1736.4875pt x 820.06375pt>
 File: ./img/lidska_bunka.png Graphic file (type png)
 <use ./img/lidska_bunka.png>
 Package pdftex.def Info: ./img/lidska_bunka.png  used on input line 139.
 (pdftex.def)             Requested size: 150.56305pt x 71.0997pt.
-<./img/chromosome.jpg, id=362, 1606.0pt x 1127.21124pt>
+<./img/chromosome.jpg, id=391, 1606.0pt x 1127.21124pt>
 File: ./img/chromosome.jpg Graphic file (type jpg)
 <use ./img/chromosome.jpg>
 Package pdftex.def Info: ./img/chromosome.jpg  used on input line 140.
 (pdftex.def)             Requested size: 200.75073pt x 140.90106pt.
-[10
+[11
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 150--154
 
  []
 
-<./img/genom6_mica.jpg, id=375, 853.1875pt x 539.01375pt>
+<./img/genom6_mica.jpg, id=404, 853.1875pt x 539.01375pt>
 File: ./img/genom6_mica.jpg Graphic file (type jpg)
 <use ./img/genom6_mica.jpg>
 Package pdftex.def Info: ./img/genom6_mica.jpg  used on input line 157.
 (pdftex.def)             Requested size: 301.1261pt x 190.245pt.
-[11 <./img/lidska_bunka.png> <./img/chromosome.jpg>]
+[12 <./img/lidska_bunka.png> <./img/chromosome.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 163--174
 
  []
@@ -778,7 +774,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 163--174
 
  []
 
-[12 <./img/genom6_mica.jpg>]
+[13 <./img/genom6_mica.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 176--180
 
  []
@@ -788,18 +784,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 187--192
 
  []
 
-<./img/nk_receptory.jpg, id=400, 385.44pt x 234.1548pt>
+<./img/nk_receptory.jpg, id=430, 385.44pt x 234.1548pt>
 File: ./img/nk_receptory.jpg Graphic file (type jpg)
 <use ./img/nk_receptory.jpg>
 Package pdftex.def Info: ./img/nk_receptory.jpg  used on input line 199.
 (pdftex.def)             Requested size: 301.1261pt x 182.93298pt.
-[13]
+[14]
 Underfull \hbox (badness 10000) in paragraph at lines 205--209
 
  []
 
-[14 <./img/nk_receptory.jpg>]
-<./img/kir_pozice.png, id=424, 987.69pt x 1384.17125pt>
+[15 <./img/nk_receptory.jpg>]
+<./img/kir_pozice.png, id=453, 987.69pt x 1384.17125pt>
 File: ./img/kir_pozice.png Graphic file (type png)
 <use ./img/kir_pozice.png>
 Package pdftex.def Info: ./img/kir_pozice.png  used on input line 216.
@@ -814,19 +810,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 222--229
 
  []
 
-[15 <./img/kir_pozice.png>]
-<./img/KIR_nomenklatura.png, id=437, 564.1075pt x 401.5pt>
+[16 <./img/kir_pozice.png>]
+<./img/KIR_nomenklatura.png, id=466, 564.1075pt x 401.5pt>
 File: ./img/KIR_nomenklatura.png Graphic file (type png)
 <use ./img/KIR_nomenklatura.png>
 Package pdftex.def Info: ./img/KIR_nomenklatura.png  used on input line 232.
 (pdftex.def)             Requested size: 386.95749pt x 275.41792pt.
- [16 <./img/KIR_nomenklatura.png>]
-<./img/KIR_nomenklatura2.png, id=450, 1360.08125pt x 649.42625pt>
+ [17 <./img/KIR_nomenklatura.png>]
+<./img/KIR_nomenklatura2.png, id=479, 1360.08125pt x 649.42625pt>
 File: ./img/KIR_nomenklatura2.png Graphic file (type png)
 <use ./img/KIR_nomenklatura2.png>
 Package pdftex.def Info: ./img/KIR_nomenklatura2.png  used on input line 245.
 (pdftex.def)             Requested size: 386.95749pt x 184.76138pt.
-<./img/NK_princip.jpg, id=455, 399.0839pt x 306.98761pt>
+<./img/NK_princip.jpg, id=484, 399.0839pt x 306.98761pt>
 File: ./img/NK_princip.jpg Graphic file (type jpg)
 <use ./img/NK_princip.jpg>
 Package pdftex.def Info: ./img/NK_princip.jpg  used on input line 257.
@@ -836,8 +832,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 250--260
 
  []
 
-[17 <./img/KIR_nomenklatura2.png>]
-<./img/KIR_haplotype.jpg, id=470, 757.83125pt x 368.37625pt>
+[18 <./img/KIR_nomenklatura2.png>]
+<./img/KIR_haplotype.jpg, id=500, 757.83125pt x 368.37625pt>
 File: ./img/KIR_haplotype.jpg Graphic file (type jpg)
 <use ./img/KIR_haplotype.jpg>
 Package pdftex.def Info: ./img/KIR_haplotype.jpg  used on input line 270.
@@ -852,29 +848,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 265--273
 
  []
 
-[18 <./img/NK_princip.jpg>]
+[19 <./img/NK_princip.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 275--280
 
  []
 
-[19 <./img/KIR_haplotype.jpg>]
-<./img/KIR_haplotypy_priklad.png, id=491, 621.07031pt x 191.9672pt>
+[20 <./img/KIR_haplotype.jpg>]
+<./img/KIR_haplotypy_priklad.png, id=520, 621.07031pt x 191.9672pt>
 File: ./img/KIR_haplotypy_priklad.png Graphic file (type png)
 <use ./img/KIR_haplotypy_priklad.png>
 Package pdftex.def Info: ./img/KIR_haplotypy_priklad.png  used on input line 28
 3.
 (pdftex.def)             Requested size: 386.95749pt x 119.60426pt.
- [20 <./img/KIR_haplotypy_priklad.png (PNG copy)>]
+ [21 <./img/KIR_haplotypy_priklad.png (PNG copy)>]
 Kapitola 3.
 
 Underfull \hbox (badness 10000) in paragraph at lines 290--295
 
  []
 
-[21
+[22
 
 ]
-<./img/elektroforeza.png, id=511, 988.44281pt x 484.05844pt>
+<./img/elektroforeza.png, id=540, 988.44281pt x 484.05844pt>
 File: ./img/elektroforeza.png Graphic file (type png)
 <use ./img/elektroforeza.png>
 Package pdftex.def Info: ./img/elektroforeza.png  used on input line 308.
@@ -884,20 +880,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 314--318
 
  []
 
-[22 <./img/elektroforeza.png (PNG copy)>]
-<./img/single_end_pair_end_reads_yourgenome.png, id=521, 1076.02pt x 1204.5pt>
+[23 <./img/elektroforeza.png (PNG copy)>]
+<./img/single_end_pair_end_reads_yourgenome.png, id=550, 1076.02pt x 1204.5pt>
 File: ./img/single_end_pair_end_reads_yourgenome.png Graphic file (type png)
 <use ./img/single_end_pair_end_reads_yourgenome.png>
 Package pdftex.def Info: ./img/single_end_pair_end_reads_yourgenome.png  used o
 n input line 324.
 (pdftex.def)             Requested size: 200.75073pt x 224.70369pt.
- [23 <./img/single_end_pair_end_reads_yourgenome.png>]
-<./img/sekvenace_454_1.png, id=534, 508.14844pt x 153.57375pt>
+ [24 <./img/single_end_pair_end_reads_yourgenome.png>]
+<./img/sekvenace_454_1.png, id=563, 508.14844pt x 153.57375pt>
 File: ./img/sekvenace_454_1.png Graphic file (type png)
 <use ./img/sekvenace_454_1.png>
 Package pdftex.def Info: ./img/sekvenace_454_1.png  used on input line 336.
 (pdftex.def)             Requested size: 301.1261pt x 91.01077pt.
-<./img/sekvenace_454_2.png, id=535, 217.5628pt x 118.19156pt>
+<./img/sekvenace_454_2.png, id=564, 217.5628pt x 118.19156pt>
 File: ./img/sekvenace_454_2.png Graphic file (type png)
 <use ./img/sekvenace_454_2.png>
 Package pdftex.def Info: ./img/sekvenace_454_2.png  used on input line 337.
@@ -907,20 +903,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 342--347
 
  []
 
-[24 <./img/sekvenace_454_1.png (PNG copy)> <./img/sekvenace_454_2.png (PNG copy
-)>] [25]
+[25 <./img/sekvenace_454_1.png (PNG copy)> <./img/sekvenace_454_2.png (PNG copy
+)>] [26]
 Kapitola 4.
 
 Underfull \hbox (badness 10000) in paragraph at lines 366--370
 
  []
 
-<./img/read_simulators.jpg, id=552, 602.25pt x 443.40656pt>
+<./img/read_simulators.jpg, id=581, 602.25pt x 443.40656pt>
 File: ./img/read_simulators.jpg Graphic file (type jpg)
 <use ./img/read_simulators.jpg>
 Package pdftex.def Info: ./img/read_simulators.jpg  used on input line 374.
 (pdftex.def)             Requested size: 386.95749pt x 284.90912pt.
-[26
+[27
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 383--390
@@ -932,13 +928,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 383--390
 
  []
 
-[27 <./img/read_simulators.jpg>]
-<./img/ngs_read_mappers.jpeg, id=568, 231.65009pt x 195.3341pt>
+[28 <./img/read_simulators.jpg>]
+<./img/ngs_read_mappers.jpeg, id=597, 231.65009pt x 195.3341pt>
 File: ./img/ngs_read_mappers.jpeg Graphic file (type jpg)
 <use ./img/ngs_read_mappers.jpeg>
 Package pdftex.def Info: ./img/ngs_read_mappers.jpeg  used on input line 398.
 (pdftex.def)             Requested size: 386.95749pt x 326.326pt.
- [28]
+ [29]
 Underfull \hbox (badness 10000) in paragraph at lines 404--411
 
  []
@@ -954,46 +950,46 @@ Underfull \hbox (badness 10000) in paragraph at lines 404--411
 
  []
 
-[29 <./img/ngs_read_mappers.jpeg>]
-<./img/bowtie2_postup.png, id=587, 593.21625pt x 625.33624pt>
+[30 <./img/ngs_read_mappers.jpeg>]
+<./img/bowtie2_postup.png, id=616, 593.21625pt x 625.33624pt>
 File: ./img/bowtie2_postup.png Graphic file (type png)
 <use ./img/bowtie2_postup.png>
 Package pdftex.def Info: ./img/bowtie2_postup.png  used on input line 414.
 (pdftex.def)             Requested size: 386.95749pt x 407.92365pt.
- [30]
+ [31]
 Underfull \hbox (badness 10000) in paragraph at lines 431--435
 
  []
 
-[31 <./img/bowtie2_postup.png>]
-<./img/BWT_1.png, id=607, 645.16031pt x 235.63031pt>
+[32 <./img/bowtie2_postup.png>]
+<./img/BWT_1.png, id=637, 645.16031pt x 235.63031pt>
 File: ./img/BWT_1.png Graphic file (type png)
 <use ./img/BWT_1.png>
 Package pdftex.def Info: ./img/BWT_1.png  used on input line 438.
 (pdftex.def)             Requested size: 309.56717pt x 113.0617pt.
-<./img/BWT_2.png, id=611, 287.57437pt x 296.60812pt>
+<./img/BWT_2.png, id=641, 287.57437pt x 296.60812pt>
 File: ./img/BWT_2.png Graphic file (type png)
 <use ./img/BWT_2.png>
 Package pdftex.def Info: ./img/BWT_2.png  used on input line 454.
 (pdftex.def)             Requested size: 100.37537pt x 103.52927pt.
- [32 <./img/BWT_1.png (PNG copy)> <./img/BWT_2.png (PNG copy)>]
-<./img/BWT_3.png, id=625, 240.9pt x 415.5525pt>
+ [33 <./img/BWT_1.png (PNG copy)> <./img/BWT_2.png (PNG copy)>]
+<./img/BWT_3.png, id=654, 240.9pt x 415.5525pt>
 File: ./img/BWT_3.png Graphic file (type png)
 <use ./img/BWT_3.png>
 Package pdftex.def Info: ./img/BWT_3.png  used on input line 465.
 (pdftex.def)             Requested size: 80.3003pt x 138.51505pt.
-<./img/FM_index_1.png, id=629, 267.24844pt x 375.65344pt>
+<./img/FM_index_1.png, id=658, 267.24844pt x 375.65344pt>
 File: ./img/FM_index_1.png Graphic file (type png)
 <use ./img/FM_index_1.png>
 Package pdftex.def Info: ./img/FM_index_1.png  used on input line 477.
 (pdftex.def)             Requested size: 100.37537pt x 141.09323pt.
-<./img/FM_index_2.png, id=630, 261.97874pt x 381.67593pt>
+<./img/FM_index_2.png, id=659, 261.97874pt x 381.67593pt>
 File: ./img/FM_index_2.png Graphic file (type png)
 <use ./img/FM_index_2.png>
 Package pdftex.def Info: ./img/FM_index_2.png  used on input line 482.
 (pdftex.def)             Requested size: 100.37537pt x 146.23225pt.
- [33 <./img/BWT_3.png (PNG copy)> <./img/FM_index_1.png (PNG copy)> <./img/FM_i
-ndex_2.png (PNG copy)>] [34]
+ [34 <./img/BWT_3.png (PNG copy)> <./img/FM_index_1.png (PNG copy)> <./img/FM_i
+ndex_2.png (PNG copy)>] [35]
 Kapitola 5.
 
 Underfull \hbox (badness 10000) in paragraph at lines 511--521
@@ -1011,23 +1007,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 511--521
  []
 
 (./svg/KIR3DS1cross_gens.pdf_tex
-<svg/KIR3DS1cross_gens.pdf, id=652, page=1, 943.94392pt x 614.67288pt>
+<svg/KIR3DS1cross_gens.pdf, id=681, page=1, 943.94392pt x 614.67288pt>
 File: svg/KIR3DS1cross_gens.pdf Graphic file (type pdf)
 <use svg/KIR3DS1cross_gens.pdf, page 1>
 Package pdftex.def Info: svg/KIR3DS1cross_gens.pdf , page1 used on input line 5
 6.
 (pdftex.def)             Requested size: 386.95749pt x 251.97061pt.
-) [35
+) [36
 
 ] (./svg/exp1_KIR3DS1_distance.pdf_tex
-<svg/exp1_KIR3DS1_distance.pdf, id=657, page=1, 942.15575pt x 687.17004pt>
+<svg/exp1_KIR3DS1_distance.pdf, id=686, page=1, 942.15575pt x 687.17004pt>
 File: svg/exp1_KIR3DS1_distance.pdf Graphic file (type pdf)
 <use svg/exp1_KIR3DS1_distance.pdf, page 1>
 Package pdftex.def Info: svg/exp1_KIR3DS1_distance.pdf , page1 used on input li
 ne 56.
 (pdftex.def)             Requested size: 301.1261pt x 219.62628pt.
 )
-[36 <./svg/KIR3DS1cross_gens.pdf> <./svg/exp1_KIR3DS1_distance.pdf
+[37 <./svg/KIR3DS1cross_gens.pdf> <./svg/exp1_KIR3DS1_distance.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./svg/exp1_KIR3DS1_distance.pdf): PDF i
 nclusion: multiple pdfs with page group included in a single page
@@ -1045,17 +1041,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 542--549
 
 pdfTeX warning: /usr/bin/pdflatex (file ./img/navrh_systemu.pdf): PDF inclusion
 : found PDF version <1.7>, but at most version <1.5> allowed
-<./img/navrh_systemu.pdf, id=2102, 478.78876pt x 508.90125pt>
+<./img/navrh_systemu.pdf, id=2133, 478.78876pt x 508.90125pt>
 File: ./img/navrh_systemu.pdf Graphic file (type pdf)
 <use ./img/navrh_systemu.pdf>
 Package pdftex.def Info: ./img/navrh_systemu.pdf  used on input line 552.
 (pdftex.def)             Requested size: 386.95749pt x 411.29922pt.
-[37] [38 <./img/navrh_systemu.pdf>]
+[38] [39 <./img/navrh_systemu.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 568--572
 
  []
 
-[39] [40]
+[40] [41]
 LaTeX Font Info:    Try loading font information for OMS+lmr on input line 585.
 
  (/usr/share/texmf/tex/latex/lm/omslmr.fd
@@ -1064,20 +1060,20 @@ File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 585.
  (./svg/exp1_KIR3DS1.pdf_tex
-<svg/exp1_KIR3DS1.pdf, id=2129, page=1, 1028.7483pt x 911.44328pt>
+<svg/exp1_KIR3DS1.pdf, id=2158, page=1, 1028.7483pt x 911.44328pt>
 File: svg/exp1_KIR3DS1.pdf Graphic file (type pdf)
 <use svg/exp1_KIR3DS1.pdf, page 1>
 Package pdftex.def Info: svg/exp1_KIR3DS1.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 386.95749pt x 342.83345pt.
-) [41] (./svg/exp1_KIR3DS1_distance.pdf_tex
+) [42] (./svg/exp1_KIR3DS1_distance.pdf_tex
 File: svg/exp1_KIR3DS1_distance.pdf Graphic file (type pdf)
 <use svg/exp1_KIR3DS1_distance.pdf, page 1>
 Package pdftex.def Info: svg/exp1_KIR3DS1_distance.pdf , page1 used on input li
 ne 56.
 (pdftex.def)             Requested size: 386.95749pt x 282.23434pt.
-) [42 <./svg/exp1_KIR3DS1.pdf>]
+) [43 <./svg/exp1_KIR3DS1.pdf>]
 (./svg/exp1_KIR3DS1_distance_100.pdf_tex
-<svg/exp1_KIR3DS1_distance_100.pdf, id=2452, page=1, 935.76941pt x 445.53874pt>
+<svg/exp1_KIR3DS1_distance_100.pdf, id=2482, page=1, 935.76941pt x 445.53874pt>
 
 File: svg/exp1_KIR3DS1_distance_100.pdf Graphic file (type pdf)
 <use svg/exp1_KIR3DS1_distance_100.pdf, page 1>
@@ -1099,7 +1095,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 657--664
 
  []
 
-[43 <./svg/exp1_KIR3DS1_distance_100.pdf>]
+[44 <./svg/exp1_KIR3DS1_distance_100.pdf>]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 667.
 
@@ -1113,15 +1109,15 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 692.
 See the caption package documentation for explanation.
 
-[44] (./svg/exp1_2DL4_0010201.pdf_tex
-<svg/exp1_2DL4_0010201.pdf, id=2510, page=1, 801.85896pt x 55.26447pt>
+[45] (./svg/exp1_2DL4_0010201.pdf_tex
+<svg/exp1_2DL4_0010201.pdf, id=2539, page=1, 801.85896pt x 55.26447pt>
 File: svg/exp1_2DL4_0010201.pdf Graphic file (type pdf)
 <use svg/exp1_2DL4_0010201.pdf, page 1>
 Package pdftex.def Info: svg/exp1_2DL4_0010201.pdf , page1 used on input line 5
 6.
 (pdftex.def)             Requested size: 386.95749pt x 26.66914pt.
 ) (./svg/exp1_2DL4_0010305.pdf_tex
-<svg/exp1_2DL4_0010305.pdf, id=2511, page=1, 814.68753pt x 61.875pt>
+<svg/exp1_2DL4_0010305.pdf, id=2540, page=1, 814.68753pt x 61.875pt>
 File: svg/exp1_2DL4_0010305.pdf Graphic file (type pdf)
 <use svg/exp1_2DL4_0010305.pdf, page 1>
 Package pdftex.def Info: svg/exp1_2DL4_0010305.pdf , page1 used on input line 5
@@ -1132,19 +1128,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 715--719
 
  []
 
-[45 <./svg/exp1_2DL4_0010201.pdf> <./svg/exp1_2DL4_0010305.pdf
+[46 <./svg/exp1_2DL4_0010201.pdf> <./svg/exp1_2DL4_0010305.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./svg/exp1_2DL4_0010305.pdf): PDF inclu
 sion: multiple pdfs with page group included in a single page
 >] (./svg/exp2_step1_2DL1.pdf_tex
-<svg/exp2_step1_2DL1.pdf, id=2566, page=1, 1009.65445pt x 58.6751pt>
+<svg/exp2_step1_2DL1.pdf, id=2595, page=1, 1009.65445pt x 58.6751pt>
 File: svg/exp2_step1_2DL1.pdf Graphic file (type pdf)
 <use svg/exp2_step1_2DL1.pdf, page 1>
 Package pdftex.def Info: svg/exp2_step1_2DL1.pdf , page1 used on input line 56.
 
 (pdftex.def)             Requested size: 386.95749pt x 22.48746pt.
 ) (./svg/exp2_step2_2DL1.pdf_tex
-<svg/exp2_step2_2DL1.pdf, id=2567, page=1, 1009.35352pt x 58.47087pt>
+<svg/exp2_step2_2DL1.pdf, id=2596, page=1, 1009.35352pt x 58.47087pt>
 File: svg/exp2_step2_2DL1.pdf Graphic file (type pdf)
 <use svg/exp2_step2_2DL1.pdf, page 1>
 Package pdftex.def Info: svg/exp2_step2_2DL1.pdf , page1 used on input line 56.
@@ -1152,14 +1148,14 @@ Package pdftex.def Info: svg/exp2_step2_2DL1.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 386.95749pt x 22.41544pt.
 )
 (./svg/exp2_step1_2DL3.pdf_tex
-<svg/exp2_step1_2DL3.pdf, id=2568, page=1, 1021.67415pt x 63.33185pt>
+<svg/exp2_step1_2DL3.pdf, id=2597, page=1, 1021.67415pt x 63.33185pt>
 File: svg/exp2_step1_2DL3.pdf Graphic file (type pdf)
 <use svg/exp2_step1_2DL3.pdf, page 1>
 Package pdftex.def Info: svg/exp2_step1_2DL3.pdf , page1 used on input line 56.
 
 (pdftex.def)             Requested size: 386.95749pt x 23.98709pt.
 ) (./svg/exp2_step2_2DL3.pdf_tex
-<svg/exp2_step2_2DL3.pdf, id=2569, page=1, 1011.9872pt x 54.62627pt>
+<svg/exp2_step2_2DL3.pdf, id=2598, page=1, 1011.9872pt x 54.62627pt>
 File: svg/exp2_step2_2DL3.pdf Graphic file (type pdf)
 <use svg/exp2_step2_2DL3.pdf, page 1>
 Package pdftex.def Info: svg/exp2_step2_2DL3.pdf , page1 used on input line 56.
@@ -1176,7 +1172,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 770.
 See the caption package documentation for explanation.
 
-[46 <./svg/exp2_step1_2DL1.pdf> <./svg/exp2_step2_2DL1.pdf
+[47 <./svg/exp2_step1_2DL1.pdf> <./svg/exp2_step2_2DL1.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./svg/exp2_step2_2DL1.pdf): PDF inclusi
 on: multiple pdfs with page group included in a single page
@@ -1189,13 +1185,13 @@ on: multiple pdfs with page group included in a single page
 pdfTeX warning: /usr/bin/pdflatex (file ./svg/exp2_step2_2DL3.pdf): PDF inclusi
 on: multiple pdfs with page group included in a single page
 >] (./svg/exp2_2DL2_peak.pdf_tex
-<svg/exp2_2DL2_peak.pdf, id=2705, page=1, 1026.56528pt x 219.81937pt>
+<svg/exp2_2DL2_peak.pdf, id=2733, page=1, 1026.56528pt x 219.81937pt>
 File: svg/exp2_2DL2_peak.pdf Graphic file (type pdf)
 <use svg/exp2_2DL2_peak.pdf, page 1>
 Package pdftex.def Info: svg/exp2_2DL2_peak.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 386.95749pt x 82.85803pt.
 ) (./svg/exp2_3DS1_peak_problem.pdf_tex
-<svg/exp2_3DS1_peak_problem.pdf, id=2706, page=1, 1028.46832pt x 156.94447pt>
+<svg/exp2_3DS1_peak_problem.pdf, id=2734, page=1, 1028.46832pt x 156.94447pt>
 File: svg/exp2_3DS1_peak_problem.pdf Graphic file (type pdf)
 <use svg/exp2_3DS1_peak_problem.pdf, page 1>
 Package pdftex.def Info: svg/exp2_3DS1_peak_problem.pdf , page1 used on input l
@@ -1206,20 +1202,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 792--797
 
  []
 
-
-
-pdfTeX warning: /usr/bin/pdflatex (file ./img/exp2_diagram.pdf): PDF inclusion:
- found PDF version <1.7>, but at most version <1.5> allowed
-<./img/exp2_diagram.pdf, id=2707, 433.62pt x 605.26125pt>
-File: ./img/exp2_diagram.pdf Graphic file (type pdf)
-<use ./img/exp2_diagram.pdf>
-Package pdftex.def Info: ./img/exp2_diagram.pdf  used on input line 812.
-(pdftex.def)             Requested size: 386.95749pt x 540.1585pt.
-[47 <./svg/exp2_2DL2_peak.pdf> <./svg/exp2_3DS1_peak_problem.pdf
+[48 <./svg/exp2_2DL2_peak.pdf> <./svg/exp2_3DS1_peak_problem.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./svg/exp2_3DS1_peak_problem.pdf): PDF 
 inclusion: multiple pdfs with page group included in a single page
 >]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./img/exp2_diagram.pdf): PDF inclusion:
+ found PDF version <1.7>, but at most version <1.5> allowed
+<./img/exp2_diagram.pdf, id=2823, 433.62pt x 605.26125pt>
+File: ./img/exp2_diagram.pdf Graphic file (type pdf)
+<use ./img/exp2_diagram.pdf>
+Package pdftex.def Info: ./img/exp2_diagram.pdf  used on input line 812.
+(pdftex.def)             Requested size: 386.95749pt x 540.1585pt.
+[49]
 Underfull \hbox (badness 10000) in paragraph at lines 818--825
 
  []
@@ -1229,87 +1225,87 @@ Underfull \hbox (badness 10000) in paragraph at lines 818--825
 
  []
 
-[48 <./img/exp2_diagram.pdf>] [49]
+[50 <./img/exp2_diagram.pdf>] [51] [52]
 Kapitola 6.
-[50
+[53
 
 ]
 Kapitola 7.
 
-LaTeX Warning: Command \textregistered invalid in math mode on input line 870.
+LaTeX Warning: Command \textregistered invalid in math mode on input line 873.
 
 
-LaTeX Warning: Command \textcircled invalid in math mode on input line 870.
+LaTeX Warning: Command \textcircled invalid in math mode on input line 873.
 
 
-LaTeX Warning: Command \textcircled invalid in math mode on input line 870.
+LaTeX Warning: Command \textcircled invalid in math mode on input line 873.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 870--874
+Underfull \hbox (badness 10000) in paragraph at lines 873--877
 
  []
 
-<./img/bob_syntetic_bowtie_align.png, id=2828, 456.95718pt x 217.5628pt>
+<./img/bob_syntetic_bowtie_align.png, id=2867, 456.95718pt x 217.5628pt>
 File: ./img/bob_syntetic_bowtie_align.png Graphic file (type png)
 <use ./img/bob_syntetic_bowtie_align.png>
 Package pdftex.def Info: ./img/bob_syntetic_bowtie_align.png  used on input lin
-e 877.
+e 880.
 (pdftex.def)             Requested size: 301.1261pt x 143.37279pt.
-<./img/bob_real_bowtie_align.png, id=2829, 659.46375pt x 292.09125pt>
+<./img/bob_real_bowtie_align.png, id=2868, 659.46375pt x 292.09125pt>
 File: ./img/bob_real_bowtie_align.png Graphic file (type png)
 <use ./img/bob_real_bowtie_align.png>
 Package pdftex.def Info: ./img/bob_real_bowtie_align.png  used on input line 88
-4.
+7.
 (pdftex.def)             Requested size: 301.1261pt x 133.3786pt.
-[51
+[54
 
  <./img/bob_syntetic_bowtie_align.png (PNG copy)>]
-<./img/quality_graf_bob_no_trim_r1.png, id=2838, 655.69969pt x 440.39531pt>
+<./img/quality_graf_bob_no_trim_r1.png, id=2877, 655.69969pt x 440.39531pt>
 File: ./img/quality_graf_bob_no_trim_r1.png Graphic file (type png)
 <use ./img/quality_graf_bob_no_trim_r1.png>
 Package pdftex.def Info: ./img/quality_graf_bob_no_trim_r1.png  used on input l
-ine 894.
+ine 897.
 (pdftex.def)             Requested size: 190.7132pt x 128.08768pt.
-<./img/quality_graf_bob_no_trim_r2.png, id=2839, 657.95813pt x 444.91219pt>
+<./img/quality_graf_bob_no_trim_r2.png, id=2878, 657.95813pt x 444.91219pt>
 File: ./img/quality_graf_bob_no_trim_r2.png Graphic file (type png)
 <use ./img/quality_graf_bob_no_trim_r2.png>
 Package pdftex.def Info: ./img/quality_graf_bob_no_trim_r2.png  used on input l
-ine 895.
+ine 898.
 (pdftex.def)             Requested size: 190.7132pt x 128.96013pt.
-<./img/quality_graf_bob_trim_r1_8_15.png, id=2841, 654.19406pt x 438.8897pt>
+<./img/quality_graf_bob_trim_r1_8_15.png, id=2880, 654.19406pt x 438.8897pt>
 File: ./img/quality_graf_bob_trim_r1_8_15.png Graphic file (type png)
 <use ./img/quality_graf_bob_trim_r1_8_15.png>
 Package pdftex.def Info: ./img/quality_graf_bob_trim_r1_8_15.png  used on input
- line 907.
+ line 910.
 (pdftex.def)             Requested size: 190.7132pt x 127.94444pt.
-<./img/quality_graf_bob_trim_r2_8_15.png, id=2842, 657.95813pt x 444.91219pt>
+<./img/quality_graf_bob_trim_r2_8_15.png, id=2881, 657.95813pt x 444.91219pt>
 File: ./img/quality_graf_bob_trim_r2_8_15.png Graphic file (type png)
 <use ./img/quality_graf_bob_trim_r2_8_15.png>
 Package pdftex.def Info: ./img/quality_graf_bob_trim_r2_8_15.png  used on input
- line 908.
+ line 911.
 (pdftex.def)             Requested size: 190.7132pt x 128.96013pt.
- [52 <./img/bob_real_bowtie_align.png> <./img/quality_graf_bob_no_trim_r1.png (
+ [55 <./img/bob_real_bowtie_align.png> <./img/quality_graf_bob_no_trim_r1.png (
 PNG copy)> <./img/quality_graf_bob_no_trim_r2.png (PNG copy)>]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 935.
+(caption)                particular \caption on input line 938.
 See the caption package documentation for explanation.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 938--948
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 938--948
+[56 <./img/quality_graf_bob_trim_r1_8_15.png (PNG copy)> <./img/quality_graf_bo
+b_trim_r2_8_15.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 941--951
 
  []
 
-[53 <./img/quality_graf_bob_trim_r1_8_15.png (PNG copy)> <./img/quality_graf_bo
-b_trim_r2_8_15.png (PNG copy)>] [54]
+
+Underfull \hbox (badness 10000) in paragraph at lines 941--951
+
+ []
+
+[57]
 Kapitola 8.
 (./svg/uroven_rozliseni_syntetic.pdf_tex
-<svg/uroven_rozliseni_syntetic.pdf, id=2860, page=1, 1015.13812pt x 156.94447pt
+<svg/uroven_rozliseni_syntetic.pdf, id=2899, page=1, 1015.13812pt x 156.94447pt
 >
 File: svg/uroven_rozliseni_syntetic.pdf Graphic file (type pdf)
 <use svg/uroven_rozliseni_syntetic.pdf, page 1>
@@ -1317,7 +1313,7 @@ Package pdftex.def Info: svg/uroven_rozliseni_syntetic.pdf , page1 used on inpu
 t line 56.
 (pdftex.def)             Requested size: 386.95749pt x 59.8239pt.
 ) (./svg/2DL4_uroven_rozliseni.pdf_tex
-<svg/2DL4_uroven_rozliseni.pdf, id=2861, page=1, 814.79301pt x 156.94447pt>
+<svg/2DL4_uroven_rozliseni.pdf, id=2900, page=1, 814.79301pt x 156.94447pt>
 File: svg/2DL4_uroven_rozliseni.pdf Graphic file (type pdf)
 <use svg/2DL4_uroven_rozliseni.pdf, page 1>
 Package pdftex.def Info: svg/2DL4_uroven_rozliseni.pdf , page1 used on input li
@@ -1326,10 +1322,10 @@ ne 56.
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1020.
+(caption)                particular \caption on input line 1023.
 See the caption package documentation for explanation.
 
-[55
+[58
 
  <./svg/uroven_rozliseni_syntetic.pdf> <./svg/2DL4_uroven_rozliseni.pdf
 
@@ -1338,45 +1334,45 @@ nclusion: multiple pdfs with page group included in a single page
 >]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1052.
+(caption)                particular \caption on input line 1055.
 See the caption package documentation for explanation.
 
-[56]
+[59]
 Kapitola 9.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1058--1074
+Underfull \hbox (badness 10000) in paragraph at lines 1061--1077
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1058--1074
+Underfull \hbox (badness 10000) in paragraph at lines 1061--1077
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1058--1074
+Underfull \hbox (badness 10000) in paragraph at lines 1061--1077
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1058--1074
+Underfull \hbox (badness 10000) in paragraph at lines 1061--1077
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1058--1074
+Underfull \hbox (badness 10000) in paragraph at lines 1061--1077
 
  []
 
-[57
+[60
 
-] [58]
+] [61]
 Kapitola 10.
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 1078
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 1081
 .
 (/usr/share/texmf/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) (./doc.bbl [59
+) (./doc.bbl [62
 
 ]
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 10.
@@ -1392,198 +1388,197 @@ Overfull \hbox (33.90623pt too wide) in paragraph at lines 32--36
 ji-[]pomahaji-[]pribuzni$[][]\T1/lmr/m/n/10.95 .  
  []
 
-[60
+[63
 
-] [61] [62]) [63]
+] [64] [65]) [66]
 P\v {r}\'{\i }loha A.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1110--1114
+Underfull \hbox (badness 10000) in paragraph at lines 1143--1150
 
  []
 
-[64
+
+Underfull \hbox (badness 10000) in paragraph at lines 1143--1150
+
+ []
+
+[67
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1132--1137
+Underfull \hbox (badness 10000) in paragraph at lines 1160--1165
 
  []
 
-
-Overfull \hbox (8.44864pt too wide) in paragraph at lines 1146--1147
+[68]
+Overfull \hbox (8.44864pt too wide) in paragraph at lines 1174--1175
 []\T1/lmr/m/n/12 REFERENCE_KIR_GENS_FILE - Sou-bor se v²emi re-fe-ren£-ními gen
 y. 
  []
 
-[65] [66]
-Overfull \hbox (17.369pt too wide) in paragraph at lines 1169--1169
+[69]
+Overfull \hbox (17.369pt too wide) in paragraph at lines 1197--1197
 []\T1/lmr/bx/n/17.28 Doporu£ená ad-re-sá-°ová struk-tura pro data 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1189--1195
-
- []
-
-[67]
-Underfull \hbox (badness 10000) in paragraph at lines 1209--1215
-
- []
-
-<./img/vystup_analyzy_refrence.png, id=3047, 627.09282pt x 27.10126pt>
+[70] [71]
+<./img/vystup_analyzy_refrence.png, id=3090, 627.09282pt x 27.10126pt>
 File: ./img/vystup_analyzy_refrence.png Graphic file (type png)
 <use ./img/vystup_analyzy_refrence.png>
 Package pdftex.def Info: ./img/vystup_analyzy_refrence.png  used on input line 
-1218.
+1262.
 (pdftex.def)             Requested size: 386.95749pt x 16.7236pt.
-[68] (./svg/2DL4cross_gens.pdf_tex
-<svg/2DL4cross_gens.pdf, id=3053, page=1, 943.94392pt x 674.95755pt>
+ (./svg/2DL4cross_gens.pdf_tex
+<svg/2DL4cross_gens.pdf, id=3091, page=1, 943.94392pt x 674.95755pt>
 File: svg/2DL4cross_gens.pdf Graphic file (type pdf)
 <use svg/2DL4cross_gens.pdf, page 1>
 Package pdftex.def Info: svg/2DL4cross_gens.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 386.95749pt x 276.68289pt.
-) (./svg/2DL4_gen.pdf_tex
-<svg/2DL4_gen.pdf, id=3054, page=1, 943.94392pt x 686.95183pt>
+) [72 <./img/vystup_analyzy_refrence.png (PNG copy)>] (./svg/2DL4_gen.pdf_tex
+<svg/2DL4_gen.pdf, id=3097, page=1, 943.94392pt x 686.95183pt>
 File: svg/2DL4_gen.pdf Graphic file (type pdf)
 <use svg/2DL4_gen.pdf, page 1>
 Package pdftex.def Info: svg/2DL4_gen.pdf , page1 used on input line 56.
 (pdftex.def)             Requested size: 386.95749pt x 281.59966pt.
-) [69 <./img/vystup_analyzy_refrence.png (PNG copy)> <./svg/2DL4cross_gens.pdf>
-]
-Overfull \hbox (6.58282pt too wide) in paragraph at lines 1244--1245
+) [73 <./svg/2DL4cross_gens.pdf> <./svg/2DL4_gen.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./svg/2DL4_gen.pdf): PDF inclusion: mul
+tiple pdfs with page group included in a single page
+>]
+Overfull \hbox (6.58282pt too wide) in paragraph at lines 1288--1289
 []\T1/lmr/m/n/12 ALELS_STATISTICS_PYC_REFERENCE_NAME - jméno refrence,
  []
 
-[70 <./svg/2DL4_gen.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 1262--1272
+
+Underfull \hbox (badness 10000) in paragraph at lines 1314--1324
 
  []
 
-[71]
+[74] [75]
 P\v {r}\'{\i }loha B.
-[72
+[76
 
-] [73]
+] [77]
 P\v {r}\'{\i }loha C.
 
-Overfull \hbox (1.63884pt too wide) in paragraph at lines 1709--1710
+Overfull \hbox (1.63884pt too wide) in paragraph at lines 1761--1762
 \T1/lmr/m/n/12 V textu bu-dou uve-deny ta-bulky s ná-sle-du-jí-cím vý-znami jed
 -not-li-vých sloupc·.
  []
 
-[74
+[78
 
-] [75
+] [79
 
 ]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1743.
+(caption)                particular \caption on input line 1795.
 See the caption package documentation for explanation.
 
-[76] [77] [78]
+[80] [81] [82]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1777.
+(caption)                particular \caption on input line 1829.
 See the caption package documentation for explanation.
 
-[79] [80] [81]
+[83] [84] [85]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1813.
+(caption)                particular \caption on input line 1865.
 See the caption package documentation for explanation.
 
-[82] [83]
+[86] [87]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1847.
+(caption)                particular \caption on input line 1899.
 See the caption package documentation for explanation.
 
-[84]
+[88]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1883.
-See the caption package documentation for explanation.
-
-[85] [86]
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1920.
-See the caption package documentation for explanation.
-
-[87] [88]
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1955.
+(caption)                particular \caption on input line 1935.
 See the caption package documentation for explanation.
 
 [89] [90]
-Underfull \hbox (badness 10000) in paragraph at lines 1964--1969
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 1972.
+See the caption package documentation for explanation.
+
+[91] [92]
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 2007.
+See the caption package documentation for explanation.
+
+[93] [94]
+Underfull \hbox (badness 10000) in paragraph at lines 2016--2021
 
  []
 
-[91
+[95
 
-] [92]
+] [96]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2062.
+(caption)                particular \caption on input line 2114.
 See the caption package documentation for explanation.
 
-[93
+[97
 
 ]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2084.
-See the caption package documentation for explanation.
-
-[94]
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2107.
-See the caption package documentation for explanation.
-
-[95]
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2130.
-See the caption package documentation for explanation.
-
-[96]
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2153.
-See the caption package documentation for explanation.
-
-[97]
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 2175.
+(caption)                particular \caption on input line 2136.
 See the caption package documentation for explanation.
 
 [98]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2182.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2182.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 2159.
+See the caption package documentation for explanation.
+
+[99]
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 2182.
+See the caption package documentation for explanation.
+
+[100]
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 2205.
+See the caption package documentation for explanation.
+
+[101]
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 2227.
+See the caption package documentation for explanation.
+
+[102]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2234.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2234.
  (./doc.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2182.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2182.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2234.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2234.
 
 Package rerunfilecheck Info: File `doc.out' has not changed.
-(rerunfilecheck)             Checksum: B6B7BE2E17C4C8883328286FB7799685;10226.
+(rerunfilecheck)             Checksum: 595661C4242166940D9418E770F1C65A;10837.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2182.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2234.
  ) 
 Here is how much of TeX's memory you used:
- 14744 strings out of 493738
- 215820 string characters out of 6153003
- 425026 words of memory out of 5000000
- 17896 multiletter control sequences out of 15000+600000
+ 14762 strings out of 493738
+ 216100 string characters out of 6153003
+ 425482 words of memory out of 5000000
+ 17904 multiletter control sequences out of 15000+600000
  85360 words of font info for 53 fonts, out of 8000000 for 9000
  428 hyphenation exceptions out of 8191
- 42i,15n,47p,1779b,631s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,15n,47p,1779b,633s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
 ips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share
 /texmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf/fonts/type1/public/lm
@@ -1597,10 +1592,10 @@ e/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/l
 m/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/tex
 mf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt
 10.pfb>
-Output written on doc.pdf (98 pages, 5236592 bytes).
+Output written on doc.pdf (102 pages, 5239302 bytes).
 PDF statistics:
- 4915 PDF objects out of 5155 (max. 8388607)
- 3478 compressed objects within 35 object streams
- 299 named destinations out of 1000 (max. 500000)
- 716 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 4959 PDF objects out of 5155 (max. 8388607)
+ 3517 compressed objects within 36 object streams
+ 309 named destinations out of 1000 (max. 500000)
+ 756 words of extra memory for PDF output out of 10000 (max. 10000000)
 
