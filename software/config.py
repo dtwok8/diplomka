@@ -5,20 +5,21 @@ ALIGN = True
 IDENTIFY = True
 
 #methods of identification
+# you can use prepare file in software/data/alels_distance.pyc
 PRECOMPUTATION_DISTANCE = False # precomputation distance need in first time, then always when you change reference kirs
 
 EXP1 = True
 EXP2 = True
 EXP3 = True
 
-# path to data folder with \ on the end
-PATH_TO_DATA_FOLDER = "/home/kate/Dokumenty/FAV/Diplomka/software/data/"
+# path to data folder with / on the end
+PATH_TO_DATA_FOLDER = # fill this "/data/"
 
-""" Folder to bowtie tools run_bowtie.py """
-BOWTIE_HOME_DIRECTORY = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/bowtie2-2.4.1-linux-x86_64"
+""" Folder to bowtie tools """
+BOWTIE_HOME_DIRECTORY = # fill this "bowtie2-2.4.1-linux-x86_64"
 
 """ Reference KIR gens """
-REFERENCE_KIR_GENS_FILE = "/home/kate/Dokumenty/FAV/Diplomka/existujicisw/referencni/IPDKIR-Latest/fasta/KIR_gen.fasta"
+REFERENCE_KIR_GENS_FILE = # fill this "/KIR_gen.fasta"
 
 
 

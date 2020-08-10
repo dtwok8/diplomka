@@ -5,11 +5,12 @@ The style file: csplainnatkiv.bst
 Database file #1: literatura.bib
 Warning--entry type for "Frycova_bakalarka" isn't style-file defined
 --line 94 of file literatura.bib
+Warning--entry type for "haploidenticka_transplantace" isn't style-file defined
+--line 124 of file literatura.bib
 Warning--entry type for "levenshrein_baku" isn't style-file defined
---line 215 of file literatura.bib
+--line 218 of file literatura.bib
 Warning--to sort, need author or key in human_cell
 Warning--to sort, need author or key in chromosome_structure
-Warning--to sort, need author or key in haploidenticka_transplantace
 Warning--to sort, need author or key in kir_genotypes_10
 Warning--to sort, need author or key in genome_gov
 Warning--to sort, need author or key in illumina
@@ -21,6 +22,7 @@ Warning--to sort, need author or key in bowtie2_download
 Warning--to sort, need author or key in pysam
 Warning--to sort, need author or key in python_leve
 Warning--to sort, need author or key in matplotlib
+Warning--to sort, need author or key in numpy
 Warning--empty journal in NK_receptors
 Warning--empty journal in KIR_haplotypy
 Warning--empty journal in simulation_read
@@ -37,45 +39,45 @@ Warning--empty journal in ipd_database
 Warning--empty journal in imgt_hla_database
 Warning--empty journal in KIR_img_princip
 Warning--empty publisher in en_smith
-You've used 40 entries,
+You've used 41 entries,
             2898 wiz_defined-function locations,
-            802 strings with 11324 characters,
-and the built_in function-call counts, 13825 in all, are:
-= -- 1428
-> -- 681
-< -- 12
-+ -- 241
-- -- 201
-* -- 1135
-:= -- 2135
-add.period$ -- 137
-call.type$ -- 40
-change.case$ -- 124
-chr.to.int$ -- 40
-cite$ -- 124
-duplicate$ -- 654
-empty$ -- 1005
-format.name$ -- 282
-if$ -- 2932
+            807 strings with 11436 characters,
+and the built_in function-call counts, 14142 in all, are:
+= -- 1457
+> -- 692
+< -- 13
++ -- 245
+- -- 204
+* -- 1153
+:= -- 2186
+add.period$ -- 141
+call.type$ -- 41
+change.case$ -- 126
+chr.to.int$ -- 41
+cite$ -- 126
+duplicate$ -- 670
+empty$ -- 1037
+format.name$ -- 287
+if$ -- 3000
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 73
-newline$ -- 212
-num.names$ -- 122
-pop$ -- 379
+newline$ -- 218
+num.names$ -- 127
+pop$ -- 390
 preamble$ -- 1
-purify$ -- 124
+purify$ -- 126
 quote$ -- 0
-skip$ -- 521
+skip$ -- 534
 stack$ -- 0
-substring$ -- 142
-swap$ -- 68
+substring$ -- 144
+swap$ -- 70
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 430
+type$ -- 441
 warning$ -- 30
-while$ -- 73
+while$ -- 76
 width$ -- 0
-write$ -- 477
-(There were 32 warnings)
+write$ -- 491
+(There were 33 warnings)

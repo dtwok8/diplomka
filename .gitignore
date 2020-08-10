@@ -3,9 +3,12 @@ existujicisw/*
 software/__pycache__
 software/src/__pycache__
 software/src/evaluation_alignment/__pycache__
+software/src/alleles_identification/__pycache__
 software/data/*.pyc
+software/data/alels_distance.pyc
 software/analysis/analysis_after_align_result
 software/analysis/analysis_alels_result
 software/analysis/*.pyc
 bordel
+cd/
 

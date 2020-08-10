@@ -1,4 +1,4 @@
-\begin{thebibliography}{40}
+\begin{thebibliography}{41}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -7,7 +7,8 @@
 
 \bibitem[art()]{art_download}
 \emph{National Institute of Environmental Health Sciences} [online].
-\newblock Dostupn{\'{e}}~z: \url{https://www.niehs.nih.gov/index.cfm}.
+\newblock Dostupn{\'{e}}~z:
+  \url{https://www.niehs.nih.gov/research/resources/software/biostatistics/art/index.cfm}.
 
 \bibitem[bow()]{bowtie2_download}
 \emph{Bowtie2} [online].
@@ -27,12 +28,6 @@
 \emph{DNA sequencing Fact Sheet} [online]. [cit.~2019/03/1].
 \newblock Dostupn{\'{e}}~z:
   \url{https://www.genome.gov/about-genomics/fact-sheets/DNA-Sequencing-Fact-Sheet}.
-
-\bibitem[hap()]{haploidenticka_transplantace}
-\emph{S transplantací kostní dřeně stále častěji pomáhají příbuzní}
-  [online].
-\newblock Dostupn{\'{e}}~z:
-  \url{https://ct24.ceskatelevize.cz/domaci/2527141-s-transplantaci-kostni-drene-stale-casteji-pomahaji-pribuzni}.
 
 \bibitem[hum()]{human_cell}
 \emph{Basic genetics} [online]. [cit.~2020/12/3].
@@ -55,6 +50,10 @@
 \emph{What is the best NGS alignment software?} [online].
 \newblock Dostupn{\'{e}}~z:
   \url{https://www.ecseq.com/support/ngs/what-is-the-best-ngs-alignment-software}.
+
+\bibitem[num()]{numpy}
+\emph{Numpy} [online].
+\newblock Dostupn{\'{e}}~z: \url{https://numpy.org/}.
 
 \bibitem[pys()]{pysam}
 \emph{Pysam} [online].
@@ -84,6 +83,11 @@
 \newblock Dostupn{\'{e}}~z:
   \url{https://www.sciencedirect.com/science/article/pii/S0301472X19300037?via%3Dihub}.
 
+\bibitem[Cimbálníková(2019)]{haploidenticka_transplantace}
+{\sc Cimbálníková}, B.~E.
+\newblock Transplantace kostní dřeně, její historický vývoj a současné
+  trendy, 2019.
+
 \bibitem[Cooley et~al.(2010)Cooley, Wisdorf,, Guethlein]{KIR_haplotypy}
 {\sc Cooley}, S. -- {\sc Wisdorf}, D.~J. -- {\sc Guethlein}, L.~A.
 \newblock Donor selection for natural killer cell receptor genes leads to
@@ -105,12 +109,13 @@
 {\sc Fryčová}, M.
 \newblock Lze u pacientů s AML indikovaných k nepříbuzenské transplantaci
   provádět v klinické praxi výběr nepříbuzných dárců na základě KIR
-  genotypů, 2016.
+  genotypů, JCU - BP, 2016.
 
 \bibitem[Hernychová(2012)]{MIC}
 {\sc Hernychová}, L.
 \newblock Receptory NK buněk.
 \newblock 2012.
+\newblock Dostupn{\'{e}}~z: \url{https://is.cuni.cz/webapps/zzp/detail/118114}.
 
 \bibitem[Houdová et~al.(2018)Houdová, Fetter, Jindra,,
   Georgiev]{DPB1_houdova}
@@ -252,5 +257,7 @@
 \bibitem[Vodsloň(2007)]{levenshrein_baku}
 {\sc Vodsloň}, F.
 \newblock Vyhodnocování podobnosti zdrojových textů, 2007.
+\newblock Dostupn{\'{e}}~z:
+  \url{http://www1.cuni.cz/~obo/vyuka/projekty/vodslon-ukazkova-bc.pdf}.
 
 \end{thebibliography}
